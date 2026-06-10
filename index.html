@@ -1,0 +1,2571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VHSL Cheer | Module 2: Stunts & Pyramids Interactive Rubric</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --navy-mid: #132040;
+    --navy-light: #1e3160;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-pale: #f5e9c8;
+    --white: #ffffff;
+    --gray-mid: #b0a898;
+    --green: #1a6b3c;
+    --beginner: #4caf72;
+    --beginner-dim: rgba(76,175,114,0.15);
+    --intermediate: #4a90d9;
+    --intermediate-dim: rgba(74,144,217,0.15);
+    --advanced: #e8a020;
+    --advanced-dim: rgba(232,160,32,0.15);
+    --elite: #e05050;
+    --elite-dim: rgba(224,80,80,0.15);
+    --superelite: #a855d4;
+    --superelite-dim: rgba(168,85,212,0.15);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    border-bottom: 3px solid var(--gold);
+    position: sticky; top: 0; z-index: 200;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+  }
+  .header-inner {
+    max-width: 1400px; margin: 0 auto;
+    display: flex; align-items: center; gap: 20px;
+    padding: 12px 24px;
+  }
+  .header-badge {
+    background: var(--gold); color: var(--navy);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900; font-size: 11px; letter-spacing: 2px;
+    text-transform: uppercase; padding: 4px 10px; border-radius: 2px; white-space: nowrap;
+  }
+  .header-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800; font-size: 20px; color: var(--white); flex: 1;
+  }
+  .header-title span { color: var(--gold); }
+  .header-sub { font-size: 11px; color: var(--gray-mid); letter-spacing: 2px; text-transform: uppercase; margin-top: 2px; }
+  .header-meta { font-size: 12px; color: var(--gray-mid); text-align: right; white-space: nowrap; }
+
+  /* ── TAB NAV ── */
+  .tab-nav {
+    background: var(--navy-mid);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+  .tab-nav-inner {
+    max-width: 1400px; margin: 0 auto;
+    display: flex; padding: 0 24px;
+  }
+  .tab-btn {
+    padding: 14px 28px; cursor: pointer;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--gray-mid);
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s; display: flex; align-items: center; gap: 8px;
+  }
+  .tab-btn:hover { color: var(--gold-light); }
+  .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+  .tab-icon { font-size: 16px; }
+
+  /* ── MAIN ── */
+  .main-wrap { max-width: 1400px; margin: 0 auto; padding: 28px 24px 80px; }
+
+  /* ── TAB PANELS ── */
+  .tab-panel { display: none; animation: fadeIn 0.3s ease; }
+  .tab-panel.active { display: block; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+
+  /* ── SECTION HEADER ── */
+  .section-header { margin-bottom: 24px; }
+  .section-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold); font-weight: 700; margin-bottom: 6px;
+  }
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 38px; font-weight: 900; line-height: 1; color: var(--white);
+  }
+  .section-title span { color: var(--gold); }
+  .gold-rule { width: 50px; height: 3px; background: var(--gold); margin: 12px 0; }
+  .section-desc { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; max-width: 700px; }
+
+  /* ── CALLOUT ── */
+  .callout {
+    border-radius: 6px; padding: 14px 18px; margin-bottom: 20px;
+    display: flex; gap: 12px; align-items: flex-start; font-size: 13px; line-height: 1.6;
+  }
+  .callout-icon { font-size: 18px; flex-shrink: 0; }
+  .callout-gold { background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.25); color: rgba(255,255,255,0.85); }
+  .callout-blue { background: rgba(37,99,168,0.12); border: 1px solid rgba(37,99,168,0.3); color: rgba(255,255,255,0.85); }
+
+  /* ── RANGE LEGEND ── */
+  .range-legend {
+    display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;
+  }
+  .legend-item {
+    display: flex; align-items: center; gap: 6px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+    padding: 5px 12px; border-radius: 4px; cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .legend-item.dimmed { opacity: 0.3; }
+  .legend-item.selected { box-shadow: 0 0 0 2px currentColor; opacity: 1; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .legend-beginner { background: var(--beginner-dim); border: 1px solid var(--beginner); color: var(--beginner); }
+  .legend-intermediate { background: var(--intermediate-dim); border: 1px solid var(--intermediate); color: var(--intermediate); }
+  .legend-advanced { background: var(--advanced-dim); border: 1px solid var(--advanced); color: var(--advanced); }
+  .legend-elite { background: var(--elite-dim); border: 1px solid var(--elite); color: var(--elite); }
+  .legend-superelite { background: var(--superelite-dim); border: 1px solid var(--superelite); color: var(--superelite); }
+
+  /* ── RUBRIC GRID ── */
+  .rubric-wrap { overflow-x: auto; margin-bottom: 32px; }
+  .rubric-table {
+    width: 100%; border-collapse: separate; border-spacing: 3px;
+    min-width: 900px;
+  }
+
+  /* Column headers */
+  .rubric-table .col-header {
+    padding: 10px 14px; text-align: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
+    border-radius: 4px 4px 0 0;
+  }
+  .col-header.ch-beginner { background: var(--beginner-dim); color: var(--beginner); border-bottom: 2px solid var(--beginner); }
+  .col-header.ch-intermediate { background: var(--intermediate-dim); color: var(--intermediate); border-bottom: 2px solid var(--intermediate); }
+  .col-header.ch-advanced { background: var(--advanced-dim); color: var(--advanced); border-bottom: 2px solid var(--advanced); }
+  .col-header.ch-elite { background: var(--elite-dim); color: var(--elite); border-bottom: 2px solid var(--elite); }
+  .col-header.ch-superelite { background: var(--superelite-dim); color: var(--superelite); border-bottom: 2px solid var(--superelite); }
+  .col-header-pts { font-size: 11px; font-weight: 400; opacity: 0.7; margin-top: 2px; }
+
+  /* Row labels */
+  .row-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;
+    color: var(--gold); background: rgba(201,168,76,0.07);
+    padding: 10px 14px;
+    border-left: 4px solid var(--gold);
+    border-top: none;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    vertical-align: middle; text-align: center;
+    min-width: 72px; width: 72px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    white-space: nowrap;
+  }
+
+  /* Skill cells */
+  .skill-cell {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 4px; padding: 8px 10px;
+    font-size: 12px; line-height: 1.45;
+    text-align: center; vertical-align: middle;
+    cursor: pointer;
+    transition: all 0.18s; position: relative;
+  }
+  .skill-cell:hover { transform: translateY(-2px); z-index: 2; }
+  .skill-cell.has-video::after {
+    content: '▶';
+    position: absolute; bottom: 5px; right: 6px;
+    font-size: 9px; opacity: 0.5;
+  }
+  .skill-cell.empty {
+    background: rgba(255,255,255,0.01);
+    border-color: rgba(255,255,255,0.03);
+    color: rgba(255,255,255,0.15);
+    cursor: default; font-size: 18px; text-align: center;  }
+  .skill-cell.empty:hover { transform: none; }
+
+  /* Section colors */
+  :root {
+    --sec-inversion: #9b59d0;
+    --sec-release: #27ae8a;
+    --sec-twisting: #e05050;
+    --sec-singlebase: #4a90d9;
+    --sec-other: #888;
+    --sec-tosses: #c9a84c;
+    --sec-nonreleased: #9b59d0;
+    --sec-released: #27ae8a;
+    --sec-rolflip: #e05050;
+  }
+
+  /* Section row label color variants */
+  .row-label.sec-inversion  { color: #c490f0; background: rgba(155,89,208,0.1); border-left-color: var(--sec-inversion); border-top: none; border-bottom-color: rgba(155,89,208,0.25); }
+  .row-label.sec-release    { color: #5dd4b8; background: rgba(39,174,138,0.1); border-left-color: var(--sec-release); border-top: none; border-bottom-color: rgba(39,174,138,0.25); }
+  .row-label.sec-twisting   { color: #f08080; background: rgba(224,80,80,0.1); border-left-color: var(--sec-twisting); border-top: none; border-bottom-color: rgba(224,80,80,0.25); }
+  .row-label.sec-singlebase { border-top: 8px solid rgba(74,144,217,0.9); color: #8ab8f0; background: rgba(74,144,217,0.1); border-left-color: var(--sec-singlebase); border-top: none; border-bottom-color: rgba(74,144,217,0.25); }
+  .row-label.sec-other      { color: #aaa; background: rgba(136,136,136,0.08); border-left-color: var(--sec-other); border-top: none; border-bottom-color: rgba(136,136,136,0.2); }
+  .row-label.sec-tosses     { color: var(--gold-light); background: rgba(201,168,76,0.1); border-left-color: var(--sec-tosses); border-top: none; border-bottom-color: rgba(201,168,76,0.25); }
+  .row-label.sec-nonreleased { border-top: 8px solid rgba(155,89,208,0.9); color: #c490f0; background: rgba(155,89,208,0.1); border-left-color: var(--sec-nonreleased); border-bottom-color: rgba(155,89,208,0.25); }
+  .row-label.sec-released   { border-top: 8px solid rgba(39,174,138,0.9); color: #5dd4b8; background: rgba(39,174,138,0.1); border-left-color: var(--sec-released); border-bottom-color: rgba(39,174,138,0.25); }
+  .row-label.sec-rolflip    { color: #f08080; background: rgba(224,80,80,0.1); border-left-color: var(--sec-rolflip); border-top: none; border-bottom-color: rgba(224,80,80,0.25); }
+
+  /* Section row top-border stripes */
+  tr.sec-inversion   td { border-top: 1px solid rgba(155,89,208,0.2) !important; }
+  tr.sec-release     td { border-top: 1px solid rgba(39,174,138,0.2) !important; }
+  tr.sec-twisting    td { border-top: 1px solid rgba(224,80,80,0.2) !important; }
+  tr.sec-singlebase  td { border-top: 1px solid rgba(74,144,217,0.2) !important; }
+  tr.sec-other       td { border-top: 1px solid rgba(136,136,136,0.15) !important; }
+  tr.sec-tosses      td { border-top: 1px solid rgba(201,168,76,0.2) !important; }
+  tr.sec-nonreleased td { border-top: 1px solid rgba(155,89,208,0.2) !important; }
+  tr.sec-released    td { border-top: 1px solid rgba(39,174,138,0.2) !important; }
+  tr.sec-rolflip     td { border-top: 1px solid rgba(224,80,80,0.2) !important; }
+
+  /* Section separators */
+  tr.section-separator td { border: none !important; padding: 0 !important; }
+  tr.section-label-row td { border: none !important; padding: 0 !important; height: 0 !important; font-size: 0 !important; line-height: 0 !important; }
+  tr.section-break td { border-top: none !important; padding-top: 8px !important; }
+  tr.section-break .row-label { border-top: none !important; }
+
+  /* Range color tinting */
+  .skill-cell.range-beginner { border-color: rgba(76,175,114,0.2); }
+  .skill-cell.range-beginner:hover { background: var(--beginner-dim); border-color: var(--beginner); box-shadow: 0 4px 16px rgba(76,175,114,0.2); }
+  .skill-cell.range-intermediate { border-color: rgba(74,144,217,0.2); }
+  .skill-cell.range-intermediate:hover { background: var(--intermediate-dim); border-color: var(--intermediate); box-shadow: 0 4px 16px rgba(74,144,217,0.2); }
+  .skill-cell.range-advanced { border-color: rgba(232,160,32,0.2); }
+  .skill-cell.range-advanced:hover { background: var(--advanced-dim); border-color: var(--advanced); box-shadow: 0 4px 16px rgba(232,160,32,0.2); }
+  .skill-cell.range-elite { border-color: rgba(224,80,80,0.2); }
+  .skill-cell.range-elite:hover { background: var(--elite-dim); border-color: var(--elite); box-shadow: 0 4px 16px rgba(224,80,80,0.2); }
+  .skill-cell.range-superelite { border-color: rgba(168,85,212,0.2); }
+  .skill-cell.range-superelite:hover { background: var(--superelite-dim); border-color: var(--superelite); box-shadow: 0 4px 16px rgba(168,85,212,0.2); }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0;
+    background: rgba(0,0,0,0.85); z-index: 1000;
+    align-items: center; justify-content: center;
+    padding: 20px;
+    backdrop-filter: blur(4px);
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--navy-mid);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 12px;
+    width: 100%; max-width: 780px;
+    max-height: 90vh; overflow-y: auto;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.8);
+    animation: modalIn 0.25s ease;
+  }
+  @keyframes modalIn { from { opacity:0; transform:scale(0.95); } to { opacity:1; transform:scale(1); } }
+  .modal-header {
+    padding: 20px 24px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;
+  }
+  .modal-range-badge {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; font-weight: 800; letter-spacing: 1.5px;
+    text-transform: uppercase; padding: 3px 10px; border-radius: 3px; margin-bottom: 6px;
+    display: inline-block;
+  }
+  .modal-skill-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px; font-weight: 900; color: var(--white); line-height: 1.1;
+  }
+  .modal-category {
+    font-size: 12px; color: var(--gray-mid); margin-top: 3px; letter-spacing: 0.5px;
+  }
+  .modal-close {
+    background: rgba(255,255,255,0.08); border: none; color: var(--white);
+    width: 32px; height: 32px; border-radius: 50%; cursor: pointer;
+    font-size: 18px; display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; transition: background 0.2s;
+  }
+  .modal-close:hover { background: rgba(255,255,255,0.18); }
+  .modal-body { padding: 20px 24px 24px; }
+
+  /* Notes section */
+  .modal-notes {
+    background: rgba(201,168,76,0.07);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 6px; padding: 12px 16px; margin-bottom: 20px;
+    font-size: 13px; color: rgba(255,255,255,0.8); line-height: 1.6;
+  }
+  .modal-notes-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px; font-weight: 800; color: var(--gold);
+    text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;
+  }
+
+  /* Videos section */
+  .modal-videos-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px; font-weight: 800; color: var(--white);
+    text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 14px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .video-count-badge {
+    background: var(--gold); color: var(--navy);
+    font-size: 11px; font-weight: 900; padding: 2px 8px; border-radius: 10px;
+  }
+  .videos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .video-slot {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px; overflow: hidden;
+  }
+  .video-slot iframe {
+    width: 100%; aspect-ratio: 16/9; display: block; border: none;
+  }
+  .video-slot-placeholder {
+    width: 100%; aspect-ratio: 16/9;
+    background: rgba(255,255,255,0.03);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 8px;
+    color: rgba(255,255,255,0.2); font-size: 13px;
+  }
+  .video-slot-placeholder .placeholder-icon { font-size: 28px; opacity: 0.3; }
+  .video-label {
+    padding: 8px 12px; font-size: 12px; color: rgba(255,255,255,0.6);
+    font-weight: 500; border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .add-video-btn { display: none; } /* hidden from published view */
+
+  /* Additional info */
+  .modal-additional { margin-top: 20px; }
+  .modal-additional-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px; font-weight: 800; color: var(--gray-mid);
+    text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;
+  }
+  .related-skills { display: flex; flex-wrap: wrap; gap: 6px; }
+  .related-tag {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px; padding: 4px 10px; font-size: 12px; color: rgba(255,255,255,0.6);
+  }
+
+  /* ── NAV BUTTONS ── */
+  .nav-buttons {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 40px; padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .btn {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 11px 26px; border-radius: 4px; cursor: pointer; border: none;
+    transition: all 0.2s; display: flex; align-items: center; gap: 8px; text-decoration: none;
+  }
+  .btn-primary { background: var(--gold); color: var(--navy); }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-secondary { background: transparent; color: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.2); }
+  .btn-secondary:hover { color: var(--white); border-color: rgba(255,255,255,0.5); }
+
+  /* ── QUICK REF CARDS ── */
+  .quick-ref-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-bottom: 28px; }
+  .quick-ref-card {
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 8px; padding: 16px;
+  }
+  .quick-ref-card h4 {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 800;
+    color: var(--gold); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;
+  }
+  .quick-ref-card p { font-size: 12px; color: rgba(255,255,255,0.7); line-height: 1.55; }
+
+  @media (max-width: 768px) {
+    .quick-ref-grid { grid-template-columns: 1fr; }
+    .videos-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── MAJORITY TAB (ported from Module 1) ── */
+  .majority-tool {background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 28px; margin-bottom: 24px; }
+  .majority-tool h3 {font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 800; color: var(--white); text-transform: uppercase; margin-bottom: 4px; }
+  .majority-tool p {font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 20px; }
+  .slider-wrap {display: flex; align-items: center; gap: 20px; margin-bottom: 24px; }
+  .slider-wrap label {font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 0.5px; min-width: 160px; }
+  .slider-wrap input[type=range] {flex: 1; accent-color: var(--gold); height: 6px; cursor: pointer; }
+  .slider-val {background: var(--gold); color: var(--navy); font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 900; padding: 4px 12px; border-radius: 4px; min-width: 50px; text-align: center; }
+  .majority-results {display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .maj-result-item {background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 16px; text-align: center; }
+  .maj-result-label {font-size: 11px; color: var(--gray-mid); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; margin-bottom: 8px; }
+  .maj-result-num {font-family: 'Barlow Condensed', sans-serif; font-size: 36px; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 4px; }
+  .maj-result-sub {font-size: 11px; color: rgba(255,255,255,0.5); }
+  .range-table-wrap { overflow-x: auto; margin-bottom: 24px; }
+  .range-table {width: 100%; border-collapse: collapse; font-size: 13px; }
+  .range-table th {background: var(--navy-light); padding: 12px 16px; text-align: left; font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; border-bottom: 2px solid var(--gold); }
+  .range-table td {padding: 11px 16px; border-bottom: 1px solid rgba(255,255,255,0.06); vertical-align: top; color: rgba(255,255,255,0.8); line-height: 1.5; }
+  .range-table tr:hover td { background: rgba(255,255,255,0.03); }
+  .glossary-section-title {font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 800; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; border-left: 4px solid var(--gold); padding-left: 14px; margin: 28px 0 16px; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .card {background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 24px; margin-bottom: 16px; transition: border-color 0.2s; }
+  .card:hover { border-color: rgba(201,168,76,0.3); }
+  .card-title {font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 800; color: var(--gold); letter-spacing: 0.5px; margin-bottom: 10px; text-transform: uppercase; }
+  .card-body {font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.7; }
+
+  /* ── LEGALITY TAB ── */
+  .rule-block {
+    margin-bottom: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+  .rule-header {
+    padding: 13px 18px;
+    display: flex; align-items: center; gap: 14px;
+    cursor: pointer;
+    background: rgba(255,255,255,0.04);
+    transition: background 0.2s;
+    border-left: 4px solid transparent;
+  }
+  .rule-header:hover { background: rgba(255,255,255,0.07); }
+  .rule-header.rule-1 { border-left-color: #e8a020; }
+  .rule-header.rule-2 { border-left-color: #4a90d9; }
+  .rule-toggle {
+    color: var(--gold); font-size: 16px;
+    margin-left: auto; flex-shrink: 0;
+    transition: transform 0.25s;
+  }
+  .rule-toggle.open { transform: rotate(180deg); }
+  .rule-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; font-weight: 800; letter-spacing: 1.5px;
+    text-transform: uppercase; padding: 3px 9px;
+    border-radius: 3px; flex-shrink: 0;
+  }
+  .rule-num.rule-1 { background: rgba(232,160,32,0.15); color: #e8a020; border: 1px solid rgba(232,160,32,0.3); }
+  .rule-num.rule-2 { background: rgba(74,144,217,0.15); color: #8ab8f0; border: 1px solid rgba(74,144,217,0.3); }
+  .rule-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px; font-weight: 800;
+    color: var(--white); letter-spacing: 0.3px;
+  }
+  .rule-body { display: none; background: rgba(0,0,0,0.15); }
+  .rule-body.open { display: block; }
+
+  /* Section rows inside a rule */
+  .section-row {
+    display: flex; align-items: center; gap: 14px;
+    padding: 11px 18px 11px 22px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .section-row:last-child { border-bottom: none; }
+  .section-row:hover { background: rgba(255,255,255,0.04); }
+  .section-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px; font-weight: 800; letter-spacing: 1px;
+    color: var(--gray-mid); min-width: 70px; flex-shrink: 0;
+  }
+  .section-name {
+    font-size: 14px; color: rgba(255,255,255,0.85);
+    font-weight: 500; flex: 1;
+  }
+  .section-video-count {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
+    padding: 2px 8px; border-radius: 10px; flex-shrink: 0;
+  }
+  .section-video-count.has-videos {
+    background: rgba(201,168,76,0.15);
+    color: var(--gold); border: 1px solid rgba(201,168,76,0.3);
+  }
+  .section-video-count.no-videos {
+    background: rgba(255,255,255,0.05);
+    color: rgba(255,255,255,0.25); border: 1px solid rgba(255,255,255,0.08);
+  }
+  .section-arrow { color: rgba(255,255,255,0.2); font-size: 12px; flex-shrink: 0; }
+  .section-row:hover .section-arrow { color: var(--gold); }
+
+  /* Legal/Illegal tags in modal */
+  .tag-legal { background: rgba(26,107,60,0.2); border: 1px solid rgba(26,107,60,0.4); color: #7ecf7e; font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; padding: 2px 8px; border-radius: 3px; }
+  .tag-illegal { background: rgba(192,57,43,0.2); border: 1px solid rgba(192,57,43,0.4); color: #f08080; font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; padding: 2px 8px; border-radius: 3px; }
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-badge">VHSL 2026–27</div>
+    <div>
+      <div class="header-title">Stunt &amp; Pyramid <span>Interactive Rubric</span></div>
+      <div class="header-sub">Coaches' &amp; Officials' Training — Module 2</div>
+    </div>
+    <div class="header-meta">Updated June 9, 2026</div>
+  </div>
+</header>
+
+<!-- TAB NAV -->
+<div class="tab-nav">
+  <div class="tab-nav-inner">
+    <div class="tab-btn active" onclick="switchTab('stunts', this)">
+      <span class="tab-icon">🧩</span> Stunt Rubric
+    </div>
+    <div class="tab-btn" onclick="switchTab('pyramids', this)">
+      <span class="tab-icon">🔺</span> Pyramid Rubric
+    </div>
+    <div class="tab-btn" onclick="switchTab('notes', this)">
+      <span class="tab-icon">📋</span> Key Notes
+    </div>
+    <div class="tab-btn" onclick="switchTab('majority', this)">
+      <span class="tab-icon">👥</span> Majority Breakdown
+    </div>
+    <div class="tab-btn" onclick="switchTab('legality', this)">
+      <span class="tab-icon">⚖️</span> Legality Videos
+    </div>
+  </div>
+</div>
+
+<div class="main-wrap">
+
+<!-- ══════════════════════════════════════ -->
+<!-- TAB 1: STUNTS                          -->
+<!-- ══════════════════════════════════════ -->
+<div class="tab-panel active" id="tab-stunts">
+  <div class="section-header">
+    <div class="section-title">Stunt <span>Difficulty Rubric</span></div>
+    <div class="gold-rule"></div>
+    <div class="section-desc">Click any skill cell to see scoring notes and video examples. Starting value is determined by a minimum of <strong style="color:var(--gold)">two different skills</strong> successfully executed within a range (one may be a toss) by the <strong style="color:var(--gold)">majority</strong> of the maximum number of stunt groups.</div>
+  </div>
+
+  <div class="callout callout-gold">
+    <div class="callout-icon">📌</div>
+    <div>
+      <strong>How to use this rubric:</strong> Click any cell to open a popup with skill notes, judging tips, and video examples. Use the range legend below to filter by difficulty level.
+    </div>
+  </div>
+
+  <!-- Range Legend -->
+  <div class="range-legend">
+    <div class="legend-item legend-beginner" onclick="filterRange('beginner')"><div class="legend-dot" style="background:var(--beginner)"></div>Beginner (0.0 – 1.0)</div>
+    <div class="legend-item legend-intermediate" onclick="filterRange('intermediate')"><div class="legend-dot" style="background:var(--intermediate)"></div>Intermediate (1.25 – 3.25)</div>
+    <div class="legend-item legend-advanced" onclick="filterRange('advanced')"><div class="legend-dot" style="background:var(--advanced)"></div>Advanced (3.5 – 5.5)</div>
+    <div class="legend-item legend-elite" onclick="filterRange('elite')"><div class="legend-dot" style="background:var(--elite)"></div>Elite (5.75 – 7.75)</div>
+    <div class="legend-item legend-superelite" onclick="filterRange('superelite')"><div class="legend-dot" style="background:var(--superelite)"></div>Super Elite (8.0 – 10.0)</div>
+    <div class="legend-item" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.5);" onclick="filterRange('all')">Show All</div>
+  </div>
+
+  <div class="rubric-wrap">
+    <table class="rubric-table" id="stunts-table">
+      <thead>
+        <tr>
+          <th style="background:transparent;"></th>
+          <th class="col-header ch-beginner">Beginner<div class="col-header-pts">0.0 – 1.0</div></th>
+          <th class="col-header ch-intermediate">Intermediate<div class="col-header-pts">1.25 – 3.25</div></th>
+          <th class="col-header ch-advanced">Advanced<div class="col-header-pts">3.5 – 5.5</div></th>
+          <th class="col-header ch-elite">Elite<div class="col-header-pts">5.75 – 7.75</div></th>
+          <th class="col-header ch-superelite">Super Elite<div class="col-header-pts">8.0 – 10.0</div></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="section-separator sec-inversion">
+          <td colspan="6" style="
+            padding: 0;
+            height: 8px;
+            background: linear-gradient(90deg, rgba(155,89,208,0.9) 0%, rgba(155,89,208,0.15) 40%, transparent 100%);
+            border: none;
+          "></td>
+        </tr>
+        <tr class="section-label-row sec-inversion">
+          <td colspan="6" style="
+            padding: 5px 14px 5px 16px;
+            background: rgba(155,89,208,0.15);
+            border-left: 4px solid rgba(155,89,208,0.9);
+            border-bottom: 1px solid rgba(155,89,208,0.3);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 12px; font-weight: 800; letter-spacing: 2px;
+            text-transform: uppercase; color: rgba(155,89,208,0.9);
+          ">​</td>
+        </tr>
+        <!-- INVERSION SKILLS -->
+        <tr class="section-break sec-inversion">
+          <td rowspan="5" class="row-label sec-inversion">Inversion Skills</td>
+          <td class="skill-cell range-beginner" onclick="openModal('inv-beg-1')">Below Prep Level Inversions to Ground<br><small style="opacity:0.6">(ex: Yo-Yo, Back Walkover)</small></td>
+          <td class="skill-cell range-intermediate" onclick="openModal('inv-int-1')">Suspended Forward Roll Variations &amp; Inversions<br><small style="opacity:0.6">(ex: Pancake, Cartwheel)</small></td>
+          <td class="skill-cell range-advanced" onclick="openModal('inv-adv-1')">Non-Release Twisting Inversions<br>Prep Level or Below to Extended/IBP/ABP</td>
+          <td class="skill-cell range-elite" onclick="openModal('inv-eli-1')">Released ¼, ½ or ¾ Twisting Inverted<br>Low to High to Extended IBP/ABP</td>
+          <td class="skill-cell range-superelite" onclick="openModal('inv-se-1')">Released Full Twisting Inverted<br>Low to High to Extended IBP/ABP</td>
+        </tr>
+        <tr class="sec-inversion">
+          <td class="skill-cell range-beginner" onclick="openModal('inv-beg-2')">Non-Release Inversions<br>Prep Level or Below to Prep or Below Prep</td>
+          <td class="skill-cell range-intermediate" onclick="openModal('inv-int-2')">Non-Release Inversions<br>Prep Level or Below to Extended/IBP/ABP</td>
+          <td class="skill-cell range-advanced" onclick="openModal('inv-adv-2')">Released Inverted<br>Low to High to Extended IBP/ABP</td>
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell empty">—</td>
+        </tr>
+        <tr class="sec-inversion">
+          <td class="skill-cell range-beginner" onclick="openModal('inv-beg-3')">Non-Release Twisting Inversions<br>Prep Level or Below to Below Prep</td>
+          <td class="skill-cell range-intermediate" onclick="openModal('inv-int-3')">Non-Release Twisting Inversions<br>Prep Level or Below to Prep</td>
+          <td class="skill-cell range-advanced" onclick="openModal('inv-adv-3')">Released Inversions<br>Prep Level or Below to Extended</td>
+          <td class="skill-cell range-elite" onclick="openModal('inv-eli-2')">Released Inversions<br>Prep Level or Below to Extended IBP/ABP</td>
+          <td class="skill-cell range-superelite" onclick="openModal('inv-se-2')">Released ¼, ½ or ¾ Twisting Inversions<br>Prep Level or Below to Extended IBP/ABP</td>
+        </tr>
+        <tr class="sec-inversion">
+          <td class="skill-cell range-beginner" onclick="openModal('inv-beg-4')">Released Twisting Inversions<br>Prep Level or Below to Below Prep</td>
+          <td class="skill-cell range-intermediate" onclick="openModal('inv-int-4')">Released Twisting Inversions<br>Prep Level or Below to Prep</td>
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell range-elite" onclick="openModal('inv-eli-3')">Released ¼, ½ or ¾ Twisting Inversions<br>Prep Level or Below to Extended</td>
+          <td class="skill-cell range-superelite" onclick="openModal('inv-se-3')">Released Full Twisting Inversions<br>Prep Level or Below to Extended/IBP/ABP</td>
+        </tr>
+        <tr class="sec-inversion">
+          <td class="skill-cell range-beginner" onclick="openModal('inv-beg-5')">Released Inversions<br>Prep Level or Below to Below Prep</td>
+          <td class="skill-cell range-intermediate" onclick="openModal('inv-int-5')">Released Inversions<br>Prep Level or Below to Prep</td>
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell empty">—</td>
+        </tr>
+
+        <!-- RELEASE SKILLS -->
+        <tr class="section-separator sec-release">
+          <td colspan="6" style="
+            padding: 0;
+            height: 8px;
+            background: linear-gradient(90deg, rgba(39,174,138,0.9) 0%, rgba(39,174,138,0.15) 40%, transparent 100%);
+            border: none;
+            border-radius: 0;
+          "></td>
+        </tr>
+        <tr class="section-label-row sec-release">
+          <td colspan="6" style="
+            padding: 5px 14px 5px 16px;
+            background: rgba(39,174,138,0.15);
+            border-left: 4px solid rgba(39,174,138,0.9);
+            border-bottom: 1px solid rgba(39,174,138,0.3);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 12px; font-weight: 800; letter-spacing: 2px;
+            text-transform: uppercase; color: rgba(39,174,138,0.9);
+          ">​</td>
+        </tr>
+        <tr class="section-break sec-release">
+          <td rowspan="8" class="row-label sec-release">Release Skills</td>
+          <td class="skill-cell range-beginner" onclick="openModal('rel-beg-1')">Below Prep Release to Below Prep</td>
+          <td class="skill-cell range-intermediate" onclick="openModal('rel-int-1')">Prep Level Release to Prep</td>
+          <td class="skill-cell range-advanced" onclick="openModal('rel-adv-1')">Prep Level Release to Extended</td>
+          <td class="skill-cell range-elite" onclick="openModal('rel-eli-1')">¼, ½ or ¾ Twist Release to Extended<br><small style="opacity:0.6">(ex: Quick Toss, Ball-Up)</small></td>
+          <td class="skill-cell range-superelite" onclick="openModal('rel-se-1')">Full Twisting Release to Extended<br><small style="opacity:0.6">(ex: Quick Toss, Ball-Up)</small></td>
+        </tr>
+        <tr class="sec-release">
+          <td class="skill-cell range-beginner" onclick="openModal('rel-beg-2')">Release to Below Prep<br><small style="opacity:0.6">(ex: Quick Toss, Ball-Up)</small></td>
+          <td class="skill-cell range-intermediate" onclick="openModal('rel-int-2')">Release to Prep<br><small style="opacity:0.6">(ex: Quick Toss, Ball-Up)</small></td>
+          <td class="skill-cell range-advanced" onclick="openModal('rel-adv-2')">Release to Extended<br><small style="opacity:0.6">(ex: Quick Toss, Ball-Up)</small></td>
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell empty">—</td>
+        </tr>
+        <tr class="sec-release">
+          <td class="skill-cell range-beginner" onclick="openModal('rel-beg-3')">Extended Release to Below Prep</td>
+          <td class="skill-cell range-intermediate" onclick="openModal('rel-int-3')">Extended Release to Prep Level</td>
+          <td class="skill-cell range-advanced" onclick="openModal('rel-adv-3')">Extended Release to Prep Level IBP</td>
+          <td class="skill-cell range-elite" onclick="openModal('rel-eli-2')">Horizontal Release to Extended IBP/ABP</td>
+          <td class="skill-cell range-superelite" onclick="openModal('rel-se-2')">Horizontal Twisting Release to Extended</td>
+        </tr>
+        <tr class="sec-release">
+          <td class="skill-cell range-beginner" onclick="openModal('rel-beg-4')">Horizontal Release to Below Prep</td>
+          <td class="skill-cell range-intermediate" onclick="openModal('rel-int-4')">Horizontal Release to Prep</td>
+          <td class="skill-cell range-advanced" onclick="openModal('rel-adv-4')">Horizontal Release to Extended</td>
+          <td class="skill-cell range-elite" onclick="openModal('rel-eli-3')">Full Twisting Switch Up to Extended IBP</td>
+          <td class="skill-cell range-superelite" onclick="openModal('rel-se-3')">Full Twisting Switch Up to Extended ABP</td>
+        </tr>
+        <tr class="sec-release">
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell range-intermediate" onclick="openModal('rel-int-5')">Switch Up to Prep IBP/ABP</td>
+          <td class="skill-cell range-advanced" onclick="openModal('rel-adv-5')">Switch Up to Extended IBP/ABP</td>
+          <td class="skill-cell range-elite" onclick="openModal('rel-eli-4')">¼, ½ or ¾ Twist Switch Up to Extended ABP</td>
+          <td class="skill-cell range-superelite" onclick="openModal('rel-se-4')">High to High (ABP to ABP)</td>
+        </tr>
+        <tr class="sec-release">
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell range-intermediate" onclick="openModal('rel-int-6')">Prep Level Low to Low (Tic Toc)</td>
+          <td class="skill-cell range-advanced" onclick="openModal('rel-adv-6')">¼, ½ or ¾ Twist Switch Up to Extended IBP</td>
+          <td class="skill-cell range-elite" onclick="openModal('rel-eli-5')">¼, ½ or ¾ Twist Low to High to ABP</td>
+          <td class="skill-cell range-superelite" onclick="openModal('rel-se-5')">Full Twisting Low to High to IBP/ABP</td>
+        </tr>
+        <tr class="sec-release">
+          <td class="skill-cell range-beginner" onclick="openModal('rel-beg-5')">Twisting Release to Below Prep</td>
+          <td class="skill-cell range-intermediate" onclick="openModal('rel-int-7')">Twisting Release to Prep Level</td>
+          <td class="skill-cell range-advanced" onclick="openModal('rel-adv-7')">Low to High to IBP/ABP</td>
+          <td class="skill-cell range-elite" onclick="openModal('rel-eli-6')">High to High (IBP to IBP or IBP to ABP)</td>
+          <td class="skill-cell range-superelite" onclick="openModal('rel-se-6')">½ or ¾ Twist High to High to IBP/ABP</td>
+        </tr>
+        <tr class="sec-release">
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell range-advanced" onclick="openModal('rel-adv-8')">¼, ½ or ¾ Twist Low to High to IBP</td>
+          <td class="skill-cell range-elite" onclick="openModal('rel-eli-7')">¼ Twist High to High to IBP/ABP</td>
+          <td class="skill-cell range-superelite" onclick="openModal('rel-se-7')">Full Twisting High to High to IBP/ABP</td>
+        </tr>
+
+        <!-- TWISTING SKILLS -->
+        <tr class="section-separator sec-twisting">
+          <td colspan="6" style="
+            padding: 0;
+            height: 8px;
+            background: linear-gradient(90deg, rgba(224,80,80,0.9) 0%, rgba(224,80,80,0.15) 40%, transparent 100%);
+            border: none;
+            border-radius: 0;
+          "></td>
+        </tr>
+        <tr class="section-label-row sec-twisting">
+          <td colspan="6" style="
+            padding: 5px 14px 5px 16px;
+            background: rgba(224,80,80,0.15);
+            border-left: 4px solid rgba(224,80,80,0.9);
+            border-bottom: 1px solid rgba(224,80,80,0.3);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 12px; font-weight: 800; letter-spacing: 2px;
+            text-transform: uppercase; color: rgba(224,80,80,0.9);
+          ">​</td>
+        </tr>
+        <tr class="section-break sec-twisting">
+          <td rowspan="5" class="row-label sec-twisting">Twisting Skills*</td>
+          <td class="skill-cell range-beginner" onclick="openModal('twi-beg-1')">¼ or ½ Up to Prep Level</td>
+          <td class="skill-cell range-intermediate" onclick="openModal('twi-int-1')">Full Up to Prep Level</td>
+          <td class="skill-cell range-advanced" onclick="openModal('twi-adv-1')">Full Up to Extended</td>
+          <td class="skill-cell range-elite" onclick="openModal('twi-eli-1')">1½ Up to Extended</td>
+          <td class="skill-cell range-superelite" onclick="openModal('twi-se-1')">Double Up to Extended</td>
+        </tr>
+        <tr class="sec-twisting">
+          <td class="skill-cell range-beginner" onclick="openModal('twi-beg-2')">¼ Up to Extended</td>
+          <td class="skill-cell range-intermediate" onclick="openModal('twi-int-2')">½ or ¾ Up to Extended</td>
+          <td class="skill-cell range-advanced" onclick="openModal('twi-adv-2')">Hands Full Around to Extended Hands</td>
+          <td class="skill-cell range-elite" onclick="openModal('twi-eli-2')">Hands 1½ Around to Extended Hands</td>
+          <td class="skill-cell range-superelite" onclick="openModal('twi-se-2')">Hands Double Around to Extended</td>
+        </tr>
+        <tr class="sec-twisting">
+          <td class="skill-cell range-beginner" onclick="openModal('twi-beg-3')">¼ or ½ Twisting Transitions</td>
+          <td class="skill-cell range-intermediate" onclick="openModal('twi-int-3')">¾ or Full Twisting Transitions</td>
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell range-elite" onclick="openModal('twi-eli-3')">Hands Full Around to Extended IBP/ABP</td>
+          <td class="skill-cell range-superelite" onclick="openModal('twi-se-3')">High to High Full Around to IBP/ABP<br><small style="opacity:0.6">(Extended to Single Leg)</small></td>
+        </tr>
+        <tr class="sec-twisting">
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell range-elite" onclick="openModal('twi-eli-4')">High to High Full Around<br><small style="opacity:0.6">(Extended to Extended)</small></td>
+          <td class="skill-cell range-superelite" onclick="openModal('twi-se-4')">High to High Full Around to IBP/ABP<br><small style="opacity:0.6">(Single Leg to Single Leg)</small></td>
+        </tr>
+        <tr class="sec-twisting">
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell range-superelite" onclick="openModal('twi-se-5')">High to High 1½ Around</td>
+        </tr>
+
+        <!-- SINGLE BASE -->
+        <tr class="section-separator sec-singlebase">
+          <td colspan="6" style="
+            padding: 0;
+            height: 8px;
+            background: linear-gradient(90deg, rgba(74,144,217,0.9) 0%, rgba(74,144,217,0.15) 40%, transparent 100%);
+            border: none;
+            border-radius: 0;
+          "></td>
+        </tr>
+        <tr class="section-label-row sec-singlebase">
+          <td colspan="6" style="
+            padding: 5px 14px 5px 16px;
+            background: rgba(74,144,217,0.15);
+            border-left: 4px solid rgba(74,144,217,0.9);
+            border-bottom: 1px solid rgba(74,144,217,0.3);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 12px; font-weight: 800; letter-spacing: 2px;
+            text-transform: uppercase; color: rgba(74,144,217,0.9);
+          ">​</td>
+        </tr>
+        <tr class="section-break sec-singlebase">
+          <td rowspan="8" class="row-label sec-singlebase">Single Base Skills</td>
+          <td class="skill-cell range-beginner" onclick="openModal('sb-beg-1')">Prep Level Skills</td>
+          <td class="skill-cell range-intermediate" onclick="openModal('sb-int-1')">Extension or Cupie</td>
+          <td class="skill-cell range-advanced" onclick="openModal('sb-adv-1')">Extended Single Leg</td>
+          <td class="skill-cell range-elite" onclick="openModal('sb-eli-1')">Releases to Extended Single Leg</td>
+          <td class="skill-cell range-superelite" onclick="openModal('sb-se-1')">½, ¾, or Full Twisting Releases to Extended</td>
+        </tr>
+        <tr class="sec-singlebase">
+          <td class="skill-cell range-beginner" onclick="openModal('sb-beg-2')">Walk-In / Toss to Chair</td>
+          <td class="skill-cell range-intermediate" onclick="openModal('sb-int-2')">¼, ½ or ¾ Twist to Prep Level</td>
+          <td class="skill-cell range-advanced" onclick="openModal('sb-adv-2')">Full Up to Prep Level</td>
+          <td class="skill-cell range-elite" onclick="openModal('sb-eli-2')">¼ Twist Release to Extended</td>
+          <td class="skill-cell range-superelite" onclick="openModal('sb-se-2')">Non-Release Inversions to Extended</td>
+        </tr>
+        <tr class="sec-singlebase">
+          <td class="skill-cell range-beginner" onclick="openModal('sb-beg-3')">Walk-In / Toss to Hands</td>
+          <td class="skill-cell range-intermediate" onclick="openModal('sb-int-3')">Toss Hands</td>
+          <td class="skill-cell range-advanced" onclick="openModal('sb-adv-3')">Full Twisting Skills to Extended</td>
+          <td class="skill-cell range-elite" onclick="openModal('sb-eli-3')">Released Inversion to Prep Level</td>
+          <td class="skill-cell range-superelite" onclick="openModal('sb-se-3')">Released Twisting Inversion to Extended</td>
+        </tr>
+        <tr class="sec-singlebase">
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell range-intermediate" onclick="openModal('sb-int-4')">Walk-In Hands, Press to Extension</td>
+          <td class="skill-cell range-advanced" onclick="openModal('sb-adv-4')">Toss Hands, Press to Extended Single Leg</td>
+          <td class="skill-cell range-elite" onclick="openModal('sb-eli-4')">Walk-In to Extended Single Arm</td>
+          <td class="skill-cell range-superelite" onclick="openModal('sb-se-4')">Twisting Release from Hands to Extended</td>
+        </tr>
+        <tr class="sec-singlebase">
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell range-intermediate" onclick="openModal('sb-int-5')">Toss Hands, Press to Extension</td>
+          <td class="skill-cell range-advanced" onclick="openModal('sb-adv-5')">Walk-In to Extended Single Leg</td>
+          <td class="skill-cell range-elite" onclick="openModal('sb-eli-5')">Toss Single Arm Extended</td>
+          <td class="skill-cell empty">—</td>
+        </tr>
+        <tr class="sec-singlebase">
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell range-intermediate" onclick="openModal('sb-int-6')">Switch Up to Extended</td>
+          <td class="skill-cell range-advanced" onclick="openModal('sb-adv-6')">Toss Extension</td>
+          <td class="skill-cell range-elite" onclick="openModal('sb-eli-6')">Toss Extended Single Leg</td>
+          <td class="skill-cell range-superelite" onclick="openModal('sb-se-5')">Toss Extended Single Arm</td>
+        </tr>
+        <tr class="sec-singlebase">
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell range-advanced" onclick="openModal('sb-adv-7')">Low to High to Extended</td>
+          <td class="skill-cell range-elite" onclick="openModal('sb-eli-7')">High to High to Extended</td>
+          <td class="skill-cell range-superelite" onclick="openModal('sb-se-6')">Released Inversion to Extended</td>
+        </tr>
+        <tr class="sec-singlebase">
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell range-elite" onclick="openModal('sb-eli-8')">Toss Full Up to Prep Level</td>
+          <td class="skill-cell range-superelite" onclick="openModal('sb-se-7')">Toss Full Up to Extended</td>
+        </tr>
+
+        <!-- OTHER -->
+        <tr class="section-separator sec-other">
+          <td colspan="6" style="
+            padding: 0;
+            height: 8px;
+            background: linear-gradient(90deg, rgba(136,136,136,0.9) 0%, rgba(136,136,136,0.12) 40%, transparent 100%);
+            border: none;
+            border-radius: 0;
+          "></td>
+        </tr>
+        <tr class="section-label-row sec-other">
+          <td colspan="6" style="
+            padding: 5px 14px 5px 16px;
+            background: rgba(136,136,136,0.12);
+            border-left: 4px solid rgba(136,136,136,0.9);
+            border-bottom: 1px solid rgba(136,136,136,0.12);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 12px; font-weight: 800; letter-spacing: 2px;
+            text-transform: uppercase; color: rgba(136,136,136,0.9);
+          ">​</td>
+        </tr>
+        <tr class="section-break sec-other">
+          <td rowspan="1" class="row-label sec-other">Other</td>
+          <td class="skill-cell range-beginner" onclick="openModal('oth-beg-1')">Prep Level and Below Stunts Not Previously Categorized<br><small style="opacity:0.6">(ex: prep, prep lib, etc.)</small></td>
+          <td class="skill-cell range-intermediate" onclick="openModal('oth-int-1')">Extended Stunts Not Previously Categorized<br><small style="opacity:0.6">(ex: extension, cupie, lib, show n go, etc.)</small></td>
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell empty">—</td>
+        </tr>
+
+        <!-- TOSSES -->
+        <tr class="section-separator sec-tosses">
+          <td colspan="6" style="
+            padding: 0;
+            height: 8px;
+            background: linear-gradient(90deg, rgba(201,168,76,0.9) 0%, rgba(201,168,76,0.15) 40%, transparent 100%);
+            border: none;
+            border-radius: 0;
+          "></td>
+        </tr>
+        <tr class="section-label-row sec-tosses">
+          <td colspan="6" style="
+            padding: 5px 14px 5px 16px;
+            background: rgba(201,168,76,0.15);
+            border-left: 4px solid rgba(201,168,76,0.9);
+            border-bottom: 1px solid rgba(201,168,76,0.3);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 12px; font-weight: 800; letter-spacing: 2px;
+            text-transform: uppercase; color: rgba(201,168,76,0.9);
+          ">​</td>
+        </tr>
+        <tr class="section-break sec-tosses">
+          <td rowspan="1" class="row-label sec-tosses">Tosses</td>
+          <td class="skill-cell range-beginner" onclick="openModal('tos-beg-1')">Straight Ride Tosses<br>Pretty Girl</td>
+          <td class="skill-cell range-intermediate" onclick="openModal('tos-int-1')">Single-Skill Tosses<br><small style="opacity:0.6">(ex: Toe-Touch, Kick, Pike, Full Twist)</small></td>
+          <td class="skill-cell range-advanced" onclick="openModal('tos-adv-1')">Multi-Skill Tosses<br><small style="opacity:0.6">(ex: Ball X-Out, Hitch Kick, Kick Kick)</small></td>
+          <td class="skill-cell range-elite" onclick="openModal('tos-eli-1')">Single-Skill Tosses with Full Twist<br><small style="opacity:0.6">(ex: Ball Full, Kick Full, Full Toe Touch)</small></td>
+          <td class="skill-cell range-superelite" onclick="openModal('tos-se-1')">Multi-Skill Tosses with Full Twist<br><small style="opacity:0.6">(ex: Hitch Kick Full, Kick Kick Full)</small></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p style="font-size:12px;color:rgba(255,255,255,0.35);margin-bottom:24px;">*For full ups &amp; full arounds to all levels, the variation or modified grip version of the skill will be scored lower in the range than the true/traditional version.</p>
+
+  <div style="
+    margin-top: 32px;
+    padding: 16px 20px;
+    background: rgba(201,168,76,0.06);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+  ">
+    <span style="font-size:22px;flex-shrink:0;">📧</span>
+    <span>Have a video example to contribute or a skill you'd like clarification on? Submit it to the VHSL Cheer Officials — we'll review and add them to this module.&nbsp;&nbsp;
+      <a href="mailto:TheNVCOA@gmail.com" style="
+        color: var(--gold);
+        font-weight: 600;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(201,168,76,0.4);
+        transition: border-color 0.2s;
+      " onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.4)'">TheNVCOA@gmail.com</a>
+    </span>
+  </div>
+
+  <div class="nav-buttons">
+     <button class="btn btn-primary" onclick="switchTab('pyramids', document.querySelectorAll('.tab-btn')[1])">Next: Pyramids Rubric →</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- TAB 2: PYRAMIDS                        -->
+<!-- ══════════════════════════════════════ -->
+<div class="tab-panel" id="tab-pyramids">
+  <div class="section-header">
+    <div class="section-title">Pyramid <span>Difficulty Rubric</span></div>
+    <div class="gold-rule"></div>
+    <div class="section-desc">Click any skill cell to see scoring notes and video examples. Starting value is determined by a minimum of <strong style="color:var(--gold)">three different skills</strong> successfully executed within a range by the <strong style="color:var(--gold)">majority</strong>	of the maximum number of stunt groups.</div>
+  </div>
+
+  <div class="callout callout-blue">
+    <div class="callout-icon">💡</div>
+    <div>The number in parentheses <strong>(1 or 2)</strong> refers to the number of pyramid bracers utilized during the transition. Legal unbraced skills or those utilizing fewer bracers should receive <strong>more credit</strong> within the range.</div>
+  </div>
+
+  <div class="range-legend">
+    <div class="legend-item legend-beginner" onclick="filterRange('beginner')"><div class="legend-dot" style="background:var(--beginner)"></div>Beginner (0.0 – 1.0)</div>
+    <div class="legend-item legend-intermediate" onclick="filterRange('intermediate')"><div class="legend-dot" style="background:var(--intermediate)"></div>Intermediate (1.25 – 3.25)</div>
+    <div class="legend-item legend-advanced" onclick="filterRange('advanced')"><div class="legend-dot" style="background:var(--advanced)"></div>Advanced (3.5 – 5.5)</div>
+    <div class="legend-item legend-elite" onclick="filterRange('elite')"><div class="legend-dot" style="background:var(--elite)"></div>Elite (5.75 – 7.75)</div>
+    <div class="legend-item legend-superelite" onclick="filterRange('superelite')"><div class="legend-dot" style="background:var(--superelite)"></div>Super Elite (8.0 – 10.0)</div>
+    <div class="legend-item" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.5);" onclick="filterRange('all')">Show All</div>
+  </div>
+
+  <div class="rubric-wrap">
+    <table class="rubric-table" id="pyramids-table">
+      <thead>
+        <tr>
+          <th style="background:transparent;"></th>
+          <th class="col-header ch-beginner">Beginner<div class="col-header-pts">0.0 – 1.0</div></th>
+          <th class="col-header ch-intermediate">Intermediate<div class="col-header-pts">1.25 – 3.25</div></th>
+          <th class="col-header ch-advanced">Advanced<div class="col-header-pts">3.5 – 5.5</div></th>
+          <th class="col-header ch-elite">Elite<div class="col-header-pts">5.75 – 7.75</div></th>
+          <th class="col-header ch-superelite">Super Elite<div class="col-header-pts">8.0 – 10.0</div></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="section-separator sec-nonreleased">
+          <td colspan="6" style="
+            padding: 0;
+            height: 8px;
+            background: linear-gradient(90deg, rgba(155,89,208,0.9) 0%, rgba(155,89,208,0.15) 40%, transparent 100%);
+            border: none;
+          "></td>
+        </tr>
+        <tr class="section-label-row sec-nonreleased">
+          <td colspan="6" style="
+            padding: 5px 14px 5px 16px;
+            background: rgba(155,89,208,0.15);
+            border-left: 4px solid rgba(155,89,208,0.9);
+            border-bottom: 1px solid rgba(155,89,208,0.3);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 12px; font-weight: 800; letter-spacing: 2px;
+            text-transform: uppercase; color: rgba(155,89,208,0.9);
+          ">​</td>
+        </tr>
+        <!-- NON-RELEASED TRANSITION -->
+        <tr class="section-break sec-nonreleased">
+          <td rowspan="5" class="row-label sec-nonreleased">Non-Released Transition</td>
+          <td class="skill-cell range-beginner" onclick="openModal('pyr-nr-beg-1')">Braced non-released transitions</td>
+          <td class="skill-cell range-intermediate" onclick="openModal('pyr-nr-int-1')">Unbraced non-released transitions</td>
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell empty">—</td>
+        </tr>
+        <tr class="sec-nonreleased">
+          <td class="skill-cell range-beginner" onclick="openModal('pyr-nr-beg-2')">Inverted stunts to prep level and below</td>
+          <td class="skill-cell range-intermediate" onclick="openModal('pyr-nr-int-2')">Inverted stunts to extended (2)</td>
+          <td class="skill-cell range-advanced" onclick="openModal('pyr-nr-adv-1')">Inverted stunts to extended (1)</td>
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell empty">—</td>
+        </tr>
+        <tr class="sec-nonreleased">
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell range-advanced" onclick="openModal('pyr-nr-adv-2')">Twisting inverted stunts to extended (2)</td>
+          <td class="skill-cell range-elite" onclick="openModal('pyr-nr-eli-1')">Twisting inverted stunts to extended (1)</td>
+          <td class="skill-cell empty">—</td>
+        </tr>
+        <tr class="sec-nonreleased">
+          <td class="skill-cell range-beginner" onclick="openModal('pyr-nr-beg-3')">Intermediate Twisting Stunts<br><small style="opacity:0.6;font-size:8px;">References <span style="color:#f06090;font-weight:800;opacity:1;">PINK</span> Stunt Section</small></td>
+          <td class="skill-cell range-intermediate" onclick="openModal('pyr-nr-int-3')">Advanced Twisting Stunts<br><small style="opacity:0.6;font-size:8px;">References <span style="color:#f06090;font-weight:800;opacity:1;">PINK</span> Stunt Section</small></td>
+          <td class="skill-cell range-advanced" onclick="openModal('pyr-nr-adv-3')">Elite Twisting Stunts<br><small style="opacity:0.6;font-size:8px;">References <span style="color:#f06090;font-weight:800;opacity:1;">PINK</span> Stunt Section</small></td>
+          <td class="skill-cell range-elite" onclick="openModal('pyr-nr-eli-2')">Super Elite Twisting Stunts<br><small style="opacity:0.6;font-size:8px;">References <span style="color:#f06090;font-weight:800;opacity:1;">PINK</span> Stunt Section</small></td>
+          <td class="skill-cell empty">—</td>
+        </tr>
+        <tr class="sec-nonreleased">
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell range-intermediate" onclick="openModal('pyr-nr-int-4')">Intermediate Single Base Stunts<br><small style="opacity:0.6;font-size:8px;">References <span style="color:#4a90d9;font-weight:800;opacity:1;">BLUE</span> Stunt Section</small></td>
+          <td class="skill-cell range-advanced" onclick="openModal('pyr-nr-adv-4')">Advanced Single Base Stunts<br><small style="opacity:0.6;font-size:8px;">References <span style="color:#4a90d9;font-weight:800;opacity:1;">BLUE</span> Stunt Section</small></td>
+          <td class="skill-cell range-elite" onclick="openModal('pyr-nr-eli-3')">Elite Single Base Stunts<br><small style="opacity:0.6;font-size:8px;">References <span style="color:#4a90d9;font-weight:800;opacity:1;">BLUE</span> Stunt Section</small></td>
+          <td class="skill-cell range-superelite" onclick="openModal('pyr-nr-se-1')">Super Elite Single Base Stunts<br><small style="opacity:0.6;font-size:8px;">References <span style="color:#4a90d9;font-weight:800;opacity:1;">BLUE</span> Stunt Section</small></td>
+        </tr>
+
+        <!-- RELEASED TRANSITION -->
+        <tr class="section-separator sec-released">
+          <td colspan="6" style="
+            padding: 0;
+            height: 8px;
+            background: linear-gradient(90deg, rgba(39,174,138,0.9) 0%, rgba(39,174,138,0.15) 40%, transparent 100%);
+            border: none;
+            border-radius: 0;
+          "></td>
+        </tr>
+        <tr class="section-label-row sec-released">
+          <td colspan="6" style="
+            padding: 5px 14px 5px 16px;
+            background: rgba(39,174,138,0.15);
+            border-left: 4px solid rgba(39,174,138,0.9);
+            border-bottom: 1px solid rgba(39,174,138,0.3);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 12px; font-weight: 800; letter-spacing: 2px;
+            text-transform: uppercase; color: rgba(39,174,138,0.9);
+          ">​</td>
+        </tr>
+        <tr class="section-break sec-released">
+          <td rowspan="4" class="row-label sec-released">Released Transition</td>
+          <td class="skill-cell range-beginner" onclick="openModal('pyr-rel-beg-1')">Braced release to prep or below (1 or 2)</td>
+          <td class="skill-cell range-intermediate" onclick="openModal('pyr-rel-int-1')">Braced release to extended (1)</td>
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell empty">—</td>
+        </tr>
+        <tr class="sec-released">
+          <td class="skill-cell range-beginner" onclick="openModal('pyr-rel-beg-2')">Braced release to extended (2)</td>
+          <td class="skill-cell range-intermediate" onclick="openModal('pyr-rel-int-2')">Braced inverted release to prep or below (1 or 2)</td>
+          <td class="skill-cell range-advanced" onclick="openModal('pyr-rel-adv-1')">Braced inverted release to extended (2)</td>
+          <td class="skill-cell range-elite" onclick="openModal('pyr-rel-eli-1')">Braced inverted release to extended (1)</td>
+          <td class="skill-cell range-superelite" onclick="openModal('pyr-rel-se-1')">Unbraced inverted release to extended</td>
+        </tr>
+        <tr class="sec-released">
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell range-intermediate" onclick="openModal('pyr-rel-int-3')">Braced twisting release to prep or below (1 or 2)</td>
+          <td class="skill-cell range-advanced" onclick="openModal('pyr-rel-adv-2')">Braced ¼, ½, or ¾ twisting release to extended (1 or 2)</td>
+          <td class="skill-cell range-elite" onclick="openModal('pyr-rel-eli-2')">Braced full twisting release to extended (1 or 2)</td>
+          <td class="skill-cell empty">—</td>
+        </tr>
+        <tr class="sec-released">
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell range-intermediate" onclick="openModal('pyr-rel-int-4')">Unbraced release to prep or below</td>
+          <td class="skill-cell range-advanced" onclick="openModal('pyr-rel-adv-3')">Unbraced release to extended</td>
+          <td class="skill-cell range-elite" onclick="openModal('pyr-rel-eli-3')">Unbraced ¼, ½, or ¾ twisting release to extended</td>
+          <td class="skill-cell range-superelite" onclick="openModal('pyr-rel-se-2')">Unbraced full twisting release to extended</td>
+        </tr>
+
+        <!-- BRACED ROLL/FLIP -->
+        <tr class="section-separator sec-rolflip">
+          <td colspan="6" style="
+            padding: 0;
+            height: 8px;
+            background: linear-gradient(90deg, rgba(224,80,80,0.9) 0%, rgba(224,80,80,0.15) 40%, transparent 100%);
+            border: none;
+            border-radius: 0;
+          "></td>
+        </tr>
+        <tr class="section-label-row sec-rolflip">
+          <td colspan="6" style="
+            padding: 5px 14px 5px 16px;
+            background: rgba(224,80,80,0.15);
+            border-left: 4px solid rgba(224,80,80,0.9);
+            border-bottom: 1px solid rgba(224,80,80,0.3);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 12px; font-weight: 800; letter-spacing: 2px;
+            text-transform: uppercase; color: rgba(224,80,80,0.9);
+          ">​</td>
+        </tr>
+        <tr class="section-break sec-rolflip">
+          <td rowspan="3" class="row-label sec-rolflip">Braced Roll/Flip</td>
+          <td class="skill-cell range-beginner" onclick="openModal('pyr-rf-beg-1')">Rolling transition to prep level or below</td>
+          <td class="skill-cell range-intermediate" onclick="openModal('pyr-rf-int-1')">Rolling transition to extended</td>
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell empty">—</td>
+        </tr>
+        <tr class="sec-rolflip">
+          <td class="skill-cell range-beginner" onclick="openModal('pyr-rf-beg-2')">Flipping transition landing below prep level (1 or 2)</td>
+          <td class="skill-cell range-intermediate" onclick="openModal('pyr-rf-int-2')">Flipping transition landing at prep level (2)</td>
+          <td class="skill-cell range-advanced" onclick="openModal('pyr-rf-adv-1')">Flipping transition landing at prep level (1)</td>
+          <td class="skill-cell range-elite" onclick="openModal('pyr-rf-eli-1')">Flipping transition landing extended (2)</td>
+          <td class="skill-cell range-superelite" onclick="openModal('pyr-rf-se-1')">Flipping transition landing extended (1)</td>
+        </tr>
+        <tr class="sec-rolflip">
+          <td class="skill-cell range-beginner" onclick="openModal('pyr-rf-beg-3')">¼ twisting flipping transition landing at prep or below (1 or 2)</td>
+          <td class="skill-cell range-intermediate" onclick="openModal('pyr-rf-int-3')">½ or ¾ twisting flipping transition landing at prep or below (1 or 2)</td>
+          <td class="skill-cell range-advanced" onclick="openModal('pyr-rf-adv-2')">Full twisting flipping transition landing at prep or below (1 or 2)</td>
+          <td class="skill-cell range-elite" onclick="openModal('pyr-rf-eli-2')">Twisting flipping transition landing extended (2)</td>
+          <td class="skill-cell range-superelite" onclick="openModal('pyr-rf-se-2')">Twisting flipping transition landing extended (1)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="
+    margin-top: 32px;
+    padding: 16px 20px;
+    background: rgba(201,168,76,0.06);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+  ">
+    <span style="font-size:22px;flex-shrink:0;">📧</span>
+    <span>Have a video example to contribute or a skill you'd like clarification on? Submit it to the VHSL Cheer Officials — we'll review and add them to this module.&nbsp;&nbsp;
+      <a href="mailto:TheNVCOA@gmail.com" style="
+        color: var(--gold);
+        font-weight: 600;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(201,168,76,0.4);
+        transition: border-color 0.2s;
+      " onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.4)'">TheNVCOA@gmail.com</a>
+    </span>
+  </div>
+
+  <div class="nav-buttons">
+    <button class="btn btn-secondary" onclick="switchTab('stunts', document.querySelectorAll('.tab-btn')[0])">← Stunts Rubric</button>
+    <button class="btn btn-primary" onclick="switchTab('notes', document.querySelectorAll('.tab-btn')[2])">Next: Key Notes →</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- TAB 3: KEY NOTES                       -->
+<!-- ══════════════════════════════════════ -->
+<div class="tab-panel" id="tab-notes">
+  <div class="section-header">
+    <div class="section-title">Key Notes <span>&amp; Additional Info</span></div>
+    <div class="gold-rule"></div>
+    <div class="section-desc">Important additional information that applies across both the Stunt and Pyramid rubrics. These rules affect how difficulty is scored and where skills land within a range.</div>
+  </div>
+
+  <div class="quick-ref-grid">
+    <div class="quick-ref-card">
+      <h4>Front Spots</h4>
+      <p>Front spots (stunt groups of more than 4) or less than full participation from the maximum number of possible stunt groups will <strong style="color:var(--gold)">decrease the value of a skill within the range</strong>.</p>
+    </div>
+    <div class="quick-ref-card">
+      <h4>Body Positions</h4>
+      <p>IBP: Liberty, Hitch, Torch<br>ABP: Heel Stretch, Arabesque, Scorpion, Bow &amp; Arrow, etc.<br><br>Body positions alone do <strong style="color:var(--gold)">not</strong> receive credit for difficulty — they must be connected to a skill/transition.</p>
+    </div>
+    <div class="quick-ref-card">
+      <h4>Momentum Through IBP</h4>
+      <p>Momentum from a skill/transition directly into an ABP may pass through lib/platform/dangle, but must be <strong style="color:var(--gold)">continuous without pause</strong> in order to be credited together.</p>
+    </div>
+    <div class="quick-ref-card">
+      <h4>Dismounts &amp; Transitions</h4>
+      <p>If a transition or dismount meets the requirement of a rubric skill, it <strong style="color:var(--gold)">should be given credit as such</strong>. Don't overlook transitions — they count!</p>
+    </div>
+    <div class="quick-ref-card">
+      <h4>Inversions</h4>
+      <p>Flyer's shoulders are below their waist, regardless of foot placement. Inverted transitions must <strong style="color:var(--gold)">remain inverted at the initiation of the bases' movement</strong> to be credited.</p>
+    </div>
+    <div class="quick-ref-card">
+      <h4>Single Base Skills</h4>
+      <p>Must begin from the ground/load, end, and maintain throughout the skill a single base (plus spotter where required). <strong style="color:var(--gold)">Skills that start as full group and release to single base do not qualify.</strong></p>
+    </div>
+    <div class="quick-ref-card">
+      <h4>Pyramid Bracers (1 or 2)</h4>
+      <p>The number in parentheses indicates how many bracers are used. <strong style="color:var(--gold)">Unbraced skills or those using fewer bracers receive more credit</strong> within the same range.</p>
+    </div>
+    <div class="quick-ref-card">
+      <h4>Unbraced Pyramid Timing</h4>
+      <p>Unbraced pyramid transitions must <strong style="color:var(--gold)">connect at the top of the skill within 2 counts</strong> to be considered a pyramid and receive pyramid credit.</p>
+    </div>
+    <div class="quick-ref-card">
+      <h4>Ripples</h4>
+      <p>Ripples are allowed within the stunt/pyramid sequence but should be <strong style="color:var(--gold)">clearly defined</strong>. It must be very obvious that athletes are not being recycled.</p>
+    </div>
+    <div class="quick-ref-card">
+      <h4>Pyramid Variety</h4>
+      <p>In pyramid, a variety of flyers involved in transitional skills <strong style="color:var(--gold)">may increase score within the range</strong> and/or be given consideration in overall impression.</p>
+    </div>
+    <div class="quick-ref-card">
+      <h4>Full Up/Around Variations</h4>
+      <p>For all levels, the variation or modified grip version of the skill will be scored <strong style="color:var(--gold)">lower in the range</strong> than the true/traditional version.</p>
+    </div>
+    <div class="quick-ref-card">
+      <h4>Twisting — Flyer Rotation</h4>
+      <p>With the exception of ¼ twisting releases, <strong style="color:var(--gold)">the majority of the rotation must be completed by the flyer</strong>. Bases walking a stunt around does not constitute a full up.</p>
+    </div>
+  </div>
+
+  <div style="
+    margin-top: 32px;
+    padding: 16px 20px;
+    background: rgba(201,168,76,0.06);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+  ">
+    <span style="font-size:22px;flex-shrink:0;">📧</span>
+    <span>Have a video example to contribute or a skill you'd like clarification on? Submit it to the VHSL Cheer Officials — we'll review and add them to this module.&nbsp;&nbsp;
+      <a href="mailto:TheNVCOA@gmail.com" style="
+        color: var(--gold);
+        font-weight: 600;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(201,168,76,0.4);
+        transition: border-color 0.2s;
+      " onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.4)'">TheNVCOA@gmail.com</a>
+    </span>
+  </div>
+
+  <div class="nav-buttons">
+    <button class="btn btn-secondary" onclick="switchTab('pyramids', document.querySelectorAll('.tab-btn')[1])">← Pyramids Rubric</button>
+	<button class="btn btn-primary" onclick="switchTab('majority', document.querySelectorAll('.tab-btn')[3])">Next: Majority Breakdown →</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- TAB 5: MAJORITY RULES                  -->
+<!-- ══════════════════════════════════════ -->
+<div class="tab-panel" id="tab-majority">
+  <div class="section-header">
+    <div class="section-title">Majority <span>Rules</span></div>
+    <div class="gold-rule"></div>
+    <div class="section-desc">Understanding majority is essential for every scoring decision. Use the interactive calculator below to quickly find majority thresholds for any team size, then review the key majority rules.</div>
+  </div>
+
+  <div class="majority-tool">
+    <h3>Majority Calculator</h3>
+    <p>Enter the number of athletes performing on the mat to see the required majority numbers for each category.</p>
+    <div class="slider-wrap">
+      <label>Athletes on Mat</label>
+      <input type="range" min="3" max="20" value="15" id="athleteSlider" oninput="updateMajority()">
+      <div class="slider-val" id="sliderVal">15</div>
+    </div>
+    <div class="majority-results" id="majorityResults">
+      <!-- filled by JS -->
+    </div>
+  </div>
+
+  <div class="range-table-wrap">
+    <table class="range-table">
+      <thead>
+        <tr>
+          <th>Athletes</th>
+          <th>Stunt Groups (majority)</th>
+          <th>Pyramid Skill Groups (majority)</th>
+          <th>Jumps/Tumbling (majority)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>20</td><td>3 groups</td><td>2 groups</td><td>11 athletes</td></tr>
+        <tr><td>19</td><td>3 groups</td><td>2 groups</td><td>10 athletes</td></tr>
+        <tr><td>18</td><td>3 groups</td><td>2 groups</td><td>10 athletes</td></tr>
+        <tr><td>17</td><td>3 groups</td><td>2 groups</td><td>9 athletes</td></tr>
+        <tr><td>16</td><td>3 groups</td><td>2 groups</td><td>9 athletes</td></tr>
+        <tr><td>15</td><td>2 groups</td><td>1 group</td><td>8 athletes</td></tr>
+        <tr><td>14</td><td>2 groups</td><td>1 group</td><td>8 athletes</td></tr>
+        <tr><td>13</td><td>2 groups</td><td>1 group</td><td>7 athletes</td></tr>
+        <tr><td>12</td><td>2 groups</td><td>1 group</td><td>7 athletes</td></tr>
+        <tr><td>11</td><td>2 groups</td><td>1 group</td><td>6 athletes</td></tr>
+        <tr><td>10</td><td>2 groups</td><td>1 group</td><td>6 athletes</td></tr>
+        <tr><td>9 and under</td><td>2 groups</td><td>1 group</td><td>5 athletes</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="glossary-section-title">Key Majority Rules</div>
+  <div class="grid-2" style="margin-bottom:16px;">
+    <div class="card">
+      <div class="card-title">Ripples Are Allowed</div>
+      <div class="card-body">Ripples (sequential timing of the <strong>same exact skill</strong>) are allowed within stunt, pyramid, and tumbling sequences but should be clearly defined. It should be very obvious that athletes are not being recycled.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Front Spots & Non-Participation</div>
+      <div class="card-body">Front spots (stunt groups of more than 4) or less than full participation from the maximum number of possible stunt groups will <strong>decrease the value of a skill within the range</strong>.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Pyramid Majority (16+ Athletes)</div>
+      <div class="card-body">Teams of 16 or more are required to have at least <strong>TWO</strong> different flyers (in addition to any bracers) completing the required rubric skills. These may be a connected 2x2 pyramid, two separate mini pyramids, or any combination. Ripples are allowed but should be obvious and clearly defined.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">If Majority Fails</div>
+      <div class="card-body">If a required skill falls before completion, judges look for other transition/lower-level skills. If skills only occur in different ranges without meeting minimums for one range, the score drops to the lowest range executed. If no majority at all → score drops to the 0–1 range.</div>
+    </div>
+  </div>
+
+  <div style="margin-top:32px;padding:16px 20px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);border-radius:8px;display:flex;align-items:center;gap:14px;font-size:13px;color:rgba(255,255,255,0.7);line-height:1.6;">
+    <span style="font-size:22px;flex-shrink:0;">📧</span>
+    <span>Have a video example to contribute or a skill you'd like clarification on? Submit it to the VHSL Cheer Officials — we'll review and add them to this module.&nbsp;&nbsp;
+      <a href="mailto:TheNVCOA@gmail.com" style="color:var(--gold);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.4);" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.4)'">TheNVCOA@gmail.com</a>
+    </span>
+  </div>
+
+  <div class="nav-buttons">
+    <button class="btn btn-secondary" onclick="switchTab('notes', document.querySelectorAll('.tab-btn')[2])">← Key Notes</button>
+    <button class="btn btn-primary" onclick="switchTab('legality', document.querySelectorAll('.tab-btn')[4])">Next: Legality Videos →</button>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════ -->
+<!-- TAB 4: LEGALITY VIDEOS                 -->
+<!-- ══════════════════════════════════════ -->
+<div class="tab-panel" id="tab-legality">
+  <div class="section-header">
+    <div class="section-title">Legality <span>Video Library</span></div>
+    <div class="gold-rule"></div>
+    <div class="section-desc">Browse by rule book section to find legal and illegal video examples. Click any section to open a video modal. Based on the 2026 NFHS Rule Book.</div>
+  </div>
+
+  <div class="callout callout-gold" style="margin-bottom:24px;">
+    <div class="callout-icon">📌</div>
+    <div>Click a <strong>Rule</strong> to expand its sections, then click a <strong>Section</strong> to view video examples. Sections with a gold video count badge have videos currently loaded.</div>
+  </div>
+
+  <!-- RULE 1 -->
+  <div class="rule-block">
+    <div class="rule-header rule-1" onclick="toggleRule('rule1')">
+      <span class="rule-num rule-1">Rule 1</span>
+      <span class="rule-title">General Risk Management</span>
+      <span class="rule-toggle" id="tog-rule1">▾</span>
+    </div>
+    <div class="rule-body" id="rule1">
+      <div class="section-row" onclick="openLegalityModal('r1s1')">
+        <span class="section-num">Section 1</span>
+        <span class="section-name">General</span>
+        <span class="section-video-count no-videos" id="vc-r1s1">0 videos</span>
+        <span class="section-arrow">›</span>
+      </div>
+      <div class="section-row" onclick="openLegalityModal('r1s2')">
+        <span class="section-num">Section 2</span>
+        <span class="section-name">Sportsmanship</span>
+        <span class="section-video-count no-videos" id="vc-r1s2">0 videos</span>
+        <span class="section-arrow">›</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- RULE 2 -->
+  <div class="rule-block">
+    <div class="rule-header rule-2" onclick="toggleRule('rule2')">
+      <span class="rule-num rule-2">Rule 2</span>
+      <span class="rule-title">Cheer</span>
+      <span class="rule-toggle" id="tog-rule2">▾</span>
+    </div>
+    <div class="rule-body" id="rule2">
+      <div class="section-row" onclick="openLegalityModal('r2s1')">
+        <span class="section-num">Section 1</span>
+        <span class="section-name">Cheerleader Apparel / Accessories</span>
+        <span class="section-video-count no-videos" id="vc-r2s1">0 videos</span>
+        <span class="section-arrow">›</span>
+      </div>
+      <div class="section-row" onclick="openLegalityModal('r2s2')">
+        <span class="section-num">Section 2</span>
+        <span class="section-name">Stunting Personnel</span>
+        <span class="section-video-count no-videos" id="vc-r2s2">0 videos</span>
+        <span class="section-arrow">›</span>
+      </div>
+      <div class="section-row" onclick="openLegalityModal('r2s3')">
+        <span class="section-num">Section 3</span>
+        <span class="section-name">Inversions</span>
+        <span class="section-video-count no-videos" id="vc-r2s3">0 videos</span>
+        <span class="section-arrow">›</span>
+      </div>
+      <div class="section-row" onclick="openLegalityModal('r2s4')">
+        <span class="section-num">Section 4</span>
+        <span class="section-name">Non-Release Stunts</span>
+        <span class="section-video-count no-videos" id="vc-r2s4">0 videos</span>
+        <span class="section-arrow">›</span>
+      </div>
+      <div class="section-row" onclick="openLegalityModal('r2s5')">
+        <span class="section-num">Section 5</span>
+        <span class="section-name">Release Stunts / Tosses</span>
+        <span class="section-video-count no-videos" id="vc-r2s5">0 videos</span>
+        <span class="section-arrow">›</span>
+      </div>
+      <div class="section-row" onclick="openLegalityModal('r2s6')">
+        <span class="section-num">Section 6</span>
+        <span class="section-name">Suspended Stunts</span>
+        <span class="section-video-count no-videos" id="vc-r2s6">0 videos</span>
+        <span class="section-arrow">›</span>
+      </div>
+      <div class="section-row" onclick="openLegalityModal('r2s7')">
+        <span class="section-num">Section 7</span>
+        <span class="section-name">Dismounts</span>
+        <span class="section-video-count no-videos" id="vc-r2s7">0 videos</span>
+        <span class="section-arrow">›</span>
+      </div>
+      <div class="section-row" onclick="openLegalityModal('r2s8')">
+        <span class="section-num">Section 8</span>
+        <span class="section-name">Tumbling</span>
+        <span class="section-video-count no-videos" id="vc-r2s8">0 videos</span>
+        <span class="section-arrow">›</span>
+      </div>
+      <div class="section-row" onclick="openLegalityModal('r2s9')">
+        <span class="section-num">Section 9</span>
+        <span class="section-name">Drops</span>
+        <span class="section-video-count no-videos" id="vc-r2s9">0 videos</span>
+        <span class="section-arrow">›</span>
+      </div>
+      <div class="section-row" onclick="openLegalityModal('r2s10')">
+        <span class="section-num">Section 10</span>
+        <span class="section-name">Props</span>
+        <span class="section-video-count no-videos" id="vc-r2s10">0 videos</span>
+        <span class="section-arrow">›</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER NOTE -->
+  <div style="margin-top:32px;padding:16px 20px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);border-radius:8px;display:flex;align-items:center;gap:14px;font-size:13px;color:rgba(255,255,255,0.7);line-height:1.6;">
+    <span style="font-size:22px;flex-shrink:0;">📧</span>
+    <span>Have a video example to contribute or a skill you'd like clarification on? Submit it to the VHSL Cheer Officials — we'll review and add them to this module.&nbsp;&nbsp;
+      <a href="mailto:TheNVCOA@gmail.com" style="color:var(--gold);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.4);" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.4)'">TheNVCOA@gmail.com</a>
+    </span>
+  </div>
+
+  <div class="nav-buttons">
+    <button class="btn btn-secondary" onclick="switchTab('majority', document.querySelectorAll('.tab-btn')[3])">← Majority Rules</button>
+  </div>
+</div>
+
+</div><!-- /main-wrap -->
+
+<!-- ══════════════════════════════════════ -->
+<!-- MODAL                                  -->
+<!-- ══════════════════════════════════════ -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModalOutside(event)">
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <div>
+        <div class="modal-range-badge" id="modal-badge">—</div>
+        <div class="modal-skill-name" id="modal-skill-name">Skill Name</div>
+        <div class="modal-category" id="modal-category">Category</div>
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-notes" id="modal-notes">
+        <div class="modal-notes-title">📋 Judging Notes</div>
+        <div id="modal-notes-text"></div>
+      </div>
+      <div class="modal-videos-title">
+        Video Examples
+        <span class="video-count-badge" id="modal-video-count">0</span>
+      </div>
+      <div class="videos-grid" id="modal-videos-grid"></div>
+    </div><!-- /modal-body -->
+  </div>
+</div>
+
+<script>
+// ── TAB SWITCHING ──
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  if (btn) btn.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── RANGE FILTER ──
+// ── RANGE FILTER (multi-select toggle) ──
+let activeRanges = new Set();
+
+function filterRange(range) {
+  const cells = document.querySelectorAll('.skill-cell:not(.empty)');
+  const legends = document.querySelectorAll('.legend-item');
+
+  if (range === 'all') {
+    activeRanges.clear();
+    cells.forEach(c => c.style.opacity = '1');
+    legends.forEach(l => { l.classList.remove('dimmed'); l.classList.remove('selected'); });
+    return;
+  }
+
+  // Toggle this range in/out of the active set
+  if (activeRanges.has(range)) {
+    activeRanges.delete(range);
+  } else {
+    activeRanges.add(range);
+  }
+
+  // If nothing selected, show everything
+  if (activeRanges.size === 0) {
+    cells.forEach(c => c.style.opacity = '1');
+    legends.forEach(l => { l.classList.remove('dimmed'); l.classList.remove('selected'); });
+    return;
+  }
+
+  // Apply opacity based on active set
+  cells.forEach(c => {
+    const active = [...activeRanges].some(r => c.classList.contains('range-' + r));
+    c.style.opacity = active ? '1' : '0.12';
+  });
+
+  // Update legend states
+  legends.forEach(l => {
+    const isShowAll = !l.classList.toString().includes('legend-') || l.onclick?.toString().includes("'all'");
+    if (l.getAttribute('onclick') === "filterRange('all')") {
+      l.classList.remove('selected');
+      l.classList.remove('dimmed');
+      return;
+    }
+    const ranges = ['beginner','intermediate','advanced','elite','superelite'];
+    const matchingRange = ranges.find(r => l.classList.contains('legend-' + r));
+    if (matchingRange) {
+      l.classList.toggle('selected', activeRanges.has(matchingRange));
+      l.classList.toggle('dimmed', !activeRanges.has(matchingRange));
+    }
+  });
+}
+
+// ── SKILL DATA ──
+// Each entry: { name, category, range, rangeColor, notes, videos: [{url, label}] }
+// videos url format: "https://drive.google.com/file/d/FILE_ID/preview"
+const skills = {
+  // ── STUNT: INVERSIONS ──
+  'inv-beg-1': { name: 'Below Prep Level Inversions to Ground', category: 'Stunts — Inversion Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer\'s shoulders must be below the waist to constitute an inversion. Examples include Yo-Yo and Back Walkover. These land to the performing surface (ground level).', videos: [] },
+  'inv-beg-2': { name: 'Non-Release Inversions — Prep to Prep or Below Prep', category: 'Stunts — Inversion Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer remains in contact with base(s)/spotter throughout. Flyer goes through an inverted position but does not release.', videos: [
+      { url: "https://drive.google.com/file/d/12snlzojx6HRgrHPEmayY0U18aowvXvtI/preview", label: 'Non-Release Inversion Below Prep to Prep' },
+      { url: "https://drive.google.com/file/d/1XU3R9xi6samDa-uTB0AKpZn-9XKzCYQl/preview", label: 'Non-Release Inversion Below Prep to Prep' },
+      { url: "https://drive.google.com/file/d/1w_V8vkPWAO45OSSlf3OrumrGB4YH0L8A/preview", label: 'Non-Release Inversion Below Prep to Prep' },
+      { url: "https://drive.google.com/file/d/1sZKGSc5Y9T7nJptOQmsTrck1evpVclEw/preview", label: 'Non-Release Inversion Prep to Prep' }
+    ] },
+  'inv-beg-3': { name: 'Non-Release Twisting Inversions — Prep to Below Prep', category: 'Stunts — Inversion Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Includes a twist component while inverted, but does not release. Lands at below prep level.', videos: [] },
+  'inv-beg-4': { name: 'Released Twisting Inversions — Prep to Below Prep', category: 'Stunts — Inversion Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer briefly releases from all bases while inverted and twisting. Caught at below prep level.', videos: [] },
+  'inv-beg-5': { name: 'Released Inversions — Prep to Below Prep', category: 'Stunts — Inversion Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer releases from bases while inverted (no twist) and is caught at below prep level.', videos: [] },
+ /////    
+  'inv-int-1': { name: 'Suspended Forward Roll Variations & Inversions', category: 'Stunts — Inversion Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Examples: Pancake, Cartwheel Dismount. Flyer is suspended by bases while performing a roll or cartwheel-type movement towards the performance surface. Flyer passes through inverted position.', videos: [
+      { url: "https://drive.google.com/file/d/19_LhS7ePVpqZHEn7KBnSocsZAeDphzCn/preview", label: 'Suspended Forward Roll Variations & Inversions (Pancake)' },
+      { url: "https://drive.google.com/file/d/1PqHde6zf_Ew4TuHVPpgxSc7reR8uQg4C/preview", label: 'Suspended Forward Roll Variations & Inversions (Pancake)' }
+    ] },
+  'inv-int-2': { name: 'Non-Release Inversions — Prep to Extended/IBP/ABP', category: 'Stunts — Inversion Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Flyer stays connected throughout, passing through inversion from prep level and landing at extension or in an IBP/ABP. No release occurs.', videos: [
+      { url: "https://drive.google.com/file/d/1EGdQAoF82Fv_eqgel152-plaoHE2Pr1d/preview", label: 'Non-Release Inversion Below Prep to Extended IBP' },
+      { url: "https://drive.google.com/file/d/1Tu03ohI5Sb_pLulxz_8ZvcZaXYVb0K7L/preview", label: 'Non-Release Inversion Below Prep to Extended' },
+      { url: "https://drive.google.com/file/d/1e_FX-jMEQ_CiH6k4tZxsBFhsBQVfdRke/preview", label: 'Non-Release Inversion Below Prep to Extended' },
+      { url: "https://drive.google.com/file/d/1_aGX1UNEz45aLeZcZcW7pEayNrdMxjrW/preview", label: 'Non-Release Inversion Prep Level to Extended ABP' }
+    ] },
+  'inv-int-3': { name: 'Non-Release Twisting Inversions — Prep to Prep', category: 'Stunts — Inversion Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Twist occurs while inverted; no release. Lands at prep level.', videos: [
+      { url: "https://drive.google.com/file/d/168da_Cj_U5NlLhMQw5PXdtcgPElJph3y/preview", label: 'Non-Release Twisting Inversion Below Prep to Prep' },
+      { url: "https://drive.google.com/file/d/1CZWMOJzt1WyFI0MT31dl9GXAHXVQFUYT/preview", label: 'Non-Release Twisting Inversion Below Prep to Prep' },
+      { url: "https://drive.google.com/file/d/1ixwuNa4GuxO4NQLJduJtXd4HUOb9igeS/preview", label: 'Non-Release Twisting Inversion Below Prep to Prep' }
+    ] },
+  'inv-int-4': { name: 'Released Twisting Inversions — Prep to Prep', category: 'Stunts — Inversion Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Flyer releases while inverted and twisting. Caught at prep level.', videos: [
+      { url: "https://drive.google.com/file/d/1ieK65sLzzB8gvDK-aDVK1jJEaOwdLWRR/preview", label: 'Released Inversion Below Prep to Prep ABP' },
+      { url: "https://drive.google.com/file/d/1wCgXE6vl1-vfrbsNvawr7K4EFE93PyUO/preview", label: 'Released Inversion Below Prep to Prep ABP' }
+    ] },
+  'inv-int-5': { name: 'Released Inversions — Prep to Prep', category: 'Stunts — Inversion Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Flyer releases while inverted (no twist) and is caught at prep level.', videos: [
+      { url: "https://drive.google.com/file/d/1_f1jU1dKeDQoM989sPo4KPrgIPimZ9V8/preview", label: 'Released Twisting Inversion Below Prep to Prep' }
+    ] },
+ /////    
+  'inv-adv-1': { name: 'Non-Release Twisting Inversions — Prep to Extended/IBP/ABP', category: 'Stunts — Inversion Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Flyer twists while inverted without releasing, landing at extended level — potentially in an IBP or ABP. Continuous momentum required if going to ABP.', videos: [] },
+  'inv-adv-2': { name: 'Released Inverted — Low to High to Extended IBP/ABP', category: 'Stunts — Inversion Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Flyer is inverted with one foot in hands (bent at hips). Bases dip; flyer brings chest up while switching feet, caught upright at extended in IBP or ABP.', videos: [
+      { url: "https://drive.google.com/file/d/1HtecfWt8pvEyFOxEtcCrgWJRIXU93X3O/preview", label: 'Released Inverted Low to High to Extended IBP' }
+    ] },
+  'inv-adv-3': { name: 'Released Inversions — Prep to Extended', category: 'Stunts — Inversion Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Flyer releases from all bases while inverted from prep level, caught upright at extended level. No twist component.', videos: [
+      { url: "https://drive.google.com/file/d/1PSCJlpAvGpMX6_3xErGBZ1BAU46UkkoD/preview", label: 'Released Inversion Below Prep to Extended' },
+      { url: "https://drive.google.com/file/d/1ce3auRndZzrio5mNQPmFFPPP02GT_BQJ/preview", label: 'Released Inversion Below Prep to Extended' },
+      { url: "https://drive.google.com/file/d/1OHnRz3dITerMEK7ZECS-yKN2sCLIXtPy/preview", label: 'Released Inversion Prep Level to Extended' },
+      { url: "https://drive.google.com/file/d/1xyKIr9lvfpPRHNBeAC1lmWC783JIzHR1/preview", label: 'Released Inversion Prep Level to Extended' }
+    ] },
+ /////    
+  'inv-eli-1': { name: 'Released ¼, ½ or ¾ Twisting Inverted — Low to High to Extended IBP/ABP', category: 'Stunts — Inversion Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Flyer is inverted in a low to high position and performs ¼, ½, or ¾ twist during the release, landing at extended IBP/ABP. Majority of rotation must be completed by the flyer for ½ or ¾ twist.', videos: [
+      { url: "https://drive.google.com/file/d/1xCIZuNOAM6dhAiMZpTuh7I61HXnI4Ucc/preview", label: 'Released 1/2 Twisting Inverted Low to High to Extended ABP' }
+    ] },
+  'inv-eli-2': { name: 'Released Inversions — Prep to Extended IBP/ABP', category: 'Stunts — Inversion Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Released from all bases from inverted at prep level, then caught at extended in an IBP or ABP position.', videos: [
+      { url: "https://drive.google.com/file/d/1dyVMd5yBnkYz_7aisrTWLbnvs28A8Jy4/preview", label: 'Released Inversion Below Prep to Extended ABP' },
+      { url: "https://drive.google.com/file/d/1qH7o2IIuj9pCh_j965Da4d22c5KWjTVx/preview", label: 'Released Inversion Prep Level to Extended ABP' },
+      { url: "https://drive.google.com/file/d/1tJHRr1aHw0tFxcaK4oJxwizv1K_cjsRh/preview", label: 'Released Inversion Prep Level to Extended ABP' },
+      { url: "https://drive.google.com/file/d/1Gz-0SHB6KbAm3RS9KGjxJrnSl2ZauaQD/preview", label: 'Released Inversion Prep Level to Extended IBP' },
+      { url: "https://drive.google.com/file/d/1Usc0JDfj9wLKI2Lwzagk_s2F7doUtRAs/preview", label: 'Released Inversion Prep Level to Extended IBP' }
+    ] },
+  'inv-eli-3': { name: 'Released ¼, ½ or ¾ Twisting Inversions — Prep to Extended', category: 'Stunts — Inversion Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Less than full twisting inversion released from prep level, caught at extended. Majority of rotation must be completed by the flyer.', videos: [
+      { url: "https://drive.google.com/file/d/1sKswhfIrz_q0q4R39sGzVKda67gZR5NY/preview", label: 'Released 1/2 Twisting Inversion Below Prep to Extended' },
+      { url: "https://drive.google.com/file/d/1PNF3LmqCULmm5IBofk7y_NyoZCBWuCRz/preview", label: 'Released 1/2 Twisting Inversion Below Prep to Extended' },
+      { url: "https://drive.google.com/file/d/1Ywpk_n-K28pN0qG_4TDlw2piMUtxtciP/preview", label: 'Released 1/2 Twisting Inversion Prep Level to Extended' },
+      { url: "https://drive.google.com/file/d/1t0A7z2a9050TljBLSpGiuPKTnKaVUr4K/preview", label: 'Released 3/4 Twisting Inversion Prep Level to Extended' }
+    ] },
+  /////   
+  'inv-se-1': { name: 'Released Full Twisting Inverted — Low to High to Extended IBP/ABP', category: 'Stunts — Inversion Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Full 360° twist during release from inverted low to high position, caught at extended IBP/ABP. Majority of rotation must be by the flyer.', videos: [] },
+  'inv-se-2': { name: 'Released ¼, ½ or ¾ Twisting Inversions — Prep to Extended IBP/ABP', category: 'Stunts — Inversion Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Less than full twisting inversion from prep level landing in extended IBP/ABP.', videos: [] },
+  'inv-se-3': { name: 'Released Full Twisting Inversions — Prep to Extended/IBP/ABP', category: 'Stunts — Inversion Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Full 360° twist inversion from prep level to extended level, which may include IBP/ABP.', videos: [
+      { url: "https://drive.google.com/file/d/1F5tLpuXBsUe6WDNTnNqt7-5n9cgxE6T7/preview", label: 'Released Full Twisting Inversion Below Prep to Extended ABP' },
+      { url: "https://drive.google.com/file/d/1fileNmY6gikdun0PHIrG_YAUcVHZF1td/preview", label: 'Released Full Twisting Inversion Below Prep to Extended' }
+    ] },
+
+  // ── STUNT: RELEASE ──
+  'rel-beg-1': { name: 'Below Prep Release to Below Prep', category: 'Stunts — Release Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Basic release from below prep level, caught at below prep.', videos: [] },
+  'rel-beg-2': { name: 'Release to Below Prep', category: 'Stunts — Release Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer is released (Quick Toss or Ball-Up style) and caught at below prep.', videos: [] },
+  'rel-beg-3': { name: 'Extended Release to Below Prep', category: 'Stunts — Release Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer releases from an extended position and is caught at below prep level.', videos: [] },
+  'rel-beg-4': { name: 'Horizontal Release to Below Prep', category: 'Stunts — Release Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer is horizontal (body parallel to floor) during the release and caught at below prep.', videos: [] },
+  'rel-beg-5': { name: 'Twisting Release to Below Prep', category: 'Stunts — Release Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer twists during a release and is caught at below prep level. Any amount of twist qualifies.', videos: [] },
+ /////    
+  'rel-int-1': { name: 'Prep Level Release to Prep', category: 'Stunts — Release Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Flyer releases from prep and is caught at prep level. No twisting or inversion.', videos: [
+      { url: "https://drive.google.com/file/d/1A9YOFO2614GKKzMXe22Awk58C1jJaRmH/preview", label: 'Prep Level Release to Prep' }
+    ] },
+  'rel-int-2': { name: 'Release to Prep', category: 'Stunts — Release Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Basic release (Quick Toss, Ball-Up style) caught at prep level. No twist required.', videos: [] },
+  'rel-int-3': { name: 'Extended Release to Prep Level', category: 'Stunts — Release Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Flyer releases from extended and is caught at prep level. No twist required.', videos: [] },
+  'rel-int-4': { name: 'Horizontal Release to Prep', category: 'Stunts — Release Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Flyer is horizontal prior to the release, then caught at prep level.', videos: [] },
+  'rel-int-5': { name: 'Switch Up to Prep IBP/ABP', category: 'Stunts — Release Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Flyer switches from one foot to the other during a release from ground/load, landing at prep level in an IBP or ABP.', videos: [
+      { url: "https://drive.google.com/file/d/1NxvbR2QEi90499XLeo7M3BEgWSd6gi4t/preview", label: 'Switch Up to Prep ABP' },
+      { url: "https://drive.google.com/file/d/1uRQ6C_ACjvMlGrbG0LUDtLD1u-uLl0xW/preview", label: 'Switch Up to Prep ABP' }
+    ] },
+  'rel-int-6': { name: 'Prep Level Low to Low (Tic Toc)', category: 'Stunts — Release Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Classic Tic Toc: flyer releases from one foot to the other at prep level. Bases stay at prep throughout. No height change.', videos: [] },
+  'rel-int-7': { name: 'Twisting Release to Prep Level', category: 'Stunts — Release Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Flyer twists during a release and is caught at prep level. Any amount of twist.', videos: [] },
+ /////    
+  'rel-adv-1': { name: 'Prep Level Release to Extended', category: 'Stunts — Release Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Flyer releases from prep level and is caught at extension.', videos: [] },
+  'rel-adv-2': { name: 'Release to Extended', category: 'Stunts — Release Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Basic release (Quick Toss, Ball-Up style) caught at extended level. No twist.', videos: [
+      { url: "https://drive.google.com/file/d/1vsi40WaeQQFkdH1BV_wqiUxuKA4brCnd/preview", label: 'Release to Extended (Ball Up)' }
+    ] },
+  'rel-adv-3': { name: 'Extended Release to Prep Level IBP', category: 'Stunts — Release Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Flyer releases from extended and is caught at prep level in an IBP (lib, hitch, torch).', videos: [
+      { url: "https://drive.google.com/file/d/138k4gVFnpeeVpR7-TybEy0geObyaJ-zC/preview", label: 'Extended Release to Prep Level ABP' },
+      { url: "https://drive.google.com/file/d/1exyaE_vFIJU7gYwSNNMoFn8orVc_1M9j/preview", label: 'Extended Release to Prep Level ABP' }
+    ] },
+   'rel-adv-4': { name: 'Horizontal Release to Extended', category: 'Stunts — Release Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Flyer is horizontal (body parallel to floor) in the hands of bases then released to be caught at extended level.', videos: [
+      { url: "https://drive.google.com/file/d/1X6eH7uaJ96tmtmqU5pw_NYUz7ErzZ3ZW/preview", label: 'Horizontal Release to Extended' },
+      { url: "https://drive.google.com/file/d/1yetbuJbkNiAetv3VTmEbH2bgSLtRyhOk/preview", label: 'Horizontal Release to Extended' }
+    ] },
+  'rel-adv-5': { name: 'Switch Up to Extended IBP/ABP', category: 'Stunts — Release Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Flyer switches feet during a release from ground/load, landing at extended level in an IBP or ABP.', videos: [
+      { url: "https://drive.google.com/file/d/1TXUM0NQI04-C8n4ydgUxrXWEA8ZEirEs/preview", label: 'Switch Up to Extended IBP' }
+    ] },
+  'rel-adv-6': { name: '¼, ½ or ¾ Twist Switch Up to Extended IBP', category: 'Stunts — Release Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Less than full twist switch-up landing at extended in an IBP. Majority of rotation must be by the flyer (exception: ¼).', videos: [] },
+    'rel-adv-7': { name: 'Low to High to IBP/ABP', category: 'Stunts — Release Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Flyer releases from IBP or ABP at prep level to extended, landing in an IBP or ABP.', videos: [
+      { url: "https://drive.google.com/file/d/1QCbdU3z9AuBUYSLSNBW3mSgQ-qzHrtT2/preview", label: 'Low to High to ABP' }
+    ] },
+  'rel-adv-8': { name: '¼, ½ or ¾ Twist Low to High to IBP', category: 'Stunts — Release Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Low to high release with a less than full twist, landing in an IBP at extended.', videos: [
+      { url: "https://drive.google.com/file/d/1zC0hhTCr508l-hYeVVzuou_-vpHdX1Oj/preview", label: '1/2 Twist Low to High to IBP' },
+      { url: "https://drive.google.com/file/d/1O7QkXJAwy6mHHwt5gSRAviOSY7hp4u2m/preview", label: '1/2 Twist Low to High to IBP' }
+    ] },
+ /////   
+  'rel-eli-1': { name: '¼, ½ or ¾ Twist Release to Extended', category: 'Stunts — Release Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Less than full twist (Quick Toss or Ball-Up style) from any level to extended. Majority of rotation by flyer (exception: ¼ release). Score increases with more rotation.', videos: [
+      { url: "https://drive.google.com/file/d/1QpalBOrfX_kg3zGO_zR5dguUwq9SrEK2/preview", label: '1/2 Twist Release to Extended (Ball Up to ABP)' },
+      { url: "https://drive.google.com/file/d/1eLTHyVXuk7GE6GFUUNgHcRqvHeOKz739/preview", label: '1/2 Twist Release to Extended (Ball Up)' }
+    ] },
+  'rel-eli-2': { name: 'Full Twisting Switch Up to Extended IBP', category: 'Stunts — Release Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Full 360° switch-up release landing in an IBP at extended. Modified versions scored lower in range.', videos: [] },
+  'rel-eli-3': { name: 'Full Twisting Switch Up to Extended IBP', category: 'Stunts — Release Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Full 360° switch up landing in an IBP (lib, hitch, torch) at extended. Modified/variation versions scored lower in range. Majority of rotation must be by flyer.', videos: [
+      { url: "https://drive.google.com/file/d/1Txd2maNu1y3h2ZpvEFSahHWISoMqN3qP/preview", label: 'Full Twisting Switch Up to Extended IBP' }
+    ] },
+  'rel-eli-4': { name: '¼, ½ or ¾ Twist Switch Up to Extended ABP', category: 'Stunts — Release Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Less than full twist switch-up landing at extended in an ABP.', videos: [] },
+  'rel-eli-5': { name: '¼, ½ or ¾ Twist Low to High to ABP', category: 'Stunts — Release Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Low to high release with less than full twist, landing in an ABP at extended.', videos: [] },
+  'rel-eli-6': { name: 'High to High (IBP to IBP or IBP to ABP)', category: 'Stunts — Release Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Flyer releases from extended IBP and is caught in another IBP, or transitions from IBP to ABP at extended.', videos: [
+      { url: "https://drive.google.com/file/d/1zdPfy5kWrw0roRobionGUh7oLL5f4Slv/preview", label: 'High to High IBP to ABP' },
+      { url: "https://drive.google.com/file/d/1FRXBj4QoGwF5_Ytfx011SKqjZsu7kPG6/preview", label: 'High to High IBP to IBP' }
+    ] },
+  'rel-eli-7': { name: '¼ Twist High to High to IBP/ABP', category: 'Stunts — Release Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Quarter twist during a high-to-high transition, catching in IBP or ABP at extended.', videos: [] },
+ /////    
+  'rel-se-1': { name: 'Full Twisting Release to Extended', category: 'Stunts — Release Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Full 360° twist release caught at extended level. Examples: Full Twist Quick Toss, Full Twist Ball-Up.', videos: [
+      { url: "https://drive.google.com/file/d/1PA29ymAbvqWJJMA5sKqVi6-fxFT_fmig/preview", label: 'Full Twisting Release to Extended IBP (Ball Up)' },
+      { url: "https://drive.google.com/file/d/17CT5gnVBF40kG-n5kVuGi2Z_SRatN6EF/preview", label: 'Full Twisting Release to Extended (Prep Full Around)' },
+      { url: "https://drive.google.com/file/d/1xIeVBaHK2fCr4mw5QUm9-wFrpj44RUR5/preview", label: 'Full Twisting Release to Extended (Quick Toss)' }
+    ] },
+  'rel-se-2': { name: 'Horizontal Twisting Release to Extended', category: 'Stunts — Release Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Flyer is horizontal prior to and twists during the release, caught at extended.', videos: [
+      { url: "https://drive.google.com/file/d/1Mkd2hYOZYLd0val8RSArKGXw5TxOtLfL/preview", label: 'Horizontal Twisting Release to Extended' },
+      { url: "https://drive.google.com/file/d/1XrK-vMM7cUexEkTKTm_59PF4lu52x7DR/preview", label: 'Horizontal Twisting Release to Extended' }
+    ] },
+  'rel-se-3': { name: 'Full Twisting Switch Up to Extended ABP', category: 'Stunts — Release Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Full 360° switch-up release landing in an ABP at extended.', videos: [
+      { url: "https://drive.google.com/file/d/1AIlHsJkHBkb4H2G7kjJyB-lI8_QfQT-X/preview", label: 'Full Twisting Switch Up to Extended ABP' }
+    ] },
+  'rel-se-4': { name: 'High to High (ABP to ABP)', category: 'Stunts — Release Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Flyer releases from an extended ABP position and is caught directly into another extended ABP. Momentum from ABP to ABP through the release must be continuous without pause.', videos: [
+      { url: "https://drive.google.com/file/d/16lSwnnh6sBn7SVTUH2P7NEKJ9kIxTDeN/preview", label: 'High to High (ABP to ABP)' },
+      { url: "https://drive.google.com/file/d/1RaUIReOWSfmNR908njsn53ILSj00T0Nq/preview", label: 'High to High (ABP to ABP)' }
+    ] },
+  'rel-se-5': { name: 'Full Twisting Low to High to IBP/ABP', category: 'Stunts — Release Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Full 360° twist during a low-to-high release, landing in IBP or ABP at extended.', videos: [
+      { url: "https://drive.google.com/file/d/1iwCcHUlC_lZIw2B_PkM4SB_A3YGiBR9j/preview", label: 'Full Twisting Low to High to ABP' },
+      { url: "https://drive.google.com/file/d/1sE28b0BahCJdnYEpMTqsppUUQepLTl6Z/preview", label: 'Full Twisting Low to High to ABP' }
+    ] },
+  'rel-se-6': { name: '½ or ¾ Twist High to High to IBP/ABP', category: 'Stunts — Release Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: '½ or ¾ twist during a high-to-high transition, catching in IBP or ABP.', videos: [] },
+  'rel-se-7': { name: 'Full Twisting High to High to IBP/ABP', category: 'Stunts — Release Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Full 360° twist during a high-to-high transition, catching in IBP or ABP.', videos: [] },
+
+  // ── STUNT: TWISTING ──
+  'twi-beg-1': { name: '¼ or ½ Up to Prep Level', category: 'Stunts — Twisting Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Quarter or half twist loading skill up to prep level.', videos: [] },
+  'twi-beg-2': { name: '¼ Up to Extended', category: 'Stunts — Twisting Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Quarter turn loading skill up to extended level.', videos: [] },
+  'twi-beg-3': { name: '¼ or ½ Twisting Transitions', category: 'Stunts — Twisting Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Quarter or half twist during a transition between skills.', videos: [] },
+ /////  
+  'twi-int-1': { name: 'Full Up to Prep Level', category: 'Stunts — Twisting Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Full 360° rotation during load up to prep level. Modified versions (bases walking stunt around) scored lower in range. Majority of rotation must be by flyer.', videos: [
+      { url: "https://drive.google.com/file/d/1c6aZoIpKP-iGAUrIgQWoSDhEvbaA3VX1/preview", label: 'Full Up to Prep Level' },
+      { url: "https://drive.google.com/file/d/1vcQCm-fbsb59ZqPoo6Iln4X1IhMmyR82/preview", label: 'Full Up to Prep Level' }
+    ] },
+  'twi-int-2': { name: '½ or ¾ Up to Extended', category: 'Stunts — Twisting Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Half or three-quarter twist loading skill up to extended.', videos: [] },
+  'twi-int-3': { name: '¾ or Full Twisting Transitions', category: 'Stunts — Twisting Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Three-quarter or full twist during a transition.', videos: [
+      { url: "https://drive.google.com/file/d/1vK8iKY6y5Nk_rx5MsIWQpB8VFqnOeh10/preview", label: '1.5 Twisting Transitions' },
+      { url: "https://drive.google.com/file/d/1i7KKk_k0YsyU-TkMmOqGhrDRDkPcACC5/preview", label: 'Full Twisting Transitions' },
+      { url: "https://drive.google.com/file/d/17BUpXr1Y_MFWzcAicwYifG1GgRbdLxPC/preview", label: 'Hands Full Around to Prep Level' }
+    ] },
+ /////  
+   'twi-adv-1': { name: 'Full Up to Extended', category: 'Stunts — Twisting Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Full 360° rotation loading up to extended level. Modified versions scored lower in range. Majority of rotation must be by flyer.', videos: [
+      { url: "https://drive.google.com/file/d/1q2d0cIqLezck_Yv4koGrsJsgOngFbcbM/preview", label: 'Full Up to Extended' }
+    ] },
+  'twi-adv-2': { name: 'Hands Full Around to Extended Hands', category: 'Stunts — Twisting Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Full 360° rotation while moving from prep level to extended. Majority of rotation must be by flyer. Modified versions scored lower in range.', videos: [
+      { url: "https://drive.google.com/file/d/1bq4phs0vriYWTRnQ3v3fr0yg7eIwTrcV/preview", label: 'Hands Full Around to Extended (Modified)' },
+      { url: "https://drive.google.com/file/d/1pu8Gg48eN-kUBMXSpANUELmX1aSL76Y9/preview", label: 'Hands Full Around to Extended (Modified)' },
+      { url: "https://drive.google.com/file/d/11sJ2pABOHHFwCAiFWTRclZNbwsDNi-lO/preview", label: 'Hands Full Around to Extended' }
+    ] },
+ /////  
+  'twi-eli-1': { name: '1½ Up to Extended', category: 'Stunts — Twisting Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'One and a half rotations during the transition from load/ground to extended level.', videos: [
+      { url: "https://drive.google.com/file/d/1-Ofrn3DY_YlNlSozAbxKS_LhJB_Pg5RH/preview", label: '1.5 Up to Extended ABP' },
+      { url: "https://drive.google.com/file/d/129vaVhh-bTRHTAZrBuAOypyLOYHKCXTI/preview", label: '1.5 Up to Extended IBP' }
+    ] },
+  'twi-eli-2': { name: 'Hands 1½ Around to Extended Hands', category: 'Stunts — Twisting Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'One and a half rotations while moving from prep level to extended. No release and foot or feet of flyer remain in the hands of base(s) throughout. Majority of rotation must be by flyer. Modified versions scored lower in range.', videos: [
+      { url: "https://drive.google.com/file/d/1v0TzWJShzEM_T1zZgWJpEzjQE3U1hpki/preview", label: 'Hands 1.5 Around to Extended IBP' },
+      { url: "https://drive.google.com/file/d/1ykyudxatrqNgy4bDzecZUVT1wHcr6qps/preview", label: 'Hands 1.5 Around to Extended IBP' }
+    ] },
+  'twi-eli-3': { name: 'Hands Full Around to Extended IBP/ABP', category: 'Stunts — Twisting Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Full 360° rotation while moving from prep level to extended landing in an IBP or ABP. Majority of rotation must be by flyer. Modified versions scored lower in range.', videos: [
+      { url: "https://drive.google.com/file/d/1FzfAVr3eHARhzWJ66sGREi1G-UMwLp3n/preview", label: 'Hands Full Around to Extended IBP' },
+      { url: "https://drive.google.com/file/d/1IsJ-gpbxmJgbKSxPKSmV1at9uOiwt5hP/preview", label: 'Hands Full Around to Extended IBP' }
+    ] },
+  'twi-eli-4': { name: 'High to High Full Around (Extended to Extended)', category: 'Stunts — Twisting Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Flyer performs a full rotation at extended level and is caught back at extended level again. Majority of rotation must be by flyer. Modified versions scored lower in range.', videos: [
+      { url: "https://drive.google.com/file/d/1kdNxQKNNrgekhuZqDDU5wYqfk_UPiOMA/preview", label: 'High High Full Around Extended to Extended (Modified)' },
+      { url: "https://drive.google.com/file/d/17wOwH1a-yvyR6AvPISgAmkZzxPvkakxk/preview", label: 'High High Full Around Extended to Extended' }
+    ] },
+ /////  
+  'twi-se-1': { name: 'Double Up to Extended', category: 'Stunts — Twisting Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Two full rotations during the transition from load/ground to extended level.', videos: [
+      { url: "https://drive.google.com/file/d/1iSKEi7kIj8HqjgcPXNllaEnKqAj_g9Xr/preview", label: 'Double Up to Extended' }
+    ] },
+  'twi-se-2': { name: 'Hands Double Around to Extended', category: 'Stunts — Twisting Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Two full rotations while moving from prep level to extended. Majority of rotation must be by flyer. Modified versions scored lower in range.', videos: [
+      { url: "https://drive.google.com/file/d/1OhtbC_bTzdBU_e3zAK0hukPzAl2zq9G8/preview", label: 'Hands Double Around to Extended IBP' },
+      { url: "https://drive.google.com/file/d/1oGbCkVow-puoOtNocCVA8XngSQGxQAWf/preview", label: 'Hands Double Around to Extended IBP' }
+    ] },
+  'twi-se-3': { name: 'High to High Full Around to IBP/ABP (Extended to Single Leg)', category: 'Stunts — Twisting Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Full rotation from extension/cupie to extended IBP/ABP. Majority of rotation must be by flyer. Modified versions scored lower in range.', videos: [] },
+  'twi-se-4': { name: 'High to High Full Around to IBP/ABP (Single Leg to Single Leg)', category: 'Stunts — Twisting Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Full rotation from extended IBP/ABP to extended IBP/ABP. Majority of rotation must be by flyer. Modified versions scored lower in range.', videos: [
+      { url: "https://drive.google.com/file/d/15F-MUggqtm4V6ZILuzxtuaakPCxSX155/preview", label: 'High High Full Around ABP to ABP' },
+      { url: "https://drive.google.com/file/d/1OoM0OTBwXxiBt2abb4CdupydNTSdicfF/preview", label: 'High High Full Around ABP to ABP' },
+      { url: "https://drive.google.com/file/d/1tRUUXgmURqnQwt9jDg6g3DicmaKTbAn_/preview", label: 'High High Full Around ABP to ABP' },
+      { url: "https://drive.google.com/file/d/1RMxAJfVTTn2uem8JYcqGeqUYxDe1OzF9/preview", label: 'High High Full Around IBP to IBP' }
+    ] },
+  'twi-se-5': { name: 'High to High 1½ Around', category: 'Stunts — Twisting Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'One and a half rotations in a high-to-high transition.', videos: [
+      { url: "https://drive.google.com/file/d/1-sJZvjP0-x76B8wycIc06QKDr8mANopf/preview", label: 'High High 1.5 Around (Modified)' },
+      { url: "https://drive.google.com/file/d/1BHm5lWbclEfFCFNEjd_m9_4E-A_rMvQB/preview", label: 'High High 1.5 Around' }
+    ] },
+
+  // ── STUNT: SINGLE BASE ──
+  'sb-beg-1': { name: 'Prep Level Skills (Single Base)', category: 'Stunts — Single Base Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Any static single base stunt at prep level. Must begin from ground/load, maintain single base throughout, and end single based.', videos: [] },
+  'sb-beg-2': { name: 'Walk-In / Toss to Chair (Single Base)', category: 'Stunts — Single Base Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer walks in or is tossed to a chair position with single base support. Must maintain single base throughout.', videos: [] },
+  'sb-beg-3': { name: 'Walk-In / Toss to Hands (Single Base)', category: 'Stunts — Single Base Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer walks in or is tossed to a hands/platform position with single base.', videos: [] },
+ /////
+  'sb-int-1': { name: 'Extension or Cupie (Single Base)', category: 'Stunts — Single Base Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Single base extension or cupie. Flyer is at extended level with single base and required spotter throughout.', videos: [
+      { url: "https://drive.google.com/file/d/1B54zQWBZFzxckkp3zZeXz3lCxJZaBDR5/preview", label: 'Extension or Cupie' },
+      { url: "https://drive.google.com/file/d/1gjXOIs7amDe_aV5Vl1KI4kU0GmK97_GC/preview", label: 'Extension or Cupie' }
+    ] },
+  'sb-int-2': { name: '¼, ½ or ¾ Twist to Prep Level (Single Base)', category: 'Stunts — Single Base Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Less than full twisting loading skill to prep level within a single base group. Majority of rotation must be by the flyer.', videos: [] },
+  'sb-int-3': { name: 'Toss Hands (Single Base)', category: 'Stunts — Single Base Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Flyer is tossed from the ground to a hands/platform position with single base support.', videos: [] },
+  'sb-int-4': { name: 'Walk-In Hands, Press to Extension (Single Base)', category: 'Stunts — Single Base Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Flyer walks in to a hands position and is then pressed up to extension by the single base.', videos: [
+      { url: "https://drive.google.com/file/d/1WNoja5yEODsryLkARVhQ-Kx5J-uOsA0V/preview", label: 'Walk-In Hands, Press to Extension' }
+    ] },
+  'sb-int-5': { name: 'Toss Hands, Press to Extension (Single Base)', category: 'Stunts — Single Base Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Flyer is tossed to hands then pressed to extension.', videos: [
+      { url: "https://drive.google.com/file/d/1kbm5uABsiuZlJPxQkSRHV5cln-CydwNP/preview", label: 'Toss Hands, Press to Extension' }
+    ] },
+  'sb-int-6': { name: 'Switch Up to Extended (Single Base)', category: 'Stunts — Single Base Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Switch-up release within a single base group landing at extended. Must maintain single base from start to finish.', videos: [] },
+ /////
+  'sb-adv-1': { name: 'Extended Single Leg (Single Base)', category: 'Stunts — Single Base Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Single base holding a single leg extended skill (lib, scale, etc.).', videos: [
+      { url: "https://drive.google.com/file/d/12lBpyLu2wJe2ucCUOfoi19g5JQV4Fe-H/preview", label: 'Extended Single Leg' }
+    ] },
+  'sb-adv-2': { name: 'Full Up to Prep Level (Single Base)', category: 'Stunts — Single Base Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Full 360° loading twist to prep level in a single base group. Modified versions scored lower in range.', videos: [] },
+  'sb-adv-3': { name: 'Full Twisting Skills to Extended (Single Base)', category: 'Stunts — Single Base Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Any full twisting skill loading to extended within a single base group. Majority of rotation must be by the flyer. Modified versions scored lower in range.', videos: [
+      { url: "https://drive.google.com/file/d/12keIw2Vb2khEAVa4QSChN-hVZRpeancM/preview", label: 'Full Twisting Skills to Extended' },
+      { url: "https://drive.google.com/file/d/1Xl_JBcGSY1d1UFa9HH2nX5ofvRgQFrM1/preview", label: 'Full Twisting Skills to Extended' }
+    ] },
+  'sb-adv-4': { name: 'Toss Hands, Press to Extended Single Leg (Single Base)', category: 'Stunts — Single Base Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Toss to hands followed by a press to extended single leg.', videos: [
+      { url: "https://drive.google.com/file/d/1R69-_WI9XQW-XsbCkgGBksssQcoPhSH3/preview", label: 'Toss Hands, Press to Extended Single Leg' }
+    ] },
+  'sb-adv-5': { name: 'Walk-In to Extended Single Leg (Single Base)', category: 'Stunts — Single Base Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Flyer walks in directly to extended single leg position with single base support throughout.', videos: [] },
+  'sb-adv-6': { name: 'Toss Extension (Single Base)', category: 'Stunts — Single Base Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Flyer is tossed from the ground directly to a two-foot extension with single base throughout.', videos: [
+      { url: "https://drive.google.com/file/d/1Ilfbs3q_7qnXJyRftE8SB_bjdF6F1mFV/preview", label: 'Toss Extension' },
+      { url: "https://drive.google.com/file/d/1dNXqYmas10826iM7bRfLFendgl_0jE1o/preview", label: 'Toss Extension' }
+    ] },
+  'sb-adv-7': { name: 'Low to High to Extended (Single Base)', category: 'Stunts — Single Base Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Low to high transition within a single base group ending at extended.', videos: [
+      { url: "https://drive.google.com/file/d/1RMPiacU8bZXzxOSkvofEKj9Sq5Tac9y8/preview", label: 'Low to High to Extended' },
+      { url: "https://drive.google.com/file/d/1ZqTVoPY4elkiqHBNrOyGRRy9s-ne55lF/preview", label: 'Low to High to Extended' },
+      { url: "https://drive.google.com/file/d/17oVqqjtduBOvH6vFkbeODi9emk-JVJng/preview", label: 'Low to High to Extended' }
+    ] },
+  ///// 
+  'sb-eli-1': { name: 'Releases to Extended Single Leg (Single Base)', category: 'Stunts — Single Base Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Release transition within a single base group to extended single leg. Skill must maintain single base from start to finish.', videos: [
+      { url: "https://drive.google.com/file/d/1MhDv9BFJz9J_e1NfYzWcs_IgSLHmSaXO/preview", label: 'Releases to Extended Single Leg' },
+      { url: "https://drive.google.com/file/d/1N6rRGKFwEl6QpfFl_NWZerTXUM7PGM-m/preview", label: 'Releases to Extended Single Leg' }
+    ] },
+  'sb-eli-2': { name: '¼ Twist Release to Extended (Single Base)', category: 'Stunts — Single Base Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Quarter twist release within single base group caught at extended.', videos: [] },
+  'sb-eli-3': { name: 'Released Inversion to Prep Level (Single Base)', category: 'Stunts — Single Base Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Inverted release within a single base group, caught upright at prep level.', videos: [] },
+  'sb-eli-4': { name: 'Walk-In to Extended Single Arm (Single Base)', category: 'Stunts — Single Base Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Flyer walks in to a single arm extended position. Only one arm of the base supports at extension.', videos: [
+      { url: "https://drive.google.com/file/d/1Tt4KfsdNSi5NT0V9ocB6rbAEkZPwPFPQ/preview", label: 'Toss Hands, Press to Extended Single Arm' },
+      { url: "https://drive.google.com/file/d/1ehibtENO1uS2LsZ2ZCj_y42E3G9ZN4LG/preview", label: 'Toss Hands, Press to Extended Single Arm' }
+    ] },
+  'sb-eli-5': { name: 'Toss Single Arm Extended (Single Base)', category: 'Stunts — Single Base Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Flyer is tossed to a single arm extended position.', videos: [
+      { url: "https://drive.google.com/file/d/14Oi6mmXaX8Y2LemsP_y7b4Y3-GcTmPGF/preview", label: 'Walk-In (Press) to Extended Single Arm' }
+    ] },
+  'sb-eli-6': { name: 'Toss Extended Single Leg (Single Base)', category: 'Stunts — Single Base Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Flyer is tossed directly to extended single leg with single base support throughout.', videos: [
+      { url: "https://drive.google.com/file/d/1wqnKen6my8cNPVFPCsxZeoo8ibBt2ovr/preview", label: 'Toss Extended Single Leg' }
+    ] },
+  'sb-eli-7': { name: 'High to High to Extended (Single Base)', category: 'Stunts — Single Base Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'High-to-high transition within a single base group landing at extended.', videos: [] },
+  'sb-eli-8': { name: 'Toss Full Up to Prep Level (Single Base)', category: 'Stunts — Single Base Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Flyer is tossed and performs a full rotation up to prep level within a single base group.', videos: [] },
+  ///// 
+  'sb-se-1': { name: '½, ¾, or Full Twisting Releases to Extended (Single Base)', category: 'Stunts — Single Base Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Twisting release within single base group to extended level.', videos: [
+      { url: "https://drive.google.com/file/d/1h9Ue8SqJCO9ouA6mV5Gx0uWtz3wPcKuQ/preview", label: '1/2 Twisting Low to High to Extended' },
+      { url: "https://drive.google.com/file/d/1k9sq4yO-KgP_8UQRUcvJreAxXAiP_5zL/preview", label: 'Full Twisting Low to High to Extended' },
+      { url: "https://drive.google.com/file/d/14fgPs2WghXlnsqGCMFbJPF5kQGLUhJ9s/preview", label: 'Full Twisting Release to Extended' }
+    ] },   
+  'sb-se-2': { name: 'Non-Release Inversions to Extended (Single Base)', category: 'Stunts — Single Base Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Non-release inversion within a single base group landing at extended. Must stay connected throughout.', videos: [] },
+  'sb-se-3': { name: 'Released Twisting Inversion to Extended (Single Base)', category: 'Stunts — Single Base Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Twisting inverted release within a single base group caught upright at extended.', videos: [
+      { url: "https://drive.google.com/file/d/1JYajbHm_hvAo6JxLTptF2USa-DOUseTW/preview", label: 'Full Twisting Inverted Release to Extended (Single Arm)' },
+      { url: "https://drive.google.com/file/d/15Xw4qTo4eCCH3rMlihD_TcbA2TIMBuJ6/preview", label: 'Full Twisting Inverted Release to Extended' }
+    ] },
+  'sb-se-4': { name: 'Twisting Release from Hands to Extended (Single Base)', category: 'Stunts — Single Base Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Flyer twists during a release from a hands position, caught at extended. Must maintain single base throughout.', videos: [
+      { url: "https://drive.google.com/file/d/1DIq1572Qcgkp_5NMeSTXLrmzFsaY_SWY/preview", label: 'Full Twisting Release from Hands to Extended' },
+      { url: "https://drive.google.com/file/d/1C2xf7fRWOTp1ccAfRZtf_NGxAJEZIuS6/preview", label: 'Full Twisting Release from Hands to Extended' },
+      { url: "https://drive.google.com/file/d/1NViCWZQ3M8jCwl_RGR7cfBl7xPe7Yw6v/preview", label: '1/2 Twisting Release from Hands to Extended' }
+    ] },
+  'sb-se-5': { name: 'Toss Extended Single Arm (Single Base)', category: 'Stunts — Single Base Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Flyer is tossed to a single arm extended position.', videos: [
+      { url: "https://drive.google.com/file/d/1tsUnOMVsEPOEAfB4PFYhxtk5RdIck-7I/preview", label: 'Toss Extended Single Arm' }
+    ] },
+  'sb-se-6': { name: 'Released Inversion to Extended (Single Base)', category: 'Stunts — Single Base Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Inverted release within single base group caught upright at extended level.', videos: [
+      { url: "https://drive.google.com/file/d/1LGFqCmgyZJzZ4x3g8T6U-9edTqzoj93I/preview", label: 'Released Inversion to Extended' },
+      { url: "https://drive.google.com/file/d/1chema1MRqF04qOuDIm3kvwtcz8Atk1-1/preview", label: 'Released Inversion to Extended' },
+      { url: "https://drive.google.com/file/d/1mLMVueLnGOKkof_05JcgcENh0HdBbqnj/preview", label: 'Released Inversion to Extended' },
+      { url: "https://drive.google.com/file/d/15whX5mbb1_ETOJHHOgHRqMbvu3EJGZun/preview", label: 'Released Inversion to Extended' }
+    ] },
+  'sb-se-7': { name: 'Toss Full Up to Extended (Single Base)', category: 'Stunts — Single Base Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Flyer is tossed and performs a full rotation up to extended level within a single base group.', videos: [
+      { url: "https://drive.google.com/file/d/16hlilGH3NXTQhWaQ-2fBjY-LV_mjqu_f/preview", label: 'Toss Full Up to Extended' },
+      { url: "https://drive.google.com/file/d/1sbd8_qz4koDV1pbG2c0auJ16ByvNhkyW/preview", label: 'Toss Full Up to Extended' }
+    ] },
+
+  // ── STUNT: OTHER & TOSSES ──
+  'oth-beg-1': { name: 'Prep Level and Below Stunts Not Previously Categorized', category: 'Stunts — Other', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Catch-all for prep and below stunts that don\'t fit other categories. Examples: standard prep, prep lib, shoulder stand, thigh stand.', videos: [] },
+  'oth-int-1': { name: 'Extended Stunts Not Previously Categorized', category: 'Stunts — Other', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Catch-all for extended stunts not listed elsewhere. Examples: extension, cupie, liberty at extended, show n go.', videos: [] },
+  'tos-beg-1': { name: 'Straight Ride Tosses / Pretty Girl', category: 'Stunts — Tosses', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Straight ride = flyer goes up and comes straight down with no skill. Pretty Girl = flyer performs a pose or motion at the top with no skill.', videos: [] },
+  'tos-int-1': { name: 'Single-Skill Tosses', category: 'Stunts — Tosses', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'One skill performed at the top of the toss. Examples: Toe-Touch, Kick, Pike, Full Twist.', videos: [] },
+  'tos-adv-1': { name: 'Multi-Skill Tosses', category: 'Stunts — Tosses', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Two or more skills combined in one toss. Examples: Ball X-Out, Hitch Kick, Kick Kick.', videos: [] },
+  'tos-eli-1': { name: 'Single-Skill Tosses with Full Twist', category: 'Stunts — Tosses', range: 'Elite', rangeColor: 'var(--elite)', notes: 'One skill combined with a full twist. Examples: Ball Full, Kick Full, Full Toe Touch.', videos: [] },
+  'tos-se-1': { name: 'Multi-Skill Tosses with Full Twist', category: 'Stunts — Tosses', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Multiple skills plus a full twist. Examples: Hitch Kick Full, Kick Kick Full.', videos: [] },
+
+  // ── PYRAMID: NON-RELEASED ──
+  'pyr-nr-beg-1': { name: 'Braced Non-Released Transitions (Pyramid)', category: 'Pyramids — Non-Released Transition', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer moves from one position to another while maintaining contact with a base/spotter AND is braced (connected) to another flyer throughout the transition.', videos: [] },
+  'pyr-nr-beg-2': { name: 'Inverted Stunts to Prep Level and Below (Pyramid)', category: 'Pyramids — Non-Released Transition', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Inverted non-release skill within a pyramid, landing at prep level or below.', videos: [] },
+  'pyr-nr-beg-3': { name: 'Intermediate Twisting Stunts (Pyramid)', category: 'Pyramids — Non-Released Transition', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'References the Intermediate range of the Stunt Rubric Twisting Skills section performed within pyramid context.', videos: [] },
+  /////   
+  'pyr-nr-int-1': { name: 'Unbraced Non-Released Transitions (Pyramid)', category: 'Pyramids — Non-Released Transition', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Non-release transition without flyer-to-flyer bracing. Must connect within 2 counts after skill to receive pyramid credit.', videos: [] },
+  'pyr-nr-int-2': { name: 'Inverted Stunts to Extended — 2 Bracers (Pyramid)', category: 'Pyramids — Non-Released Transition', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Inverted non-release skill landing at extended with 2 bracers.', videos: [] },
+  'pyr-nr-int-3': { name: 'Advanced Twisting Stunts (Pyramid)', category: 'Pyramids — Non-Released Transition', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'References the Advanced range of the Stunt Rubric Twisting Skills section performed within pyramid context.', videos: [
+      { url: "https://drive.google.com/file/d/13dSq2X04dQ1XCtK3bW0Uet_fcSNGqRVO/preview", label: 'Advanced Twisting Stunts (Full Up to Extended - Modified)' },
+      { url: "https://drive.google.com/file/d/19Q1EdAuwL_39mCTUDX2npqED-kI3SP9p/preview", label: 'Advanced Twisting Stunts (Hands Full Around to Extended IBP)' },
+      { url: "https://drive.google.com/file/d/19rHFnSaYWfJqVMwOqwoAf18dCPjNHCrV/preview", label: 'Advanced Twisting Stunts (Hands Full Around to Extended IBP)' },
+      { url: "https://drive.google.com/file/d/1pXYCMJ2tQWvRWMUiuuGrHGRkIoGZkz3P/preview", label: 'Advanced Twisting Stunts (Full Up to Extended - Modified)' }
+    ] },
+  'pyr-nr-int-4': { name: 'Intermediate Single Base Stunts (Pyramid)', category: 'Pyramids — Non-Released Transition', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'References the Intermediate range of the Stunt Rubric Single Base Skills section performed within pyramid context.', videos: [] },
+  /////   
+  'pyr-nr-adv-1': { name: 'Inverted Stunts to Extended — 1 Bracer', category: 'Pyramids — Non-Released Transition', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Inverted non-release skill landing at extended with only 1 bracer.', videos: [
+      { url: "https://drive.google.com/file/d/12CaU4IcVUFh2C8MMNphqAAw_Fjik75ri/preview", label: 'Inverted Stunts to Extended (1)' },
+      { url: "https://drive.google.com/file/d/14fHQgfXIgEi7xbJD2CyAm4iQzSmlRBPZ/preview", label: 'Inverted Stunts to Extended (1)' },
+      { url: "https://drive.google.com/file/d/1fBve6jqG9J6sGUiyHcj9C4Gn6Suqi6vv/preview", label: 'Inverted Stunts to Extended (1)' }
+    ] },
+  'pyr-nr-adv-2': { name: 'Twisting Inverted Stunts to Extended — 2 Bracers (Pyramid)', category: 'Pyramids — Non-Released Transition', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Twisting inversion non-release landing at extended with 2 bracers.', videos: [] },
+  'pyr-nr-adv-3': { name: 'Elite Twisting Stunts (Pyramid)', category: 'Pyramids — Non-Released Transition', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'References the Elite range of the Stunt Rubric Twisting Skills section performed within pyramid context.', videos: [
+      { url: "https://drive.google.com/file/d/1VzWlaMpylXhswjNB1ZyuDOxQyRlMK-3l/preview", label: 'Elite Twisting Stunts (1.5 Up to Extended)' },
+      { url: "https://drive.google.com/file/d/1gt097JVJZz3SYPrdIF5kQfS9FPsbuBw5/preview", label: 'Elite Twisting Stunts (Hands 1.5 Around to Extended)' }
+    ] },
+  'pyr-nr-adv-4': { name: 'Advanced Single Base Stunts (Pyramid)', category: 'Pyramids — Non-Released Transition', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'References the Advanced range of the Stunt Rubric Single Base Skills section performed within pyramid context.', videos: [] },
+  ///// 
+  'pyr-nr-eli-1': { name: 'Twisting Inverted Stunts to Extended — 1 Bracer (Pyramid)', category: 'Pyramids — Non-Released Transition', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Twisting inversion non-release landing at extended with only 1 bracer.', videos: [] },
+  'pyr-nr-eli-2': { name: 'Super Elite Twisting Stunts (Pyramid)', category: 'Pyramids — Non-Released Transition', range: 'Elite', rangeColor: 'var(--elite)', notes: 'References the Super Elite range of the Stunt Rubric Twisting Skills section performed within pyramid context.', videos: [
+      { url: "https://drive.google.com/file/d/19uDha8xlLzLOG3agDuZNLbJOMn6c3MkM/preview", label: 'Super Elite Twisting Stunts (Double Up to Extended ABP)' },
+      { url: "https://drive.google.com/file/d/1Y0-66MaeJPBUDx2yZIAPc05frM_1ppGW/preview", label: 'Super Elite Twisting Stunts (High High Full Around Extended to IBP)' }
+    ] },
+  'pyr-nr-eli-3': { name: 'Elite Single Base Stunts (Pyramid)', category: 'Pyramids — Non-Released Transition', range: 'Elite', rangeColor: 'var(--elite)', notes: 'References the Elite range of the Stunt Rubric Single Base Skills section performed within pyramid context.', videos: [] },
+  ///// 
+  'pyr-nr-se-1': { name: 'Super Elite Single Base Stunts (Pyramid)', category: 'Pyramids — Non-Released Transition', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'References the Super Elite range of the Stunt Rubric Single Base Skills section performed within pyramid context.', videos: [] },
+ 
+ // ── PYRAMID: RELEASED TRANSITION  ──
+  'pyr-rel-beg-1': { name: 'Braced Release to Prep or Below (1 or 2 bracers)', category: 'Pyramids — Released Transition', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer releases from all bases/spotters while braced to another flyer. Caught at prep or below.', videos: [] },
+  'pyr-rel-beg-2': { name: 'Braced Release to Extended — 2 Bracers (Pyramid)', category: 'Pyramids — Released Transition', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer releases while braced to 2 other flyers, caught at extended level.', videos: [] },
+  /////   
+  'pyr-rel-int-1': { name: 'Braced Release to Extended — 1 Bracer (Pyramid)', category: 'Pyramids — Released Transition', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Flyer releases while braced to 1 other flyer, caught at extended.', videos: [
+      { url: "https://drive.google.com/file/d/11IMj-3AJqstVX_cRV9JlstMz02NB_VRv/preview", label: 'Braced Release to Extended (1)' },
+      { url: "https://drive.google.com/file/d/1R233z9ziM6KUsW0PHgliIitjLGYe19H3/preview", label: 'Braced Release to Extended (1)' }
+    ] },
+  'pyr-rel-int-2': { name: 'Braced Inverted Release to Prep or Below — 1 or 2 Bracers (Pyramid)', category: 'Pyramids — Released Transition', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Flyer releases while inverted and braced, caught at prep or below.', videos: [
+      { url: "https://drive.google.com/file/d/1BeEGUqsCXgVl7-kGMKD3v93_tl43-7KY/preview", label: 'Braced Inverted Release to Prep (1)' }
+    ] },
+  'pyr-rel-int-3': { name: 'Braced Twisting Release to Prep or Below — 1 or 2 Bracers (Pyramid)', category: 'Pyramids — Released Transition', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Flyer twists during a braced release, caught at prep or below.', videos: [] },
+  'pyr-rel-int-4': { name: 'Unbraced Release to Prep or Below (Pyramid)', category: 'Pyramids — Released Transition', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Flyer releases with no bracer connection, caught at prep or below. Must establish connection within 2 counts.', videos: [] },
+  /////   
+  'pyr-rel-adv-1': { name: 'Braced Inverted Release to Extended — 2 Bracers (Pyramid)', category: 'Pyramids — Released Transition', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Braced inverted release within pyramid caught at extended with 2 bracers.', videos: [
+      { url: "https://drive.google.com/file/d/1deo1t94Tx6D8QsxtyXKH1rE2ELOYGe2i/preview", label: 'Braced Inverted Release to Extended (2)' },
+      { url: "https://drive.google.com/file/d/1g-syKn481_osH1pLW_YHxQOcSoYho6Kx/preview", label: 'Braced Inverted Release to Extended (2)' }
+    ] },
+  'pyr-rel-adv-2': { name: 'Braced ¼, ½, or ¾ Twisting Release to Extended — 1 or 2 Bracers (Pyramid)', category: 'Pyramids — Released Transition', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Less than full twisting braced release caught at extended. Score varies by twist amount and bracer count.', videos: [
+      { url: "https://drive.google.com/file/d/1c6KSja2UZLeKMKTQ_M2xRqqZIkPuSS-_/preview", label: 'Braced 1/2 Twisting Release to Extended (1)' },
+      { url: "https://drive.google.com/file/d/1ybjW2V5lCZr_okegOAG7pKl9k0Jt8O5T/preview", label: 'Braced 1/4 Twisting Release to Extended (1)' }
+    ] },
+  'pyr-rel-adv-3': { name: 'Unbraced Release to Extended (Pyramid)', category: 'Pyramids — Released Transition', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Flyer releases with no bracer support, caught at extended. Must establish pyramid connection within 2 counts.', videos: [
+      { url: "https://drive.google.com/file/d/1ND-OmLcOTg0ZrgYLfTCWiyfugSh8-0XL/preview", label: 'Unbraced Release to Extended' },
+      { url: "https://drive.google.com/file/d/1uIQOoVvuZji8uKD1oxzQsAinse9EagDt/preview", label: 'Unbraced Release to Extended' }
+    ] },
+   ///// 
+ 'pyr-rel-eli-1': { name: 'Braced Inverted Release to Extended — 1 Bracer (Pyramid)', category: 'Pyramids — Released Transition', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Inverted release caught at extended with only 1 bracer.', videos: [
+      { url: "https://drive.google.com/file/d/11FmEqNACxuGnfnw25N1VP7neyRimqf-O/preview", label: 'Braced 1/4 Twisting Inverted Release to Extended (1)' },
+      { url: "https://drive.google.com/file/d/1nJOoIaTWwH9O6OJCJvti6vDmxEAFif2n/preview", label: 'Braced 1/4 Twisting Inverted Release to Extended (1)' }
+    ] },
+  'pyr-rel-eli-2': { name: 'Braced Full Twisting Release to Extended — 1 or 2 Bracers (Pyramid)', category: 'Pyramids — Released Transition', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Full 360° twisting braced release caught at extended.', videos: [
+      { url: "https://drive.google.com/file/d/16hQjUlYQ0ZcyTbIuJ-gl_-_Yeo9Uscjm/preview", label: 'Braced Inverted Release to Extended (1)' },
+      { url: "https://drive.google.com/file/d/1OMajgBue3uxl0eU1Cz27H0sTOYvhaHdE/preview", label: 'Braced Inverted Release to Extended (1)' },
+      { url: "https://drive.google.com/file/d/1wUdZXxoYB7LqwQtf8_lKSuQptbOPjuXu/preview", label: 'Braced Inverted Release to Extended (1)' }
+    ] },
+  'pyr-rel-eli-3': { name: 'Unbraced ¼, ½, or ¾ Twisting Release to Extended (Pyramid)', category: 'Pyramids — Released Transition', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Less than full twist unbraced release caught at extended. No bracer connection prior to or during release— must connect within 2 counts of twist completion.', videos: [
+      { url: "https://drive.google.com/file/d/1KWV-1OgwLwa9jIvO841-3BGucruTz2Ks/preview", label: 'Braced Full Twisting Release to Extended (1)' },
+      { url: "https://drive.google.com/file/d/1N96liUl-ISu1ec-gP70OGKaX6sBUxuke/preview", label: 'Braced 1.25 Twisting Release to Extended (1)' },
+      { url: "https://drive.google.com/file/d/1J-uixSpP5tjB7HuJuzXR0vEJZnVxkeNs/preview", label: 'Braced Full Twisting Release to Extended (2)' }
+    ] },
+  ///// 	
+  'pyr-rel-se-1': { name: 'Unbraced Inverted Release to Extended', category: 'Pyramids — Released Transition', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'The flyer releases while inverted with no bracer connection to another flyer and is caught at extended level.', videos: [
+      { url: "https://drive.google.com/file/d/1rrhh2wIsoga_fpU8q6Sf9h6O1I6VOCUC/preview", label: 'Unbraced 1/2 Twisting Inverted Release to Extended' },
+      { url: "https://drive.google.com/file/d/1Qr2vXOMiHkOwSzG9ik3IDWnG5bnR2_ga/preview", label: 'Unbraced Inverted Release to Extended' }
+    ] },
+  'pyr-rel-se-2': { name: 'Unbraced Full Twisting Release to Extended', category: 'Pyramids — Released Transition', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Full 360° twisting release with no bracer support caught and connected at extended. ', videos: [
+      { url: "https://drive.google.com/file/d/1BZ6EdOJvC8Pma4jtrt9UzfT3UqCCFNRO/preview", label: 'Unbraced Full Twisting Release to Extended' },
+      { url: "https://drive.google.com/file/d/1TnWgnGh8WyLAcTJsKbM66CmjMUoAhc3o/preview", label: 'Unbraced Full Twisting Release to Extended' }
+    ] },
+  
+  // ── PYRAMID: BRACED ROLL/FLIP ──
+  'pyr-rf-beg-1': { name: 'Rolling Transition to Prep Level or Below', category: 'Pyramids — Braced Roll/Flip', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer performs a rolling (not flipping) transition and is caught at prep or below.', videos: [] },
+  'pyr-rf-beg-2': { name: 'Flipping Transition Landing Below Prep — 1 or 2 Bracers (Pyramid)', category: 'Pyramids — Braced Roll/Flip', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Braced flipping transition caught at below prep level.', videos: [] },
+  'pyr-rf-beg-3': { name: '¼ Twisting Flipping Transition Landing at Prep or Below — 1 or 2 Bracers (Pyramid)', category: 'Pyramids — Braced Roll/Flip', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Quarter twist combined with a flip, caught at prep or below with 1 or 2 bracers.', videos: [] },
+   /////  
+  'pyr-rf-int-1': { name: 'Rolling Transition to Extended (Pyramid)', category: 'Pyramids — Braced Roll/Flip', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Flyer performs a rolling (not flipping) transition and is caught at extended level.', videos: [] },
+  'pyr-rf-int-2': { name: 'Flipping Transition Landing at Prep Level — 2 Bracers (Pyramid)', category: 'Pyramids — Braced Roll/Flip', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Braced flip caught at prep level with 2 bracers.', videos: [
+      { url: "https://drive.google.com/file/d/1UvbkZ2Y7DSyICNPkyI6WNjTyDn8E_l0m/preview", label: 'Flipping Transition Landing at Prep Level (2)' },
+      { url: "https://drive.google.com/file/d/1y1bkZyIsN65YAZUvlycUNbxd5Ae2Adxv/preview", label: 'Flipping Transition Landing at Prep Level (2)' }
+    ] },
+  'pyr-rf-int-3': { name: '½ or ¾ Twisting Flipping Transition at Prep or Below — 1 or 2 Bracers (Pyramid)', category: 'Pyramids — Braced Roll/Flip', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Half or three-quarter twist flip caught at prep or below.', videos: [
+      { url: "https://drive.google.com/file/d/1-zGiqd_it-DvBobr5Gur5kau9QgM4M6a/preview", label: '1/2 Twisting Flipping Transition Landing Below Prep' }
+    ] },
+   /////  
+  'pyr-rf-adv-1': { name: 'Flipping Transition Landing at Prep Level — 1 Bracer (Pyramid)', category: 'Pyramids — Braced Roll/Flip', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Braced flip caught at prep level with only 1 bracer.', videos: [] },
+  'pyr-rf-adv-2': { name: 'Full Twisting Flipping Transition at Prep or Below — 1 or 2 Bracers (Pyramid)', category: 'Pyramids — Braced Roll/Flip', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Full 360° twist combined with a flip, caught at prep or below.', videos: [
+      { url: "https://drive.google.com/file/d/1N5yw0_2hMQFcLsQJRLrXWTzMRFgF1G-f/preview", label: 'Full Twisting Flipping Transition Landing Below Prep (1)' },
+      { url: "https://drive.google.com/file/d/1SL5pPuG9GYZTND2q3BpuAHqEOj8ksQYF/preview", label: 'Full Twisting Flipping Transition Landing Below Prep (1)' }
+    ] },
+   /////  
+  'pyr-rf-eli-1': { name: 'Flipping Transition Landing Extended — 2 Bracers (Pyramid)', category: 'Pyramids — Braced Roll/Flip', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Flip caught at extended level with 2 bracers.', videos: [
+      { url: "https://drive.google.com/file/d/1-Vi6DwG4Q7rSfPQ2iXV0LwsoZqMXoElH/preview", label: 'Flipping Transition Landing Extended (2)' },
+      { url: "https://drive.google.com/file/d/1NPCZwIf2Nni-pEd6LNGnNMTyZTYyTPb2/preview", label: 'Flipping Transition Landing Extended (2)' },
+      { url: "https://drive.google.com/file/d/1QbkRO2KbhUtn_PMjgLjn7DcSEalkpm_H/preview", label: 'Flipping Transition Landing Extended (2)' },
+      { url: "https://drive.google.com/file/d/1tEjIbUhpSYzivaGVixmCIptI8Bzz6tJR/preview", label: 'Flipping Transition Landing Extended (2)' }
+    ] },
+  'pyr-rf-eli-2': { name: 'Twisting Flipping Transition Landing Extended — 2 Bracers (Pyramid)', category: 'Pyramids — Braced Roll/Flip', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Flip combined with a twist, caught at extended with 2 bracers.', videos: [
+      { url: "https://drive.google.com/file/d/11O9yyek_Ba6bi4MaUwYKK16SHiTav-Y5/preview", label: '1/2 Twisting Flipping Transition Landing Extended (2)' }
+    ] },
+    ///// 
+  'pyr-rf-se-1': { name: 'Flipping Transition Landing Extended — 1 Bracer', category: 'Pyramids — Braced Roll/Flip', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Full flipping transition (backward or forward) caught at extended level with only 1 bracer.', videos: [
+      { url: "https://drive.google.com/file/d/1gFVmbcFQTjsEw49wZF6Kt_bXlMIwGPnl/preview", label: 'Flipping Transition Landing Extended (1)' },
+      { url: "https://drive.google.com/file/d/1uGfdqI6BX6COaP5YjwA-Q1j4d7VGPHQI/preview", label: 'Flipping Transition Landing Extended (1)' },
+      { url: "https://drive.google.com/file/d/1CHZL9BFdsea1QRteIIkR9LNhNxAu3-_3/preview", label: 'Flipping Transition Landing Extended (1)' },
+      { url: "https://drive.google.com/file/d/18EhNgJbffR8e0VjcEeERDVlijP87fs4h/preview", label: 'Flipping Transition Landing Extended (1) (Single Base)' }
+    ] },
+  'pyr-rf-se-2': { name: 'Twisting Flipping Transition Landing Extended — 1 Bracer', category: 'Pyramids — Braced Roll/Flip', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Flip combined with a twist caught at extended with 1 bracer.', videos: [] },
+
+};
+// Default data for any skill ID not explicitly defined
+function getSkillData(id) {
+  if (skills[id]) return skills[id];
+  // Parse range from id prefix
+  const rangeMap = { beg: ['Beginner','var(--beginner)'], int: ['Intermediate','var(--intermediate)'], adv: ['Advanced','var(--advanced)'], eli: ['Elite','var(--elite)'], se: ['Super Elite','var(--superelite)'] };
+  for (const [key, val] of Object.entries(rangeMap)) {
+    if (id.includes('-' + key + '-') || id.endsWith('-' + key)) {
+      return { name: id, category: 'Skill', range: val[0], rangeColor: val[1], notes: 'Notes for this skill will be added shortly.', videos: [] };
+    }
+  }
+  return { name: id, category: 'Skill', range: '—', rangeColor: 'var(--gold)', notes: '', videos: [] };
+}
+
+// ── MODAL ──
+const rangeColors = {
+  'Beginner': { bg: 'var(--beginner-dim)', border: 'var(--beginner)', text: 'var(--beginner)' },
+  'Intermediate': { bg: 'var(--intermediate-dim)', border: 'var(--intermediate)', text: 'var(--intermediate)' },
+  'Advanced': { bg: 'var(--advanced-dim)', border: 'var(--advanced)', text: 'var(--advanced)' },
+  'Elite': { bg: 'var(--elite-dim)', border: 'var(--elite)', text: 'var(--elite)' },
+  'Super Elite': { bg: 'var(--superelite-dim)', border: 'var(--superelite)', text: 'var(--superelite)' },
+};
+
+function openModal(id) {
+  const d = getSkillData(id);
+  const rc = rangeColors[d.range] || { bg: 'rgba(201,168,76,0.1)', border: 'var(--gold)', text: 'var(--gold)' };
+
+  // Badge
+  const badge = document.getElementById('modal-badge');
+  badge.textContent = d.range;
+  badge.style.background = rc.bg;
+  badge.style.border = '1px solid ' + rc.border;
+  badge.style.color = rc.text;
+
+  document.getElementById('modal-skill-name').textContent = d.name;
+  document.getElementById('modal-category').textContent = d.category;
+  document.getElementById('modal-notes-text').textContent = d.notes || 'No additional notes for this skill.';
+
+  // Videos
+  const grid = document.getElementById('modal-videos-grid');
+  const count = document.getElementById('modal-video-count');
+  grid.innerHTML = '';
+  const vids = d.videos || [];
+  count.textContent = vids.length;
+
+  if (vids.length === 0) {
+    // Show 2 placeholders
+    for (let i = 0; i < 2; i++) {
+      grid.innerHTML += `<div class="video-slot">
+        <div class="video-slot-placeholder"><div class="placeholder-icon">▶</div><span>Video Example ${i+1}</span></div>
+        <div class="video-label">Example ${i+1}</div>
+      </div>`;
+    }
+  } else {
+    vids.forEach((v, i) => {
+      grid.innerHTML += `<div class="video-slot">
+        <iframe src="${v.url}" allow="autoplay" allowfullscreen></iframe>
+        <div class="video-label">${v.label || 'Example ' + (i+1)}</div>
+      </div>`;
+    });
+    // Additional placeholder slots for skills with some but not all videos filled
+    for (let i = vids.length; i < Math.min(vids.length + 1, 4); i++) {
+      grid.innerHTML += `<div class="video-slot">
+        <div class="video-slot-placeholder"><div class="placeholder-icon">▶</div><span>Video Example ${i+1}</span></div>
+        <div class="video-label">Example ${i+1}</div>
+      </div>`;
+    }
+  }
+
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeModalOutside(e) {
+  if (e.target === document.getElementById('modal-overlay')) closeModal();
+}
+
+  /*
+  ============================================================
+  CREATOR INSTRUCTIONS — HOW TO ADD VIDEOS
+  (This block is not visible to anyone using the module)
+  ============================================================
+
+  Each skill cell is linked to an entry in the `skills` object above.
+  To add videos to a skill, find its ID (e.g. 'twi-adv-1') and add
+  Google Drive video links to its `videos` array.
+
+  STEP 1 — GET YOUR GOOGLE DRIVE LINK
+  -------------------------------------
+  - In Google Drive, right-click your video file → "Get link"
+  - Set sharing to "Anyone with the link" (Viewer)
+  - Copy the URL — it will look like:
+      https://drive.google.com/file/d/XXXXXXXXXXXXXXXXX/view
+  - Extract just the FILE_ID (the long string between /d/ and /view)
+
+  STEP 2 — ADD TO THE SKILLS OBJECT
+  ------------------------------------
+  Find the skill entry and update the videos array:
+
+  'twi-adv-1': {
+    name: 'Full Up to Extended',
+    ...
+    videos: [
+      { url: "https://drive.google.com/file/d/YOUR_FILE_ID/preview", label: "Full Up — Clean Execution" },
+      { url: "https://drive.google.com/file/d/YOUR_FILE_ID_2/preview", label: "Full Up — Common Errors" }
+    ]
+  },
+
+  IMPORTANT: Use /preview at the end of the URL (not /view).
+  This allows the video to embed directly in the iframe.
+
+  STEP 3 — ADDING A NEW SKILL ENTRY
+  ------------------------------------
+  If the skill ID you want doesn't exist in the skills object yet,
+  simply add a new entry following this format:
+
+  'your-skill-id': {
+    name: 'Skill Display Name',
+    category: 'Stunts — Category Name',
+    range: 'Advanced',         // Beginner / Intermediate / Advanced / Elite / Super Elite
+    rangeColor: 'var(--advanced)',
+    notes: 'Judging notes visible in the modal popup.',
+    videos: [
+      { url: "https://drive.google.com/file/d/FILE_ID/preview", label: "Video label" }
+    ]
+  },
+
+  SKILL ID CONVENTIONS USED IN THIS FILE
+  ----------------------------------------
+  inv  = Inversion Skills         (stunts)
+  rel  = Release Skills           (stunts)
+  twi  = Twisting Skills          (stunts)
+  sb   = Single Base Skills       (stunts)
+  oth  = Other Stunts
+  tos  = Tosses
+  pyr-nr  = Pyramid Non-Released
+  pyr-rel = Pyramid Released
+  pyr-rf  = Pyramid Roll/Flip
+
+  Range suffixes: beg / int / adv / eli / se
+  Example: 'twi-adv-1' = Twisting, Advanced range, skill #1
+
+  UP TO 4 VIDEOS PER SKILL are supported in the modal grid.
+  2 videos display side by side; 3-4 fill the grid naturally.
+  ============================================================
+  */
+
+// Keyboard close
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// ── LEGALITY TAB ──
+function toggleRule(id) {
+  const body = document.getElementById(id);
+  const tog = document.getElementById('tog-' + id);
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  tog.classList.toggle('open', !isOpen);
+}
+
+/*
+  ============================================================
+  LEGALITY VIDEO DATA — CREATOR INSTRUCTIONS
+  ============================================================
+  Each section entry has:
+    title:       Display name
+    rule:        Rule number string (e.g. "Rule 2 — Section 5")
+    description: Brief description shown in modal
+    videos:      Array of { url, label, type } objects
+                 type: 'legal' | 'illegal' | 'info'
+                 url:  "https://drive.google.com/file/d/FILE_ID/preview"
+
+  VIDEO FILENAMES FROM YOUR DRIVE (map to sections below):
+  - 1.1.11  → r1s1  (General — Plastic Face Guard)
+  - 2.1     → r2s1  (Apparel — Flyer Handing Down Sign)
+  - 2.2.x   → r2s2  (Stunting Personnel — Quarter Turn T-Lift, Russian Lift, Triple Based Split, Braced Roll Over, Base Under Walkover, T Lift Over Nugget)
+  - 2.3.x   → r2s3  (Inversions — Backless Prep Bracer, Bracer Descent to Load, Single Base Prep Inversion, Prep Level Inversion, etc.)
+  - 2.5.x   → r2s5  (Release Stunts — Release to Prone, Toss to Flatback, Toss Toe Touch, Prep Ball Up to Teddy Bear, Pyramid High High Full Around, Helicopter Release, etc.)
+  - 2.6.x   → r2s6  (Suspended Stunts — Suspended Flip at Prep Level)
+  - 2.7.x   → r2s7  (Dismounts — Single Base Dismount, Cradle Two Catchers, Cradle Base Shift Spots, Cradle Head Spot On Side, Flyer Rollout with Sign, Partner Cartwheel, No Hand Inversion into Stunt)
+  - 2.8.x   → r2s8  (Tumbling — Tuck with Soft Prop)
+  - 2.10.x  → r2s10 (Props — Flyer Tossing Sign, Toss Props from Stunt, Boxes Not Allowed, Rally Towel in Skirt)
+
+  TO ADD A VIDEO:
+  1. In Google Drive → right-click file → Get link → Anyone with link
+  2. Copy FILE_ID from: drive.google.com/file/d/FILE_ID/view
+  3. Add to the videos array below:
+     { url: "https://drive.google.com/file/d/FILE_ID/preview", label: "Filename or description", type: "legal" }
+  ============================================================
+*/
+const legalityData = {
+  'r1s1': {
+    title: 'General',
+    rule: 'Rule 1 — Section 1',
+    description: 'General risk management guidelines including equipment, facilities, and safety requirements.',
+    videos: [
+      { url: "https://drive.google.com/file/d/1PWiCkQf8xipWjKeaav_gmZuad8oY7Vxo/preview", label: '1.1.11 Plastic Face Guard', type: 'Legal' }
+    ]
+  },
+  'r1s2': {
+    title: 'Sportsmanship',
+    rule: 'Rule 1 — Section 2',
+    description: 'Sportsmanship requirements for athletes, coaches, and teams.',
+    videos: []
+  },
+  'r2s1': {
+    title: 'Cheerleader Apparel / Accessories',
+    rule: 'Rule 2 — Section 1',
+    description: 'Rules governing uniforms, accessories, jewelry, and appearance requirements.',
+    videos: [
+      { url: "https://drive.google.com/file/d/1peQGcjN-9fGL6o8NIAcDbXAhtydQ_UdS/preview", label: '2.1.1 Beads/Bands on Shoes', type: 'Legal' }
+    ]
+  },
+  'r2s2': {
+    title: 'Stunting Personnel',
+    rule: 'Rule 2 — Section 2',
+    description: 'Rules governing bases, spotters, and flyer requirements for stunting groups.',
+    videos: [
+      { url: "https://drive.google.com/file/d/10qmzwjk3Il6Op6JT0GR9fb4avpM53Mvd/preview", label: '2.2.1 Flyer Handing Down Sign', type: 'Legal' },
+      { url: "https://drive.google.com/file/d/1fneeiY0GndQqmhVlGPi_TKr7axnzvc04/preview", label: '2.2.5 Single Base Prep Inversion', type: 'Illegal' },
+      { url: "https://drive.google.com/file/d/17FC2jBjq-mMDKDWjdT7B0AdCBfed7IuI/preview", label: '2.2.5 Spotter Position for Single Base Release', type: 'Illegal' },
+      { url: "https://drive.google.com/file/d/11poAI4x3tHiNEFbaUMBZNBKYxjuxspFL/preview", label: '2.2.5 Prep Level Inversion', type: 'Legal' },
+      { url: "https://drive.google.com/file/d/1BHa3fW4dl6Ps6AN5DrpzkXjGIYj8WmAT/preview", label: '2.2.5 Prep Level Inverted Release', type: 'Legal' },
+      { url: "https://drive.google.com/file/d/1-X5pNHMOLR9wPRHvNLXIlDEuYQPiOVVR/preview", label: '2.2.5 Single Base Prep Inversion', type: 'Legal' },
+      { url: "https://drive.google.com/file/d/1_yI0sPWxdPd2GxT0kegIKeTSL8L8A69V/preview", label: '2.2.5 Spotter Position for Single Base Release', type: 'Legal' },
+      { url: "https://drive.google.com/file/d/1FeByl-CK4mYpmgpZpkchT68JyNQJlCvF/preview", label: '2.2.7 Quarter Turn T Lift', type: 'Legal' },
+      { url: "https://drive.google.com/file/d/1D_w4YrKSf9ZuImpGd3Ua9B7vMmGeZ66n/preview", label: '2.2.7 Russian Lift', type: 'Legal' },
+      { url: "https://drive.google.com/file/d/1yPMJdW1XpVm65uKsVH7AfEc2EXw7xAFo/preview", label: '2.2.7 Triple Based Suspended Split', type: 'Legal' },
+      { url: "https://drive.google.com/file/d/1C5cXsg4XrmCCvQ-melzAcFGyqYjRvjQH/preview", label: '2.2.9 Braced Roll Over Stunt', type: 'Illegal' },
+      { url: "https://drive.google.com/file/d/1tTk4-GU6RiU1bPqlJqmuxPgwi2LSulKT/preview", label: '2.2.10 Base Under Walkover Stunt', type: 'Legal' },
+      { url: "https://drive.google.com/file/d/1JC9QaSVfp3u1FcPQU0CzZABIT1cydt8j/preview", label: '2.2.10 T Lift Over Nugget', type: 'Legal' }
+    ]
+  },
+  'r2s3': {
+    title: 'Inversions',
+    rule: 'Rule 2 — Section 3',
+    description: 'Rules governing inverted skills — when a flyer\'s shoulders are below their waist.',
+    videos: [
+      { url: "https://drive.google.com/file/d/18UgnjciPAL_DDBmthZLF_pANAc9k5FOw/preview", label: '2.3.5 Backless Prep Bracer', type: 'Illegal' },
+      { url: "https://drive.google.com/file/d/18NkI_PIVKe2pbQWP-cBgIxZgMzvDzrxU/preview", label: '2.3.5 Backless Prep Bracer', type: 'Legal' },
+      { url: "https://drive.google.com/file/d/1CfRnaQBxaQenJvrKYsT6X8VJVTAqlJv8/preview", label: '2.3.5 Bracer Descent to Load (2)', type: 'Legal' },
+      { url: "https://drive.google.com/file/d/1mnjpCr1reLcHs6HuSq5ewni28WJms1hR/preview", label: '2.3.5 Bracer Descent to Load', type: 'Legal' },
+      { url: "https://drive.google.com/file/d/1GO-LXlQrACX7czs072CFl9Vk8mH-mciY/preview", label: '2.3.6 Dismount to Prone Rollout', type: 'Legal' },
+      { url: "https://drive.google.com/file/d/1GcfJRo42znt5Al9D861xdrK8GzANSG4o/preview", label: '2.3.6 Hand in Hand to Floor', type: 'Legal' },
+      { url: "https://drive.google.com/file/d/1r0CA7Y7melwTfeRTGCplBJNg4FAZHUya/preview", label: '2.3.7 Flyer Roll Out with Sign', type: 'Legal' },
+      { url: "https://drive.google.com/file/d/1Go1VSVv3-zfmZe58gUz2W1beYR-CEgX3/preview", label: '2.3.7 Partner Cartwheel', type: 'Legal' },
+      { url: "https://drive.google.com/file/d/1z-zkJp9_vJhMlNZtZ8NwA21A3G-cvHmb/preview", label: '2.3.9 No Hand Inversion into Stunt (2)', type: 'Legal' },
+      { url: "https://drive.google.com/file/d/1WDPrin8urqgW7SHSXeQBlg8I7lD_n3e5/preview", label: '2.3.9 No Hand Inversion into Stunt', type: 'Legal' }
+    ]
+  },
+  'r2s4': {
+    title: 'Non-Release Stunts',
+    rule: 'Rule 2 — Section 4',
+    description: 'Rules for stunts where the flyer remains in contact with bases/spotters throughout.',
+    videos: []
+  },
+  'r2s5': {
+    title: 'Release Stunts / Tosses',
+    rule: 'Rule 2 — Section 5',
+    description: 'Rules for skills where the flyer is released from all bases/spotters, including basket tosses.',
+    videos: [
+      { url: "https://drive.google.com/file/d/1BZp93TPoNLTonb4V9-8TU1-PTEGKwEhU/preview", label: '2.5.3f Back Tuck Basket', type: 'Illegal' },
+      { url: "https://drive.google.com/file/d/1zehtp3N1MMgt6cwQNInyxJkhTx1ULQtM/preview", label: '2.5.4 Toss to Flatback', type: 'Illegal' },
+      { url: "https://drive.google.com/file/d/1Xne6RxEbLLcW7gUiPH_LRrHGghOH5YYJ/preview", label: '2.5.4 Toss Toe Touch Stunt', type: 'Illegal' },
+      { url: "https://drive.google.com/file/d/16Mpdcky1b0PJ3l8BRIa-sSlSVFB_dZF9/preview", label: '2.5.6 Release to Flatback', type: 'Illegal' },
+      { url: "https://drive.google.com/file/d/1wZ7w8N5Cy_5CxU6QRZJcrGC-pd1UC0_J/preview", label: '2.5.6 Release to Prone (2)', type: 'Illegal' },
+      { url: "https://drive.google.com/file/d/1Qrsx71-BIQsLQ2PSL_phj4ceXsFgD6Yf/preview", label: '2.5.6 Release to Prone (3)', type: 'Illegal' },
+      { url: "https://drive.google.com/file/d/1gfeGWDJjydcCdiMJSH_HcGHgQgIfu5Cx/preview", label: '2.5.6 Release to Prone (4)', type: 'Illegal' },
+      { url: "https://drive.google.com/file/d/10W9T5-fnatb28iVu8-V7dMKr-mFynoPL/preview", label: '2.5.6 Release to Prone', type: 'Illegal' },
+      { url: "https://drive.google.com/file/d/1LmZREGYWaQUkkVyMx9cVQ-Wpnex84_Jh/preview", label: '2.5.6 Release to Prone (5)', type: 'Legal' },
+      { url: "https://drive.google.com/file/d/1LlPv-qCNCYxNAfuh63wD0SsRbmV1LPhv/preview", label: '2.5.6 Release to Prone (6)', type: 'Legal' },
+      { url: "https://drive.google.com/file/d/1q6qGHqSXMTehuLEVkh58uD3Q_TN_2mS9/preview", label: '2.5.6c Pyramid High High Full Around', type: 'Legal' },
+      { url: "https://drive.google.com/file/d/1qrzZYFCbblIzmlrL92j7g8pDWk6qZANq/preview", label: '2.5.6c Pyramid High High Full Around', type: 'Legal' },
+      { url: "https://drive.google.com/file/d/1I45ImJybytj_hMigyfY534SDTxhykoGS/preview", label: '2.5.7 Helicopter Release', type: 'Legal' }
+    ]
+  },
+  'r2s6': {
+    title: 'Suspended Stunts',
+    rule: 'Rule 2 — Section 6',
+    description: 'Rules for suspended stunts including rolls, flips, and braced transitions.',
+    videos: [
+      { url: "https://drive.google.com/file/d/1Z51j7jS7Uaoaivke1qP0J_6escJnBfQU/preview", label: '2.6.6 Suspended Flip at Prep Level', type: 'Legal' }
+    ]
+  },
+  'r2s7': {
+    title: 'Dismounts',
+    rule: 'Rule 2 — Section 7',
+    description: 'Rules for legal and illegal dismounts from stunts and pyramids.',
+    videos: [
+      { url: "https://drive.google.com/file/d/19D_Om_tdgLwwW6y41SlAiFPrH0sdcBR-/preview", label: '2.7.2 Single Base Dismount', type: 'Legal' },
+      { url: "https://drive.google.com/file/d/1Bm7rEDqC1FgcBzD2Ptm0o22SDe5iF3bT/preview", label: '2.7.4 Cradle Two Catchers', type: 'Illegal' },
+      { url: "https://drive.google.com/file/d/1MprkvY5vRZj_y9flaWP3IUb1b4fBqfDS/preview", label: '2.7.4 Cradle Base Shift Spots', type: 'Legal' },
+      { url: "https://drive.google.com/file/d/1J8wRnEeFez83eE7shOuSwaYciMkehYkO/preview", label: '2.7.4 Cradle Spotter on Side', type: 'Legal' }
+    ]
+  },
+  'r2s8': {
+    title: 'Tumbling',
+    rule: 'Rule 2 — Section 8',
+    description: 'Rules for standing and running tumbling skills.',
+    videos: [
+      { url: "https://drive.google.com/file/d/16BSU1KFoUKtasOyC1Zs_dcGY571_1PTC/preview", label: '2.8.2 Tuck with Soft Prop', type: 'Legal' }
+    ]
+  },
+  'r2s9': {
+    title: 'Drops',
+    rule: 'Rule 2 — Section 9',
+    description: 'Rules governing drops to the performing surface.',
+    videos: [
+      { url: "https://drive.google.com/file/d/1-vkJus7oUYXM7pA1VzbY_Nj4xiOedA4Q/preview", label: '2.10.1 Flyer Tossing Sign', type: 'Illegal' }
+    ]
+  },
+  'r2s10': {
+    title: 'Props',
+    rule: 'Rule 2 — Section 10',
+    description: 'Rules for the use of signs, poms, and other props during a routine.',
+    videos: [
+      { url: "https://drive.google.com/file/d/1vN_b7DwKoe_-g7rgZfEUr_yn3EVDMpck/preview", label: '2.10.1 Toss Props from Stunt', type: 'Legal' },
+      { url: "https://drive.google.com/file/d/1uadrH9wpZPidYStQuXnxhZUC_Mab-6Kn/preview", label: 'Props per VHSL - Boxes Not Allowed for Comp', type: 'Illegal' },
+      { url: "https://drive.google.com/file/d/1Qut1CkXMI_IFf57GvVlIiRr6w5m5BNpt/preview", label: 'Props per VHSL - Rally Towel in Skirt', type: 'Legal' }
+    ]
+  },
+};
+
+function openLegalityModal(sectionId) {
+  const d = legalityData[sectionId];
+  if (!d) return;
+
+  // Switch to library modal
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.getElementById('legality-modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+  // Header
+  document.getElementById('leg-modal-title').textContent = d.title;
+  document.getElementById('leg-modal-rule').textContent = d.rule;
+  document.getElementById('leg-modal-desc').textContent = d.description;
+
+  // Reset filter
+  currentLegalFilter = 'all';
+  document.querySelectorAll('.leg-filter-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector('.leg-filter-btn[data-filter="all"]').classList.add('active');
+
+  // Store videos globally for filter re-render
+  window.currentLegalityVideos = d.videos.filter(v => v.url);
+  window.currentLegalitySection = sectionId;
+
+  renderLegalityLibrary(window.currentLegalityVideos, 'all');
+}
+
+let currentLegalFilter = 'all';
+
+function setLegalFilter(filter) {
+  currentLegalFilter = filter;
+  document.querySelectorAll('.leg-filter-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.filter === filter);
+  });
+  renderLegalityLibrary(window.currentLegalityVideos, filter);
+}
+
+function renderLegalityLibrary(videos, filter) {
+  const container = document.getElementById('leg-modal-library');
+  container.innerHTML = '';
+
+  const filtered = filter === 'all' ? videos : videos.filter(v => (v.type || '').toLowerCase() === filter.toLowerCase());
+
+  if (filtered.length === 0) {
+    container.innerHTML = `<div style="padding:40px;text-align:center;color:rgba(255,255,255,0.3);font-size:14px;">No ${filter} videos in this section yet.</div>`;
+    document.getElementById('leg-modal-count').textContent = '0 videos';
+    return;
+  }
+
+  document.getElementById('leg-modal-count').textContent = `${filtered.length} video${filtered.length !== 1 ? 's' : ''}`;
+
+  // Group by subsection prefix (e.g. "2.5.6", "2.7.4", "Props")
+  const groups = {};
+  const groupOrder = [];
+
+  filtered.forEach(v => {
+    // Extract subsection from label: leading number pattern like "2.5.6" or "Props"
+    const match = v.label.match(/^(\d+\.\d+(?:\.\d+[a-z]?))/);
+    let key = match ? match[1] : 'General';
+
+    // Map "Props" labels and anything without a number to section 2.10
+    if (!match && (v.label.toLowerCase().includes('prop') || v.label.toLowerCase().includes('props'))) {
+      key = '2.10';
+    }
+
+    if (!groups[key]) {
+      groups[key] = [];
+      groupOrder.push(key);
+    }
+    groups[key].push(v);
+  });
+
+  // Sort groups numerically
+  groupOrder.sort((a, b) => {
+    const aN = parseFloat(a.replace(/[^\d.]/g, '')) || 999;
+    const bN = parseFloat(b.replace(/[^\d.]/g, '')) || 999;
+    return aN - bN;
+  });
+
+  groupOrder.forEach(key => {
+    const groupVids = groups[key];
+    const legalCount   = groupVids.filter(v => (v.type || '').toLowerCase() === 'legal').length;
+    const illegalCount = groupVids.filter(v => (v.type || '').toLowerCase() === 'illegal').length;
+
+    const groupEl = document.createElement('div');
+    groupEl.className = 'leg-group';
+    groupEl.innerHTML = `
+      <div class="leg-group-header">
+        <span class="leg-group-num">${key}</span>
+        ${legalCount   ? `<span class="tag-legal">${legalCount} legal</span>` : ''}
+        ${illegalCount ? `<span class="tag-illegal">${illegalCount} illegal</span>` : ''}
+      </div>
+      <div class="leg-group-grid">
+        ${groupVids.map(v => {
+          const typeTag = (v.type || '').toLowerCase() === 'legal'
+            ? '<span class="tag-legal">Legal</span>'
+            : (v.type || '').toLowerCase() === 'illegal'
+            ? '<span class="tag-illegal">Illegal</span>'
+            : '';
+          // Strip the subsection prefix from the label for cleaner display
+          const cleanLabel = v.label.replace(/^\d+\.\d+(?:\.\d+[a-z]?)?\s*(legal\s*[-–]?\s*|illegal\s*[-–]?\s*)/i, '').trim();
+          return `<div class="leg-video-card">
+            <iframe src="${v.url}" allow="autoplay" allowfullscreen></iframe>
+            <div class="leg-video-label">${typeTag}<span>${cleanLabel}</span></div>
+          </div>`;
+        }).join('')}
+      </div>`;
+    container.appendChild(groupEl);
+  });
+}
+
+function closeLegalityModal() {
+  document.getElementById('legality-modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+  // ── MAJORITY CALCULATOR ──
+  const majorityData = [
+    {n:20, stunts:3, pyramids:2, jt:11},
+    {n:19, stunts:3, pyramids:2, jt:10},
+    {n:18, stunts:3, pyramids:2, jt:10},
+    {n:17, stunts:3, pyramids:2, jt:9},
+    {n:16, stunts:3, pyramids:2, jt:9},
+    {n:15, stunts:2, pyramids:1, jt:8},
+    {n:14, stunts:2, pyramids:1, jt:8},
+    {n:13, stunts:2, pyramids:1, jt:7},
+    {n:12, stunts:2, pyramids:1, jt:7},
+    {n:11, stunts:2, pyramids:1, jt:6},
+    {n:10, stunts:2, pyramids:1, jt:6},
+    {n:3,  stunts:2, pyramids:1, jt:5},
+  ];
+
+  function getMajority(n) {
+    if (n >= 20) return majorityData[0];
+    if (n >= 16) return majorityData.find(d => d.n === n) || majorityData.find(d => d.n <= n);
+    for (const d of majorityData) {
+      if (n >= d.n) return d;
+    }
+    return majorityData[majorityData.length-1];
+  }
+
+  function updateMajority() {
+    const slider = document.getElementById('athleteSlider');
+    if (!slider) return;
+    const val = parseInt(slider.value);
+    document.getElementById('sliderVal').textContent = val;
+    const data = getMajority(val);
+    const results = document.getElementById('majorityResults');
+    results.innerHTML = `
+      <div class="maj-result-item">
+        <div class="maj-result-label">Stunt Groups Required</div>
+        <div class="maj-result-num">${data.stunts}</div>
+        <div class="maj-result-sub">groups simultaneously</div>
+      </div>
+      <div class="maj-result-item">
+        <div class="maj-result-label">Pyramid Skill Groups</div>
+        <div class="maj-result-num">${data.pyramids}</div>
+        <div class="maj-result-sub">non-bracer flyers</div>
+      </div>
+      <div class="maj-result-item">
+        <div class="maj-result-label">Jumps/Tumbling</div>
+        <div class="maj-result-num">${data.jt}</div>
+        <div class="maj-result-sub">athletes performing</div>
+      </div>
+    `;
+  }
+  setTimeout(updateMajority, 300);
+
+function updateVideoCounts() {
+  Object.entries(legalityData).forEach(([id, d]) => {
+    const el = document.getElementById('vc-' + id);
+    if (!el) return;
+    const count = (d.videos || []).filter(v => v.url).length;
+    el.textContent = count === 1 ? '1 video' : count + ' videos';
+    el.className = count > 0 ? 'section-video-count has-videos' : 'section-video-count no-videos';
+  });
+}
+document.addEventListener('DOMContentLoaded', updateVideoCounts);
+setTimeout(updateVideoCounts, 200);
+</script>
+
+<!-- LEGALITY LIBRARY MODAL -->
+<div class="modal-overlay" id="legality-modal-overlay" onclick="closeLegalityOutside(event)" style="align-items:flex-start;padding:20px;">
+  <div class="modal" style="max-width:1100px;width:100%;max-height:92vh;display:flex;flex-direction:column;">
+    <!-- Header -->
+    <div class="modal-header" style="flex-shrink:0;">
+      <div>
+        <div class="modal-range-badge" style="background:rgba(74,144,217,0.15);border:1px solid rgba(74,144,217,0.4);color:#8ab8f0;" id="leg-modal-rule">—</div>
+        <div class="modal-skill-name" id="leg-modal-title">Section</div>
+        <div class="modal-category" id="leg-modal-desc"></div>
+      </div>
+      <button class="modal-close" onclick="closeLegalityModal()">✕</button>
+    </div>
+    <!-- Filter bar -->
+    <div style="display:flex;align-items:center;gap:10px;padding:12px 24px;border-bottom:1px solid rgba(255,255,255,0.08);flex-shrink:0;flex-wrap:wrap;">
+      <span style="font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--gray-mid);">Filter:</span>
+      <button class="leg-filter-btn active" data-filter="all" onclick="setLegalFilter('all')">All Videos</button>
+      <button class="leg-filter-btn" data-filter="legal" onclick="setLegalFilter('legal')">✓ Legal Only</button>
+      <button class="leg-filter-btn" data-filter="illegal" onclick="setLegalFilter('illegal')">✗ Illegal Only</button>
+      <span id="leg-modal-count" style="margin-left:auto;font-size:12px;color:rgba(255,255,255,0.35);font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:1px;"></span>
+    </div>
+    <!-- Scrollable library -->
+    <div id="leg-modal-library" style="overflow-y:auto;padding:20px 24px;flex:1;"></div>
+  </div>
+</div>
+
+<style>
+  /* Legality library modal */
+  #legality-modal-overlay { display:none; }
+  #legality-modal-overlay.open { display:flex; }
+
+  .leg-filter-btn {
+    font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;
+    letter-spacing:0.5px;text-transform:uppercase;padding:5px 14px;
+    border-radius:4px;cursor:pointer;border:1px solid rgba(255,255,255,0.15);
+    background:transparent;color:rgba(255,255,255,0.5);transition:all 0.15s;
+  }
+  .leg-filter-btn:hover { color:var(--white);border-color:rgba(255,255,255,0.35); }
+  .leg-filter-btn.active { background:rgba(201,168,76,0.15);border-color:var(--gold);color:var(--gold); }
+
+  .leg-group { margin-bottom:28px; }
+  .leg-group-header {
+    display:flex;align-items:center;gap:10px;
+    padding:8px 0 10px;
+    border-bottom:2px solid rgba(255,255,255,0.08);
+    margin-bottom:14px;
+  }
+  .leg-group-num {
+    font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:900;
+    color:var(--gold);letter-spacing:0.5px;
+  }
+  .leg-group-grid {
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;
+  }
+  .leg-video-card {
+    background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);
+    border-radius:8px;overflow:hidden;
+  }
+  .leg-video-card iframe { width:100%;aspect-ratio:16/9;display:block;border:none; }
+  .leg-video-label {
+    padding:8px 12px;display:flex;align-items:center;gap:8px;
+    font-size:12px;color:rgba(255,255,255,0.7);
+    border-top:1px solid rgba(255,255,255,0.06);
+    flex-wrap:wrap;
+  }
+</style>
+</body>
+</html>
