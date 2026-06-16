@@ -68,6 +68,9 @@
   .tab-nav {
     background: var(--navy-mid);
     border-bottom: 1px solid rgba(201,168,76,0.2);
+    position: sticky;
+    top: 65px;
+    z-index: 100;
   }
   .tab-nav-inner {
     max-width: 1400px; margin: 0 auto;
@@ -138,7 +141,8 @@
   .legend-superelite { background: var(--superelite-dim); border: 1px solid var(--superelite); color: var(--superelite); }
 
   /* ── RUBRIC GRID ── */
-  .rubric-wrap { overflow-x: auto; margin-bottom: 32px; }
+  .rubric-wrap { margin-bottom: 32px; }
+  .rubric-scroll { overflow-x: auto; }
   .rubric-table {
     width: 100%; border-collapse: separate; border-spacing: 3px;
     min-width: 900px;
@@ -562,6 +566,7 @@
   </div>
 
   <div class="rubric-wrap">
+    <div class="rubric-scroll">
     <table class="rubric-table" id="stunts-table">
       <thead>
         <tr>
@@ -656,23 +661,23 @@
           <td rowspan="8" class="row-label sec-release">Release Skills</td>
           <td class="skill-cell range-beginner" onclick="openModal('rel-beg-1')">Below Prep Release to Below Prep</td>
           <td class="skill-cell range-intermediate" onclick="openModal('rel-int-1')">Prep Level Release to Prep</td>
-          <td class="skill-cell range-advanced" onclick="openModal('rel-adv-1')">Prep Level Release to Extended</td>
-          <td class="skill-cell range-elite" onclick="openModal('rel-eli-1')">¼, ½ or ¾ Twist Release to Extended<br><small style="opacity:0.6">(ex: Quick Toss, Ball-Up)</small></td>
-          <td class="skill-cell range-superelite" onclick="openModal('rel-se-1')">Full Twisting Release to Extended<br><small style="opacity:0.6">(ex: Quick Toss, Ball-Up)</small></td>
+          <td class="skill-cell range-advanced" onclick="openModal('rel-adv-1')">Prep Level Release to Extended/IBP/ABP</td>
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell empty">—</td>
         </tr>
         <tr class="sec-release">
           <td class="skill-cell range-beginner" onclick="openModal('rel-beg-2')">Release to Below Prep<br><small style="opacity:0.6">(ex: Quick Toss, Ball-Up)</small></td>
           <td class="skill-cell range-intermediate" onclick="openModal('rel-int-2')">Release to Prep<br><small style="opacity:0.6">(ex: Quick Toss, Ball-Up)</small></td>
-          <td class="skill-cell range-advanced" onclick="openModal('rel-adv-2')">Release to Extended<br><small style="opacity:0.6">(ex: Quick Toss, Ball-Up)</small></td>
-          <td class="skill-cell empty">—</td>
-          <td class="skill-cell empty">—</td>
-        </tr>
+          <td class="skill-cell range-advanced" onclick="openModal('rel-adv-2')">Release to Extended/IBP/ABP<br><small style="opacity:0.6">(ex: Quick Toss, Ball-Up)</small></td>
+          <td class="skill-cell range-elite" onclick="openModal('rel-eli-1')">¼, ½ or ¾ Twist Release to Extended/IBP/ABP<br><small style="opacity:0.6">(ex: Quick Toss, Ball-Up)</small></td>
+          <td class="skill-cell range-superelite" onclick="openModal('rel-se-1')">Full Twisting Release to Extended/IBP/ABP<br><small style="opacity:0.6">(ex: Quick Toss, Ball-Up)</small></td> 
+ </tr>
         <tr class="sec-release">
           <td class="skill-cell range-beginner" onclick="openModal('rel-beg-3')">Extended Release to Below Prep</td>
           <td class="skill-cell range-intermediate" onclick="openModal('rel-int-3')">Extended Release to Prep Level</td>
-          <td class="skill-cell range-advanced" onclick="openModal('rel-adv-3')">Extended Release to Prep Level IBP</td>
+          <td class="skill-cell range-advanced" onclick="openModal('rel-adv-3')">Extended Release to Prep Level IBP/ABP</td>
           <td class="skill-cell range-elite" onclick="openModal('rel-eli-2')">Horizontal Release to Extended IBP/ABP</td>
-          <td class="skill-cell range-superelite" onclick="openModal('rel-se-2')">Horizontal Twisting Release to Extended</td>
+          <td class="skill-cell range-superelite" onclick="openModal('rel-se-2')">Horizontal Twisting Release to Extended/IBP/ABP</td>
         </tr>
         <tr class="sec-release">
           <td class="skill-cell range-beginner" onclick="openModal('rel-beg-4')">Horizontal Release to Below Prep</td>
@@ -699,7 +704,7 @@
           <td class="skill-cell range-beginner" onclick="openModal('rel-beg-5')">Twisting Release to Below Prep</td>
           <td class="skill-cell range-intermediate" onclick="openModal('rel-int-7')">Twisting Release to Prep Level</td>
           <td class="skill-cell range-advanced" onclick="openModal('rel-adv-7')">Low to High to IBP/ABP</td>
-          <td class="skill-cell range-elite" onclick="openModal('rel-eli-6')">High to High (IBP to IBP or IBP to ABP)</td>
+          <td class="skill-cell range-elite" onclick="openModal('rel-eli-6')">High to High (IBP or IBP/ABP)</td>
           <td class="skill-cell range-superelite" onclick="openModal('rel-se-6')">½ or ¾ Twist High to High to IBP/ABP</td>
         </tr>
         <tr class="sec-release">
@@ -735,30 +740,30 @@
           <td rowspan="5" class="row-label sec-twisting">Twisting Skills*</td>
           <td class="skill-cell range-beginner" onclick="openModal('twi-beg-1')">¼ or ½ Up to Prep Level</td>
           <td class="skill-cell range-intermediate" onclick="openModal('twi-int-1')">Full Up to Prep Level</td>
-          <td class="skill-cell range-advanced" onclick="openModal('twi-adv-1')">Full Up to Extended</td>
-          <td class="skill-cell range-elite" onclick="openModal('twi-eli-1')">1½ Up to Extended</td>
-          <td class="skill-cell range-superelite" onclick="openModal('twi-se-1')">Double Up to Extended</td>
+          <td class="skill-cell range-advanced" onclick="openModal('twi-adv-1')">Full Up to Extended/IBP/ABP</td>
+          <td class="skill-cell range-elite" onclick="openModal('twi-eli-1')">1½ Up to Extended/IBP/ABP</td>
+          <td class="skill-cell range-superelite" onclick="openModal('twi-se-1')">Double Up to Extended/IBP/ABP</td>
         </tr>
         <tr class="sec-twisting">
-          <td class="skill-cell range-beginner" onclick="openModal('twi-beg-2')">¼ Up to Extended</td>
-          <td class="skill-cell range-intermediate" onclick="openModal('twi-int-2')">½ or ¾ Up to Extended</td>
-          <td class="skill-cell range-advanced" onclick="openModal('twi-adv-2')">Hands Full Around to Extended Hands</td>
-          <td class="skill-cell range-elite" onclick="openModal('twi-eli-2')">Hands 1½ Around to Extended Hands</td>
-          <td class="skill-cell range-superelite" onclick="openModal('twi-se-2')">Hands Double Around to Extended</td>
+          <td class="skill-cell range-beginner" onclick="openModal('twi-beg-2')">¼ Up to Extended/IBP/ABP</td>
+          <td class="skill-cell range-intermediate" onclick="openModal('twi-int-2')">½ or ¾ Up to Extended/IBP/ABP</td>
+          <td class="skill-cell range-advanced" onclick="openModal('twi-adv-2')">Hands Full Around to Extended</td>
+          <td class="skill-cell range-elite" onclick="openModal('twi-eli-2')">Hands 1½ Around to Extended/IBP/ABP</td>
+          <td class="skill-cell range-superelite" onclick="openModal('twi-se-2')">Hands Double Around to Extended/IBP/ABP</td>
         </tr>
         <tr class="sec-twisting">
           <td class="skill-cell range-beginner" onclick="openModal('twi-beg-3')">¼ or ½ Twisting Transitions</td>
-          <td class="skill-cell range-intermediate" onclick="openModal('twi-int-3')">¾ or Full Twisting Transitions</td>
+          <td class="skill-cell range-intermediate" onclick="openModal('twi-int-3')">¾ or Greater Twisting Transitions to Prep or Below Prep</td>
           <td class="skill-cell empty">—</td>
           <td class="skill-cell range-elite" onclick="openModal('twi-eli-3')">Hands Full Around to Extended IBP/ABP</td>
-          <td class="skill-cell range-superelite" onclick="openModal('twi-se-3')">High to High Full Around to IBP/ABP<br><small style="opacity:0.6">(Extended to Single Leg)</small></td>
+          <td class="skill-cell range-superelite" onclick="openModal('twi-se-3')">High High Full Around to IBP/ABP<br><small style="opacity:0.6">(Extended to IBP/ABP)</small></td>
         </tr>
         <tr class="sec-twisting">
           <td class="skill-cell empty">—</td>
           <td class="skill-cell empty">—</td>
           <td class="skill-cell empty">—</td>
-          <td class="skill-cell range-elite" onclick="openModal('twi-eli-4')">High to High Full Around<br><small style="opacity:0.6">(Extended to Extended)</small></td>
-          <td class="skill-cell range-superelite" onclick="openModal('twi-se-4')">High to High Full Around to IBP/ABP<br><small style="opacity:0.6">(Single Leg to Single Leg)</small></td>
+          <td class="skill-cell range-elite" onclick="openModal('twi-eli-4')">High High Full Around<br><small style="opacity:0.6">(Extended to Extended)</small></td>
+          <td class="skill-cell range-superelite" onclick="openModal('twi-se-4')">High High Full Around to IBP/ABP<br><small style="opacity:0.6">(IBP/ABP to IBP/ABP)</small></td>
         </tr>
         <tr class="sec-twisting">
           <td class="skill-cell empty">—</td>
@@ -798,43 +803,43 @@
           <td class="skill-cell range-superelite" onclick="openModal('sb-se-1')">½, ¾, or Full Twisting Releases to Extended</td>
         </tr>
         <tr class="sec-singlebase">
-          <td class="skill-cell range-beginner" onclick="openModal('sb-beg-2')">Walk-In / Toss to Chair</td>
+          <td class="skill-cell empty">—</td>
           <td class="skill-cell range-intermediate" onclick="openModal('sb-int-2')">¼, ½ or ¾ Twist to Prep Level</td>
           <td class="skill-cell range-advanced" onclick="openModal('sb-adv-2')">Full Up to Prep Level</td>
           <td class="skill-cell range-elite" onclick="openModal('sb-eli-2')">¼ Twist Release to Extended</td>
           <td class="skill-cell range-superelite" onclick="openModal('sb-se-2')">Non-Release Inversions to Extended</td>
         </tr>
         <tr class="sec-singlebase">
-          <td class="skill-cell range-beginner" onclick="openModal('sb-beg-3')">Walk-In / Toss to Hands</td>
-          <td class="skill-cell range-intermediate" onclick="openModal('sb-int-3')">Toss Hands</td>
+          <td class="skill-cell empty">—</td>
+          <td class="skill-cell empty">—</td>
           <td class="skill-cell range-advanced" onclick="openModal('sb-adv-3')">Full Twisting Skills to Extended</td>
           <td class="skill-cell range-elite" onclick="openModal('sb-eli-3')">Released Inversion to Prep Level</td>
           <td class="skill-cell range-superelite" onclick="openModal('sb-se-3')">Released Twisting Inversion to Extended</td>
         </tr>
         <tr class="sec-singlebase">
-          <td class="skill-cell empty">—</td>
-          <td class="skill-cell range-intermediate" onclick="openModal('sb-int-4')">Walk-In Hands, Press to Extension</td>
+   		  <td class="skill-cell range-beginner" onclick="openModal('sb-beg-2')">Walk-In / Toss to Chair</td>
+          <td class="skill-cell range-intermediate" onclick="openModal('sb-int-3')">Toss Hands</td>
           <td class="skill-cell range-advanced" onclick="openModal('sb-adv-4')">Toss Hands, Press to Extended Single Leg</td>
-          <td class="skill-cell range-elite" onclick="openModal('sb-eli-4')">Walk-In to Extended Single Arm</td>
+          <td class="skill-cell range-elite" onclick="openModal('sb-eli-4')">Toss Hands, Press to Extended Single Arm</td>
           <td class="skill-cell range-superelite" onclick="openModal('sb-se-4')">Twisting Release from Hands to Extended</td>
+        </tr>
+        <tr class="sec-singlebase">
+		  <td class="skill-cell range-beginner" onclick="openModal('sb-beg-3')">Walk-In / Toss to Hands</td>
+          <td class="skill-cell range-intermediate" onclick="openModal('sb-int-4')">Walk-In Hands, Press to Extension</td>
+          <td class="skill-cell range-advanced" onclick="openModal('sb-adv-5')">Walk-In to Extended Single Leg</td>
+          <td class="skill-cell range-elite" onclick="openModal('sb-eli-5')">Walk-In to Extended Single Arm</td>
+          <td class="skill-cell empty">—</td>
         </tr>
         <tr class="sec-singlebase">
           <td class="skill-cell empty">—</td>
           <td class="skill-cell range-intermediate" onclick="openModal('sb-int-5')">Toss Hands, Press to Extension</td>
-          <td class="skill-cell range-advanced" onclick="openModal('sb-adv-5')">Walk-In to Extended Single Leg</td>
-          <td class="skill-cell range-elite" onclick="openModal('sb-eli-5')">Toss Single Arm Extended</td>
-          <td class="skill-cell empty">—</td>
-        </tr>
-        <tr class="sec-singlebase">
-          <td class="skill-cell empty">—</td>
-          <td class="skill-cell range-intermediate" onclick="openModal('sb-int-6')">Switch Up to Extended</td>
           <td class="skill-cell range-advanced" onclick="openModal('sb-adv-6')">Toss Extension</td>
           <td class="skill-cell range-elite" onclick="openModal('sb-eli-6')">Toss Extended Single Leg</td>
           <td class="skill-cell range-superelite" onclick="openModal('sb-se-5')">Toss Extended Single Arm</td>
         </tr>
         <tr class="sec-singlebase">
           <td class="skill-cell empty">—</td>
-          <td class="skill-cell empty">—</td>
+          <td class="skill-cell range-intermediate" onclick="openModal('sb-int-6')">Switch Up to Extended</td>
           <td class="skill-cell range-advanced" onclick="openModal('sb-adv-7')">Low to High to Extended</td>
           <td class="skill-cell range-elite" onclick="openModal('sb-eli-7')">High to High to Extended</td>
           <td class="skill-cell range-superelite" onclick="openModal('sb-se-6')">Released Inversion to Extended</td>
@@ -908,6 +913,7 @@
         </tr>
       </tbody>
     </table>
+    </div>
   </div>
 
   <p style="font-size:12px;color:rgba(255,255,255,0.35);margin-bottom:24px;">*For full ups &amp; full arounds to all levels, the variation or modified grip version of the skill will be scored lower in the range than the true/traditional version.</p>
@@ -967,6 +973,7 @@
   </div>
 
   <div class="rubric-wrap">
+    <div class="rubric-scroll">
     <table class="rubric-table" id="pyramids-table">
       <thead>
         <tr>
@@ -1062,29 +1069,29 @@
           <td class="skill-cell range-beginner" onclick="openModal('pyr-rel-beg-1')">Braced release to prep or below (1 or 2)</td>
           <td class="skill-cell range-intermediate" onclick="openModal('pyr-rel-int-1')">Braced release to extended (1)</td>
           <td class="skill-cell empty">—</td>
-          <td class="skill-cell empty">—</td>
+          <td class="skill-cell range-elite" onclick="openModal('pyr-rel-eli-1')">Braced twisting inverted release to extended (1 or 2)</td>
           <td class="skill-cell empty">—</td>
         </tr>
         <tr class="sec-released">
           <td class="skill-cell range-beginner" onclick="openModal('pyr-rel-beg-2')">Braced release to extended (2)</td>
           <td class="skill-cell range-intermediate" onclick="openModal('pyr-rel-int-2')">Braced inverted release to prep or below (1 or 2)</td>
           <td class="skill-cell range-advanced" onclick="openModal('pyr-rel-adv-1')">Braced inverted release to extended (2)</td>
-          <td class="skill-cell range-elite" onclick="openModal('pyr-rel-eli-1')">Braced inverted release to extended (1)</td>
+          <td class="skill-cell range-elite" onclick="openModal('pyr-rel-eli-2')">Braced inverted release to extended (1)</td>
           <td class="skill-cell range-superelite" onclick="openModal('pyr-rel-se-1')">Unbraced inverted release to extended</td>
         </tr>
         <tr class="sec-released">
           <td class="skill-cell empty">—</td>
           <td class="skill-cell range-intermediate" onclick="openModal('pyr-rel-int-3')">Braced twisting release to prep or below (1 or 2)</td>
           <td class="skill-cell range-advanced" onclick="openModal('pyr-rel-adv-2')">Braced ¼, ½, or ¾ twisting release to extended (1 or 2)</td>
-          <td class="skill-cell range-elite" onclick="openModal('pyr-rel-eli-2')">Braced full twisting release to extended (1 or 2)</td>
-          <td class="skill-cell empty">—</td>
+          <td class="skill-cell range-elite" onclick="openModal('pyr-rel-eli-3')">Braced full twisting release to extended (1 or 2)</td>
+          <td class="skill-cell range-superelite" onclick="openModal('pyr-rel-se-2')">Unbraced twisting inverted release to extended</td>
         </tr>
         <tr class="sec-released">
           <td class="skill-cell empty">—</td>
           <td class="skill-cell range-intermediate" onclick="openModal('pyr-rel-int-4')">Unbraced release to prep or below</td>
           <td class="skill-cell range-advanced" onclick="openModal('pyr-rel-adv-3')">Unbraced release to extended</td>
-          <td class="skill-cell range-elite" onclick="openModal('pyr-rel-eli-3')">Unbraced ¼, ½, or ¾ twisting release to extended</td>
-          <td class="skill-cell range-superelite" onclick="openModal('pyr-rel-se-2')">Unbraced full twisting release to extended</td>
+          <td class="skill-cell range-elite" onclick="openModal('pyr-rel-eli-4')">Unbraced ¼, ½, or ¾ twisting release to extended</td>
+          <td class="skill-cell range-superelite" onclick="openModal('pyr-rel-se-3')">Unbraced full twisting release to extended</td>
         </tr>
 
         <!-- BRACED ROLL/FLIP -->
@@ -1132,6 +1139,7 @@
         </tr>
       </tbody>
     </table>
+    </div>
   </div>
 
   <div style="
@@ -1572,6 +1580,7 @@ const skills = {
  /////    
   'inv-int-1': { name: 'Suspended Forward Roll Variations & Inversions', category: 'Stunts — Inversion Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Examples: Pancake, Cartwheel Dismount. Flyer is suspended by bases while performing a roll or cartwheel-type movement towards the performance surface. Flyer passes through inverted position.', videos: [
       { url: "https://drive.google.com/file/d/19_LhS7ePVpqZHEn7KBnSocsZAeDphzCn/preview", label: 'Suspended Forward Roll Variations & Inversions (Pancake)' },
+      { url: "https://drive.google.com/file/d/1M_5HBKKyJcg2ddGm9k3dGk2G9BelKr6s/preview", label: 'Suspended Forward Roll Variations & Inversions (Waterfall)' },
       { url: "https://drive.google.com/file/d/1PqHde6zf_Ew4TuHVPpgxSc7reR8uQg4C/preview", label: 'Suspended Forward Roll Variations & Inversions (Pancake)' }
     ] },
   'inv-int-2': { name: 'Non-Release Inversions — Prep to Extended/IBP/ABP', category: 'Stunts — Inversion Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Flyer stays connected throughout, passing through inversion from prep level and landing at extension or in an IBP/ABP. No release occurs.', videos: [
@@ -1590,8 +1599,9 @@ const skills = {
       { url: "https://drive.google.com/file/d/1wCgXE6vl1-vfrbsNvawr7K4EFE93PyUO/preview", label: 'Released Inversion Below Prep to Prep ABP' }
     ] },
   'inv-int-5': { name: 'Released Inversions — Prep to Prep', category: 'Stunts — Inversion Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Flyer releases while inverted (no twist) and is caught at prep level.', videos: [
-      { url: "https://drive.google.com/file/d/1_f1jU1dKeDQoM989sPo4KPrgIPimZ9V8/preview", label: 'Released Twisting Inversion Below Prep to Prep' }
-    ] },
+      { url: "https://drive.google.com/file/d/1_f1jU1dKeDQoM989sPo4KPrgIPimZ9V8/preview", label: 'Released Twisting Inversion Below Prep to Prep' },
+      { url: "https://drive.google.com/file/d/1YGWnf9cLWWHgjVfv3hjOF8N7T7SirBcz/preview", label: 'Released Twisting Inversion Prep to Prep' }
+	] },
  /////    
   'inv-adv-1': { name: 'Non-Release Twisting Inversions — Prep to Extended/IBP/ABP', category: 'Stunts — Inversion Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Flyer twists while inverted without releasing, landing at extended level — potentially in an IBP or ABP. Continuous momentum required if going to ABP.', videos: [] },
   'inv-adv-2': { name: 'Released Inverted — Low to High to Extended IBP/ABP', category: 'Stunts — Inversion Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Flyer is inverted with one foot in hands (bent at hips). Bases dip; flyer brings chest up while switching feet, caught upright at extended in IBP or ABP.', videos: [
@@ -1601,8 +1611,9 @@ const skills = {
       { url: "https://drive.google.com/file/d/1PSCJlpAvGpMX6_3xErGBZ1BAU46UkkoD/preview", label: 'Released Inversion Below Prep to Extended' },
       { url: "https://drive.google.com/file/d/1ce3auRndZzrio5mNQPmFFPPP02GT_BQJ/preview", label: 'Released Inversion Below Prep to Extended' },
       { url: "https://drive.google.com/file/d/1OHnRz3dITerMEK7ZECS-yKN2sCLIXtPy/preview", label: 'Released Inversion Prep Level to Extended' },
-      { url: "https://drive.google.com/file/d/1xyKIr9lvfpPRHNBeAC1lmWC783JIzHR1/preview", label: 'Released Inversion Prep Level to Extended' }
-    ] },
+      { url: "https://drive.google.com/file/d/1xyKIr9lvfpPRHNBeAC1lmWC783JIzHR1/preview", label: 'Released Inversion Prep Level to Extended' },
+      { url: "https://drive.google.com/file/d/1huI2gzau6og8-k-_Jblh9BKb9iT8ueq9/preview", label: 'Released Inversion Prep Level to Extended' }
+	] },
  /////    
   'inv-eli-1': { name: 'Released ¼, ½ or ¾ Twisting Inverted — Low to High to Extended IBP/ABP', category: 'Stunts — Inversion Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Flyer is inverted in a low to high position and performs ¼, ½, or ¾ twist during the release, landing at extended IBP/ABP. Majority of rotation must be completed by the flyer for ½ or ¾ twist.', videos: [
       { url: "https://drive.google.com/file/d/1xCIZuNOAM6dhAiMZpTuh7I61HXnI4Ucc/preview", label: 'Released 1/2 Twisting Inverted Low to High to Extended ABP' }
@@ -1618,14 +1629,18 @@ const skills = {
       { url: "https://drive.google.com/file/d/1sKswhfIrz_q0q4R39sGzVKda67gZR5NY/preview", label: 'Released 1/2 Twisting Inversion Below Prep to Extended' },
       { url: "https://drive.google.com/file/d/1PNF3LmqCULmm5IBofk7y_NyoZCBWuCRz/preview", label: 'Released 1/2 Twisting Inversion Below Prep to Extended' },
       { url: "https://drive.google.com/file/d/1Ywpk_n-K28pN0qG_4TDlw2piMUtxtciP/preview", label: 'Released 1/2 Twisting Inversion Prep Level to Extended' },
+      { url: "https://drive.google.com/file/d/1moDvKALs7gbRhwKOjn3VJhsiAdo_Zp7e/preview", label: 'Released 1/2 Twisting Inversion Prep Level to Extended' },
       { url: "https://drive.google.com/file/d/1t0A7z2a9050TljBLSpGiuPKTnKaVUr4K/preview", label: 'Released 3/4 Twisting Inversion Prep Level to Extended' }
     ] },
   /////   
   'inv-se-1': { name: 'Released Full Twisting Inverted — Low to High to Extended IBP/ABP', category: 'Stunts — Inversion Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Full 360° twist during release from inverted low to high position, caught at extended IBP/ABP. Majority of rotation must be by the flyer.', videos: [] },
-  'inv-se-2': { name: 'Released ¼, ½ or ¾ Twisting Inversions — Prep to Extended IBP/ABP', category: 'Stunts — Inversion Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Less than full twisting inversion from prep level landing in extended IBP/ABP.', videos: [] },
+  'inv-se-2': { name: 'Released ¼, ½ or ¾ Twisting Inversions — Prep to Extended IBP/ABP', category: 'Stunts — Inversion Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Less than full twisting inversion from prep level landing in extended IBP/ABP.', videos: [
+      { url: "https://drive.google.com/file/d/1h2ZubZd2bdqw1yvp_uHo0UTMn5eGqTyS/preview", label: 'Released 1/4 Twisting Inversion Prep Level to Extended ABP' }
+  ] },
   'inv-se-3': { name: 'Released Full Twisting Inversions — Prep to Extended/IBP/ABP', category: 'Stunts — Inversion Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Full 360° twist inversion from prep level to extended level, which may include IBP/ABP.', videos: [
       { url: "https://drive.google.com/file/d/1F5tLpuXBsUe6WDNTnNqt7-5n9cgxE6T7/preview", label: 'Released Full Twisting Inversion Below Prep to Extended ABP' },
-      { url: "https://drive.google.com/file/d/1fileNmY6gikdun0PHIrG_YAUcVHZF1td/preview", label: 'Released Full Twisting Inversion Below Prep to Extended' }
+      { url: "https://drive.google.com/file/d/1TU88TiQkpfVSejqbdKLLYvzVe-KGnIUY/preview", label: 'Released Full Twisting Inversion Below Prep to Extended' },
+	  { url: "https://drive.google.com/file/d/1fileNmY6gikdun0PHIrG_YAUcVHZF1td/preview", label: 'Released Full Twisting Inversion Below Prep to Extended' }
     ] },
 
   // ── STUNT: RELEASE ──
@@ -1648,11 +1663,11 @@ const skills = {
   'rel-int-6': { name: 'Prep Level Low to Low (Tic Toc)', category: 'Stunts — Release Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Classic Tic Toc: flyer releases from one foot to the other at prep level. Bases stay at prep throughout. No height change.', videos: [] },
   'rel-int-7': { name: 'Twisting Release to Prep Level', category: 'Stunts — Release Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Flyer twists during a release and is caught at prep level. Any amount of twist.', videos: [] },
  /////    
-  'rel-adv-1': { name: 'Prep Level Release to Extended', category: 'Stunts — Release Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Flyer releases from prep level and is caught at extension.', videos: [] },
-  'rel-adv-2': { name: 'Release to Extended', category: 'Stunts — Release Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Basic release (Quick Toss, Ball-Up style) caught at extended level. No twist.', videos: [
+  'rel-adv-1': { name: 'Prep Level Release to Extended/IBP/ABP', category: 'Stunts — Release Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Flyer releases from prep level and is caught at extend level.', videos: [] },
+  'rel-adv-2': { name: 'Release to Extended/IBP/ABP', category: 'Stunts — Release Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Basic release (Quick Toss, Ball-Up style) caught at extended level. No twist.', videos: [
       { url: "https://drive.google.com/file/d/1vsi40WaeQQFkdH1BV_wqiUxuKA4brCnd/preview", label: 'Release to Extended (Ball Up)' }
     ] },
-  'rel-adv-3': { name: 'Extended Release to Prep Level IBP', category: 'Stunts — Release Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Flyer releases from extended and is caught at prep level in an IBP (lib, hitch, torch).', videos: [
+  'rel-adv-3': { name: 'Extended Release to Prep Level IBP/ABP', category: 'Stunts — Release Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Flyer releases from extended and is caught at prep level in an IBP or ABP.', videos: [
       { url: "https://drive.google.com/file/d/138k4gVFnpeeVpR7-TybEy0geObyaJ-zC/preview", label: 'Extended Release to Prep Level ABP' },
       { url: "https://drive.google.com/file/d/1exyaE_vFIJU7gYwSNNMoFn8orVc_1M9j/preview", label: 'Extended Release to Prep Level ABP' }
     ] },
@@ -1672,7 +1687,7 @@ const skills = {
       { url: "https://drive.google.com/file/d/1O7QkXJAwy6mHHwt5gSRAviOSY7hp4u2m/preview", label: '1/2 Twist Low to High to IBP' }
     ] },
  /////   
-  'rel-eli-1': { name: '¼, ½ or ¾ Twist Release to Extended', category: 'Stunts — Release Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Less than full twist (Quick Toss or Ball-Up style) from any level to extended. Majority of rotation by flyer (exception: ¼ release). Score increases with more rotation.', videos: [
+  'rel-eli-1': { name: '¼, ½ or ¾ Twist Release to Extended/IBP/ABP', category: 'Stunts — Release Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Less than full twist (Quick Toss or Ball-Up style) from any level to extended. Majority of rotation by flyer (exception: ¼ release). Score increases with more rotation.', videos: [
       { url: "https://drive.google.com/file/d/1QpalBOrfX_kg3zGO_zR5dguUwq9SrEK2/preview", label: '1/2 Twist Release to Extended (Ball Up to ABP)' },
       { url: "https://drive.google.com/file/d/1eLTHyVXuk7GE6GFUUNgHcRqvHeOKz739/preview", label: '1/2 Twist Release to Extended (Ball Up)' }
     ] },
@@ -1681,19 +1696,24 @@ const skills = {
       { url: "https://drive.google.com/file/d/1Txd2maNu1y3h2ZpvEFSahHWISoMqN3qP/preview", label: 'Full Twisting Switch Up to Extended IBP' }
     ] },
   'rel-eli-4': { name: '¼, ½ or ¾ Twist Switch Up to Extended ABP', category: 'Stunts — Release Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Less than full twist switch-up landing at extended in an ABP.', videos: [] },
-  'rel-eli-5': { name: '¼, ½ or ¾ Twist Low to High to ABP', category: 'Stunts — Release Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Low to high release with less than full twist, landing in an ABP at extended.', videos: [] },
+  'rel-eli-5': { name: '¼, ½ or ¾ Twist Low to High to ABP', category: 'Stunts — Release Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Low to high release with less than full twist, landing in an ABP at extended.', videos: [
+      { url: "https://drive.google.com/file/d/1JXD_1I3mg8bNnc1rmEdl_826r6dxpMda/preview", label: '1/2 Twist Low to High to ABP' }
+ 
+  ] },
   'rel-eli-6': { name: 'High to High (IBP to IBP or IBP to ABP)', category: 'Stunts — Release Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Flyer releases from extended IBP and is caught in another IBP, or transitions from IBP to ABP at extended.', videos: [
       { url: "https://drive.google.com/file/d/1zdPfy5kWrw0roRobionGUh7oLL5f4Slv/preview", label: 'High to High IBP to ABP' },
       { url: "https://drive.google.com/file/d/1FRXBj4QoGwF5_Ytfx011SKqjZsu7kPG6/preview", label: 'High to High IBP to IBP' }
     ] },
-  'rel-eli-7': { name: '¼ Twist High to High to IBP/ABP', category: 'Stunts — Release Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Quarter twist during a high-to-high transition, catching in IBP or ABP at extended.', videos: [] },
+  'rel-eli-7': { name: '¼ Twist High to High to IBP/ABP', category: 'Stunts — Release Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Quarter twist during a high-to-high transition, catching in IBP or ABP at extended.', videos: [
+      { url: "https://drive.google.com/file/d/15q3DAD-V3r9YJnLb5o760yI8PZjd8F7_/preview", label: '1/4 Twist High to High IBP to ABP' }
+  ] },
  /////    
-  'rel-se-1': { name: 'Full Twisting Release to Extended', category: 'Stunts — Release Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Full 360° twist release caught at extended level. Examples: Full Twist Quick Toss, Full Twist Ball-Up.', videos: [
+  'rel-se-1': { name: 'Full Twisting Release to Extended/IBP/ABP', category: 'Stunts — Release Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Full 360° twist release caught at extended level. Examples: Full Twist Quick Toss, Full Twist Ball-Up.', videos: [
       { url: "https://drive.google.com/file/d/1PA29ymAbvqWJJMA5sKqVi6-fxFT_fmig/preview", label: 'Full Twisting Release to Extended IBP (Ball Up)' },
       { url: "https://drive.google.com/file/d/17CT5gnVBF40kG-n5kVuGi2Z_SRatN6EF/preview", label: 'Full Twisting Release to Extended (Prep Full Around)' },
       { url: "https://drive.google.com/file/d/1xIeVBaHK2fCr4mw5QUm9-wFrpj44RUR5/preview", label: 'Full Twisting Release to Extended (Quick Toss)' }
     ] },
-  'rel-se-2': { name: 'Horizontal Twisting Release to Extended', category: 'Stunts — Release Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Flyer is horizontal prior to and twists during the release, caught at extended.', videos: [
+  'rel-se-2': { name: 'Horizontal Twisting Release to Extended/IBP/ABP', category: 'Stunts — Release Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Flyer is horizontal prior to and twists during the release, caught at extended.', videos: [
       { url: "https://drive.google.com/file/d/1Mkd2hYOZYLd0val8RSArKGXw5TxOtLfL/preview", label: 'Horizontal Twisting Release to Extended' },
       { url: "https://drive.google.com/file/d/1XrK-vMM7cUexEkTKTm_59PF4lu52x7DR/preview", label: 'Horizontal Twisting Release to Extended' }
     ] },
@@ -1713,22 +1733,23 @@ const skills = {
 
   // ── STUNT: TWISTING ──
   'twi-beg-1': { name: '¼ or ½ Up to Prep Level', category: 'Stunts — Twisting Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Quarter or half twist loading skill up to prep level.', videos: [] },
-  'twi-beg-2': { name: '¼ Up to Extended', category: 'Stunts — Twisting Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Quarter turn loading skill up to extended level.', videos: [] },
+  'twi-beg-2': { name: '¼ Up to Extended/IBP/ABP', category: 'Stunts — Twisting Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Quarter turn loading skill up to extended level.', videos: [] },
   'twi-beg-3': { name: '¼ or ½ Twisting Transitions', category: 'Stunts — Twisting Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Quarter or half twist during a transition between skills.', videos: [] },
  /////  
   'twi-int-1': { name: 'Full Up to Prep Level', category: 'Stunts — Twisting Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Full 360° rotation during load up to prep level. Modified versions (bases walking stunt around) scored lower in range. Majority of rotation must be by flyer.', videos: [
       { url: "https://drive.google.com/file/d/1c6aZoIpKP-iGAUrIgQWoSDhEvbaA3VX1/preview", label: 'Full Up to Prep Level' },
       { url: "https://drive.google.com/file/d/1vcQCm-fbsb59ZqPoo6Iln4X1IhMmyR82/preview", label: 'Full Up to Prep Level' }
     ] },
-  'twi-int-2': { name: '½ or ¾ Up to Extended', category: 'Stunts — Twisting Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Half or three-quarter twist loading skill up to extended.', videos: [] },
-  'twi-int-3': { name: '¾ or Full Twisting Transitions', category: 'Stunts — Twisting Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Three-quarter or full twist during a transition.', videos: [
+  'twi-int-2': { name: '½ or ¾ Up to Extended/IBP/ABP', category: 'Stunts — Twisting Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Half or three-quarter twist loading skill up to extended.', videos: [] },
+  'twi-int-3': { name: '¾ or Greater Twisting Transitions tp Prep or Below Prep', category: 'Stunts — Twisting Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Three-quarter or full twist during a transition.', videos: [
       { url: "https://drive.google.com/file/d/1vK8iKY6y5Nk_rx5MsIWQpB8VFqnOeh10/preview", label: '1.5 Twisting Transitions' },
       { url: "https://drive.google.com/file/d/1i7KKk_k0YsyU-TkMmOqGhrDRDkPcACC5/preview", label: 'Full Twisting Transitions' },
       { url: "https://drive.google.com/file/d/17BUpXr1Y_MFWzcAicwYifG1GgRbdLxPC/preview", label: 'Hands Full Around to Prep Level' }
     ] },
  /////  
-   'twi-adv-1': { name: 'Full Up to Extended', category: 'Stunts — Twisting Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Full 360° rotation loading up to extended level. Modified versions scored lower in range. Majority of rotation must be by flyer.', videos: [
-      { url: "https://drive.google.com/file/d/1q2d0cIqLezck_Yv4koGrsJsgOngFbcbM/preview", label: 'Full Up to Extended' }
+   'twi-adv-1': { name: 'Full Up to Extended/IBP/ABP', category: 'Stunts — Twisting Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Full 360° rotation loading up to extended level. Modified versions scored lower in range. Majority of rotation must be by flyer.', videos: [
+      { url: "https://drive.google.com/file/d/1q2d0cIqLezck_Yv4koGrsJsgOngFbcbM/preview", label: 'Full Up to Extended' },
+      { url: "https://drive.google.com/file/d/10fmX2H5aeUJwjA7il2Y6Ldiq1QKH1gll/preview", label: 'Full Up to Extended' }
     ] },
   'twi-adv-2': { name: 'Hands Full Around to Extended Hands', category: 'Stunts — Twisting Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Full 360° rotation while moving from prep level to extended. Majority of rotation must be by flyer. Modified versions scored lower in range.', videos: [
       { url: "https://drive.google.com/file/d/1bq4phs0vriYWTRnQ3v3fr0yg7eIwTrcV/preview", label: 'Hands Full Around to Extended (Modified)' },
@@ -1736,11 +1757,11 @@ const skills = {
       { url: "https://drive.google.com/file/d/11sJ2pABOHHFwCAiFWTRclZNbwsDNi-lO/preview", label: 'Hands Full Around to Extended' }
     ] },
  /////  
-  'twi-eli-1': { name: '1½ Up to Extended', category: 'Stunts — Twisting Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'One and a half rotations during the transition from load/ground to extended level.', videos: [
+  'twi-eli-1': { name: '1½ Up to Extended/IBP/ABP', category: 'Stunts — Twisting Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'One and a half rotations during the transition from load/ground to extended level.', videos: [
       { url: "https://drive.google.com/file/d/1-Ofrn3DY_YlNlSozAbxKS_LhJB_Pg5RH/preview", label: '1.5 Up to Extended ABP' },
       { url: "https://drive.google.com/file/d/129vaVhh-bTRHTAZrBuAOypyLOYHKCXTI/preview", label: '1.5 Up to Extended IBP' }
     ] },
-  'twi-eli-2': { name: 'Hands 1½ Around to Extended Hands', category: 'Stunts — Twisting Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'One and a half rotations while moving from prep level to extended. No release and foot or feet of flyer remain in the hands of base(s) throughout. Majority of rotation must be by flyer. Modified versions scored lower in range.', videos: [
+  'twi-eli-2': { name: 'Hands 1½ Around to Extended/IBP/ABP', category: 'Stunts — Twisting Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'One and a half rotations while moving from prep level to extended. No release and foot or feet of flyer remain in the hands of base(s) throughout. Majority of rotation must be by flyer. Modified versions scored lower in range.', videos: [
       { url: "https://drive.google.com/file/d/1v0TzWJShzEM_T1zZgWJpEzjQE3U1hpki/preview", label: 'Hands 1.5 Around to Extended IBP' },
       { url: "https://drive.google.com/file/d/1ykyudxatrqNgy4bDzecZUVT1wHcr6qps/preview", label: 'Hands 1.5 Around to Extended IBP' }
     ] },
@@ -1753,10 +1774,10 @@ const skills = {
       { url: "https://drive.google.com/file/d/17wOwH1a-yvyR6AvPISgAmkZzxPvkakxk/preview", label: 'High High Full Around Extended to Extended' }
     ] },
  /////  
-  'twi-se-1': { name: 'Double Up to Extended', category: 'Stunts — Twisting Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Two full rotations during the transition from load/ground to extended level.', videos: [
+  'twi-se-1': { name: 'Double Up to Extended/IBP/ABP', category: 'Stunts — Twisting Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Two full rotations during the transition from load/ground to extended level.', videos: [
       { url: "https://drive.google.com/file/d/1iSKEi7kIj8HqjgcPXNllaEnKqAj_g9Xr/preview", label: 'Double Up to Extended' }
     ] },
-  'twi-se-2': { name: 'Hands Double Around to Extended', category: 'Stunts — Twisting Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Two full rotations while moving from prep level to extended. Majority of rotation must be by flyer. Modified versions scored lower in range.', videos: [
+  'twi-se-2': { name: 'Hands Double Around to Extended/IBP/ABP', category: 'Stunts — Twisting Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Two full rotations while moving from prep level to extended. Majority of rotation must be by flyer. Modified versions scored lower in range.', videos: [
       { url: "https://drive.google.com/file/d/1OhtbC_bTzdBU_e3zAK0hukPzAl2zq9G8/preview", label: 'Hands Double Around to Extended IBP' },
       { url: "https://drive.google.com/file/d/1oGbCkVow-puoOtNocCVA8XngSQGxQAWf/preview", label: 'Hands Double Around to Extended IBP' }
     ] },
@@ -1769,8 +1790,9 @@ const skills = {
     ] },
   'twi-se-5': { name: 'High to High 1½ Around', category: 'Stunts — Twisting Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'One and a half rotations in a high-to-high transition.', videos: [
       { url: "https://drive.google.com/file/d/1-sJZvjP0-x76B8wycIc06QKDr8mANopf/preview", label: 'High High 1.5 Around (Modified)' },
-      { url: "https://drive.google.com/file/d/1BHm5lWbclEfFCFNEjd_m9_4E-A_rMvQB/preview", label: 'High High 1.5 Around' }
-    ] },
+      { url: "https://drive.google.com/file/d/1BHm5lWbclEfFCFNEjd_m9_4E-A_rMvQB/preview", label: 'High High 1.5 Around' },
+      { url: "https://drive.google.com/file/d/15yviaSruo9Kf7oWOEr4TqAZR1UfSOcA3/preview", label: 'High High 1.25 Around to ABP' }
+ ] },
 
   // ── STUNT: SINGLE BASE ──
   'sb-beg-1': { name: 'Prep Level Skills (Single Base)', category: 'Stunts — Single Base Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Any static single base stunt at prep level. Must begin from ground/load, maintain single base throughout, and end single based.', videos: [] },
@@ -1819,11 +1841,11 @@ const skills = {
     ] },
   'sb-eli-2': { name: '¼ Twist Release to Extended (Single Base)', category: 'Stunts — Single Base Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Quarter twist release within single base group caught at extended.', videos: [] },
   'sb-eli-3': { name: 'Released Inversion to Prep Level (Single Base)', category: 'Stunts — Single Base Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Inverted release within a single base group, caught upright at prep level.', videos: [] },
-  'sb-eli-4': { name: 'Walk-In to Extended Single Arm (Single Base)', category: 'Stunts — Single Base Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Flyer walks in to a single arm extended position. Only one arm of the base supports at extension.', videos: [
+  'sb-eli-4': { name: 'Toss Hands, Press to Extended Single Arm', category: 'Stunts — Single Base Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Flyer is tossed to hands then pressed to an extended single arm stunt.', videos: [
       { url: "https://drive.google.com/file/d/1Tt4KfsdNSi5NT0V9ocB6rbAEkZPwPFPQ/preview", label: 'Toss Hands, Press to Extended Single Arm' },
       { url: "https://drive.google.com/file/d/1ehibtENO1uS2LsZ2ZCj_y42E3G9ZN4LG/preview", label: 'Toss Hands, Press to Extended Single Arm' }
     ] },
-  'sb-eli-5': { name: 'Toss Single Arm Extended (Single Base)', category: 'Stunts — Single Base Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Flyer is tossed to a single arm extended position.', videos: [
+  'sb-eli-5': { name: 'Walk-In to Extended Single Arm (Single Base)', category: 'Stunts — Single Base Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Flyer walks in to a single arm extended position. Only one arm of the base supports at extension.', videos: [
       { url: "https://drive.google.com/file/d/14Oi6mmXaX8Y2LemsP_y7b4Y3-GcTmPGF/preview", label: 'Walk-In (Press) to Extended Single Arm' }
     ] },
   'sb-eli-6': { name: 'Toss Extended Single Leg (Single Base)', category: 'Stunts — Single Base Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Flyer is tossed directly to extended single leg with single base support throughout.', videos: [
@@ -1895,7 +1917,9 @@ const skills = {
       { url: "https://drive.google.com/file/d/1VzWlaMpylXhswjNB1ZyuDOxQyRlMK-3l/preview", label: 'Elite Twisting Stunts (1.5 Up to Extended)' },
       { url: "https://drive.google.com/file/d/1gt097JVJZz3SYPrdIF5kQfS9FPsbuBw5/preview", label: 'Elite Twisting Stunts (Hands 1.5 Around to Extended)' }
     ] },
-  'pyr-nr-adv-4': { name: 'Advanced Single Base Stunts (Pyramid)', category: 'Pyramids — Non-Released Transition', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'References the Advanced range of the Stunt Rubric Single Base Skills section performed within pyramid context.', videos: [] },
+  'pyr-nr-adv-4': { name: 'Advanced Single Base Stunts (Pyramid)', category: 'Pyramids — Non-Released Transition', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'References the Advanced range of the Stunt Rubric Single Base Skills section performed within pyramid context.', videos: [
+      { url: "https://drive.google.com/file/d/1Uj2PfZhuMgSFuZ8MJ7mhVlGWMkmel58j/preview", label: 'Advanced Single Base Stunts (Full Up to Extended IBP)' }
+  ] },
   ///// 
   'pyr-nr-eli-1': { name: 'Twisting Inverted Stunts to Extended — 1 Bracer (Pyramid)', category: 'Pyramids — Non-Released Transition', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Twisting inversion non-release landing at extended with only 1 bracer.', videos: [] },
   'pyr-nr-eli-2': { name: 'Super Elite Twisting Stunts (Pyramid)', category: 'Pyramids — Non-Released Transition', range: 'Elite', rangeColor: 'var(--elite)', notes: 'References the Super Elite range of the Stunt Rubric Twisting Skills section performed within pyramid context.', videos: [
@@ -1907,7 +1931,10 @@ const skills = {
   'pyr-nr-se-1': { name: 'Super Elite Single Base Stunts (Pyramid)', category: 'Pyramids — Non-Released Transition', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'References the Super Elite range of the Stunt Rubric Single Base Skills section performed within pyramid context.', videos: [] },
  
  // ── PYRAMID: RELEASED TRANSITION  ──
-  'pyr-rel-beg-1': { name: 'Braced Release to Prep or Below (1 or 2 bracers)', category: 'Pyramids — Released Transition', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer releases from all bases/spotters while braced to another flyer. Caught at prep or below.', videos: [] },
+  'pyr-rel-beg-1': { name: 'Braced Release to Prep or Below (1 or 2 bracers)', category: 'Pyramids — Released Transition', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer releases from all bases/spotters while braced to another flyer. Caught at prep or below.', videos: [
+      { url: "https://drive.google.com/file/d/11kJj2Idbb8K_-Qw5zuhTPHUKQOlcmFFb/preview", label: 'Braced Release to Prep (2)' }
+  
+  ] },
   'pyr-rel-beg-2': { name: 'Braced Release to Extended — 2 Bracers (Pyramid)', category: 'Pyramids — Released Transition', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer releases while braced to 2 other flyers, caught at extended level.', videos: [] },
   /////   
   'pyr-rel-int-1': { name: 'Braced Release to Extended — 1 Bracer (Pyramid)', category: 'Pyramids — Released Transition', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Flyer releases while braced to 1 other flyer, caught at extended.', videos: [
@@ -1933,16 +1960,17 @@ const skills = {
       { url: "https://drive.google.com/file/d/1uIQOoVvuZji8uKD1oxzQsAinse9EagDt/preview", label: 'Unbraced Release to Extended' }
     ] },
    ///// 
- 'pyr-rel-eli-1': { name: 'Braced Inverted Release to Extended — 1 Bracer (Pyramid)', category: 'Pyramids — Released Transition', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Inverted release caught at extended with only 1 bracer.', videos: [
+ 'pyr-rel-eli-1': { name: 'Braced Twisting Inverted Release to Extended — 1 or 2 Bracers (Pyramid)', category: 'Pyramids — Released Transition', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Twisting inverted release caught at extended with assistance from 1 or 2 bracers.', videos: [] },
+ 'pyr-rel-eli-2': { name: 'Braced Inverted Release to Extended — 1 Bracer (Pyramid)', category: 'Pyramids — Released Transition', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Inverted release caught at extended with only 1 bracer.', videos: [
       { url: "https://drive.google.com/file/d/11FmEqNACxuGnfnw25N1VP7neyRimqf-O/preview", label: 'Braced 1/4 Twisting Inverted Release to Extended (1)' },
       { url: "https://drive.google.com/file/d/1nJOoIaTWwH9O6OJCJvti6vDmxEAFif2n/preview", label: 'Braced 1/4 Twisting Inverted Release to Extended (1)' }
     ] },
-  'pyr-rel-eli-2': { name: 'Braced Full Twisting Release to Extended — 1 or 2 Bracers (Pyramid)', category: 'Pyramids — Released Transition', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Full 360° twisting braced release caught at extended.', videos: [
+  'pyr-rel-eli-3': { name: 'Braced Full Twisting Release to Extended — 1 or 2 Bracers (Pyramid)', category: 'Pyramids — Released Transition', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Full 360° twisting braced release caught at extended.', videos: [
       { url: "https://drive.google.com/file/d/16hQjUlYQ0ZcyTbIuJ-gl_-_Yeo9Uscjm/preview", label: 'Braced Inverted Release to Extended (1)' },
       { url: "https://drive.google.com/file/d/1OMajgBue3uxl0eU1Cz27H0sTOYvhaHdE/preview", label: 'Braced Inverted Release to Extended (1)' },
       { url: "https://drive.google.com/file/d/1wUdZXxoYB7LqwQtf8_lKSuQptbOPjuXu/preview", label: 'Braced Inverted Release to Extended (1)' }
     ] },
-  'pyr-rel-eli-3': { name: 'Unbraced ¼, ½, or ¾ Twisting Release to Extended (Pyramid)', category: 'Pyramids — Released Transition', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Less than full twist unbraced release caught at extended. No bracer connection prior to or during release— must connect within 2 counts of twist completion.', videos: [
+  'pyr-rel-eli-4': { name: 'Unbraced ¼, ½, or ¾ Twisting Release to Extended (Pyramid)', category: 'Pyramids — Released Transition', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Less than full twist unbraced release caught at extended. No bracer connection prior to or during release— must connect within 2 counts of twist completion.', videos: [
       { url: "https://drive.google.com/file/d/1KWV-1OgwLwa9jIvO841-3BGucruTz2Ks/preview", label: 'Braced Full Twisting Release to Extended (1)' },
       { url: "https://drive.google.com/file/d/1N96liUl-ISu1ec-gP70OGKaX6sBUxuke/preview", label: 'Braced 1.25 Twisting Release to Extended (1)' },
       { url: "https://drive.google.com/file/d/1J-uixSpP5tjB7HuJuzXR0vEJZnVxkeNs/preview", label: 'Braced Full Twisting Release to Extended (2)' }
@@ -1952,14 +1980,19 @@ const skills = {
       { url: "https://drive.google.com/file/d/1rrhh2wIsoga_fpU8q6Sf9h6O1I6VOCUC/preview", label: 'Unbraced 1/2 Twisting Inverted Release to Extended' },
       { url: "https://drive.google.com/file/d/1Qr2vXOMiHkOwSzG9ik3IDWnG5bnR2_ga/preview", label: 'Unbraced Inverted Release to Extended' }
     ] },
-  'pyr-rel-se-2': { name: 'Unbraced Full Twisting Release to Extended', category: 'Pyramids — Released Transition', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Full 360° twisting release with no bracer support caught and connected at extended. ', videos: [
+  'pyr-rel-se-2': { name: 'Unbraced Twisting Inverted Release to Extended', category: 'Pyramids — Released Transition', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'The flyer completes a twisting release from inverted with no bracer connection to another flyer and is caught at extended level.', videos: [] },  
+  'pyr-rel-se-3': { name: 'Unbraced Full Twisting Release to Extended', category: 'Pyramids — Released Transition', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Full 360° twisting release with no bracer support caught and connected at extended. ', videos: [
       { url: "https://drive.google.com/file/d/1BZ6EdOJvC8Pma4jtrt9UzfT3UqCCFNRO/preview", label: 'Unbraced Full Twisting Release to Extended' },
-      { url: "https://drive.google.com/file/d/1TnWgnGh8WyLAcTJsKbM66CmjMUoAhc3o/preview", label: 'Unbraced Full Twisting Release to Extended' }
-    ] },
+      { url: "https://drive.google.com/file/d/1TnWgnGh8WyLAcTJsKbM66CmjMUoAhc3o/preview", label: 'Unbraced Full Twisting Release to Extended' },
+      { url: "https://drive.google.com/file/d/1KcBgz75XzOJ4VFMB6yeRSpxrM8hLFtmU/preview", label: 'Unbraced Full Twisting Release to Extended' }    
+	] },
   
   // ── PYRAMID: BRACED ROLL/FLIP ──
   'pyr-rf-beg-1': { name: 'Rolling Transition to Prep Level or Below', category: 'Pyramids — Braced Roll/Flip', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer performs a rolling (not flipping) transition and is caught at prep or below.', videos: [] },
-  'pyr-rf-beg-2': { name: 'Flipping Transition Landing Below Prep — 1 or 2 Bracers (Pyramid)', category: 'Pyramids — Braced Roll/Flip', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Braced flipping transition caught at below prep level.', videos: [] },
+  'pyr-rf-beg-2': { name: 'Flipping Transition Landing Below Prep — 1 or 2 Bracers (Pyramid)', category: 'Pyramids — Braced Roll/Flip', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Braced flipping transition caught at below prep level.', videos: [
+      { url: "https://drive.google.com/file/d/1opnVJWBeyZiBG_HtepVLcbMXACE8Ur8N/preview", label: 'Flipping Transition Landing Below Prep (1)' }
+  
+  ] },
   'pyr-rf-beg-3': { name: '¼ Twisting Flipping Transition Landing at Prep or Below — 1 or 2 Bracers (Pyramid)', category: 'Pyramids — Braced Roll/Flip', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Quarter twist combined with a flip, caught at prep or below with 1 or 2 bracers.', videos: [] },
    /////  
   'pyr-rf-int-1': { name: 'Rolling Transition to Extended (Pyramid)', category: 'Pyramids — Braced Roll/Flip', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Flyer performs a rolling (not flipping) transition and is caught at extended level.', videos: [] },
@@ -1968,7 +2001,8 @@ const skills = {
       { url: "https://drive.google.com/file/d/1y1bkZyIsN65YAZUvlycUNbxd5Ae2Adxv/preview", label: 'Flipping Transition Landing at Prep Level (2)' }
     ] },
   'pyr-rf-int-3': { name: '½ or ¾ Twisting Flipping Transition at Prep or Below — 1 or 2 Bracers (Pyramid)', category: 'Pyramids — Braced Roll/Flip', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Half or three-quarter twist flip caught at prep or below.', videos: [
-      { url: "https://drive.google.com/file/d/1-zGiqd_it-DvBobr5Gur5kau9QgM4M6a/preview", label: '1/2 Twisting Flipping Transition Landing Below Prep' }
+      { url: "https://drive.google.com/file/d/1-zGiqd_it-DvBobr5Gur5kau9QgM4M6a/preview", label: '1/2 Twisting Flipping Transition Landing Below Prep (2)' },
+      { url: "https://drive.google.com/file/d/126rgybLZjzygBlHXDi9dgKoKauH_HK3W/preview", label: '1/2 Twisting Flipping Transition Landing Below Prep (1)' }
     ] },
    /////  
   'pyr-rf-adv-1': { name: 'Flipping Transition Landing at Prep Level — 1 Bracer (Pyramid)', category: 'Pyramids — Braced Roll/Flip', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Braced flip caught at prep level with only 1 bracer.', videos: [] },
@@ -1990,11 +2024,11 @@ const skills = {
   'pyr-rf-se-1': { name: 'Flipping Transition Landing Extended — 1 Bracer', category: 'Pyramids — Braced Roll/Flip', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Full flipping transition (backward or forward) caught at extended level with only 1 bracer.', videos: [
       { url: "https://drive.google.com/file/d/1gFVmbcFQTjsEw49wZF6Kt_bXlMIwGPnl/preview", label: 'Flipping Transition Landing Extended (1)' },
       { url: "https://drive.google.com/file/d/1uGfdqI6BX6COaP5YjwA-Q1j4d7VGPHQI/preview", label: 'Flipping Transition Landing Extended (1)' },
-      { url: "https://drive.google.com/file/d/1CHZL9BFdsea1QRteIIkR9LNhNxAu3-_3/preview", label: 'Flipping Transition Landing Extended (1)' },
+      { url: "https://drive.google.com/file/d/1bGFqNzx7ZJII0ZGNOeHZUw2bTRZljhm8/preview", label: 'Flipping Transition Landing Extended (1)' },
       { url: "https://drive.google.com/file/d/18EhNgJbffR8e0VjcEeERDVlijP87fs4h/preview", label: 'Flipping Transition Landing Extended (1) (Single Base)' }
     ] },
   'pyr-rf-se-2': { name: 'Twisting Flipping Transition Landing Extended — 1 Bracer', category: 'Pyramids — Braced Roll/Flip', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Flip combined with a twist caught at extended with 1 bracer.', videos: [] },
-
+ 
 };
 // Default data for any skill ID not explicitly defined
 function getSkillData(id) {
@@ -2229,7 +2263,9 @@ const legalityData = {
       { url: "https://drive.google.com/file/d/1yPMJdW1XpVm65uKsVH7AfEc2EXw7xAFo/preview", label: '2.2.7 Triple Based Suspended Split', type: 'Legal' },
       { url: "https://drive.google.com/file/d/1C5cXsg4XrmCCvQ-melzAcFGyqYjRvjQH/preview", label: '2.2.9 Braced Roll Over Stunt', type: 'Illegal' },
       { url: "https://drive.google.com/file/d/1tTk4-GU6RiU1bPqlJqmuxPgwi2LSulKT/preview", label: '2.2.10 Base Under Walkover Stunt', type: 'Legal' },
-      { url: "https://drive.google.com/file/d/1JC9QaSVfp3u1FcPQU0CzZABIT1cydt8j/preview", label: '2.2.10 T Lift Over Nugget', type: 'Legal' }
+      { url: "https://drive.google.com/file/d/1u9kwlmvSD_-ASJLHcLHuF7JekPZT1v8d/preview", label: '2.2.10 Spotter Transition Under Stunt', type: 'Legal' },
+      
+	  { url: "https://drive.google.com/file/d/1JC9QaSVfp3u1FcPQU0CzZABIT1cydt8j/preview", label: '2.2.10 T Lift Over Nugget', type: 'Legal' }
     ]
   },
   'r2s3': {
@@ -2241,8 +2277,15 @@ const legalityData = {
       { url: "https://drive.google.com/file/d/18NkI_PIVKe2pbQWP-cBgIxZgMzvDzrxU/preview", label: '2.3.5 Backless Prep Bracer', type: 'Legal' },
       { url: "https://drive.google.com/file/d/1CfRnaQBxaQenJvrKYsT6X8VJVTAqlJv8/preview", label: '2.3.5 Bracer Descent to Load (2)', type: 'Legal' },
       { url: "https://drive.google.com/file/d/1mnjpCr1reLcHs6HuSq5ewni28WJms1hR/preview", label: '2.3.5 Bracer Descent to Load', type: 'Legal' },
+      { url: "https://drive.google.com/file/d/1XPPxHyFoERf6LgUqZNnHSvnphXGEqVYS/preview", label: '2.3.5a Braced Flip with Only Hand/Foot Connection', type: 'Legal' },
+      { url: "https://drive.google.com/file/d/1OPd6HUPbkne3y7w7jRKazN7f_UEpcALj/preview", label: '2.3.5a Braced Flip with Only Hand/Foot Connection', type: 'Legal' },
+      { url: "https://drive.google.com/file/d/1JSao3JjSMAyJb05nEEybv8duVv9ilckf/preview", label: '2.3.5a Twisting Braced Flip with Only Hand/Foot Connection', type: 'Illegal' },
+      { url: "https://drive.google.com/file/d/1_cZGIQJX14S7b7y5au2jw4_HnO1p7RbM/preview", label: '2.3.6c2 Pancake/Foldover (Pauses at Extended)', type: 'Illegal' },
       { url: "https://drive.google.com/file/d/1GO-LXlQrACX7czs072CFl9Vk8mH-mciY/preview", label: '2.3.6 Dismount to Prone Rollout', type: 'Legal' },
       { url: "https://drive.google.com/file/d/1GcfJRo42znt5Al9D861xdrK8GzANSG4o/preview", label: '2.3.6 Hand in Hand to Floor', type: 'Legal' },
+      { url: "https://drive.google.com/file/d/1Tyycwlktm07vPloIC9VvsD7_Aj_3UJTP/preview", label: '2.3.6 Inverted Release to Inverted', type: 'Illegal' },
+      { url: "https://drive.google.com/file/d/1rh17dpyKLRKLgwttLBSFxHWsJ-MPfNP4/preview", label: '2.3.6 Inverted Release to Prep', type: 'Legal' },
+      { url: "https://drive.google.com/file/d/1yUAzHSDQonDV_DvjlczqWsZU8M_rBQfC/preview", label: '2.3.6 Inverted Release to Prone', type: 'Legal' },
       { url: "https://drive.google.com/file/d/1r0CA7Y7melwTfeRTGCplBJNg4FAZHUya/preview", label: '2.3.7 Flyer Roll Out with Sign', type: 'Legal' },
       { url: "https://drive.google.com/file/d/1Go1VSVv3-zfmZe58gUz2W1beYR-CEgX3/preview", label: '2.3.7 Partner Cartwheel', type: 'Legal' },
       { url: "https://drive.google.com/file/d/1z-zkJp9_vJhMlNZtZ8NwA21A3G-cvHmb/preview", label: '2.3.9 No Hand Inversion into Stunt (2)', type: 'Legal' },
@@ -2253,7 +2296,9 @@ const legalityData = {
     title: 'Non-Release Stunts',
     rule: 'Rule 2 — Section 4',
     description: 'Rules for stunts where the flyer remains in contact with bases/spotters throughout.',
-    videos: []
+    videos: [
+      { url: "https://drive.google.com/file/d/1fUm1AxY4hEM7IQKAgghZF_t_BgOMDKmM/preview", label: '2.4.2 ShowNGo to New Bases', type: 'Legal' },
+		]
   },
   'r2s5': {
     title: 'Release Stunts / Tosses',
@@ -2270,10 +2315,13 @@ const legalityData = {
       { url: "https://drive.google.com/file/d/10W9T5-fnatb28iVu8-V7dMKr-mFynoPL/preview", label: '2.5.6 Release to Prone', type: 'Illegal' },
       { url: "https://drive.google.com/file/d/1LmZREGYWaQUkkVyMx9cVQ-Wpnex84_Jh/preview", label: '2.5.6 Release to Prone (5)', type: 'Legal' },
       { url: "https://drive.google.com/file/d/1LlPv-qCNCYxNAfuh63wD0SsRbmV1LPhv/preview", label: '2.5.6 Release to Prone (6)', type: 'Legal' },
-      { url: "https://drive.google.com/file/d/1q6qGHqSXMTehuLEVkh58uD3Q_TN_2mS9/preview", label: '2.5.6c Pyramid High High Full Around', type: 'Legal' },
-      { url: "https://drive.google.com/file/d/1qrzZYFCbblIzmlrL92j7g8pDWk6qZANq/preview", label: '2.5.6c Pyramid High High Full Around', type: 'Legal' },
-      { url: "https://drive.google.com/file/d/1I45ImJybytj_hMigyfY534SDTxhykoGS/preview", label: '2.5.7 Helicopter Release', type: 'Legal' }
-    ]
+      { url: "https://drive.google.com/file/d/1JvdMPMyLPC-AbMSilxVTpgsR9QM2VaZg/preview", label: '2.5.6c Full Twisting High to High', type: 'Legal' },
+      { url: "https://drive.google.com/file/d/1q6qGHqSXMTehuLEVkh58uD3Q_TN_2mS9/preview", label: '2.5.6c Pyramid Full Twisting High to High', type: 'Legal' },
+      { url: "https://drive.google.com/file/d/1THk7NOZ7DbzSyxhCXkfuh_rWuBtXndvK/preview", label: '2.5.6c Pyramid 1/2 Twisting High to High', type: 'Legal' },
+      { url: "https://drive.google.com/file/d/1qrzZYFCbblIzmlrL92j7g8pDWk6qZANq/preview", label: '2.5.6c Pyramid Full Twisting High to High', type: 'Legal' },
+      { url: "https://drive.google.com/file/d/1I45ImJybytj_hMigyfY534SDTxhykoGS/preview", label: '2.5.7 Helicopter Release', type: 'Legal' },
+      { url: "https://drive.google.com/file/d/1qH1kZF0mDTWklNyL9DUQl0oiBpAErhXi/preview", label: '2.5.7 Braced Helicopter Release to New Bases', type: 'Illegal' }
+   ]
   },
   'r2s6': {
     title: 'Suspended Stunts',
@@ -2307,7 +2355,6 @@ const legalityData = {
     rule: 'Rule 2 — Section 9',
     description: 'Rules governing drops to the performing surface.',
     videos: [
-      { url: "https://drive.google.com/file/d/1-vkJus7oUYXM7pA1VzbY_Nj4xiOedA4Q/preview", label: '2.10.1 Flyer Tossing Sign', type: 'Illegal' }
     ]
   },
   'r2s10': {
@@ -2315,7 +2362,8 @@ const legalityData = {
     rule: 'Rule 2 — Section 10',
     description: 'Rules for the use of signs, poms, and other props during a routine.',
     videos: [
-      { url: "https://drive.google.com/file/d/1vN_b7DwKoe_-g7rgZfEUr_yn3EVDMpck/preview", label: '2.10.1 Toss Props from Stunt', type: 'Legal' },
+      { url: "https://drive.google.com/file/d/1-vkJus7oUYXM7pA1VzbY_Nj4xiOedA4Q/preview", label: '2.10.1 Flyer Tossing Sign', type: 'Illegal' },
+	  { url: "https://drive.google.com/file/d/1vN_b7DwKoe_-g7rgZfEUr_yn3EVDMpck/preview", label: '2.10.1 Toss Props from Stunt', type: 'Legal' },
       { url: "https://drive.google.com/file/d/1uadrH9wpZPidYStQuXnxhZUC_Mab-6Kn/preview", label: 'Props per VHSL - Boxes Not Allowed for Comp', type: 'Illegal' },
       { url: "https://drive.google.com/file/d/1Qut1CkXMI_IFf57GvVlIiRr6w5m5BNpt/preview", label: 'Props per VHSL - Rally Towel in Skirt', type: 'Legal' }
     ]
@@ -2567,5 +2615,119 @@ setTimeout(updateVideoCounts, 200);
     flex-wrap:wrap;
   }
 </style>
+
+<style>
+  #sticky-rubric-header {
+    display: none;
+    position: fixed;
+    z-index: 500;
+    left: 0; right: 0;
+    background: var(--navy-mid);
+    border-bottom: 2px solid rgba(201,168,76,0.3);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+    overflow: hidden;
+  }
+  #sticky-rubric-header table {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 3px;
+    table-layout: fixed;
+  }
+  #sticky-rubric-header th {
+    padding: 8px 14px;
+    text-align: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px; font-weight: 800;
+    letter-spacing: 1px; text-transform: uppercase;
+  }
+  #sticky-rubric-header th:first-child { width: 120px; background: transparent; }
+  #sticky-rubric-header .ch-beginner    { background: var(--beginner-dim);    color: var(--beginner);    border-bottom: 2px solid var(--beginner); }
+  #sticky-rubric-header .ch-intermediate{ background: var(--intermediate-dim); color: var(--intermediate); border-bottom: 2px solid var(--intermediate); }
+  #sticky-rubric-header .ch-advanced    { background: var(--advanced-dim);    color: var(--advanced);    border-bottom: 2px solid var(--advanced); }
+  #sticky-rubric-header .ch-elite       { background: var(--elite-dim);       color: var(--elite);       border-bottom: 2px solid var(--elite); }
+  #sticky-rubric-header .ch-superelite  { background: var(--superelite-dim);  color: var(--superelite);  border-bottom: 2px solid var(--superelite); }
+  #sticky-rubric-header .col-header-pts { font-size: 11px; font-weight: 400; opacity: 0.7; margin-top: 2px; }
+</style>
+
+<div id="sticky-rubric-header" style="display:none;">
+  <table>
+    <tr>
+      <th></th>
+      <th class="ch-beginner">Beginner<div class="col-header-pts">0.0 – 1.0</div></th>
+      <th class="ch-intermediate">Intermediate<div class="col-header-pts">1.25 – 3.25</div></th>
+      <th class="ch-advanced">Advanced<div class="col-header-pts">3.5 – 5.5</div></th>
+      <th class="ch-elite">Elite<div class="col-header-pts">5.75 – 7.75</div></th>
+      <th class="ch-superelite">Super Elite<div class="col-header-pts">8.0 – 10.0</div></th>
+    </tr>
+  </table>
+</div>
+
+<script>
+(function() {
+  var stickyBar = document.getElementById('sticky-rubric-header');
+  var activeTable = null;
+
+  function getSiteHeaderHeight() {
+    var h = document.querySelector('.site-header');
+    var t = document.querySelector('.tab-nav');
+    return (h ? h.offsetHeight : 0) + (t ? t.offsetHeight : 0);
+  }
+
+  function updateSticky() {
+    // Never show at the very top of the page
+    if (window.scrollY < 10) { stickyBar.style.display = 'none'; return; }
+    // Only show on stunts or pyramids tab
+    var stuntsPanel = document.getElementById('tab-stunts');
+    var pyramidsPanel = document.getElementById('tab-pyramids');
+    var visiblePanel = null;
+    if (stuntsPanel && stuntsPanel.classList.contains('active')) visiblePanel = stuntsPanel;
+    else if (pyramidsPanel && pyramidsPanel.classList.contains('active')) visiblePanel = pyramidsPanel;
+
+    if (!visiblePanel) { stickyBar.style.display = 'none'; return; }
+
+    var thead = visiblePanel.querySelector('.rubric-table thead');
+    if (!thead) { stickyBar.style.display = 'none'; return; }
+
+    var offset = getSiteHeaderHeight();
+    var rect = thead.getBoundingClientRect();
+
+    if (rect.bottom < offset) {
+      // thead fully scrolled behind nav — show sticky bar
+      stickyBar.style.display = 'block';
+      stickyBar.style.top = offset + 'px';
+
+      // Match column widths to the real table
+      var realThs = thead.querySelectorAll('th');
+      var fakeThs = stickyBar.querySelectorAll('th');
+      realThs.forEach(function(th, i) {
+        if (fakeThs[i]) fakeThs[i].style.width = th.offsetWidth + 'px';
+      });
+      // Align left edge to match the real table
+      var tableRect = visiblePanel.querySelector('.rubric-table').getBoundingClientRect();
+      stickyBar.style.paddingLeft = Math.max(0, tableRect.left) + 'px';
+    } else {
+      stickyBar.style.display = 'none';
+    }
+  }
+
+  window.addEventListener('scroll', updateSticky, { passive: true });
+  window.addEventListener('resize', updateSticky, { passive: true });
+  // Wait for full paint before first check so getBoundingClientRect is accurate
+  window.addEventListener('load', function() {
+    requestAnimationFrame(function() {
+      requestAnimationFrame(updateSticky);
+    });
+  });
+
+  // Re-run when tabs switch
+  var origSwitchTab = window.switchTab;
+  window.switchTab = function() {
+    origSwitchTab.apply(this, arguments);
+    setTimeout(updateSticky, 50);
+  };
+})();
+</script>
 </body>
 </html>
