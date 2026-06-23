@@ -551,9 +551,9 @@
     <div class="header-badge">VHSL 2026–27</div>
     <div>
       <div class="header-title">Stunt &amp; Pyramid <span>Interactive Rubric</span></div>
-      <div class="header-sub">Coaches' &amp; Officials' Training — Module 2</div>
+      <div class="header-sub">Coaches' &amp; Officials' Resources</div>
     </div>
-    <div class="header-meta">Updated June 9, 2026</div>
+    <div class="header-meta">Updated June 17, 2026</div>
   </div>
 </header>
 
@@ -1628,8 +1628,9 @@ const skills = {
       { url: "https://drive.google.com/file/d/12snlzojx6HRgrHPEmayY0U18aowvXvtI/preview", label: 'Non-Release Inversion Below Prep to Prep' },
       { url: "https://drive.google.com/file/d/1XU3R9xi6samDa-uTB0AKpZn-9XKzCYQl/preview", label: 'Non-Release Inversion Below Prep to Prep' },
       { url: "https://drive.google.com/file/d/1w_V8vkPWAO45OSSlf3OrumrGB4YH0L8A/preview", label: 'Non-Release Inversion Below Prep to Prep' },
-      { url: "https://drive.google.com/file/d/1sZKGSc5Y9T7nJptOQmsTrck1evpVclEw/preview", label: 'Non-Release Inversion Prep to Prep' }
-    ] },
+      { url: "https://drive.google.com/file/d/1sZKGSc5Y9T7nJptOQmsTrck1evpVclEw/preview", label: 'Non-Release Inversion Prep to Prep' },
+      { url: "https://drive.google.com/file/d/1Tl7zjr2TBDFI_f94cn7Fal0Mr4Y7_BgQ/preview", label: 'Non-Release Inversion Below Prep to Below Prep' }    
+	] },
   'inv-beg-3': { name: 'Non-Release Twisting Inversions — Prep to Below Prep', category: 'Stunts — Inversion Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Includes a twist component while inverted, but does not release. Lands at below prep level.', videos: [] },
   'inv-beg-4': { name: 'Released Twisting Inversions — Prep to Below Prep', category: 'Stunts — Inversion Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer briefly releases from all bases while inverted and twisting. Caught at below prep level.', videos: [] },
   'inv-beg-5': { name: 'Released Inversions — Prep to Below Prep', category: 'Stunts — Inversion Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer releases from bases while inverted (no twist) and is caught at below prep level.', videos: [] },
@@ -1717,7 +1718,12 @@ const skills = {
       { url: "https://drive.google.com/file/d/1uRQ6C_ACjvMlGrbG0LUDtLD1u-uLl0xW/preview", label: 'Switch Up to Prep ABP' }
     ] },
   'rel-int-6': { name: 'Prep Level Low to Low (Tic Toc)', category: 'Stunts — Release Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Classic Tic Toc: flyer releases from one foot to the other at prep level. Bases stay at prep throughout. No height change.', videos: [] },
-  'rel-int-7': { name: 'Twisting Release to Prep Level', category: 'Stunts — Release Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Flyer twists during a release and is caught at prep level. Any amount of twist.', videos: [] },
+  'rel-int-7': { name: 'Twisting Release to Prep Level', category: 'Stunts — Release Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Flyer twists during a release and is caught at prep level. Any amount of twist.', videos: [
+      { url: "https://drive.google.com/file/d/1T4GYLaxClvLbKB0CGaVieTdPUW4McawM/preview", label: 'Full Twist Low to Low to ABP' }
+  ] },
+  
+  
+  
  /////    
   'rel-adv-1': { name: 'Prep Level Release to Extended/IBP/ABP', category: 'Stunts — Release Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Flyer releases from prep level and is caught at extend level.', videos: [] },
   'rel-adv-2': { name: 'Release to Extended/IBP/ABP', category: 'Stunts — Release Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Basic release (Quick Toss, Ball-Up style) caught at extended level. No twist.', videos: [
@@ -1943,9 +1949,13 @@ const skills = {
   'oth-beg-1': { name: 'Prep Level and Below Stunts Not Previously Categorized', category: 'Stunts — Other', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Catch-all for prep and below stunts that don\'t fit other categories. Examples: standard prep, prep lib, shoulder stand, thigh stand.', videos: [] },
   'oth-int-1': { name: 'Extended Stunts Not Previously Categorized', category: 'Stunts — Other', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Catch-all for extended stunts not listed elsewhere. Examples: extension, cupie, liberty at extended, show n go.', videos: [] },
   'tos-beg-1': { name: 'Straight Ride Tosses / Pretty Girl', category: 'Stunts — Tosses', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Straight ride = flyer goes up and comes straight down with no skill. Pretty Girl = flyer performs a pose or motion at the top with no skill.', videos: [] },
-  'tos-int-1': { name: 'Single-Skill Tosses', category: 'Stunts — Tosses', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'One skill performed at the top of the toss. Examples: Toe-Touch, Kick, Pike, Full Twist.', videos: [] },
+  'tos-int-1': { name: 'Single-Skill Tosses', category: 'Stunts — Tosses', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'One skill performed at the top of the toss. Examples: Toe-Touch, Kick, Pike, Full Twist.', videos: [
+      { url: "https://drive.google.com/file/d/1XBrBPgm1y6ew33dSeIZTPDs7ZAlUhj-L/preview", label: 'Full Twist Basket' }
+    ] },
   'tos-adv-1': { name: 'Multi-Skill Tosses', category: 'Stunts — Tosses', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Two or more skills combined in one toss. Examples: Ball X-Out, Hitch Kick, Kick Kick.', videos: [] },
-  'tos-eli-1': { name: 'Single-Skill Tosses with Full Twist', category: 'Stunts — Tosses', range: 'Elite', rangeColor: 'var(--elite)', notes: 'One skill combined with a full twist. Examples: Ball Full, Kick Full, Full Toe Touch.', videos: [] },
+  'tos-eli-1': { name: 'Single-Skill Tosses with Full Twist', category: 'Stunts — Tosses', range: 'Elite', rangeColor: 'var(--elite)', notes: 'One skill combined with a full twist. Examples: Ball Full, Kick Full, Full Toe Touch.', videos: [
+       { url: "https://drive.google.com/file/d/1fgJwQ5UjOdPW3DVMZFRnW3uWqIDiKR3S/preview", label: 'Full Twist Basket' }
+    ] },
   'tos-se-1': { name: 'Multi-Skill Tosses with Full Twist', category: 'Stunts — Tosses', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Multiple skills plus a full twist. Examples: Hitch Kick Full, Kick Kick Full.', videos: [] },
 
   // ── PYRAMID: NON-RELEASED ──
