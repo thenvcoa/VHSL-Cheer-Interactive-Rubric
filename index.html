@@ -2741,7 +2741,7 @@ setTimeout(updateVideoCounts, 200);
   function getSiteHeaderHeight() {
     var h = document.querySelector('.site-header');
     var t = document.querySelector('.tab-nav');
-    return (h ? h.offsetHeight : 0) + (t ? t.offsetHeight : 0);
+    return (h ? h.getBoundingClientRect().bottom : 0);
   }
 
   function updateSticky() {
@@ -2759,16 +2759,20 @@ setTimeout(updateVideoCounts, 200);
     var thead = visiblePanel.querySelector('.rubric-table thead');
     if (!thead) { stickyBar.style.display = 'none'; return; }
 
-    var offset = getSiteHeaderHeight();
+    // Use the bottom of the tab-nav as the sticky offset (accounts for mobile reflow)
+    var tabNav = document.querySelector('.tab-nav');
+    var offset = tabNav ? tabNav.getBoundingClientRect().bottom : getSiteHeaderHeight();
+
     var rect = thead.getBoundingClientRect();
 
     if (rect.bottom < offset) {
-      // thead fully scrolled behind nav — show sticky bar
       stickyBar.style.display = 'block';
       stickyBar.style.top = offset + 'px';
 
-      // Get real table position on screen
+      // Get real table and scroll container
+      var rubricScroll = visiblePanel.querySelector('.rubric-scroll');
       var tableRect = visiblePanel.querySelector('.rubric-table').getBoundingClientRect();
+      var scrollLeft = rubricScroll ? rubricScroll.scrollLeft : 0;
 
       // Match each fake th width to the corresponding real th
       var realThs = thead.querySelectorAll('th');
@@ -2779,8 +2783,11 @@ setTimeout(updateVideoCounts, 200);
         }
       });
 
-      // Align the fake table's left edge to exactly match the real table
+      // Align fake table accounting for horizontal scroll position
       var fakeTable = stickyBar.querySelector('table');
+      var scrollRect = rubricScroll ? rubricScroll.getBoundingClientRect() : tableRect;
+      fakeTable.style.marginLeft = (tableRect.left - scrollLeft + scrollLeft - scrollRect.left + scrollRect.left) + 'px';
+      // Simpler: just track the real table's current left edge directly
       fakeTable.style.marginLeft = tableRect.left + 'px';
       fakeTable.style.width = tableRect.width + 'px';
     } else {
@@ -2788,14 +2795,26 @@ setTimeout(updateVideoCounts, 200);
     }
   }
 
-  window.addEventListener('scroll', updateSticky, { passive: true });
-  window.addEventListener('resize', updateSticky, { passive: true });
-  // Wait for full paint before first check so getBoundingClientRect is accurate
+  // Sync horizontal scroll of sticky header with the rubric scroll containers
+  function syncHorizontalScroll(e) {
+    if (stickyBar.style.display === 'none') return;
+    var fakeTable = stickyBar.querySelector('table');
+    var tableRect = e.target.querySelector('.rubric-table').getBoundingClientRect();
+    fakeTable.style.marginLeft = tableRect.left + 'px';
+  }
+
+  // Attach horizontal scroll listeners to both rubric scroll containers
   window.addEventListener('load', function() {
+    document.querySelectorAll('.rubric-scroll').forEach(function(el) {
+      el.addEventListener('scroll', syncHorizontalScroll, { passive: true });
+    });
     requestAnimationFrame(function() {
       requestAnimationFrame(updateSticky);
     });
   });
+
+  window.addEventListener('scroll', updateSticky, { passive: true });
+  window.addEventListener('resize', updateSticky, { passive: true });
 
   // Re-run when tabs switch
   var origSwitchTab = window.switchTab;
