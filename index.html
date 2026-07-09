@@ -30,60 +30,24 @@
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  body {
-    font-family: 'Barlow', sans-serif;
-    background: var(--navy);
-    color: var(--white);
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
+  body {font-family: 'Barlow', sans-serif; background: var(--navy); color: var(--white); min-height: 100vh; overflow-x: hidden;}
 
   /* ── HEADER ── */
-  .site-header {
-    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
-    border-bottom: 3px solid var(--gold);
-    position: sticky; top: 0; z-index: 200;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.5);
-  }
-  .header-inner {
-    max-width: 1400px; margin: 0 auto;
-    display: flex; align-items: center; gap: 20px;
-    padding: 12px 24px;
-  }
-  .header-badge {
-    background: var(--gold); color: var(--navy);
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 900; font-size: 11px; letter-spacing: 2px;
-    text-transform: uppercase; padding: 4px 10px; border-radius: 2px; white-space: nowrap;
-  }
-  .header-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 800; font-size: 20px; color: var(--white); flex: 1;
-  }
+  .site-header {background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%); border-bottom: 3px solid var(--gold); position: sticky; top: 0; z-index: 200;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.5);}
+  .header-inner {max-width: 1400px; margin: 0 auto; display: flex; align-items: center; gap: 20px; padding: 12px 24px;}
+  .header-badge {background: var(--gold); color: var(--navy); font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 11px; letter-spacing: 2px;
+    text-transform: uppercase; padding: 4px 10px; border-radius: 2px; white-space: nowrap;}
+  .header-title {font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 20px; color: var(--white); flex: 1;}
   .header-title span { color: var(--gold); }
   .header-sub { font-size: 11px; color: var(--gray-mid); letter-spacing: 2px; text-transform: uppercase; margin-top: 2px; }
   .header-meta { font-size: 12px; color: var(--gray-mid); text-align: right; white-space: nowrap; }
 
   /* ── TAB NAV ── */
-  .tab-nav {
-    background: var(--navy-mid);
-    border-bottom: 1px solid rgba(201,168,76,0.2);
-    position: sticky;
-    top: 65px;
-    z-index: 100;
-  }
-  .tab-nav-inner {
-    max-width: 1400px; margin: 0 auto;
-    display: flex; padding: 0 24px;
-  }
-  .tab-btn {
-    padding: 14px 28px; cursor: pointer;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 14px; font-weight: 700; letter-spacing: 1px;
-    text-transform: uppercase; color: var(--gray-mid);
-    border-bottom: 3px solid transparent;
-    transition: all 0.2s; display: flex; align-items: center; gap: 8px;
-  }
+  .tab-nav {background: var(--navy-mid); border-bottom: 1px solid rgba(201,168,76,0.2); position: sticky; top: 65px; z-index: 100;}
+  .tab-nav-inner {max-width: 1400px; margin: 0 auto; display: flex; padding: 0 24px;}
+  .tab-btn {padding: 14px 28px; cursor: pointer; font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 1px; 
+    text-transform: uppercase; color: var(--gray-mid); border-bottom: 3px solid transparent; transition: all 0.2s; display: flex; align-items: center; gap: 8px;}
   .tab-btn:hover { color: var(--gold-light); }
   .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
   .tab-icon { font-size: 16px; }
@@ -98,39 +62,22 @@
 
   /* ── SECTION HEADER ── */
   .section-header { margin-bottom: 24px; }
-  .section-eyebrow {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 12px; letter-spacing: 3px; text-transform: uppercase;
-    color: var(--gold); font-weight: 700; margin-bottom: 6px;
-  }
-  .section-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 38px; font-weight: 900; line-height: 1; color: var(--white);
-  }
+  .section-eyebrow {font-family: 'Barlow Condensed', sans-serif; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 6px;}
+  .section-title {font-family: 'Barlow Condensed', sans-serif; font-size: 38px; font-weight: 900; line-height: 1; color: var(--white);}
   .section-title span { color: var(--gold); }
   .gold-rule { width: 50px; height: 3px; background: var(--gold); margin: 12px 0; }
   .section-desc { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; max-width: 700px; }
 
   /* ── CALLOUT ── */
-  .callout {
-    border-radius: 6px; padding: 14px 18px; margin-bottom: 20px;
-    display: flex; gap: 12px; align-items: flex-start; font-size: 13px; line-height: 1.6;
-  }
+  .callout {border-radius: 6px; padding: 14px 18px; margin-bottom: 20px; display: flex; gap: 12px; align-items: flex-start; font-size: 13px; line-height: 1.6;}
   .callout-icon { font-size: 18px; flex-shrink: 0; }
   .callout-gold { background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.25); color: rgba(255,255,255,0.85); }
   .callout-blue { background: rgba(37,99,168,0.12); border: 1px solid rgba(37,99,168,0.3); color: rgba(255,255,255,0.85); }
 
   /* ── RANGE LEGEND ── */
-  .range-legend {
-    display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;
-  }
-  .legend-item {
-    display: flex; align-items: center; gap: 6px;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 12px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
-    padding: 5px 12px; border-radius: 4px; cursor: pointer;
-    transition: opacity 0.2s;
-  }
+  .range-legend {display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+  .legend-item {display: flex; align-items: center; gap: 6px; font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+    padding: 5px 12px; border-radius: 4px; cursor: pointer; transition: opacity 0.2s;}
   .legend-item.dimmed { opacity: 0.3; }
   .legend-item.selected { box-shadow: 0 0 0 2px currentColor; opacity: 1; }
   .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
@@ -143,18 +90,11 @@
   /* ── RUBRIC GRID ── */
   .rubric-wrap { margin-bottom: 32px; }
   .rubric-scroll { overflow-x: auto; }
-  .rubric-table {
-    width: 100%; border-collapse: separate; border-spacing: 3px;
-    min-width: 900px;
-  }
+  .rubric-table {width: 100%; border-collapse: separate; border-spacing: 3px; min-width: 900px;}
 
   /* Column headers */
-  .rubric-table .col-header {
-    padding: 10px 14px; text-align: center;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 13px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
-    border-radius: 4px 4px 0 0;
-  }
+  .rubric-table .col-header {padding: 10px 14px; text-align: center; font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
+    border-radius: 4px 4px 0 0;}
   .col-header.ch-beginner { background: var(--beginner-dim); color: var(--beginner); border-bottom: 2px solid var(--beginner); }
   .col-header.ch-intermediate { background: var(--intermediate-dim); color: var(--intermediate); border-bottom: 2px solid var(--intermediate); }
   .col-header.ch-advanced { background: var(--advanced-dim); color: var(--advanced); border-bottom: 2px solid var(--advanced); }
@@ -163,43 +103,16 @@
   .col-header-pts { font-size: 11px; font-weight: 400; opacity: 0.7; margin-top: 2px; }
 
   /* Row labels */
-  .row-label {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;
-    color: var(--gold); background: rgba(201,168,76,0.07);
-    padding: 10px 14px;
-    border-left: 4px solid var(--gold);
-    border-top: none;
-    border-bottom: 1px solid rgba(201,168,76,0.2);
-    vertical-align: middle; text-align: center;
-    min-width: 72px; width: 72px;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    transform: rotate(180deg);
-    white-space: nowrap;
-  }
+  .row-label {font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--gold); background: rgba(201,168,76,0.07);
+    padding: 10px 14px; border-left: 4px solid var(--gold); border-top: none; border-bottom: 1px solid rgba(201,168,76,0.2); vertical-align: middle; text-align: center; min-width: 72px; width: 72px;
+    writing-mode: vertical-rl; text-orientation: mixed; transform: rotate(180deg); white-space: nowrap;}
 
   /* Skill cells */
-  .skill-cell {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 4px; padding: 8px 10px;
-    font-size: 12px; line-height: 1.45;
-    text-align: center; vertical-align: middle;
-    cursor: pointer;
-    transition: all 0.18s; position: relative;
-  }
+  .skill-cell { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 4px; padding: 8px 10px; font-size: 12px; line-height: 1.45; text-align: center; vertical-align: middle;
+    cursor: pointer; transition: all 0.18s; position: relative;}
   .skill-cell:hover { transform: translateY(-2px); z-index: 2; }
-  .skill-cell.has-video::after {
-    content: '▶';
-    position: absolute; bottom: 5px; right: 6px;
-    font-size: 9px; opacity: 0.5;
-  }
-  .skill-cell.empty {
-    background: rgba(255,255,255,0.01);
-    border-color: rgba(255,255,255,0.03);
-    color: rgba(255,255,255,0.15);
-    cursor: default; font-size: 18px; text-align: center;  }
+  .skill-cell.has-video::after {content: '▶'; position: absolute; bottom: 5px; right: 6px; font-size: 9px; opacity: 0.5; }
+  .skill-cell.empty { background: rgba(255,255,255,0.01); border-color: rgba(255,255,255,0.03); color: rgba(255,255,255,0.15); cursor: default; font-size: 18px; text-align: center;  }
   .skill-cell.empty:hover { transform: none; }
 
   /* Section colors */
@@ -256,123 +169,50 @@
   .skill-cell.range-superelite:hover { background: var(--superelite-dim); border-color: var(--superelite); box-shadow: 0 4px 16px rgba(168,85,212,0.2); }
 
   /* ── MODAL ── */
-  .modal-overlay {
-    display: none; position: fixed; inset: 0;
-    background: rgba(0,0,0,0.85); z-index: 1000;
-    align-items: center; justify-content: center;
-    padding: 20px;
-    backdrop-filter: blur(4px);
-  }
+  .modal-overlay {display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 1000; align-items: center; justify-content: center;
+    padding: 20px;  backdrop-filter: blur(4px); }
   .modal-overlay.open { display: flex; }
-  .modal {
-    background: var(--navy-mid);
-    border: 1px solid rgba(201,168,76,0.3);
-    border-radius: 12px;
-    width: 100%; max-width: 780px;
-    max-height: 90vh; overflow-y: auto;
-    box-shadow: 0 24px 80px rgba(0,0,0,0.8);
-    animation: modalIn 0.25s ease;
-  }
+  .modal {background: var(--navy-mid); border: 1px solid rgba(201,168,76,0.3); border-radius: 12px; width: 100%; max-width: 780px; max-height: 90vh; overflow-y: auto;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.8); animation: modalIn 0.25s ease;}
   @keyframes modalIn { from { opacity:0; transform:scale(0.95); } to { opacity:1; transform:scale(1); } }
-  .modal-header {
-    padding: 20px 24px 16px;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;
-  }
-  .modal-range-badge {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 11px; font-weight: 800; letter-spacing: 1.5px;
-    text-transform: uppercase; padding: 3px 10px; border-radius: 3px; margin-bottom: 6px;
-    display: inline-block;
-  }
-  .modal-skill-name {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 22px; font-weight: 900; color: var(--white); line-height: 1.1;
-  }
-  .modal-category {
-    font-size: 12px; color: var(--gray-mid); margin-top: 3px; letter-spacing: 0.5px;
-  }
-  .modal-close {
-    background: rgba(255,255,255,0.08); border: none; color: var(--white);
-    width: 32px; height: 32px; border-radius: 50%; cursor: pointer;
-    font-size: 18px; display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0; transition: background 0.2s;
-  }
+  .modal-header {padding: 20px 24px 16px; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;}
+  .modal-range-badge {font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 3px; margin-bottom: 6px;
+    display: inline-block; }
+  .modal-skill-name {font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 900; color: var(--white); line-height: 1.1;}
+  .modal-category {font-size: 12px; color: var(--gray-mid); margin-top: 3px; letter-spacing: 0.5px;}
+  .modal-close {background: rgba(255,255,255,0.08); border: none; color: var(--white); width: 32px; height: 32px; border-radius: 50%; cursor: pointer;
+    font-size: 18px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.2s;}
   .modal-close:hover { background: rgba(255,255,255,0.18); }
   .modal-body { padding: 20px 24px 24px; }
 
   /* Notes section */
-  .modal-notes {
-    background: rgba(201,168,76,0.07);
-    border: 1px solid rgba(201,168,76,0.2);
-    border-radius: 6px; padding: 12px 16px; margin-bottom: 20px;
-    font-size: 13px; color: rgba(255,255,255,0.8); line-height: 1.6;
-  }
-  .modal-notes-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 12px; font-weight: 800; color: var(--gold);
-    text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;
-  }
+  .modal-notes {background: rgba(201,168,76,0.07); border: 1px solid rgba(201,168,76,0.2); border-radius: 6px; padding: 12px 16px; margin-bottom: 20px;
+    font-size: 13px; color: rgba(255,255,255,0.8); line-height: 1.6;}
+  .modal-notes-title {font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 800; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;}
 
   /* Videos section */
-  .modal-videos-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 16px; font-weight: 800; color: var(--white);
-    text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 14px;
-    display: flex; align-items: center; gap: 10px;
-  }
-  .video-count-badge {
-    background: var(--gold); color: var(--navy);
-    font-size: 11px; font-weight: 900; padding: 2px 8px; border-radius: 10px;
-  }
+  .modal-videos-title {font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 800; color: var(--white); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 14px;
+    display: flex; align-items: center; gap: 10px;}
+  .video-count-badge {background: var(--gold); color: var(--navy); font-size: 11px; font-weight: 900; padding: 2px 8px; border-radius: 10px;  }
   .videos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .video-slot {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 8px; overflow: hidden;
-  }
-  .video-slot iframe {
-    width: 100%; aspect-ratio: 16/9; display: block; border: none;
-  }
-  .video-slot-placeholder {
-    width: 100%; aspect-ratio: 16/9;
-    background: rgba(255,255,255,0.03);
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center; gap: 8px;
-    color: rgba(255,255,255,0.2); font-size: 13px;
-  }
+  .video-slot {background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden; }
+  .video-slot iframe {width: 100%; aspect-ratio: 16/9; display: block; border: none;}
+  .video-slot-placeholder {width: 100%; aspect-ratio: 16/9; background: rgba(255,255,255,0.03); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+    color: rgba(255,255,255,0.2); font-size: 13px; }
   .video-slot-placeholder .placeholder-icon { font-size: 28px; opacity: 0.3; }
-  .video-label {
-    padding: 8px 12px; font-size: 12px; color: rgba(255,255,255,0.6);
-    font-weight: 500; border-top: 1px solid rgba(255,255,255,0.06);
-  }
+  .video-label {padding: 8px 12px; font-size: 12px; color: rgba(255,255,255,0.6); font-weight: 500; border-top: 1px solid rgba(255,255,255,0.06);}
   .add-video-btn { display: none; } /* hidden from published view */
 
   /* Additional info */
   .modal-additional { margin-top: 20px; }
-  .modal-additional-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 13px; font-weight: 800; color: var(--gray-mid);
-    text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;
-  }
+  .modal-additional-title {font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 800; color: var(--gray-mid); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
   .related-skills { display: flex; flex-wrap: wrap; gap: 6px; }
-  .related-tag {
-    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 4px; padding: 4px 10px; font-size: 12px; color: rgba(255,255,255,0.6);
-  }
+  .related-tag {background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; padding: 4px 10px; font-size: 12px; color: rgba(255,255,255,0.6); }
 
   /* ── NAV BUTTONS ── */
-  .nav-buttons {
-    display: flex; justify-content: space-between; align-items: center;
-    margin-top: 40px; padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.08);
-  }
-  .btn {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 14px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
-    padding: 11px 26px; border-radius: 4px; cursor: pointer; border: none;
-    transition: all 0.2s; display: flex; align-items: center; gap: 8px; text-decoration: none;
-  }
+  .nav-buttons {display: flex; justify-content: space-between; align-items: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08);}
+  .btn {font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 11px 26px; border-radius: 4px; cursor: pointer; border: none;
+    transition: all 0.2s; display: flex; align-items: center; gap: 8px; text-decoration: none;}
   .btn-primary { background: var(--gold); color: var(--navy); }
   .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
   .btn-secondary { background: transparent; color: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.2); }
@@ -380,14 +220,8 @@
 
   /* ── QUICK REF CARDS ── */
   .quick-ref-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-bottom: 28px; }
-  .quick-ref-card {
-    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
-    border-radius: 8px; padding: 16px;
-  }
-  .quick-ref-card h4 {
-    font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 800;
-    color: var(--gold); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;
-  }
+  .quick-ref-card {background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; padding: 16px; }
+  .quick-ref-card h4 {font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 800; color: var(--gold); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;}
   .quick-ref-card p { font-size: 12px; color: rgba(255,255,255,0.7); line-height: 1.55; }
 
   @media (max-width: 768px) {
@@ -395,7 +229,6 @@
     .videos-grid { grid-template-columns: 1fr; }
   }
 
-  /* ── MAJORITY TAB (ported from Module 1) ── */
   /* ── MAJORITY CALCULATOR – HERO SIZE ── */
   .majority-tool {background: rgba(201,168,76,0.05); border: 2px solid rgba(201,168,76,0.25); border-radius: 16px; padding: 48px 40px 40px; margin-bottom: 32px; }
   .majority-tool h3 {font-family: 'Barlow Condensed', sans-serif; font-size: 36px; font-weight: 900; color: var(--white); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
@@ -407,37 +240,12 @@
   .slider-count-display {font-family: 'Barlow Condensed', sans-serif; font-size: 110px; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 8px; text-shadow: 0 0 60px rgba(201,168,76,0.3); }
   .slider-count-sub {font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 700; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 28px; }
   .slider-track-wrap {width: 100%; position: relative; padding: 0 4px; }
-  .slider-track-wrap input[type=range] {
-    width: 100%;
-    -webkit-appearance: none;
-    appearance: none;
-    height: 12px;
-    border-radius: 6px;
-    background: linear-gradient(to right, var(--gold) 0%, var(--gold) 50%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0.12) 100%);
-    cursor: pointer;
-    outline: none;
-  }
-  .slider-track-wrap input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: var(--gold);
-    cursor: pointer;
-    border: 4px solid var(--navy);
-    box-shadow: 0 0 0 3px var(--gold), 0 4px 16px rgba(0,0,0,0.5);
-    transition: box-shadow 0.15s;
-  }
-  .slider-track-wrap input[type=range]::-webkit-slider-thumb:hover {
-    box-shadow: 0 0 0 5px rgba(201,168,76,0.4), 0 4px 16px rgba(0,0,0,0.5);
-  }
-  .slider-track-wrap input[type=range]::-moz-range-thumb {
-    width: 36px; height: 36px; border-radius: 50%;
-    background: var(--gold); cursor: pointer;
-    border: 4px solid var(--navy);
-    box-shadow: 0 0 0 3px var(--gold);
-  }
+  .slider-track-wrap input[type=range] {width: 100%; -webkit-appearance: none; appearance: none; height: 12px; border-radius: 6px;
+    background: linear-gradient(to right, var(--gold) 0%, var(--gold) 50%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0.12) 100%); cursor: pointer; outline: none; }
+  .slider-track-wrap input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 36px; height: 36px; border-radius: 50%; background: var(--gold);
+    cursor: pointer; border: 4px solid var(--navy); box-shadow: 0 0 0 3px var(--gold), 0 4px 16px rgba(0,0,0,0.5); transition: box-shadow 0.15s;}
+  .slider-track-wrap input[type=range]::-webkit-slider-thumb:hover {box-shadow: 0 0 0 5px rgba(201,168,76,0.4), 0 4px 16px rgba(0,0,0,0.5); }
+  .slider-track-wrap input[type=range]::-moz-range-thumb {width: 36px; height: 36px; border-radius: 50%; background: var(--gold); cursor: pointer; border: 4px solid var(--navy); box-shadow: 0 0 0 3px var(--gold);  }
   .slider-range-labels {display: flex; justify-content: space-between; margin-top: 10px; }
   .slider-range-labels span {font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.35); text-transform: uppercase; }
 
@@ -463,77 +271,29 @@
   .card-body {font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.7; }
 
   /* ── LEGALITY TAB ── */
-  .rule-block {
-    margin-bottom: 10px;
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.07);
-  }
-  .rule-header {
-    padding: 13px 18px;
-    display: flex; align-items: center; gap: 14px;
-    cursor: pointer;
-    background: rgba(255,255,255,0.04);
-    transition: background 0.2s;
-    border-left: 4px solid transparent;
-  }
+  .rule-block {margin-bottom: 10px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.07);  }
+  .rule-header {padding: 13px 18px; display: flex; align-items: center; gap: 14px; cursor: pointer; background: rgba(255,255,255,0.04); transition: background 0.2s; border-left: 4px solid transparent; }
   .rule-header:hover { background: rgba(255,255,255,0.04); }
   .rule-header.rule-1 { border-left-color: #e8a020; }
   .rule-header.rule-2 { border-left-color: #4a90d9; }
-  .rule-toggle {
-    color: var(--gold); font-size: 16px;
-    margin-left: auto; flex-shrink: 0;
-    transition: transform 0.25s;
-  }
+  .rule-toggle {color: var(--gold); font-size: 16px; margin-left: auto; flex-shrink: 0; transition: transform 0.25s;}
   .rule-toggle.open { transform: rotate(180deg); }
-  .rule-num {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 11px; font-weight: 800; letter-spacing: 1.5px;
-    text-transform: uppercase; padding: 3px 9px;
-    border-radius: 3px; flex-shrink: 0;
-  }
+  .rule-num {font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 9px; border-radius: 3px; flex-shrink: 0; }
   .rule-num.rule-1 { background: rgba(232,160,32,0.15); color: #e8a020; border: 1px solid rgba(232,160,32,0.3); }
   .rule-num.rule-2 { background: rgba(74,144,217,0.15); color: #8ab8f0; border: 1px solid rgba(74,144,217,0.3); }
-  .rule-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 18px; font-weight: 800;
-    color: var(--white); letter-spacing: 0.3px;
-  }
+  .rule-title {font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 800; color: var(--white); letter-spacing: 0.3px; }
   .rule-body { display: none; background: rgba(0,0,0,0.15); }
   .rule-body.open { display: block; }
 
   /* Section rows inside a rule */
-  .section-row {
-    display: flex; align-items: center; gap: 14px;
-    padding: 11px 18px 11px 22px;
-    border-bottom: 1px solid rgba(255,255,255,0.04);
-    cursor: pointer;
-    transition: background 0.15s;
-  }
+  .section-row {display: flex; align-items: center; gap: 14px; padding: 11px 18px 11px 22px; border-bottom: 1px solid rgba(255,255,255,0.04); cursor: pointer; transition: background 0.15s;  }
   .section-row:last-child { border-bottom: none; }
   .section-row:hover { background: rgba(255,255,255,0.04); }
-  .section-num {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 12px; font-weight: 800; letter-spacing: 1px;
-    color: var(--gray-mid); min-width: 70px; flex-shrink: 0;
-  }
-  .section-name {
-    font-size: 14px; color: rgba(255,255,255,0.85);
-    font-weight: 500; flex: 1;
-  }
-  .section-video-count {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
-    padding: 2px 8px; border-radius: 10px; flex-shrink: 0;
-  }
-  .section-video-count.has-videos {
-    background: rgba(201,168,76,0.15);
-    color: var(--gold); border: 1px solid rgba(201,168,76,0.3);
-  }
-  .section-video-count.no-videos {
-    background: rgba(255,255,255,0.05);
-    color: rgba(255,255,255,0.25); border: 1px solid rgba(255,255,255,0.08);
-  }
+  .section-num {font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 800; letter-spacing: 1px; color: var(--gray-mid); min-width: 70px; flex-shrink: 0; }
+  .section-name {font-size: 14px; color: rgba(255,255,255,0.85); font-weight: 500; flex: 1; }
+  .section-video-count {font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; padding: 2px 8px; border-radius: 10px; flex-shrink: 0; }
+  .section-video-count.has-videos {background: rgba(201,168,76,0.15); color: var(--gold); border: 1px solid rgba(201,168,76,0.3); }
+  .section-video-count.no-videos {background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.25); border: 1px solid rgba(255,255,255,0.08); }
   .section-arrow { color: rgba(255,255,255,0.2); font-size: 12px; flex-shrink: 0; }
   .section-row:hover .section-arrow { color: var(--gold); }
 
@@ -541,6 +301,33 @@
   .tag-legal { background: rgba(26,107,60,0.2); border: 1px solid rgba(26,107,60,0.4); color: #7ecf7e; font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; padding: 2px 8px; border-radius: 3px; }
   .tag-illegal { background: rgba(192,57,43,0.2); border: 1px solid rgba(192,57,43,0.4); color: #f08080; font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; padding: 2px 8px; border-radius: 3px; }
 
+  /* Legality library modal */
+  #legality-modal-overlay { display:none; }
+  #legality-modal-overlay.open { display:flex; }
+
+  .leg-filter-btn {font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700; letter-spacing:0.5px;text-transform:uppercase;padding:5px 14px;
+    border-radius:4px;cursor:pointer;border:1px solid rgba(255,255,255,0.15); background:transparent;color:rgba(255,255,255,0.5);transition:all 0.15s;  }
+  .leg-filter-btn:hover { color:var(--white);border-color:rgba(255,255,255,0.35); }
+  .leg-filter-btn.active { background:rgba(201,168,76,0.15);border-color:var(--gold);color:var(--gold); }
+
+  .leg-group { margin-bottom:28px; }
+  .leg-group-header {display:flex;align-items:center;gap:10px; padding:8px 0 10px; border-bottom:2px solid rgba(255,255,255,0.08); margin-bottom:14px;}
+  .leg-group-num {font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:900; color:var(--gold);letter-spacing:0.5px;}
+  .leg-group-grid {display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;  }
+  .leg-video-card {background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08); border-radius:8px;overflow:hidden; }
+  .leg-video-card iframe { width:100%;aspect-ratio:16/9;display:block;border:none; }
+  .leg-video-label {padding:8px 12px;display:flex;align-items:center;gap:8px; font-size:12px;color:rgba(255,255,255,0.7); border-top:1px solid rgba(255,255,255,0.06); flex-wrap:wrap; }
+
+  #sticky-rubric-header {display: none; position: fixed; z-index: 500; left: 0; right: 0; background: var(--navy-mid); border-bottom: 2px solid rgba(201,168,76,0.3); box-shadow: 0 4px 16px rgba(0,0,0,0.5); }
+  #sticky-rubric-header table {border-collapse: separate; border-spacing: 3px; table-layout: fixed;}
+  #sticky-rubric-header th {padding: 8px 14px; text-align: center; font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;  }
+  #sticky-rubric-header th:first-child { width: 120px; background: transparent; }
+  #sticky-rubric-header .ch-beginner    { background: var(--beginner-dim);    color: var(--beginner);    border-bottom: 2px solid var(--beginner); }
+  #sticky-rubric-header .ch-intermediate{ background: var(--intermediate-dim); color: var(--intermediate); border-bottom: 2px solid var(--intermediate); }
+  #sticky-rubric-header .ch-advanced    { background: var(--advanced-dim);    color: var(--advanced);    border-bottom: 2px solid var(--advanced); }
+  #sticky-rubric-header .ch-elite       { background: var(--elite-dim);       color: var(--elite);       border-bottom: 2px solid var(--elite); }
+  #sticky-rubric-header .ch-superelite  { background: var(--superelite-dim);  color: var(--superelite);  border-bottom: 2px solid var(--superelite); }
+  #sticky-rubric-header .col-header-pts { font-size: 11px; font-weight: 400; opacity: 0.7; margin-top: 2px; }
 </style>
 </head>
 <body>
@@ -812,7 +599,7 @@
           <td class="skill-cell empty">—</td>
           <td class="skill-cell empty">—</td>
           <td class="skill-cell empty">—</td>
-          <td class="skill-cell range-superelite" onclick="openModal('twi-se-5')">High to High 1½ Around</td>
+          <td class="skill-cell range-superelite" onclick="openModal('twi-se-5')">High High 1½ Around to Extended/IBP/ABP</td>
         </tr>
 
         <!-- SINGLE BASE -->
@@ -1556,6 +1343,47 @@
   </div>
 </div>
 
+
+<!-- LEGALITY LIBRARY MODAL -->
+<div class="modal-overlay" id="legality-modal-overlay" onclick="closeLegalityOutside(event)" style="align-items:flex-start;padding:20px;">
+  <div class="modal" style="max-width:1100px;width:100%;max-height:92vh;display:flex;flex-direction:column;">
+    <!-- Header -->
+    <div class="modal-header" style="flex-shrink:0;">
+      <div>
+        <div class="modal-range-badge" style="background:rgba(74,144,217,0.15);border:1px solid rgba(74,144,217,0.4);color:#8ab8f0;" id="leg-modal-rule">—</div>
+        <div class="modal-skill-name" id="leg-modal-title">Section</div>
+        <div class="modal-category" id="leg-modal-desc"></div>
+      </div>
+      <button class="modal-close" onclick="closeLegalityModal()">✕</button>
+    </div>
+    <!-- Filter bar -->
+    <div style="display:flex;align-items:center;gap:10px;padding:12px 24px;border-bottom:1px solid rgba(255,255,255,0.08);flex-shrink:0;flex-wrap:wrap;">
+      <span style="font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--gray-mid);">Filter:</span>
+      <button class="leg-filter-btn active" data-filter="all" onclick="setLegalFilter('all')">All Videos</button>
+      <button class="leg-filter-btn" data-filter="legal" onclick="setLegalFilter('legal')">✓ Legal Only</button>
+      <button class="leg-filter-btn" data-filter="illegal" onclick="setLegalFilter('illegal')">✗ Illegal Only</button>
+      <span id="leg-modal-count" style="margin-left:auto;font-size:12px;color:rgba(255,255,255,0.35);font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:1px;"></span>
+    </div>
+    <!-- Scrollable library -->
+    <div id="leg-modal-library" style="overflow-y:auto;padding:20px 24px;flex:1;"></div>
+  </div>
+</div>
+
+
+
+<div id="sticky-rubric-header" style="display:none;">
+  <table>
+    <tr>
+      <th></th>
+      <th class="ch-beginner">Beginner<div class="col-header-pts">0.0 – 1.0</div></th>
+      <th class="ch-intermediate">Intermediate<div class="col-header-pts">1.25 – 3.25</div></th>
+      <th class="ch-advanced">Advanced<div class="col-header-pts">3.5 – 5.5</div></th>
+      <th class="ch-elite">Elite<div class="col-header-pts">5.75 – 7.75</div></th>
+      <th class="ch-superelite">Super Elite<div class="col-header-pts">8.0 – 10.0</div></th>
+    </tr>
+  </table>
+</div>
+
 <script>
 // ── TAB SWITCHING ──
 function switchTab(id, btn) {
@@ -1567,7 +1395,6 @@ function switchTab(id, btn) {
 }
 
 // ── RANGE FILTER ──
-// ── RANGE FILTER (multi-select toggle) ──
 let activeRanges = new Set();
 
 function filterRange(range) {
@@ -1624,14 +1451,15 @@ function filterRange(range) {
 const skills = {
   // ── STUNT: INVERSIONS ──
   'inv-beg-1': { name: 'Below Prep Level Inversions to Ground', category: 'Stunts — Inversion Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer\'s shoulders must be below the waist to constitute an inversion. Examples include Yo-Yo and Back Walkover. These land to the performing surface (ground level).', videos: [] },
-  'inv-beg-2': { name: 'Non-Release Inversions — Prep to Prep or Below Prep', category: 'Stunts — Inversion Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer remains in contact with base(s)/spotter throughout. Flyer goes through an inverted position but does not release.', videos: [
-      { url: "https://drive.google.com/file/d/12snlzojx6HRgrHPEmayY0U18aowvXvtI/preview", label: 'Non-Release Inversion Below Prep to Prep' },
-      { url: "https://drive.google.com/file/d/1XU3R9xi6samDa-uTB0AKpZn-9XKzCYQl/preview", label: 'Non-Release Inversion Below Prep to Prep' },
-      { url: "https://drive.google.com/file/d/1w_V8vkPWAO45OSSlf3OrumrGB4YH0L8A/preview", label: 'Non-Release Inversion Below Prep to Prep' },
-      { url: "https://drive.google.com/file/d/1sZKGSc5Y9T7nJptOQmsTrck1evpVclEw/preview", label: 'Non-Release Inversion Prep to Prep' },
-      { url: "https://drive.google.com/file/d/1Tl7zjr2TBDFI_f94cn7Fal0Mr4Y7_BgQ/preview", label: 'Non-Release Inversion Below Prep to Below Prep' }    
+  'inv-beg-2': { name: 'Non-Release Inversions — Prep Level or Below to Prep or Below Prep', category: 'Stunts — Inversion Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer remains in contact with base(s)/spotter throughout. Flyer goes through an inverted position but does not release.', videos: [
+      {url: "https://drive.google.com/file/d/1-3pvC2OSEoxsazHe6nxVGob3h5lJGj2X/preview", label: "Non-Release Inversion Below Prep to Below Prep"},
+      {url: "https://drive.google.com/file/d/1PZskLB9-pmEYzZ19zmvqhHeM65xpM0PE/preview", label: "Non-Release Inversion Below Prep to Prep"},
+      {url: "https://drive.google.com/file/d/1Ip4VlBOI9hRdHXvKI6fsAaDWB0Bh3dP0/preview", label: "Non-Release Inversion Below Prep to Prep"},
+      {url: "https://drive.google.com/file/d/1wEfnnAc0sxBrb0ugQdMRzpVYCAaE2xAe/preview", label: "Non-Release Inversion Below Prep to Below Prep"},
+      {url: "https://drive.google.com/file/d/1_OT68MUN14Fq61_gfWwbBsNcVz_HZ_TD/preview", label: "Non-Release Inversion Prep to Below Prep"}
 	] },
-  'inv-beg-3': { name: 'Non-Release Twisting Inversions — Prep to Below Prep', category: 'Stunts — Inversion Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Includes a twist component while inverted, but does not release. Lands at below prep level.', videos: [] },
+  'inv-beg-3': { name: 'Non-Release Twisting Inversions — Prep Level or Below to Below Prep', category: 'Stunts — Inversion Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Includes a twist component while inverted, but does not release. Lands at below prep level.', videos: [
+      {url: "https://drive.google.com/file/d/1Ps8qMrpdrZ1r3TSsd1nhuP3Vh5OuIrRG/preview", label: "Non-Release Twisting Inversion Below Prep to Below Prep"}] },
   'inv-beg-4': { name: 'Released Twisting Inversions — Prep to Below Prep', category: 'Stunts — Inversion Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer briefly releases from all bases while inverted and twisting. Caught at below prep level.', videos: [] },
   'inv-beg-5': { name: 'Released Inversions — Prep to Below Prep', category: 'Stunts — Inversion Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer releases from bases while inverted (no twist) and is caught at below prep level.', videos: [] },
  /////    
@@ -1662,8 +1490,7 @@ const skills = {
  /////    
   'inv-adv-1': { name: 'Non-Release Twisting Inversions — Prep to Extended/IBP/ABP', category: 'Stunts — Inversion Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Flyer twists while inverted without releasing, landing at extended level — potentially in an IBP or ABP. Continuous momentum required if going to ABP.', videos: [] },
   'inv-adv-2': { name: 'Released Inverted — Low to High to Extended IBP/ABP', category: 'Stunts — Inversion Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Flyer is inverted with one foot in hands (bent at hips). Bases dip; flyer brings chest up while switching feet, caught upright at extended in IBP or ABP.', videos: [
-      { url: "https://drive.google.com/file/d/1HtecfWt8pvEyFOxEtcCrgWJRIXU93X3O/preview", label: 'Released Inverted Low to High to Extended IBP' }
-    ] },
+      {url: "https://drive.google.com/file/d/1f5-Am6UajLTfo9Wk8aWQ0xsVKN8ixO7w/preview", label: "Released Inverted Low to High to ABP"}] },
   'inv-adv-3': { name: 'Released Inversions — Prep to Extended', category: 'Stunts — Inversion Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Flyer releases from all bases while inverted from prep level, caught upright at extended level. No twist component.', videos: [
       { url: "https://drive.google.com/file/d/1PSCJlpAvGpMX6_3xErGBZ1BAU46UkkoD/preview", label: 'Released Inversion Below Prep to Extended' },
       { url: "https://drive.google.com/file/d/1ce3auRndZzrio5mNQPmFFPPP02GT_BQJ/preview", label: 'Released Inversion Below Prep to Extended' },
@@ -1703,9 +1530,13 @@ const skills = {
   // ── STUNT: RELEASE ──
   'rel-beg-1': { name: 'Below Prep Release to Below Prep', category: 'Stunts — Release Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Basic release from below prep level, caught at below prep.', videos: [] },
   'rel-beg-2': { name: 'Release to Below Prep', category: 'Stunts — Release Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer is released (Quick Toss or Ball-Up style) and caught at below prep.', videos: [] },
-  'rel-beg-3': { name: 'Extended Release to Below Prep', category: 'Stunts — Release Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer releases from an extended position and is caught at below prep level.', videos: [] },
+  'rel-beg-3': { name: 'Extended Release to Below Prep', category: 'Stunts — Release Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer releases from an extended position and is caught at below prep level.', videos: [
+      {url: "https://drive.google.com/file/d/1VxtArb6o1E9R5JnEf0JtyF8-UEXeNtVg/preview", label: "Extended Release to Below Prep"}
+	] },
   'rel-beg-4': { name: 'Horizontal Release to Below Prep', category: 'Stunts — Release Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer is horizontal (body parallel to floor) during the release and caught at below prep.', videos: [] },
-  'rel-beg-5': { name: 'Twisting Release to Below Prep', category: 'Stunts — Release Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer twists during a release and is caught at below prep level. Any amount of twist qualifies.', videos: [] },
+  'rel-beg-5': { name: 'Twisting Release to Below Prep', category: 'Stunts — Release Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer twists during a release and is caught at below prep level. Any amount of twist qualifies.', videos: [
+      {url: "https://drive.google.com/file/d/1YPqmn5K4IqhUznaW1XzpddFcAOfKp3bO/preview", label: "Twisting Release to Below Prep"}
+	] },
  /////    
   'rel-int-1': { name: 'Prep Level Release to Prep', category: 'Stunts — Release Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Flyer releases from prep and is caught at prep level. No twisting or inversion.', videos: [
       { url: "https://drive.google.com/file/d/1A9YOFO2614GKKzMXe22Awk58C1jJaRmH/preview", label: 'Prep Level Release to Prep' }
@@ -1720,13 +1551,13 @@ const skills = {
   'rel-int-6': { name: 'Prep Level Low to Low (Tic Toc)', category: 'Stunts — Release Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Classic Tic Toc: flyer releases from one foot to the other at prep level. Bases stay at prep throughout. No height change.', videos: [] },
   'rel-int-7': { name: 'Twisting Release to Prep Level', category: 'Stunts — Release Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Flyer twists during a release and is caught at prep level. Any amount of twist.', videos: [
       { url: "https://drive.google.com/file/d/1T4GYLaxClvLbKB0CGaVieTdPUW4McawM/preview", label: 'Full Twist Low to Low to ABP' }
-  ] },
-   
+  ] },   
  /////    
   'rel-adv-1': { name: 'Prep Level Release to Extended/IBP/ABP', category: 'Stunts — Release Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Flyer releases from prep level and is caught at extend level.', videos: [] },
   'rel-adv-2': { name: 'Release to Extended/IBP/ABP', category: 'Stunts — Release Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Basic release (Quick Toss, Ball-Up style) caught at extended level. No twist.', videos: [
-      { url: "https://drive.google.com/file/d/1vsi40WaeQQFkdH1BV_wqiUxuKA4brCnd/preview", label: 'Release to Extended (Ball Up)' }
-    ] },
+      {url: "https://drive.google.com/file/d/1o9Jrcagd1w7PBh0XxbMpxuRp1JWrCgBs/preview", label: "Extended Release to Extended"},
+      {url: "https://drive.google.com/file/d/1MKr8y0OPvJFfH4xPmDG8s-SBMK_ugI0K/preview", label: "Release to Extended (Quick Toss)"}
+	] },
   'rel-adv-3': { name: 'Extended Release to Prep Level IBP/ABP', category: 'Stunts — Release Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Flyer releases from extended and is caught at prep level in an IBP or ABP.', videos: [
       { url: "https://drive.google.com/file/d/138k4gVFnpeeVpR7-TybEy0geObyaJ-zC/preview", label: 'Extended Release to Prep Level ABP' },
       { url: "https://drive.google.com/file/d/1exyaE_vFIJU7gYwSNNMoFn8orVc_1M9j/preview", label: 'Extended Release to Prep Level ABP' }
@@ -1769,10 +1600,8 @@ const skills = {
   ] },
  /////    
   'rel-se-1': { name: 'Full Twisting Release to Extended/IBP/ABP', category: 'Stunts — Release Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Full 360° twist release caught at extended level. Examples: Full Twist Quick Toss, Full Twist Ball-Up.', videos: [
-      { url: "https://drive.google.com/file/d/1PA29ymAbvqWJJMA5sKqVi6-fxFT_fmig/preview", label: 'Full Twisting Release to Extended IBP (Ball Up)' },
-      { url: "https://drive.google.com/file/d/17CT5gnVBF40kG-n5kVuGi2Z_SRatN6EF/preview", label: 'Full Twisting Release to Extended (Prep Full Around)' },
-      { url: "https://drive.google.com/file/d/1xIeVBaHK2fCr4mw5QUm9-wFrpj44RUR5/preview", label: 'Full Twisting Release to Extended (Quick Toss)' }
-    ] },
+      {url: "https://drive.google.com/file/d/1i7uoi--j4vUxADlaowFDUXyeu1sw2kO5/preview", label: "Full Twisting Release to Extended ABP (Ball Up)"}
+	] },
   'rel-se-2': { name: 'Horizontal Twisting Release to Extended/IBP/ABP', category: 'Stunts — Release Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Flyer is horizontal prior to and twists during the release, caught at extended.', videos: [
       { url: "https://drive.google.com/file/d/1Mkd2hYOZYLd0val8RSArKGXw5TxOtLfL/preview", label: 'Horizontal Twisting Release to Extended' },
       { url: "https://drive.google.com/file/d/1XrK-vMM7cUexEkTKTm_59PF4lu52x7DR/preview", label: 'Horizontal Twisting Release to Extended' }
@@ -1781,37 +1610,44 @@ const skills = {
       { url: "https://drive.google.com/file/d/1AIlHsJkHBkb4H2G7kjJyB-lI8_QfQT-X/preview", label: 'Full Twisting Switch Up to Extended ABP' }
     ] },
   'rel-se-4': { name: 'High to High (ABP to ABP)', category: 'Stunts — Release Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Flyer releases from an extended ABP position and is caught directly into another extended ABP. Momentum from ABP to ABP through the release must be continuous without pause.', videos: [
-      { url: "https://drive.google.com/file/d/16lSwnnh6sBn7SVTUH2P7NEKJ9kIxTDeN/preview", label: 'High to High (ABP to ABP)' },
-      { url: "https://drive.google.com/file/d/1RaUIReOWSfmNR908njsn53ILSj00T0Nq/preview", label: 'High to High (ABP to ABP)' }
-    ] },
+      {url: "https://drive.google.com/file/d/16SD2ahtxbM89_N7PfP3J0UO8Wz9vt_Z9/preview", label: "High to High ABP to ABP"}
+	] },
   'rel-se-5': { name: 'Full Twisting Low to High to IBP/ABP', category: 'Stunts — Release Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Full 360° twist during a low-to-high release, landing in IBP or ABP at extended.', videos: [
       { url: "https://drive.google.com/file/d/1iwCcHUlC_lZIw2B_PkM4SB_A3YGiBR9j/preview", label: 'Full Twisting Low to High to ABP' },
       { url: "https://drive.google.com/file/d/1sE28b0BahCJdnYEpMTqsppUUQepLTl6Z/preview", label: 'Full Twisting Low to High to ABP' }
     ] },
   'rel-se-6': { name: '½ or ¾ Twist High to High to IBP/ABP', category: 'Stunts — Release Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: '½ or ¾ twist during a high-to-high transition, catching in IBP or ABP.', videos: [] },
-  'rel-se-7': { name: 'Full Twisting High to High to IBP/ABP', category: 'Stunts — Release Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Full 360° twist during a high-to-high transition, catching in IBP or ABP.', videos: [] },
+  'rel-se-7': { name: 'Full Twisting High to High to IBP/ABP', category: 'Stunts — Release Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Full 360° twist during a high-to-high transition, catching in IBP or ABP.', videos: [
+      {url: "https://drive.google.com/file/d/1W-GBGoEe0--bM68AWykEPRtR_LchiReU/preview", label: "Full Twisting High to High to IBP"}
+	] },
 
   // ── STUNT: TWISTING ──
   'twi-beg-1': { name: '¼ or ½ Up to Prep Level', category: 'Stunts — Twisting Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Quarter or half twist loading skill up to prep level.', videos: [] },
   'twi-beg-2': { name: '¼ Up to Extended/IBP/ABP', category: 'Stunts — Twisting Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Quarter turn loading skill up to extended level.', videos: [] },
-  'twi-beg-3': { name: '¼ or ½ Twisting Transitions', category: 'Stunts — Twisting Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Quarter or half twist during a transition between skills.', videos: [] },
+  'twi-beg-3': { name: '¼ or ½ Twisting Transitions', category: 'Stunts — Twisting Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Quarter or half twist during a transition between skills.', videos: [
+      {url: "https://drive.google.com/file/d/1Pzm_B_4ETkbWIg65a9Wxe9sTqItkuxGT/preview", label: "1/2 Twisting Transition"},
+      {url: "https://drive.google.com/file/d/1-aixaODp2MFuRdA1XR8DCWLlmD9rOw8-/preview", label: "1/2 Twisting Transition"},
+      {url: "https://drive.google.com/file/d/1lWN4iKq0ZA1fX4p9Dz1i7sWixva0_hCQ/preview", label: "1/2 Twisting Transition"}
+	] },
  /////  
   'twi-int-1': { name: 'Full Up to Prep Level', category: 'Stunts — Twisting Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Full 360° rotation during load up to prep level. Modified versions (bases walking stunt around) scored lower in range. Majority of rotation must be by flyer.', videos: [
       { url: "https://drive.google.com/file/d/1c6aZoIpKP-iGAUrIgQWoSDhEvbaA3VX1/preview", label: 'Full Up to Prep Level' },
       { url: "https://drive.google.com/file/d/1vcQCm-fbsb59ZqPoo6Iln4X1IhMmyR82/preview", label: 'Full Up to Prep Level' }
     ] },
-  'twi-int-2': { name: '½ or ¾ Up to Extended/IBP/ABP', category: 'Stunts — Twisting Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Half or three-quarter twist loading skill up to extended.', videos: [] },
-  'twi-int-3': { name: '¾ or Greater Twisting Transitions tp Prep or Below Prep', category: 'Stunts — Twisting Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Three-quarter or full twist during a transition.', videos: [
-      { url: "https://drive.google.com/file/d/1vK8iKY6y5Nk_rx5MsIWQpB8VFqnOeh10/preview", label: '1.5 Twisting Transitions' },
-      { url: "https://drive.google.com/file/d/1i7KKk_k0YsyU-TkMmOqGhrDRDkPcACC5/preview", label: 'Full Twisting Transitions' },
-      { url: "https://drive.google.com/file/d/17BUpXr1Y_MFWzcAicwYifG1GgRbdLxPC/preview", label: 'Hands Full Around to Prep Level' }
-    ] },
+  'twi-int-2': { name: '½ or ¾ Up to Extended/IBP/ABP', category: 'Stunts — Twisting Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Half or three-quarter twist loading skill up to extended.', videos: [
+      {url: "https://drive.google.com/file/d/1CV58gaN1lrgq3e1PXWEyllBAndSwhOEG/preview", label: "1/2 Up to Extended ABP"},
+      {url: "https://drive.google.com/file/d/1M7Zc4ZaBZ5p0f1Kuqn0HmFiRA7qLsU8I/preview", label: "1/2 Up to Extended"}
+	] },
+  'twi-int-3': { name: '¾ or Greater Twisting Transitions to Prep or Below Prep', category: 'Stunts — Twisting Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Three-quarter or full twist during a transition.', videos: [
+      {url: "https://drive.google.com/file/d/1cP8Ax0FZ7OHk5vDFsMPfpG3glazlQLiP/preview", label: "Full Twisting Transition to Below Prep"},
+      {url: "https://drive.google.com/file/d/15UamRxBuZIVOG0mmQeCmKT-YfkeLHbyR/preview", label: "Full Twisting Transition to Below Prep"}
+	] },
  /////  
    'twi-adv-1': { name: 'Full Up to Extended/IBP/ABP', category: 'Stunts — Twisting Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Full 360° rotation loading up to extended level. Modified versions scored lower in range. Majority of rotation must be by flyer.', videos: [
       { url: "https://drive.google.com/file/d/1q2d0cIqLezck_Yv4koGrsJsgOngFbcbM/preview", label: 'Full Up to Extended' },
       { url: "https://drive.google.com/file/d/10fmX2H5aeUJwjA7il2Y6Ldiq1QKH1gll/preview", label: 'Full Up to Extended' }
     ] },
-  'twi-adv-2': { name: 'Hands Full Around to Extended Hands', category: 'Stunts — Twisting Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Full 360° rotation while moving from prep level to extended. Majority of rotation must be by flyer. Modified versions scored lower in range.', videos: [
+  'twi-adv-2': { name: 'Hands Full Around to Extended', category: 'Stunts — Twisting Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Full 360° rotation while moving from prep level to extended. Majority of rotation must be by flyer. Modified versions scored lower in range.', videos: [
       { url: "https://drive.google.com/file/d/1bq4phs0vriYWTRnQ3v3fr0yg7eIwTrcV/preview", label: 'Hands Full Around to Extended (Modified)' },
       { url: "https://drive.google.com/file/d/1pu8Gg48eN-kUBMXSpANUELmX1aSL76Y9/preview", label: 'Hands Full Around to Extended (Modified)' },
       { url: "https://drive.google.com/file/d/11sJ2pABOHHFwCAiFWTRclZNbwsDNi-lO/preview", label: 'Hands Full Around to Extended' }
@@ -1829,33 +1665,39 @@ const skills = {
       { url: "https://drive.google.com/file/d/1FzfAVr3eHARhzWJ66sGREi1G-UMwLp3n/preview", label: 'Hands Full Around to Extended IBP' },
       { url: "https://drive.google.com/file/d/1IsJ-gpbxmJgbKSxPKSmV1at9uOiwt5hP/preview", label: 'Hands Full Around to Extended IBP' }
     ] },
-  'twi-eli-4': { name: 'High to High Full Around (Extended to Extended)', category: 'Stunts — Twisting Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Flyer performs a full rotation at extended level and is caught back at extended level again. Majority of rotation must be by flyer. Modified versions scored lower in range.', videos: [
+  'twi-eli-4': { name: 'High High Full Around (Extended to Extended)', category: 'Stunts — Twisting Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Flyer performs a full rotation at extended level and is caught back at extended level again. Majority of rotation must be by flyer. Modified versions scored lower in range.', videos: [
       { url: "https://drive.google.com/file/d/1kdNxQKNNrgekhuZqDDU5wYqfk_UPiOMA/preview", label: 'High High Full Around Extended to Extended (Modified)' },
       { url: "https://drive.google.com/file/d/17wOwH1a-yvyR6AvPISgAmkZzxPvkakxk/preview", label: 'High High Full Around Extended to Extended' }
     ] },
  /////  
   'twi-se-1': { name: 'Double Up to Extended/IBP/ABP', category: 'Stunts — Twisting Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Two full rotations during the transition from load/ground to extended level.', videos: [
-      { url: "https://drive.google.com/file/d/1iSKEi7kIj8HqjgcPXNllaEnKqAj_g9Xr/preview", label: 'Double Up to Extended' }
-    ] },
+      {url: "https://drive.google.com/file/d/1FDbmKuXKu8BK_SpwaRAKtXqhv7ZmX-VC/preview", label: "Double Up to Extended IBP"}
+	] },
   'twi-se-2': { name: 'Hands Double Around to Extended/IBP/ABP', category: 'Stunts — Twisting Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Two full rotations while moving from prep level to extended. Majority of rotation must be by flyer. Modified versions scored lower in range.', videos: [
       { url: "https://drive.google.com/file/d/1OhtbC_bTzdBU_e3zAK0hukPzAl2zq9G8/preview", label: 'Hands Double Around to Extended IBP' },
       { url: "https://drive.google.com/file/d/1oGbCkVow-puoOtNocCVA8XngSQGxQAWf/preview", label: 'Hands Double Around to Extended IBP' }
     ] },
-  'twi-se-3': { name: 'High to High Full Around to IBP/ABP (Extended to Single Leg)', category: 'Stunts — Twisting Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Full rotation from extension/cupie to extended IBP/ABP. Majority of rotation must be by flyer. Modified versions scored lower in range.', videos: [] },
-  'twi-se-4': { name: 'High to High Full Around to IBP/ABP (Single Leg to Single Leg)', category: 'Stunts — Twisting Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Full rotation from extended IBP/ABP to extended IBP/ABP. Majority of rotation must be by flyer. Modified versions scored lower in range.', videos: [
+  'twi-se-3': { name: 'High High Full Around to IBP/ABP (Extended to IBP/ABP)', category: 'Stunts — Twisting Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Full rotation from extension/cupie to extended IBP/ABP. Majority of rotation must be by flyer. Modified versions scored lower in range.', videos: [
+      {url: "https://drive.google.com/file/d/170r1cmdxIe72bWTBK2SoNwlDCmgMgTjq/preview", label: "High High Full Around Extended to ABP"},
+      {url: "https://drive.google.com/file/d/1NKSn24cPDyQD9TS1ZPBzoqkjYAd0VOe5/preview", label: "High High Full Around Ext to IBP + IBP to IBP"}
+	] },
+  'twi-se-4': { name: 'High High Full Around to IBP/ABP (IBP/ABP to IBP/ABP)', category: 'Stunts — Twisting Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Full rotation from extended IBP/ABP to extended IBP/ABP. Majority of rotation must be by flyer. Modified versions scored lower in range.', videos: [
       { url: "https://drive.google.com/file/d/15F-MUggqtm4V6ZILuzxtuaakPCxSX155/preview", label: 'High High Full Around ABP to ABP' },
       { url: "https://drive.google.com/file/d/1OoM0OTBwXxiBt2abb4CdupydNTSdicfF/preview", label: 'High High Full Around ABP to ABP' },
       { url: "https://drive.google.com/file/d/1tRUUXgmURqnQwt9jDg6g3DicmaKTbAn_/preview", label: 'High High Full Around ABP to ABP' },
       { url: "https://drive.google.com/file/d/1RMxAJfVTTn2uem8JYcqGeqUYxDe1OzF9/preview", label: 'High High Full Around IBP to IBP' }
     ] },
-  'twi-se-5': { name: 'High to High 1½ Around', category: 'Stunts — Twisting Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'One and a half rotations in a high-to-high transition.', videos: [
+  'twi-se-5': { name: 'High High 1½ Around to Extended/IBP/ABP', category: 'Stunts — Twisting Skills', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'One and a half rotations in a high-to-high transition.', videos: [
       { url: "https://drive.google.com/file/d/1-sJZvjP0-x76B8wycIc06QKDr8mANopf/preview", label: 'High High 1.5 Around (Modified)' },
       { url: "https://drive.google.com/file/d/1BHm5lWbclEfFCFNEjd_m9_4E-A_rMvQB/preview", label: 'High High 1.5 Around' },
       { url: "https://drive.google.com/file/d/15yviaSruo9Kf7oWOEr4TqAZR1UfSOcA3/preview", label: 'High High 1.25 Around to ABP' }
  ] },
 
   // ── STUNT: SINGLE BASE ──
-  'sb-beg-1': { name: 'Prep Level Skills (Single Base)', category: 'Stunts — Single Base Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Any static single base stunt at prep level. Must begin from ground/load, maintain single base throughout, and end single based.', videos: [] },
+  'sb-beg-1': { name: 'Prep Level Skills (Single Base)', category: 'Stunts — Single Base Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Any single base stunt at prep level. Must begin from ground/load, maintain single base throughout, and end single based.', videos: [
+      {url: "https://drive.google.com/file/d/1Fj34Y7huoqyhj7t2bReSngGwlAU5rSaQ/preview", label: "Prep Level Skills (Single Base Switch Up to Prep IBP)"},
+      {url: "https://drive.google.com/file/d/17mm8k8bKLj9K6GGETWmtb97HOVGSmuSx/preview", label: "Prep Level Skills (Single Base Switch Up to Prep ABP)"}
+	] },
   'sb-beg-2': { name: 'Walk-In / Toss to Chair (Single Base)', category: 'Stunts — Single Base Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer walks in or is tossed to a chair position with single base support. Must maintain single base throughout.', videos: [] },
   'sb-beg-3': { name: 'Walk-In / Toss to Hands (Single Base)', category: 'Stunts — Single Base Skills', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer walks in or is tossed to a hands/platform position with single base.', videos: [] },
  /////
@@ -1863,7 +1705,9 @@ const skills = {
       { url: "https://drive.google.com/file/d/1B54zQWBZFzxckkp3zZeXz3lCxJZaBDR5/preview", label: 'Extension or Cupie' },
       { url: "https://drive.google.com/file/d/1gjXOIs7amDe_aV5Vl1KI4kU0GmK97_GC/preview", label: 'Extension or Cupie' }
     ] },
-  'sb-int-2': { name: '¼, ½ or ¾ Twist to Prep Level (Single Base)', category: 'Stunts — Single Base Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Less than full twisting loading skill to prep level within a single base group. Majority of rotation must be by the flyer.', videos: [] },
+  'sb-int-2': { name: '¼, ½ or ¾ Twist to Prep Level (Single Base)', category: 'Stunts — Single Base Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Less than full twisting loading skill to prep level within a single base group. Majority of rotation must be by the flyer.', videos: [
+      {url: "https://drive.google.com/file/d/1Z4pPtuW5biT1FT77cHfc2a2n9fxOfh0U/preview", label: "1/4 Up to Prep ABP"}
+	] },
   'sb-int-3': { name: 'Toss Hands (Single Base)', category: 'Stunts — Single Base Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Flyer is tossed from the ground to a hands/platform position with single base support.', videos: [] },
   'sb-int-4': { name: 'Walk-In Hands, Press to Extension (Single Base)', category: 'Stunts — Single Base Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Flyer walks in to a hands position and is then pressed up to extension by the single base.', videos: [
       { url: "https://drive.google.com/file/d/1WNoja5yEODsryLkARVhQ-Kx5J-uOsA0V/preview", label: 'Walk-In Hands, Press to Extension' }
@@ -1874,8 +1718,8 @@ const skills = {
   'sb-int-6': { name: 'Switch Up to Extended (Single Base)', category: 'Stunts — Single Base Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Switch-up release within a single base group landing at extended. Must maintain single base from start to finish.', videos: [] },
  /////
   'sb-adv-1': { name: 'Extended Single Leg (Single Base)', category: 'Stunts — Single Base Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Single base holding a single leg extended skill (lib, scale, etc.).', videos: [
-      { url: "https://drive.google.com/file/d/12lBpyLu2wJe2ucCUOfoi19g5JQV4Fe-H/preview", label: 'Extended Single Leg' }
-    ] },
+      {url: "https://drive.google.com/file/d/1_57x0HKo381Pizc7P0DLli7Jd3dNydLo/preview", label: "Extended Single Leg"}
+	] },
   'sb-adv-2': { name: 'Full Up to Prep Level (Single Base)', category: 'Stunts — Single Base Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Full 360° loading twist to prep level in a single base group. Modified versions scored lower in range.', videos: [] },
   'sb-adv-3': { name: 'Full Twisting Skills to Extended (Single Base)', category: 'Stunts — Single Base Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Any full twisting skill loading to extended within a single base group. Majority of rotation must be by the flyer. Modified versions scored lower in range.', videos: [
       { url: "https://drive.google.com/file/d/12keIw2Vb2khEAVa4QSChN-hVZRpeancM/preview", label: 'Full Twisting Skills to Extended' },
@@ -1884,7 +1728,9 @@ const skills = {
   'sb-adv-4': { name: 'Toss Hands, Press to Extended Single Leg (Single Base)', category: 'Stunts — Single Base Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Toss to hands followed by a press to extended single leg.', videos: [
       { url: "https://drive.google.com/file/d/1R69-_WI9XQW-XsbCkgGBksssQcoPhSH3/preview", label: 'Toss Hands, Press to Extended Single Leg' }
     ] },
-  'sb-adv-5': { name: 'Walk-In to Extended Single Leg (Single Base)', category: 'Stunts — Single Base Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Flyer walks in directly to extended single leg position with single base support throughout.', videos: [] },
+  'sb-adv-5': { name: 'Walk-In to Extended Single Leg (Single Base)', category: 'Stunts — Single Base Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Flyer walks in directly to extended single leg position with single base support throughout.', videos: [
+      {url: "https://drive.google.com/file/d/1BZDAErmbY-f-lOWa4R7LReLo0F8tn7qb/preview", label: "Walk In to Extended Single Leg"}
+	] },
   'sb-adv-6': { name: 'Toss Extension (Single Base)', category: 'Stunts — Single Base Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Flyer is tossed from the ground directly to a two-foot extension with single base throughout.', videos: [
       { url: "https://drive.google.com/file/d/1Ilfbs3q_7qnXJyRftE8SB_bjdF6F1mFV/preview", label: 'Toss Extension' },
       { url: "https://drive.google.com/file/d/1dNXqYmas10826iM7bRfLFendgl_0jE1o/preview", label: 'Toss Extension' }
@@ -1948,13 +1794,18 @@ const skills = {
   'oth-int-1': { name: 'Extended Stunts Not Previously Categorized', category: 'Stunts — Other', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Catch-all for extended stunts not listed elsewhere. Examples: extension, cupie, liberty at extended, show n go.', videos: [] },
   'tos-beg-1': { name: 'Straight Ride Tosses / Pretty Girl', category: 'Stunts — Tosses', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Straight ride = flyer goes up and comes straight down with no skill. Pretty Girl = flyer performs a pose or motion at the top with no skill.', videos: [] },
   'tos-int-1': { name: 'Single-Skill Tosses', category: 'Stunts — Tosses', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'One skill performed at the top of the toss. Examples: Toe-Touch, Kick, Pike, Full Twist.', videos: [
-      { url: "https://drive.google.com/file/d/1XBrBPgm1y6ew33dSeIZTPDs7ZAlUhj-L/preview", label: 'Full Twist Basket' }
-    ] },
-  'tos-adv-1': { name: 'Multi-Skill Tosses', category: 'Stunts — Tosses', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Two or more skills combined in one toss. Examples: Ball X-Out, Hitch Kick, Kick Kick.', videos: [] },
+      {url: "https://drive.google.com/file/d/1mEkGRnhQdMKIwVMUtilrqDRkZhkiUCfG/preview", label: "Toe Touch Basket"}
+	] },
+  'tos-adv-1': { name: 'Multi-Skill Tosses', category: 'Stunts — Tosses', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Two or more skills combined in one toss. Examples: Ball X-Out, Hitch Kick, Kick Kick.', videos: [
+      {url: "https://drive.google.com/file/d/1tjE3Ax_s5F6nESfLwMCDVBQsHrZQc4Vv/preview", label: "Pike Pretty Girl Basket"},
+      {url: "https://drive.google.com/file/d/1BDKfdbZErvFnwbiCPIrx-KBxXCq24rCi/preview", label: "Pike X-Out Basket"}
+	] },
   'tos-eli-1': { name: 'Single-Skill Tosses with Full Twist', category: 'Stunts — Tosses', range: 'Elite', rangeColor: 'var(--elite)', notes: 'One skill combined with a full twist. Examples: Ball Full, Kick Full, Full Toe Touch.', videos: [
-       { url: "https://drive.google.com/file/d/1fgJwQ5UjOdPW3DVMZFRnW3uWqIDiKR3S/preview", label: 'Kick Full Basket' }
+      { url: "https://drive.google.com/file/d/1fgJwQ5UjOdPW3DVMZFRnW3uWqIDiKR3S/preview", label: 'Kick Full Basket' }
     ] },
-  'tos-se-1': { name: 'Multi-Skill Tosses with Full Twist', category: 'Stunts — Tosses', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Multiple skills plus a full twist. Examples: Hitch Kick Full, Kick Kick Full.', videos: [] },
+  'tos-se-1': { name: 'Multi-Skill Tosses with Full Twist', category: 'Stunts — Tosses', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Multiple skills plus a full twist. Examples: Hitch Kick Full, Kick Kick Full.', videos: [
+      {url: "https://drive.google.com/file/d/1E3dG3Hcx_HE70mIHKjepBQAfHTlGql36/preview", label: "Lib Kick Full Basket"}
+	] },
 
   // ── PYRAMID: NON-RELEASED ──
   'pyr-nr-beg-1': { name: 'Braced Non-Released Transitions (Pyramid)', category: 'Pyramids — Non-Released Transition', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer moves from one position to another while maintaining contact with a base/spotter AND is braced (connected) to another flyer throughout the transition.', videos: [] },
@@ -1995,7 +1846,7 @@ const skills = {
   'pyr-nr-se-1': { name: 'Super Elite Single Base Stunts (Pyramid)', category: 'Pyramids — Non-Released Transition', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'References the Super Elite range of the Stunt Rubric Single Base Skills section performed within pyramid context.', videos: [] },
  
  // ── PYRAMID: RELEASED TRANSITION  ──
-  'pyr-rel-beg-1': { name: 'Braced Release to Prep or Below (1 or 2 bracers)', category: 'Pyramids — Released Transition', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer releases from all bases/spotters while braced to another flyer. Caught at prep or below.', videos: [
+  'pyr-rel-beg-1': { name: 'Braced Release to Prep or Below (1 or 2 bracers) (Pyramid)', category: 'Pyramids — Released Transition', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer releases from all bases/spotters while braced to another flyer. Caught at prep or below.', videos: [
       { url: "https://drive.google.com/file/d/11kJj2Idbb8K_-Qw5zuhTPHUKQOlcmFFb/preview", label: 'Braced Release to Prep (2)' }
   
   ] },
@@ -2006,8 +1857,8 @@ const skills = {
       { url: "https://drive.google.com/file/d/1R233z9ziM6KUsW0PHgliIitjLGYe19H3/preview", label: 'Braced Release to Extended (1)' }
     ] },
   'pyr-rel-int-2': { name: 'Braced Inverted Release to Prep or Below — 1 or 2 Bracers (Pyramid)', category: 'Pyramids — Released Transition', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Flyer releases while inverted and braced, caught at prep or below.', videos: [
-      { url: "https://drive.google.com/file/d/1BeEGUqsCXgVl7-kGMKD3v93_tl43-7KY/preview", label: 'Braced Inverted Release to Prep (1)' }
-    ] },
+      {url: "https://drive.google.com/file/d/1abNFPyNzvba2NlAXExvJPqJkmn0QhdcW/preview", label: "Braced Inverted Release to Prep (2)"}
+	] },
   'pyr-rel-int-3': { name: 'Braced Twisting Release to Prep or Below — 1 or 2 Bracers (Pyramid)', category: 'Pyramids — Released Transition', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Flyer twists during a braced release, caught at prep or below.', videos: [] },
   'pyr-rel-int-4': { name: 'Unbraced Release to Prep or Below (Pyramid)', category: 'Pyramids — Released Transition', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Flyer releases with no bracer connection, caught at prep or below. Must establish connection within 2 counts.', videos: [] },
   /////   
@@ -2016,9 +1867,8 @@ const skills = {
       { url: "https://drive.google.com/file/d/1g-syKn481_osH1pLW_YHxQOcSoYho6Kx/preview", label: 'Braced Inverted Release to Extended (2)' }
     ] },
   'pyr-rel-adv-2': { name: 'Braced ¼, ½, or ¾ Twisting Release to Extended — 1 or 2 Bracers (Pyramid)', category: 'Pyramids — Released Transition', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Less than full twisting braced release caught at extended. Score varies by twist amount and bracer count.', videos: [
-      { url: "https://drive.google.com/file/d/1c6KSja2UZLeKMKTQ_M2xRqqZIkPuSS-_/preview", label: 'Braced 1/2 Twisting Release to Extended (1)' },
-      { url: "https://drive.google.com/file/d/1ybjW2V5lCZr_okegOAG7pKl9k0Jt8O5T/preview", label: 'Braced 1/4 Twisting Release to Extended (1)' }
-    ] },
+      {url: "https://drive.google.com/file/d/1fHcMOMucmU36BYNbBzFI8V9wAlK9dxZR/preview", label: "Braced 1/2 Twisting Release to Extended (2)"}
+	] },
   'pyr-rel-adv-3': { name: 'Unbraced Release to Extended (Pyramid)', category: 'Pyramids — Released Transition', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Flyer releases with no bracer support, caught at extended. Must establish pyramid connection within 2 counts.', videos: [
       { url: "https://drive.google.com/file/d/1ND-OmLcOTg0ZrgYLfTCWiyfugSh8-0XL/preview", label: 'Unbraced Release to Extended' },
       { url: "https://drive.google.com/file/d/1uIQOoVvuZji8uKD1oxzQsAinse9EagDt/preview", label: 'Unbraced Release to Extended' }
@@ -2040,19 +1890,19 @@ const skills = {
       { url: "https://drive.google.com/file/d/1J-uixSpP5tjB7HuJuzXR0vEJZnVxkeNs/preview", label: 'Braced Full Twisting Release to Extended (2)' }
     ] },
   ///// 	
-  'pyr-rel-se-1': { name: 'Unbraced Inverted Release to Extended', category: 'Pyramids — Released Transition', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'The flyer releases while inverted with no bracer connection to another flyer and is caught at extended level.', videos: [
-      { url: "https://drive.google.com/file/d/1rrhh2wIsoga_fpU8q6Sf9h6O1I6VOCUC/preview", label: 'Unbraced 1/2 Twisting Inverted Release to Extended' },
-      { url: "https://drive.google.com/file/d/1Qr2vXOMiHkOwSzG9ik3IDWnG5bnR2_ga/preview", label: 'Unbraced Inverted Release to Extended' }
-    ] },
-  'pyr-rel-se-2': { name: 'Unbraced Twisting Inverted Release to Extended', category: 'Pyramids — Released Transition', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'The flyer completes a twisting release from inverted with no bracer connection to another flyer and is caught at extended level.', videos: [] },  
-  'pyr-rel-se-3': { name: 'Unbraced Full Twisting Release to Extended', category: 'Pyramids — Released Transition', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Full 360° twisting release with no bracer support caught and connected at extended. ', videos: [
-      { url: "https://drive.google.com/file/d/1BZ6EdOJvC8Pma4jtrt9UzfT3UqCCFNRO/preview", label: 'Unbraced Full Twisting Release to Extended' },
-      { url: "https://drive.google.com/file/d/1TnWgnGh8WyLAcTJsKbM66CmjMUoAhc3o/preview", label: 'Unbraced Full Twisting Release to Extended' },
-      { url: "https://drive.google.com/file/d/1KcBgz75XzOJ4VFMB6yeRSpxrM8hLFtmU/preview", label: 'Unbraced Full Twisting Release to Extended' }    
+  'pyr-rel-se-1': { name: 'Unbraced Inverted Release to Extended (Pyramid)', category: 'Pyramids — Released Transition', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'The flyer releases while inverted with no bracer connection to another flyer and is caught at extended level.', videos: [
+      {url: "https://drive.google.com/file/d/1tAQ9JN42y6yjpE52u-rnUdrHCuM9_Cs3/preview", label: "Unbraced Inverted Release to Extended"}
+	] },
+  'pyr-rel-se-2': { name: 'Unbraced Twisting Inverted Release to Extended (Pyramid)', category: 'Pyramids — Released Transition', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'The flyer completes a twisting release from inverted with no bracer connection to another flyer and is caught at extended level.', videos: [] },  
+  'pyr-rel-se-3': { name: 'Unbraced Full Twisting Release to Extended (Pyramid)', category: 'Pyramids — Released Transition', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Full 360° twisting release with no bracer support caught and connected at extended. ', videos: [
+      {url: "https://drive.google.com/file/d/1W3maPc97mqcJrPbvZ-lME63KZFThYqWq/preview", label: "Unbraced Full Twisting Release to Extended (Single Base)"}
 	] },
   
   // ── PYRAMID: BRACED ROLL/FLIP ──
-  'pyr-rf-beg-1': { name: 'Rolling Transition to Prep Level or Below', category: 'Pyramids — Braced Roll/Flip', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer performs a rolling (not flipping) transition and is caught at prep or below.', videos: [] },
+  'pyr-rf-beg-1': { name: 'Rolling Transition to Prep Level or Below (Pyramid)', category: 'Pyramids — Braced Roll/Flip', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Flyer performs a rolling (not flipping) transition and is caught at prep or below.', videos: [
+      {url: "https://drive.google.com/file/d/17dQzHzFgPBC6ZSEU_TOCVyDW_Jb-N4_i/preview", label: "Rolling Transition to Below Prep"},
+      {url: "https://drive.google.com/file/d/1MiV8fH81CZPol8WRoXIi3E1WXRVxfpdz/preview", label: "Rolling Transition to Below Prep"}
+	] },
   'pyr-rf-beg-2': { name: 'Flipping Transition Landing Below Prep — 1 or 2 Bracers (Pyramid)', category: 'Pyramids — Braced Roll/Flip', range: 'Beginner', rangeColor: 'var(--beginner)', notes: 'Braced flipping transition caught at below prep level.', videos: [
       { url: "https://drive.google.com/file/d/1opnVJWBeyZiBG_HtepVLcbMXACE8Ur8N/preview", label: 'Flipping Transition Landing Below Prep (1)' }
   
@@ -2085,15 +1935,16 @@ const skills = {
       { url: "https://drive.google.com/file/d/11O9yyek_Ba6bi4MaUwYKK16SHiTav-Y5/preview", label: '1/2 Twisting Flipping Transition Landing Extended (2)' }
     ] },
     ///// 
-  'pyr-rf-se-1': { name: 'Flipping Transition Landing Extended — 1 Bracer', category: 'Pyramids — Braced Roll/Flip', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Full flipping transition (backward or forward) caught at extended level with only 1 bracer.', videos: [
+  'pyr-rf-se-1': { name: 'Flipping Transition Landing Extended — 1 Bracer (Pyramid)', category: 'Pyramids — Braced Roll/Flip', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Full flipping transition (backward or forward) caught at extended level with only 1 bracer.', videos: [
       { url: "https://drive.google.com/file/d/1gFVmbcFQTjsEw49wZF6Kt_bXlMIwGPnl/preview", label: 'Flipping Transition Landing Extended (1)' },
       { url: "https://drive.google.com/file/d/1uGfdqI6BX6COaP5YjwA-Q1j4d7VGPHQI/preview", label: 'Flipping Transition Landing Extended (1)' },
       { url: "https://drive.google.com/file/d/1bGFqNzx7ZJII0ZGNOeHZUw2bTRZljhm8/preview", label: 'Flipping Transition Landing Extended (1)' },
       { url: "https://drive.google.com/file/d/18EhNgJbffR8e0VjcEeERDVlijP87fs4h/preview", label: 'Flipping Transition Landing Extended (1) (Single Base)' }
     ] },
-  'pyr-rf-se-2': { name: 'Twisting Flipping Transition Landing Extended — 1 Bracer', category: 'Pyramids — Braced Roll/Flip', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Flip combined with a twist caught at extended with 1 bracer.', videos: [] },
+  'pyr-rf-se-2': { name: 'Twisting Flipping Transition Landing Extended — 1 Bracer (Pyramid)', category: 'Pyramids — Braced Roll/Flip', range: 'Super Elite', rangeColor: 'var(--superelite)', notes: 'Flip combined with a twist caught at extended with 1 bracer.', videos: [] },
  
 };
+
 // Default data for any skill ID not explicitly defined
 function getSkillData(id) {
   if (skills[id]) return skills[id];
@@ -2621,119 +2472,7 @@ function updateVideoCounts() {
 }
 document.addEventListener('DOMContentLoaded', updateVideoCounts);
 setTimeout(updateVideoCounts, 200);
-</script>
 
-<!-- LEGALITY LIBRARY MODAL -->
-<div class="modal-overlay" id="legality-modal-overlay" onclick="closeLegalityOutside(event)" style="align-items:flex-start;padding:20px;">
-  <div class="modal" style="max-width:1100px;width:100%;max-height:92vh;display:flex;flex-direction:column;">
-    <!-- Header -->
-    <div class="modal-header" style="flex-shrink:0;">
-      <div>
-        <div class="modal-range-badge" style="background:rgba(74,144,217,0.15);border:1px solid rgba(74,144,217,0.4);color:#8ab8f0;" id="leg-modal-rule">—</div>
-        <div class="modal-skill-name" id="leg-modal-title">Section</div>
-        <div class="modal-category" id="leg-modal-desc"></div>
-      </div>
-      <button class="modal-close" onclick="closeLegalityModal()">✕</button>
-    </div>
-    <!-- Filter bar -->
-    <div style="display:flex;align-items:center;gap:10px;padding:12px 24px;border-bottom:1px solid rgba(255,255,255,0.08);flex-shrink:0;flex-wrap:wrap;">
-      <span style="font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--gray-mid);">Filter:</span>
-      <button class="leg-filter-btn active" data-filter="all" onclick="setLegalFilter('all')">All Videos</button>
-      <button class="leg-filter-btn" data-filter="legal" onclick="setLegalFilter('legal')">✓ Legal Only</button>
-      <button class="leg-filter-btn" data-filter="illegal" onclick="setLegalFilter('illegal')">✗ Illegal Only</button>
-      <span id="leg-modal-count" style="margin-left:auto;font-size:12px;color:rgba(255,255,255,0.35);font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:1px;"></span>
-    </div>
-    <!-- Scrollable library -->
-    <div id="leg-modal-library" style="overflow-y:auto;padding:20px 24px;flex:1;"></div>
-  </div>
-</div>
-
-<style>
-  /* Legality library modal */
-  #legality-modal-overlay { display:none; }
-  #legality-modal-overlay.open { display:flex; }
-
-  .leg-filter-btn {
-    font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;
-    letter-spacing:0.5px;text-transform:uppercase;padding:5px 14px;
-    border-radius:4px;cursor:pointer;border:1px solid rgba(255,255,255,0.15);
-    background:transparent;color:rgba(255,255,255,0.5);transition:all 0.15s;
-  }
-  .leg-filter-btn:hover { color:var(--white);border-color:rgba(255,255,255,0.35); }
-  .leg-filter-btn.active { background:rgba(201,168,76,0.15);border-color:var(--gold);color:var(--gold); }
-
-  .leg-group { margin-bottom:28px; }
-  .leg-group-header {
-    display:flex;align-items:center;gap:10px;
-    padding:8px 0 10px;
-    border-bottom:2px solid rgba(255,255,255,0.08);
-    margin-bottom:14px;
-  }
-  .leg-group-num {
-    font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:900;
-    color:var(--gold);letter-spacing:0.5px;
-  }
-  .leg-group-grid {
-    display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;
-  }
-  .leg-video-card {
-    background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);
-    border-radius:8px;overflow:hidden;
-  }
-  .leg-video-card iframe { width:100%;aspect-ratio:16/9;display:block;border:none; }
-  .leg-video-label {
-    padding:8px 12px;display:flex;align-items:center;gap:8px;
-    font-size:12px;color:rgba(255,255,255,0.7);
-    border-top:1px solid rgba(255,255,255,0.06);
-    flex-wrap:wrap;
-  }
-</style>
-
-<style>
-  #sticky-rubric-header {
-    display: none;
-    position: fixed;
-    z-index: 500;
-    left: 0; right: 0;
-    background: var(--navy-mid);
-    border-bottom: 2px solid rgba(201,168,76,0.3);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.5);
-  }
-  #sticky-rubric-header table {
-    border-collapse: separate;
-    border-spacing: 3px;
-    table-layout: fixed;
-  }
-  #sticky-rubric-header th {
-    padding: 8px 14px;
-    text-align: center;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 13px; font-weight: 800;
-    letter-spacing: 1px; text-transform: uppercase;
-  }
-  #sticky-rubric-header th:first-child { width: 120px; background: transparent; }
-  #sticky-rubric-header .ch-beginner    { background: var(--beginner-dim);    color: var(--beginner);    border-bottom: 2px solid var(--beginner); }
-  #sticky-rubric-header .ch-intermediate{ background: var(--intermediate-dim); color: var(--intermediate); border-bottom: 2px solid var(--intermediate); }
-  #sticky-rubric-header .ch-advanced    { background: var(--advanced-dim);    color: var(--advanced);    border-bottom: 2px solid var(--advanced); }
-  #sticky-rubric-header .ch-elite       { background: var(--elite-dim);       color: var(--elite);       border-bottom: 2px solid var(--elite); }
-  #sticky-rubric-header .ch-superelite  { background: var(--superelite-dim);  color: var(--superelite);  border-bottom: 2px solid var(--superelite); }
-  #sticky-rubric-header .col-header-pts { font-size: 11px; font-weight: 400; opacity: 0.7; margin-top: 2px; }
-</style>
-
-<div id="sticky-rubric-header" style="display:none;">
-  <table>
-    <tr>
-      <th></th>
-      <th class="ch-beginner">Beginner<div class="col-header-pts">0.0 – 1.0</div></th>
-      <th class="ch-intermediate">Intermediate<div class="col-header-pts">1.25 – 3.25</div></th>
-      <th class="ch-advanced">Advanced<div class="col-header-pts">3.5 – 5.5</div></th>
-      <th class="ch-elite">Elite<div class="col-header-pts">5.75 – 7.75</div></th>
-      <th class="ch-superelite">Super Elite<div class="col-header-pts">8.0 – 10.0</div></th>
-    </tr>
-  </table>
-</div>
-
-<script>
 (function() {
   var stickyBar = document.getElementById('sticky-rubric-header');
   var activeTable = null;
