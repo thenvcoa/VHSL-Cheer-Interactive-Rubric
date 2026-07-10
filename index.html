@@ -2000,26 +2000,24 @@ function openModal(id) {
   count.textContent = vids.length;
 
   if (vids.length === 0) {
-    // Show 2 placeholders
-    for (let i = 0; i < 2; i++) {
-      grid.innerHTML += `<div class="video-slot">
-        <div class="video-slot-placeholder"><div class="placeholder-icon">▶</div><span>Video Example ${i+1}</span></div>
-        <div class="video-label">Example ${i+1}</div>
-      </div>`;
-    }
+    // No videos yet — show coming soon message
+    grid.innerHTML = `<div style="grid-column:1/-1;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:28px 20px;text-align:center;">
+      <div style="font-size:32px;margin-bottom:12px;">🚧</div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.7);margin-bottom:8px;">Video Examples Coming Soon</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.4);line-height:1.6;max-width:340px;margin:0 auto;">Have a video example of this skill? Submit it to help grow the library — we review and add contributions regularly.<br><br>
+      <a href="mailto:TheNVCOA@gmail.com" style="color:var(--gold);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.4);" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.4)'">TheNVCOA@gmail.com</a></div>
+    </div>`;
   } else {
+    // Show real videos
     vids.forEach((v, i) => {
       grid.innerHTML += `<div class="video-slot">
         <iframe src="${v.url}" allow="autoplay" allowfullscreen></iframe>
         <div class="video-label">${v.label || 'Example ' + (i+1)}</div>
       </div>`;
     });
-    // Additional placeholder slots for skills with some but not all videos filled
-    for (let i = vids.length; i < Math.min(vids.length + 1, 4); i++) {
-      grid.innerHTML += `<div class="video-slot">
-        <div class="video-slot-placeholder"><div class="placeholder-icon">▶</div><span>Video Example ${i+1}</span></div>
-        <div class="video-label">Example ${i+1}</div>
-      </div>`;
+    // If only 1 video, add one empty (blank) slot so layout stays balanced
+    if (vids.length === 1) {
+      grid.innerHTML += `<div class="video-slot" style="background:transparent;border-color:transparent;"></div>`;
     }
   }
 
