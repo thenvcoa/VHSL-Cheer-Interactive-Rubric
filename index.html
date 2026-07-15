@@ -341,6 +341,388 @@
   #sticky-rubric-header .ch-elite       { background: var(--elite-dim);       color: var(--elite);       border-bottom: 2px solid var(--elite); }
   #sticky-rubric-header .ch-superelite  { background: var(--superelite-dim);  color: var(--superelite);  border-bottom: 2px solid var(--superelite); }
   #sticky-rubric-header .col-header-pts { font-size: 11px; font-weight: 400; opacity: 0.7; margin-top: 2px; }
+
+  /* ══════════════════════════════════════════════════════
+     SKILL LOCATOR (Tab 3) — scoped to #tab-locator so nothing
+     here can leak onto or collide with the rest of the site.
+     Reuses site tokens (--navy/--gold/--sec-*) and fonts
+     (Barlow Condensed / Barlow) — no new fonts loaded.
+     Only .legend/.legend-item/.sw were renamed (loc- prefix)
+     to avoid a real collision with the site's own range legend;
+     everything else keeps its original class name.
+     ══════════════════════════════════════════════════════ */
+
+  #tab-locator{font-family:'Barlow',sans-serif;}
+  #tab-locator .loc-wrap{max-width:1400px;margin:0 auto;}
+
+  /* ---------- MINI HERO ---------- */
+  #tab-locator .loc-eyebrow{
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:13px; font-weight:800;
+    letter-spacing:2px; text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:8px;
+  }
+  #tab-locator .loc-h1{
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:900;
+    font-size:42px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    margin:0 0 14px;
+    line-height:1.05;
+    color:var(--white);
+  }
+  #tab-locator .loc-h1 span{color:var(--gold);}
+  #tab-locator .loc-gold-rule{width:48px;height:3px;background:var(--gold);border-radius:2px;margin-bottom:18px;}
+  #tab-locator .loc-lede{
+    max-width:700px;
+    font-size:15px;
+    color:rgba(255,255,255,0.6);
+    margin:0 0 26px;
+    line-height:1.6;
+  }
+
+  #tab-locator .loc-not-for-note{
+    font-size:13px; line-height:1.6;
+    color:rgba(255,255,255,0.85);
+    background:rgba(224,80,80,0.1);
+    border:1px solid rgba(224,80,80,0.3);
+    border-radius:6px;
+    padding:14px 18px;
+    margin-bottom:20px;
+    display:flex; gap:12px; text-align: center; align-items:flex-start;
+  }
+  #tab-locator .loc-not-for-note strong{color:#f08080;}
+
+  /* ---------- SUB-SECTION HEADERS ---------- */
+  #tab-locator .section-head{
+    display:flex; align-items:baseline; gap:14px;
+    margin:40px 0 8px;
+  }
+  #tab-locator .section-head .num{
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:800;
+    font-size:12px;
+    letter-spacing:1px;
+    color:var(--navy);
+    background:var(--gold);
+    padding:3px 10px;
+    border-radius:3px;
+    text-transform:uppercase;
+  }
+  #tab-locator .section-head h2{
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:24px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+    color:var(--white);
+    margin:0;
+  }
+  #tab-locator .section-sub{
+    color:rgba(255,255,255,0.55);
+    font-size:13.5px;
+    max-width:760px;
+    margin:0 0 22px;
+    line-height:1.6;
+  }
+
+  /* ---------- FLOW CARD ---------- */
+  #tab-locator .flow-card{
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.09);
+    border-radius:10px;
+    padding:30px 30px 26px;
+  }
+  #tab-locator .flow-note{
+    background:rgba(255,255,255,0.03);
+    border:1px dashed rgba(255,255,255,0.15);
+    border-radius:8px;
+    padding:16px 20px;
+    font-size:13.5px;
+    color:rgba(255,255,255,0.65);
+    line-height:1.6;
+  }
+  #tab-locator .flow-note strong{color:var(--gold-light);}
+
+  #tab-locator .qrow{
+    display:flex;
+    align-items:flex-start;
+    gap:26px;
+    padding:18px 0;
+    border-bottom:1px solid rgba(255,255,255,0.07);
+    flex-wrap:wrap;
+  }
+  #tab-locator .qrow.last{border-bottom:none;padding-bottom:8px;}
+  #tab-locator .qrow.conditional{
+    border:1px solid rgba(255,255,255,0.1);
+    border-left:4px solid var(--sec-nonreleased);
+    border-radius:8px;
+    background:rgba(155,89,208,0.06);
+    padding:16px 20px;
+    margin:4px 0 0;
+  }
+  #tab-locator .qrow.conditional.accent-rel{border-left-color:var(--sec-release);background:rgba(39,174,138,0.06);}
+  #tab-locator .qrow.conditional.accent-twist{border-left-color:var(--sec-twisting);background:rgba(224,80,80,0.06);}
+
+  #tab-locator .qrow-label{
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:700;
+    font-size:16px;
+    color:var(--white);
+    min-width:270px;
+    max-width:270px;
+  }
+  #tab-locator .qrow-hint{
+    font-family:'Barlow',sans-serif;
+    font-weight:400;
+    font-size:12.5px;
+    color:rgba(255,255,255,0.5);
+    margin-top:4px;
+  }
+  #tab-locator .qrow > .chip-row{flex:1; align-items:center; min-width:220px;}
+  #tab-locator .qrow-connector{
+    text-align:center;
+    color:rgba(255,255,255,0.2);
+    font-size:16px;
+    line-height:1;
+    padding:2px 0;
+    width:100%;
+  }
+  #tab-locator .qrow-connector.live{color:var(--gold);}
+  #tab-locator .qrow-locked{opacity:0.35; pointer-events:none;}
+
+  #tab-locator .error-banner{
+    margin-top:22px;
+    border-radius:8px;
+    padding:14px 20px;
+    font-size:14px;
+    font-weight:600;
+    color:#f08080;
+    background:rgba(224,80,80,0.12);
+    border:1px solid rgba(224,80,80,0.35);
+    border-left:4px solid #e05050;
+  }
+
+  #tab-locator .results-label{
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:700;
+    font-size:12.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin:26px 0 8px;
+  }
+  #tab-locator .result-panel{
+    border-radius:8px;
+    padding:16px 20px;
+    font-size:14px;
+    border:1px solid rgba(255,255,255,0.1);
+    background:rgba(255,255,255,0.03);
+    transition:all .2s ease;
+    min-height:24px;
+  }
+  #tab-locator .result-panel.placeholder{
+    color:rgba(255,255,255,0.35); font-style:italic;
+  }
+  #tab-locator .match-list{
+    list-style:none; margin:0; padding:0;
+    display:flex; flex-direction:column; gap:9px;
+  }
+  #tab-locator .match-list li{
+    display:flex; align-items:baseline; gap:10px;
+    color:rgba(255,255,255,0.9);
+  }
+  #tab-locator .tier-tag{
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:10.5px; font-weight:800;
+    letter-spacing:0.05em; text-transform:uppercase;
+    color:var(--navy);
+    background:var(--gold);
+    padding:2px 8px; border-radius:4px;
+    flex:none;
+  }
+
+  /* ---------- CHIPS ---------- */
+  #tab-locator .chip-row{display:flex;flex-wrap:wrap;gap:8px;}
+  #tab-locator .chip{
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:13px; font-weight:700; letter-spacing:0.3px;
+    padding:8px 16px;
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,0.18);
+    background:transparent;
+    cursor:pointer;
+    color:rgba(255,255,255,0.55);
+    transition:all .15s ease;
+  }
+  #tab-locator .chip:hover{color:var(--white); border-color:rgba(255,255,255,0.4);}
+  #tab-locator .chip.active{
+    background:rgba(201,168,76,0.18);
+    border-color:var(--gold);
+    color:var(--gold-light);
+  }
+  #tab-locator .reset-link{
+    display:inline-block;
+    margin-top:16px;
+    font-size:12.5px;
+    font-weight:600;
+    color:rgba(255,255,255,0.45);
+    cursor:pointer;
+    text-decoration:underline;
+  }
+  #tab-locator .reset-link:hover{color:var(--gold-light);}
+
+  /* ---------- STUNTS/PYRAMIDS TOGGLE ---------- */
+  #tab-locator .table-tabs{
+    display:flex; justify-content:center; gap:10px;
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:14px;
+    padding:8px;
+    margin:0 auto 36px;
+    max-width:520px;
+  }
+  #tab-locator .table-tab{
+    flex:1;
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:800; font-size:19px; letter-spacing:1.5px;
+    text-transform:uppercase;
+    padding:16px 20px;
+    border:none; border-radius:9px;
+    background:transparent;
+    color:rgba(255,255,255,0.5);
+    cursor:pointer;
+    transition:all .18s ease;
+  }
+  #tab-locator .table-tab:hover{color:var(--gold-light);}
+  #tab-locator .table-tab.active{
+    color:var(--navy);
+    background:var(--gold);
+    box-shadow:0 2px 12px rgba(201,168,76,0.35);
+  }
+
+  /* ---------- LEGEND (renamed - collides with site's range legend) ---------- */
+  #tab-locator .loc-legend{
+    display:flex; flex-wrap:wrap; gap:16px;
+    margin:22px 0 16px;
+  }
+  #tab-locator .loc-legend-item{
+    display:flex; align-items:center; gap:8px;
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:12.5px; font-weight:700; letter-spacing:0.3px;
+    text-transform:uppercase;
+    color:rgba(255,255,255,0.6);
+  }
+  #tab-locator .loc-legend-item .loc-sw{width:12px;height:12px;border-radius:3px;flex:none;}
+
+  /* ---------- TABLE ---------- */
+  #tab-locator .table-scroll{
+    overflow-x:auto;
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:10px;
+  }
+  #tab-locator table.rubric{
+    border-collapse:collapse;
+    width:100%;
+    min-width:980px;
+    font-size:13px;
+  }
+  #tab-locator table.rubric th, #tab-locator table.rubric td{
+    border:1px solid rgba(255,255,255,0.08);
+    padding:9px 11px;
+    vertical-align:top;
+    text-align:left;
+  }
+  #tab-locator table.rubric thead th{
+    background:var(--navy-light);
+    color:var(--white);
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:12px; font-weight:700; letter-spacing:0.5px;
+    text-align:center;
+    position:sticky; top:0; z-index:3;
+  }
+  #tab-locator table.rubric thead th .tier{
+    display:block; font-size:14.5px; font-weight:800; margin-top:2px; color:var(--gold-light);
+    text-transform:uppercase;
+  }
+  #tab-locator .rowlabel{
+    width:130px;
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:800;
+    font-size:13.5px;
+    text-transform:uppercase;
+    letter-spacing:0.3px;
+    position:sticky; left:0; z-index:2;
+    vertical-align:middle;
+    border-left:4px solid transparent;
+  }
+  #tab-locator .section-inv .rowlabel{background:rgba(155,89,208,0.14);color:#c490f0;border-left-color:var(--sec-inversion);}
+  #tab-locator .section-rel .rowlabel{background:rgba(39,174,138,0.14);color:#5dd4b8;border-left-color:var(--sec-release);}
+  #tab-locator .section-twist .rowlabel{background:rgba(224,80,80,0.14);color:#f08080;border-left-color:var(--sec-twisting);}
+  #tab-locator .section-base .rowlabel{background:rgba(74,144,217,0.14);color:#8ab8f0;border-left-color:var(--sec-singlebase);}
+  #tab-locator .section-other .rowlabel{background:rgba(136,136,136,0.1);color:#bbb;border-left-color:var(--sec-other);}
+
+  #tab-locator .section-inv td.cell{background:rgba(155,89,208,0.05);}
+  #tab-locator .section-rel td.cell{background:rgba(39,174,138,0.05);}
+  #tab-locator .section-twist td.cell{background:rgba(224,80,80,0.05);}
+  #tab-locator .section-base td.cell{background:rgba(74,144,217,0.05);}
+  #tab-locator .section-other td.cell{background:rgba(136,136,136,0.04);}
+
+  #tab-locator td.cell{
+    color:rgba(255,255,255,0.75);
+    transition:opacity .18s ease, box-shadow .18s ease;
+  }
+  #tab-locator td.cell.dash{color:rgba(255,255,255,0.2);text-align:center;font-weight:700;}
+  #tab-locator .dimmed{opacity:0.22;}
+  #tab-locator .hit{
+    box-shadow:inset 0 0 0 2px var(--gold);
+    background:rgba(201,168,76,0.1) !important;
+    position:relative;
+    z-index:1;
+  }
+  #tab-locator .hit::before{
+    content:"MATCH";
+    position:absolute; top:-9px; left:8px;
+    background:var(--gold);
+    color:var(--navy);
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:9px; font-weight:800; letter-spacing:0.06em;
+    padding:1px 6px;
+    border-radius:3px;
+  }
+  #tab-locator .section-block-dim{opacity:0.3;}
+
+  #tab-locator .step-badge{
+    display:inline-flex;
+    align-items:center; justify-content:center;
+    width:20px; height:20px;
+    border-radius:50%;
+    background:var(--gold);
+    color:var(--navy);
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:800;
+    font-size:12px;
+    margin-right:7px;
+    flex:none;
+  }
+
+  #tab-locator .loc-footer{
+    text-align:center;
+    color:rgba(255,255,255,0.35);
+    font-size:12px;
+    margin-top:40px;
+    padding-top:20px;
+    border-top:1px solid rgba(255,255,255,0.08);
+  }
+
+  @media(max-width:720px){
+    #tab-locator .qrow{flex-direction:column;gap:10px;}
+    #tab-locator .qrow-label{max-width:none;}
+    #tab-locator .rowlabel{position:static;width:auto;}
+  }
+
 </style>
 </head>
 <body>
@@ -365,6 +747,9 @@
     </div>
     <div class="tab-btn" onclick="switchTab('pyramids', this)">
       <span class="tab-icon">🔺</span> Pyramid Rubric
+    </div>
+    <div class="tab-btn" onclick="switchTab('locator', this)">
+      <span class="tab-icon">🔍</span> Skill Locator
     </div>
     <div class="tab-btn" onclick="switchTab('notes', this)">
       <span class="tab-icon">📋</span> Key Notes
@@ -800,6 +1185,13 @@
     <div class="section-desc">Click any skill cell to see scoring notes and video examples. Starting value is determined by a minimum of <strong style="color:var(--gold)">three different skills</strong> successfully executed within a range by the <strong style="color:var(--gold)">majority</strong>	of the maximum number of stunt groups.</div>
   </div>
 
+  <div class="callout callout-gold">
+    <div class="callout-icon">📌</div>
+    <div>
+      <strong>How to use this rubric:</strong> Click any cell to open a popup with skill notes, judging tips, and video examples. Use the range legend below to filter by difficulty level.
+    </div>
+  </div>
+
   <div class="callout callout-blue">
     <div class="callout-icon">💡</div>
     <div>The number in parentheses <strong>(1 or 2)</strong> refers to the number of pyramid bracers utilized during the transition. Legal unbraced skills or those utilizing fewer bracers should receive <strong>more credit</strong> within the range.</div>
@@ -1011,13 +1403,289 @@
 
   <div class="nav-buttons">
     <button class="btn btn-secondary" onclick="switchTab('stunts', document.querySelectorAll('.tab-btn')[0])">← Stunts Rubric</button>
-    <button class="btn btn-primary" onclick="switchTab('notes', document.querySelectorAll('.tab-btn')[2])">Next: Key Notes →</button>
+    <button class="btn btn-primary" onclick="switchTab('locator', document.querySelectorAll('.tab-btn')[2])">Next: Skill Locator →</button>
   </div>
 </div>
 
 <!-- ══════════════════════════════════════ -->
-<!-- TAB 3: KEY NOTES                       -->
+<!-- TAB 3: SKILL LOCATOR                      -->
 <!-- ══════════════════════════════════════ -->
+<div class="tab-panel" id="tab-locator">
+<div class="loc-wrap" style="padding:32px 24px 80px;">
+
+  <div style="margin-bottom:28px;">
+    <div class="loc-eyebrow">🔍 Skill Locator</div>
+    <h1 class="loc-h1">Skill <span>Locator</span></h1>
+    <div class="loc-gold-rule"></div>
+    <p class="loc-lede">A working guide for coaches & officials: answer a few questions about a skill and find exactly where it scores.</p>
+  </div>
+  
+  <div class="loc-not-for-note">
+    ⚠️ <strong>Note:</strong> This locator is not for use with Single Base Stunts or Tosses — refer to those sections of the rubric directly.
+  </div>
+  
+  <!-- IDENTIFY -->
+  <div class="section-head"><span class="num">Step 1</span><h2>Identify Your Skill</h2></div>
+  <p class="section-sub">Answer each question based on the elements of your skill. The tool weighs each selection together and highlights the matching skill in the rubric.</p>
+ 
+
+ <div class="table-tabs" id="tableTabs">
+    <button type="button" class="table-tab active" data-branch="stunts">Stunts</button>
+    <button type="button" class="table-tab" data-branch="pyramids">Pyramids</button>
+  </div>
+
+  <div class="flow-card">
+
+    <div id="stuntsQuestions">
+
+    <div class="qrow" data-step="invert">
+      <div class="qrow-label"><span class="step-badge">1</span>Does the skill invert?
+        <div class="qrow-hint">Flyer's shoulders drop below the waist at any point.</div>
+      </div>
+      <div class="chip-row" data-group="invert">
+        <div class="chip" data-val="no">No</div>
+        <div class="chip" data-val="yes">Yes</div>
+      </div>
+    </div>
+    <div class="qrow-connector" id="conn-1">↓</div>
+
+    <div class="qrow" data-step="release">
+      <div class="qrow-label"><span class="step-badge">2</span>Does the skill release?
+        <div class="qrow-hint">Flyer leaves all bases' & spotters' hands, at any point.</div>
+      </div>
+      <div class="chip-row" data-group="release">
+        <div class="chip" data-val="no">No</div>
+        <div class="chip" data-val="yes">Yes</div>
+      </div>
+    </div>
+
+    <div class="qrow conditional" id="feetFilterWrap" style="display:none;">
+      <div class="qrow-connector" style="margin:2px 0 14px;">↓</div>
+      <div class="qrow-label"><span class="step-badge">•</span>Number of flyer's feet in bases' hands right before the release:
+        <div class="qrow-hint"><strong>One Foot:</strong> A foot-to-foot swap (ex: Low to High, Switch Up, Tic Toc, High to High)
+								<br><strong>Neither Foot:</strong> Both feet are free from contact with bases prior to the release (ex: BHS Up, Hand in Hand, Horizontal Release)
+								<br><strong>Both Feet:</strong> Flyer has both feet in the hands of bases prior to release (ex: Ball Up)</div>
+      </div>
+      <div class="chip-row" data-group="feet">
+        <div class="chip" data-val="one">One foot</div>
+        <div class="chip" data-val="none">Neither foot</div>
+        <div class="chip" data-val="both" id="bothFeetChip" style="display:none;">Both feet</div>
+      </div>
+    </div>
+
+    <div class="qrow-connector" id="conn-2">↓</div>
+
+    <div class="qrow" data-step="twist">
+      <div class="qrow-label"><span class="step-badge">3</span>Twist amount</div>
+      <div class="chip-row" data-group="twist">
+        <div class="chip" data-val="none">No twist</div>
+        <div class="chip" data-val="qtr">¼</div>
+        <div class="chip" data-val="half">½</div>
+        <div class="chip" data-val="three">¾</div>
+        <div class="chip" data-val="full">Full+</div>
+      </div>
+    </div>
+    <div class="qrow-connector" id="conn-3">↓</div>
+
+    <div class="qrow" data-step="start">
+      <div class="qrow-label"><span class="step-badge">4</span>Starting level</div>
+      <div class="chip-row" data-group="start">
+        <div class="chip" data-val="below prep">Below Prep</div>
+        <div class="chip" data-val="prep">Prep</div>
+        <div class="chip" data-val="extended">Extended / IBP / ABP</div>
+      </div>
+    </div>
+    <div class="qrow-connector" id="conn-4">↓</div>
+
+    <div class="qrow last" data-step="end">
+      <div class="qrow-label"><span class="step-badge">5</span>Ending level</div>
+      <div class="chip-row" data-group="end">
+        <div class="chip" data-val="below prep">Below Prep</div>
+        <div class="chip" data-val="prep">Prep</div>
+        <div class="chip" data-val="extended">Extended / IBP / ABP</div>
+      </div>
+    </div>
+
+    </div>
+
+    <div id="pyramidsQuestions" style="display:none;">
+
+    <div class="qrow" data-step="pBracers">
+      <div class="qrow-label"><span class="step-badge">1</span>Number of bracers?
+        <div class="qrow-hint">Number of bracer flyers in contact with the skill flyer. Select '0' for Unbraced skills.</div>
+      </div>
+      <div class="chip-row" data-group="pBracers">
+        <div class="chip" data-val="0">0</div>
+        <div class="chip" data-val="1">1</div>
+        <div class="chip" data-val="2">2</div>
+      </div>
+    </div>
+    <div class="qrow-connector" id="conn-p0">↓</div>
+
+    <div class="qrow" data-step="pInversion">
+      <div class="qrow-label"><span class="step-badge">2</span>Inversion?
+        <div class="qrow-hint"><strong>No:</strong> Flyer does not invert during Skill
+								<br><strong>Yes:</strong> Flyer is inverted but without hip over head rotation (ex: Inverted Low to High, Hand in Hand)
+								<br><strong>Braced Roll:</strong> Flyer is inverted with hip over head rotation while maintaining contact with a base/spotter throughout.
+								<br><strong>Braced Flip:</strong> Flyer is inverted with hip over head rotation while being released from bases/spotter.</div>
+      </div>
+      <div class="chip-row" data-group="pInversion">
+        <div class="chip" data-val="no">No</div>
+        <div class="chip" data-val="yes">Yes</div>
+        <div class="chip" data-val="braced roll" id="bracedRollChip">Braced Roll</div>
+        <div class="chip" data-val="braced flip" id="bracedFlipChip">Braced Flip</div>
+      </div>
+    </div>
+    <div class="qrow-connector" id="conn-p1">↓</div>
+
+    <div class="qrow" data-step="pRelease">
+      <div class="qrow-label"><span class="step-badge">3</span>Release?
+        <div class="qrow-hint">Flyer leaves all bases' & spotters' hands, at any point.</div>
+      </div>
+      <div class="chip-row" data-group="pRelease">
+        <div class="chip" data-val="no">No</div>
+        <div class="chip" data-val="yes">Yes</div>
+      </div>
+    </div>
+    <div class="qrow-connector" id="conn-p2">↓</div>
+
+    <div class="qrow" data-step="pTwist">
+      <div class="qrow-label"><span class="step-badge">4</span>Twist amount</div>
+      <div class="chip-row" data-group="pTwist">
+        <div class="chip" data-val="none">No twist</div>
+        <div class="chip" data-val="qtr">¼</div>
+        <div class="chip" data-val="half">½</div>
+        <div class="chip" data-val="three">¾</div>
+        <div class="chip" data-val="full">Full+</div>
+      </div>
+    </div>
+
+    <div class="qrow conditional accent-twist" id="pStartFilterWrap" style="display:none;">
+      <div class="qrow-connector" style="margin:2px 0 14px;">↓</div>
+      <div class="qrow-label"><span class="step-badge">•</span>Starting level
+      </div>
+      <div class="chip-row" data-group="pStart">
+        <div class="chip" data-val="below prep">Below Prep</div>
+        <div class="chip" data-val="prep">Prep</div>
+        <div class="chip" data-val="extended">Extended / IBP / ABP</div>
+      </div>
+    </div>
+
+    <div class="qrow-connector" id="conn-p3">↓</div>
+
+    <div class="qrow last" data-step="pEnd">
+      <div class="qrow-label"><span class="step-badge">5</span>Ending level</div>
+      <div class="chip-row" data-group="pEnd">
+        <div class="chip" data-val="below prep">Below Prep</div>
+        <div class="chip" data-val="prep">Prep</div>
+        <div class="chip" data-val="extended">Extended / IBP / ABP</div>
+      </div>
+    </div>
+
+    </div>
+
+    <div class="error-banner" id="errorBanner" style="display:none;">
+      ❌ <strong>Inversion skills may never start at Extended per NFHS.</strong>
+    </div>
+
+    <div class="results-label">Matching Skills</div>
+    <div class="result-panel placeholder show" id="resultPanel">
+      Answer the questions above to see which section and range your skill scores in.
+    </div>
+
+    <span class="reset-link" id="resetFilters">Clear all answers</span>
+  </div>
+
+  <!-- LEGEND + TABLE -->
+  <div class="section-head"><span class="num">Step 2</span><h2 id="tableHeading">Results - Stunt & Pyramid Rubric</h2></div>
+
+  <div id="stuntsTableSection">
+
+    <div class="loc-legend">
+      <div class="loc-legend-item"><span class="loc-sw" style="background:var(--sec-inversion);"></span>Inversion Skills</div>
+      <div class="loc-legend-item"><span class="loc-sw" style="background:var(--sec-release);"></span>Release Skills</div>
+      <div class="loc-legend-item"><span class="loc-sw" style="background:var(--sec-twisting);"></span>Twisting Skills</div>
+      <div class="loc-legend-item"><span class="loc-sw" style="background:var(--sec-singlebase);"></span>Single Base Skills</div>
+      <div class="loc-legend-item"><span class="loc-sw" style="background:var(--sec-other);"></span>Other / Tosses</div>
+    </div>
+
+    <div class="table-scroll">
+      <table class="rubric" id="rubricTable">
+        <thead>
+          <tr>
+            <th style="background:var(--navy);">Section</th>
+            <th>0 – 1.0<span class="tier">Beginner</span></th>
+            <th>1.25 – 3.25<span class="tier">Intermediate</span></th>
+            <th>3.5 – 5.5<span class="tier">Advanced</span></th>
+            <th>5.75 – 7.75<span class="tier">Elite</span></th>
+            <th>8.0 – 10.0<span class="tier">Super Elite</span></th>
+          </tr>
+        </thead>
+        <tbody id="rubricBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="pyramidsTableSection" style="display:none;">
+
+    <div class="loc-legend">
+      <div class="loc-legend-item"><span class="loc-sw" style="background:var(--sec-nonreleased);"></span>Non-Released Transition</div>
+      <div class="loc-legend-item"><span class="loc-sw" style="background:var(--sec-released);"></span>Released Transition</div>
+      <div class="loc-legend-item"><span class="loc-sw" style="background:var(--sec-rolflip);"></span>Braced Roll/Flip</div>
+    </div>
+
+    <div class="table-scroll">
+      <table class="rubric" id="pyramidsTable">
+        <thead>
+          <tr>
+            <th style="background:var(--navy);">Section</th>
+            <th>0 – 1.0<span class="tier">Beginner</span></th>
+            <th>1.25 – 3.25<span class="tier">Intermediate</span></th>
+            <th>3.5 – 5.5<span class="tier">Advanced</span></th>
+            <th>5.75 – 7.75<span class="tier">Elite</span></th>
+            <th>8.0 – 10.0<span class="tier">Super Elite</span></th>
+          </tr>
+        </thead>
+        <tbody id="pyramidsBody"></tbody>
+      </table>
+    </div>
+  </div>
+  
+<br><br>
+  <div class="loc-not-for-note">
+    <strong>⚠️❗For reference & training only — always confirm scores against the official printed rubric and judges' rulings. <br>If you have questions, please contact your commissioner.❗⚠️</strong> 
+  </div>
+
+  <div class="section-head"><span class="num">How the Logic Works</span><h2>Rules &amp; Definitions</h2></div>
+  <p class="section-sub">The reasoning behind the automatic matching above, for reference.</p>
+
+  <div class="flow-note">
+    
+	<!-- SAVE FOR GRID DIAGRAM -->
+	
+	<br><br>
+	
+	
+  </div>
+
+  <div class="loc-footer">
+    Built from the 2026–2027 VHSL Competitive Cheer Rubric (version updated June 8, 2026)
+	<br><strong>For reference & training only — always confirm scores against the official printed rubric and judges' rulings.</strong>
+  </div>
+
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.08);">
+    <button class="btn btn-secondary" onclick="switchTab('pyramids', document.querySelectorAll('.tab-btn')[1])">← Pyramid Rubric</button>
+    <button class="btn btn-primary" onclick="switchTab('notes', document.querySelectorAll('.tab-btn')[3])">Next: Key Notes →</button>
+  </div>
+
+</div>
+</div>
+
+
+<!-- ══════════════════════════════════════ -->
+<!-- TAB 4: KEY NOTES                     -->
+<!-- ══════════════════════════════════════ -->
+
 <div class="tab-panel" id="tab-notes">
   <div class="section-header">
     <div class="section-title">Key Notes <span>&amp; Additional Info</span></div>
@@ -1102,8 +1770,8 @@
   </div>
 
   <div class="nav-buttons">
-    <button class="btn btn-secondary" onclick="switchTab('pyramids', document.querySelectorAll('.tab-btn')[1])">← Pyramids Rubric</button>
-	<button class="btn btn-primary" onclick="switchTab('majority', document.querySelectorAll('.tab-btn')[3])">Next: Majority Breakdown →</button>
+    <button class="btn btn-secondary" onclick="switchTab('locator', document.querySelectorAll('.tab-btn')[2])">← Skill Locator</button>
+	<button class="btn btn-primary" onclick="switchTab('majority', document.querySelectorAll('.tab-btn')[4])">Next: Majority Breakdown →</button>
   </div>
 </div>
 
@@ -1201,14 +1869,14 @@
   </div>
 
   <div class="nav-buttons">
-    <button class="btn btn-secondary" onclick="switchTab('notes', document.querySelectorAll('.tab-btn')[2])">← Key Notes</button>
-    <button class="btn btn-primary" onclick="switchTab('legality', document.querySelectorAll('.tab-btn')[4])">Next: Legality Videos →</button>
+    <button class="btn btn-secondary" onclick="switchTab('notes', document.querySelectorAll('.tab-btn')[3])">← Key Notes</button>
+    <button class="btn btn-primary" onclick="switchTab('legality', document.querySelectorAll('.tab-btn')[5])">Next: Legality Videos →</button>
   </div>
 </div>
 
 
 <!-- ══════════════════════════════════════ -->
-<!-- TAB 4: LEGALITY VIDEOS                 -->
+<!-- TAB 6: LEGALITY VIDEOS                 -->
 <!-- ══════════════════════════════════════ -->
 <div class="tab-panel" id="tab-legality">
   <div class="section-header">
@@ -1323,7 +1991,7 @@
   </div>
 
   <div class="nav-buttons">
-    <button class="btn btn-secondary" onclick="switchTab('majority', document.querySelectorAll('.tab-btn')[3])">← Majority Rules</button>
+    <button class="btn btn-secondary" onclick="switchTab('majority', document.querySelectorAll('.tab-btn')[4])">← Majority Rules</button>
   </div>
 </div>
 
@@ -2599,5 +3267,713 @@ setTimeout(updateVideoCounts, 200);
   };
 })();
 </script>
+
+<script>
+(function(){
+'use strict';
+
+// ---------------- DATA ----------------
+const COLS = ["Beginner","Intermediate","Advanced","Elite","Super Elite"];
+
+const SECTIONS = [
+  {
+    key:"inv", label:"Inversion", cls:"section-inv",
+    rows:[
+      ["Below Prep Level Inversions to Ground (ex: Yo-Yo, Back Walkover, etc.)","Suspended Forward Roll Variations & Inversions (ex: Pancake, Cartwheel, etc.)","—","—","—"],
+      ["Non-Release Inversions Prep Level or Below to Prep or Below Prep","Non-Release Inversions Prep Level or Below to Extended/IBP/ABP","Non-Release Twisting Inversions Prep Level or Below to Extended/IBP/ABP","Released ¼, ½ or ¾ Twisting Inverted Low to High to Extended IBP/ABP","Released Full Twisting Inverted Low to High to Extended IBP/ABP"],
+      ["Non-Release Twisting Inversions Prep Level or Below to Below Prep","Non-Release Twisting Inversions Prep Level or Below to Prep","Released Inverted Low to High to Extended IBP/ABP","—","—"],
+      ["Released Inversions Prep Level or Below to Below Prep","Released Inversions Prep Level or Below to Prep","Released Inversions Prep Level or Below to Extended","Released Inversions Prep Level or Below to Extended IBP/ABP","Released ¼, ½ or ¾ Twisting Inversions Prep Level or Below to Extended IBP/ABP"],
+      ["Released Twisting Inversions Prep Level or Below to Below Prep","Released Twisting Inversions Prep Level or Below to Prep","—","Released ¼, ½ or ¾ Twisting Inversions Prep Level or Below to Extended","Released Full Twisting Inversions Prep Level or Below to Extended/IBP/ABP"]
+    ]
+  },
+  {
+    key:"rel", label:"Release", cls:"section-rel",
+    rows:[
+      ["Below Prep Release to Below Prep","Prep Level Release to Prep","Prep Level Release to Extended/IBP/ABP","—","—"],
+      ["Release to Below Prep (ex: Quick Toss, Ball-Up)","Release to Prep (ex: Quick Toss, Ball-Up)","Release to Extended/IBP/ABP (ex: Quick Toss, Ball-Up)","¼, ½ or ¾ Twist Release to Ext/IBP/ABP (ex: Quick Toss, Ball-Up)","Full Twisting Release to Ext/IBP/ABP (ex: Quick Toss, Ball-Up)"],
+      ["Extended Release to Below Prep","Extended Release to Prep Level","Extended Release to Prep Level IBP/ABP","Horizontal Release to Extended IBP/ABP","Horizontal Twisting Release to Ext/IBP/ABP"],
+      ["Horizontal Release to Below Prep","Horizontal Release to Prep","Horizontal Release to Extended","Full Twisting Switch Up to Extended IBP","Full Twisting Switch Up to Extended ABP"],
+      ["—","Switch Up to Prep IBP/ABP","Switch Up to Extended IBP/ABP","¼, ½ or ¾ Twist Switch Up to Extended ABP","High to High (ABP to ABP)"],
+      ["—","Prep Level Low to Low (Tic Toc)","¼, ½ or ¾ Twist Switch Up to Extended IBP","¼, ½ or ¾ Twist Low to High to ABP","Full Twisting Low to High to IBP/ABP"],
+      ["Twisting Release to Below Prep","Twisting Release to Prep Level","Low to High to IBP/ABP","High to High (IBP to IBP/ABP)","½ or ¾ Twist High to High to IBP/ABP"],
+      ["—","—","¼, ½ or ¾ Twist Low to High to IBP","¼ Twist High to High to IBP/ABP","Full Twisting High to High to IBP/ABP"]
+    ]
+  },
+  {
+    key:"twist", label:"Twisting", cls:"section-twist",
+    rows:[
+      ["¼ or ½ Up to Prep Level","Full Up to Prep Level","Full Up to Extended/IBP/ABP","1 ½ Up to Extended/IBP/ABP","Double Up to Extended/IBP/ABP"],
+      ["¼ Up to Extended/IBP/ABP","½ or ¾ Up to Extended/IBP/ABP","Hands Full Around to Extended","Hands 1 ½ Around to Extended/IBP/ABP","Hands Double Around to Extended/IBP/ABP"],
+      ["¼ or ½ Twisting Transitions","¾ or Greater Twisting Transitions to Prep or Below Prep","—","Hands Full Around to Extended IBP/ABP","High High Full Around Extended to IBP/ABP"],
+      ["—","—","—","High High Full Around Extended to Extended","High High Full Around IBP/ABP to IBP/ABP"],
+      ["—","—","—","—","High High 1 ½ Around to Extended/IBP/ABP"]
+    ]
+  },
+  {
+    key:"base", label:"Single Base", cls:"section-base",
+    rows:[
+      ["Prep Level Skills","Extension or Cupie","Extended Single Leg","Releases to Extended Single Leg","½, ¾, or Full Twisting Releases to Extended"],
+      ["—","¼, ½ or ¾ Twist to Prep Level","Full Up to Prep Level","¼ Twist Release to Extended","Non-Release Inversions to Extended"],
+      ["—","—","Full Twisting Skills to Extended","Released Inversion to Prep Level","Released Twisting Inversion to Extended"],
+      ["Walk-In / Toss to Chair","Toss Hands","Toss Hands, Press to Extended Single Leg","Toss Hands, Press to Extended Single Arm","Twisting Release from Hands to Extended"],
+      ["Walk-In / Toss to Hands","Walk-In Hands, Press to Extension","Walk-In to Extended Single Leg","Walk-In to Extended Single Arm","—"],
+      ["—","Toss Hands, Press to Extension","Toss Extension","Toss Extended Single Leg","Toss Extended Single Arm"],
+      ["—","Switch Up to Extended","Low to High to Extended","High to High to Extended","Released Inversion to Extended"],
+      ["—","—","—","Toss Full Up to Prep Level","Toss Full Up to Extended"]
+    ]
+  },
+  {
+    key:"other", label:"Other", cls:"section-other",
+    rows:[
+      ["Prep Level and Below Stunts Not Previously Categorized (ex: prep, prep lib, etc.)","Extended Stunts Not Previously Categorized (ex: extension, cupie, lib, show n go, etc.)","—","—","—"]
+    ]
+  },
+  {
+    key:"toss", label:"Tosses", cls:"section-other",
+    rows:[
+      ["Straight Ride Tosses / Pretty Girl","Single-Skill Tosses (ex: Toe-Touch, Kick, Pike, Full Twist)","Multi-Skill Tosses (ex: Ball X-Out, Hitch Kick, Kick Kick)","Single-Skill Tosses with Full Twist (ex: Ball Full, Kick Full, Full Toe Touch)","Multi-Skill Tosses with Full Twist (ex: Hitch Kick Full, Kick Kick Full)"]
+    ]
+  }
+];
+
+// ---------------- PYRAMIDS TABLE DATA ----------------
+const PYRAMID_SECTIONS = [
+  {
+    key:"pyr_nrt", label:"Non-Released Transition", cls:"section-inv",
+    rows:[
+      ["Braced non-released transitions","Unbraced non-released transitions","—","—","—"],
+      ["Inverted stunts to prep level and below","Inverted stunts to extended (2)","Inverted stunts to extended (1)","—","—"],
+      ["—","—","Twisting inverted stunts to extended (2)","Twisting inverted stunts to extended (1)","—"],
+      ["Intermediate Twisting Stunts (references Stunts rubric - pink section)","Advanced Twisting Stunts (references Stunts rubric - pink section)","Elite Twisting Stunts (references Stunts rubric - pink section)","Super Elite Twisting Stunts (references Stunts rubric - pink section)","—"],
+      ["—","Intermediate Single Base Stunts (references Stunts rubric - blue section)","Advanced Single Base Stunts (references Stunts rubric - blue section)","Elite Single Base Stunts (references Stunts rubric - blue section)","Super Elite Single Base Stunts (references Stunts rubric - blue section)"]
+    ]
+  },
+  {
+    key:"pyr_rt", label:"Released Transition", cls:"section-rel",
+    rows:[
+      ["Braced release to prep or below (1 or 2)","Braced release to extended (1)","—","Braced twisting inverted release to extended (1 or 2)","—"],
+      ["Braced release to extended (2)","Braced inverted release to prep or below (1 or 2)","Braced inverted release to extended (2)","Braced inverted release to extended (1)","Unbraced inverted release to extended"],
+      ["—","Braced twisting release to prep or below (1 or 2)","Braced ¼, ½, or ¾ twisting release to extended (1 or 2)","Braced full twisting release to extended (1 or 2)","Unbraced twisting inverted release to extended"],
+      ["—","Unbraced release to prep or below","Unbraced release to extended","Unbraced ¼, ½, or ¾ twisting release to extended","Unbraced full twisting release to extended"]
+    ]
+  },
+  {
+    key:"pyr_brf", label:"Braced Roll/Flip", cls:"section-twist",
+    rows:[
+      ["Rolling transition to prep level or below","Rolling transition to extended","—","—","—"],
+      ["Flipping transition landing below prep level (1 or 2)","Flipping transition landing at prep level (2)","Flipping transition landing at prep level (1)","Flipping transition landing extended (2)","Flipping transition landing extended (1)"],
+      ["¼ twisting flipping transition landing at prep or below (1 or 2)","½ or ¾ twisting flipping transition landing at prep or below (1 or 2)","Full twisting flipping transition landing at prep or below (1 or 2)","Twisting flipping transition landing extended (2)","Twisting flipping transition landing extended (1)"]
+    ]
+  }
+];
+
+// ---------------- RENDER TABLE (shared by Stunts + Pyramids) ----------------
+function renderRubricTable(sections, bodyId){
+  const body = document.getElementById(bodyId);
+  sections.forEach(sec=>{
+    sec.rows.forEach((row,ri)=>{
+      const tr = document.createElement('tr');
+      tr.className = sec.cls;
+      tr.dataset.section = sec.key;
+
+      if(ri===0){
+        const th = document.createElement('td');
+        th.className = 'rowlabel';
+        th.rowSpan = sec.rows.length;
+        th.innerHTML = sec.label;
+        tr.appendChild(th);
+      }
+
+      row.forEach(text=>{
+        const td = document.createElement('td');
+        td.className = 'cell' + (text.trim()==='—' ? ' dash' : '');
+        td.textContent = text;
+        td.dataset.text = text.toLowerCase();
+        tr.appendChild(td);
+      });
+
+      body.appendChild(tr);
+    });
+    const spacer = document.createElement('tr');
+    spacer.innerHTML = `<td colspan="6" style="border:none;background:transparent;padding:4px;"></td>`;
+    body.appendChild(spacer);
+  });
+}
+
+renderRubricTable(SECTIONS, 'rubricBody');
+renderRubricTable(PYRAMID_SECTIONS, 'pyramidsBody');
+
+// ---------------- UNIFIED FILTER STATE ----------------
+// invert / release / twist / start / end / feet all live in one object.
+// Nothing is decided until the relevant combination of answers is present -
+// every row below re-evaluates the whole state each time anything changes.
+const filters = { branch:null, invert:null, release:null, start:null, end:null, feet:null, twist:null,
+  pBracers:null, pInversion:null, pRelease:null, pTwist:null, pStart:null, pEnd:null };
+
+const resultPanel = document.getElementById('resultPanel');
+const feetFilterWrap = document.getElementById('feetFilterWrap');
+
+function computeSection(){
+  if(filters.branch === 'pyramids') return 'pyramids';
+  if(filters.invert === 'yes') return 'inv';
+  if(filters.invert === 'no' && filters.release === 'yes') return 'rel';
+  if(filters.invert === 'no' && filters.release === 'no'){
+    return (filters.twist === 'none') ? 'other' : 'twist';
+  }
+  return null;
+}
+
+// Which of the three Pyramids table sections the current answers point to.
+function computePyramidsSection(){
+  if(filters.pInversion === 'braced roll' || filters.pInversion === 'braced flip') return 'pyr_brf';
+  if(filters.pInversion === 'no' || filters.pInversion === 'yes'){
+    if(filters.pRelease === 'no') return 'pyr_nrt';
+    if(filters.pRelease === 'yes') return 'pyr_rt';
+  }
+  return null;
+}
+
+// Shared by Inversion (Low to High vs Released Inversion to Extended) AND
+// Release (Switch Up / Tic Toc / High to High / Low to High vs a clean,
+// no-foot-swap release) — so it shows any time the skill releases at all.
+// "Both feet" only makes sense in Release, never in Inversion.
+function updateFeetFilterVisibility(){
+  const shouldShow = filters.release === 'yes';
+  feetFilterWrap.style.display = shouldShow ? 'block' : 'none';
+  if(!shouldShow && filters.feet){
+    filters.feet = null;
+    feetFilterWrap.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+  }
+
+  const section = computeSection();
+  const bothChip = document.getElementById('bothFeetChip');
+  const showBoth = section === 'rel';
+  bothChip.style.display = showBoth ? 'inline-block' : 'none';
+  if(!showBoth && filters.feet === 'both'){
+    filters.feet = null;
+    bothChip.classList.remove('active');
+  }
+}
+
+function setChipActive(group, val){
+  filters[group] = val;
+  document.querySelectorAll(`.chip-row[data-group="${group}"] .chip`).forEach(c=>{
+    c.classList.toggle('active', c.dataset.val === val);
+  });
+}
+
+// Bracers=0 removes Braced Roll/Braced Flip as Inversion options; Braced Roll
+// locks Release=No and Braced Flip locks Release=Yes (no user edit); the
+// Starting level question only appears for the Twisting Stunts cross-
+// reference case (Inversion=No + Release=No).
+function updatePyramidsGating(){
+  const bracedRollChip = document.getElementById('bracedRollChip');
+  const bracedFlipChip = document.getElementById('bracedFlipChip');
+  const bracersIsZero = filters.pBracers === '0';
+
+  bracedRollChip.classList.toggle('qrow-locked', bracersIsZero);
+  bracedFlipChip.classList.toggle('qrow-locked', bracersIsZero);
+  if(bracersIsZero && (filters.pInversion === 'braced roll' || filters.pInversion === 'braced flip')){
+    filters.pInversion = null;
+    document.querySelectorAll('.chip-row[data-group="pInversion"] .chip').forEach(c=>c.classList.remove('active'));
+  }
+
+  const releaseRow = document.querySelector('.qrow[data-step="pRelease"]');
+  if(filters.pInversion === 'braced roll'){
+    setChipActive('pRelease','no');
+    releaseRow.classList.add('qrow-locked');
+  } else if(filters.pInversion === 'braced flip'){
+    setChipActive('pRelease','yes');
+    releaseRow.classList.add('qrow-locked');
+  } else {
+    releaseRow.classList.remove('qrow-locked');
+  }
+
+  const pStartWrap = document.getElementById('pStartFilterWrap');
+  const showPStart = filters.pInversion === 'no' && filters.pRelease === 'no';
+  pStartWrap.style.display = showPStart ? 'block' : 'none';
+  if(!showPStart && filters.pStart){
+    filters.pStart = null;
+    pStartWrap.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+  }
+}
+
+function updateGating(){
+  const rowsByStep = step => document.querySelector(`.qrow[data-step="${step}"]`);
+  const downstreamRows = ['invert','release','twist','start','end'].map(rowsByStep);
+
+  const isPyramids = filters.branch === 'pyramids';
+
+  downstreamRows.forEach(row=>{
+    if(row) row.classList.toggle('qrow-locked', isPyramids);
+  });
+
+  if(isPyramids){
+    feetFilterWrap.style.display = 'none';
+  }
+
+  document.getElementById('stuntsQuestions').style.display = isPyramids ? 'none' : 'block';
+  document.getElementById('pyramidsQuestions').style.display = isPyramids ? 'block' : 'none';
+
+  updatePyramidsGating();
+}
+
+function updateConnectors(){
+  const c1 = document.getElementById('conn-1');
+  const c2 = document.getElementById('conn-2');
+  const c3 = document.getElementById('conn-3');
+  const c4 = document.getElementById('conn-4');
+  if(c1) c1.classList.toggle('live', filters.invert !== null);
+  if(c2) c2.classList.toggle('live', filters.release !== null);
+  if(c3) c3.classList.toggle('live', filters.twist !== null);
+  if(c4) c4.classList.toggle('live', filters.start !== null);
+
+  const cp0 = document.getElementById('conn-p0');
+  const cp1 = document.getElementById('conn-p1');
+  const cp2 = document.getElementById('conn-p2');
+  const cp3 = document.getElementById('conn-p3');
+  if(cp0) cp0.classList.toggle('live', filters.pBracers !== null);
+  if(cp1) cp1.classList.toggle('live', filters.pInversion !== null);
+  if(cp2) cp2.classList.toggle('live', filters.pRelease !== null);
+  if(cp3) cp3.classList.toggle('live', filters.pTwist !== null);
+}
+
+function updateFlow(){
+  updateFeetFilterVisibility();
+  updateGating();
+  updateConnectors();
+
+  const errorBanner = document.getElementById('errorBanner');
+  const invalidCombo = filters.invert === 'yes' && filters.start === 'extended';
+  errorBanner.style.display = invalidCombo ? 'block' : 'none';
+
+  const section = computeSection();
+
+  const stuntsWrap = document.getElementById('stuntsTableSection');
+  const pyramidsWrap = document.getElementById('pyramidsTableSection');
+  const isPyramids = section === 'pyramids';
+  stuntsWrap.style.display = isPyramids ? 'none' : 'block';
+  pyramidsWrap.style.display = isPyramids ? 'block' : 'none';
+
+  document.querySelectorAll('.table-tab').forEach(tab=>{
+    tab.classList.toggle('active', tab.dataset.branch === (isPyramids ? 'pyramids' : 'stunts'));
+  });
+  document.getElementById('tableHeading').textContent = isPyramids ? 'Results - Pyramid Rubric' : 'Results - Stunt Rubric';
+
+  if(isPyramids){
+    const pSection = computePyramidsSection();
+    if(pSection){
+      highlightSection(pSection, 'pyramidsBody');
+    } else {
+      clearSectionHighlight('pyramidsBody');
+    }
+  } else if(section){
+    highlightSection(section, 'rubricBody');
+  } else {
+    clearSectionHighlight('rubricBody');
+  }
+}
+
+// Live list of every skill the current answers match — no narrative, just
+// the matched cells themselves, read straight off whichever table is active.
+function updateResultsList(){
+  const isPyramids = computeSection() === 'pyramids';
+  const bodyId = isPyramids ? 'pyramidsBody' : 'rubricBody';
+  const TIER_NAMES = ["Beginner","Intermediate","Advanced","Elite","Super Elite"];
+  const hits = Array.from(document.querySelectorAll(`#${bodyId} td.hit`));
+
+  if(hits.length === 0){
+    resultPanel.className = 'result-panel placeholder show';
+    resultPanel.innerHTML = 'No matching skills yet — answer the questions above.';
+    return;
+  }
+
+  const items = hits.map(td=>{
+    const tr = td.closest('tr');
+    const cells = Array.from(tr.querySelectorAll('td.cell'));
+    const idx = cells.indexOf(td);
+    const tier = TIER_NAMES[idx] || '';
+    return `<li><span class="tier-tag">${tier}</span>${td.textContent}</li>`;
+  }).join('');
+
+  resultPanel.className = 'result-panel show';
+  resultPanel.innerHTML = `<ul class="match-list">${items}</ul>`;
+}
+
+function clearSectionHighlight(bodyId){
+  document.querySelectorAll(`#${bodyId} tr`).forEach(tr=>tr.classList.remove('section-block-dim'));
+}
+
+function highlightSection(key, bodyId){
+  bodyId = bodyId || 'rubricBody';
+  document.querySelectorAll(`#${bodyId} tr[data-section]`).forEach(tr=>{
+    tr.classList.toggle('section-block-dim', tr.dataset.section !== key);
+  });
+}
+
+// ---------------- CELL DATA ----------------
+// Every non-dash cell in Inversion, Release, and Twisting, mapped directly
+// from the audited spreadsheet (VHSL_Cell_Audit.xlsx). This REPLACES all the
+// keyword-guessing logic that used to live here — one row per cell, with its
+// exact compatible values for each dimension. null = universal / not
+// applicable for that cell (matches regardless of what's selected).
+// KNOWN OUTSTANDING ISSUE (for future dev consideration): the Twisting
+// section's Hands Around and High-High-Full-Around families have no
+// ¾-twist-only box in the current data (Start=Prep/Extended, End=Extended,
+// Twist=3/4 both come up empty) — a ¾ Hands Around or ¾ High-High-Full-Around
+// skill will most likely score in the same cell as the Full+ equivalent, but
+// that isn't encoded yet. Left as a gap intentionally per the rubric author.
+const CELL_DATA = [
+  {section:"inv", text:"below prep level inversions to ground (ex: yo-yo, back walkover, etc.)", invert:"yes", release:"no", feet:null, twist:["none"], start:["below prep"], end:["below prep"]},
+  {section:"inv", text:"suspended forward roll variations & inversions (ex: pancake, cartwheel, etc.)", invert:"yes", release:"no", feet:null, twist:["none"], start:["prep"], end:["below prep"]},
+  {section:"inv", text:"non-release inversions prep level or below to prep or below prep", invert:"yes", release:"no", feet:null, twist:["none"], start:["below prep","prep"], end:["below prep","prep"]},
+  {section:"inv", text:"non-release inversions prep level or below to extended/ibp/abp", invert:"yes", release:"no", feet:null, twist:["none"], start:["below prep","prep"], end:["extended"]},
+  {section:"inv", text:"non-release twisting inversions prep level or below to extended/ibp/abp", invert:"yes", release:"no", feet:null, twist:["qtr","half","three","full"], start:["below prep","prep"], end:["extended"]},
+  {section:"inv", text:"released \u00bc, \u00bd or \u00be twisting inverted low to high to extended ibp/abp", invert:"yes", release:"yes", feet:[1], twist:["half","qtr","three"], start:["below prep","prep"], end:["extended"]},
+  {section:"inv", text:"released full twisting inverted low to high to extended ibp/abp", invert:"yes", release:"yes", feet:[1], twist:["full"], start:["below prep","prep"], end:["extended"]},
+  {section:"inv", text:"non-release twisting inversions prep level or below to below prep", invert:"yes", release:"no", feet:null, twist:["qtr","half","three","full"], start:["below prep","prep"], end:["below prep"]},
+  {section:"inv", text:"non-release twisting inversions prep level or below to prep", invert:"yes", release:"no", feet:null, twist:["qtr","half","three","full"], start:["below prep","prep"], end:["prep"]},
+  {section:"inv", text:"released inverted low to high to extended ibp/abp", invert:"yes", release:"yes", feet:[1], twist:["none"], start:["below prep","prep"], end:["extended"]},
+  {section:"inv", text:"released inversions prep level or below to below prep", invert:"yes", release:"yes", feet:[0], twist:["none"], start:["below prep","prep"], end:["below prep"]},
+  {section:"inv", text:"released inversions prep level or below to prep", invert:"yes", release:"yes", feet:[0], twist:["none"], start:["below prep","prep"], end:["prep"]},
+  {section:"inv", text:"released inversions prep level or below to extended", invert:"yes", release:"yes", feet:[0], twist:["none"], start:["below prep","prep"], end:["extended"]},
+  {section:"inv", text:"released inversions prep level or below to extended ibp/abp", invert:"yes", release:"yes", feet:[0], twist:["none"], start:["below prep","prep"], end:["extended"]},
+  {section:"inv", text:"released \u00bc, \u00bd or \u00be twisting inversions prep level or below to extended ibp/abp", invert:"yes", release:"yes", feet:[0], twist:["half","qtr","three"], start:["below prep","prep"], end:["extended"]},
+  {section:"inv", text:"released twisting inversions prep level or below to below prep", invert:"yes", release:"yes", feet:[0], twist:["qtr","half","three","full"], start:["below prep","prep"], end:["below prep"]},
+  {section:"inv", text:"released twisting inversions prep level or below to prep", invert:"yes", release:"yes", feet:[0], twist:["qtr","half","three","full"], start:["below prep","prep"], end:["prep"]},
+  {section:"inv", text:"released \u00bc, \u00bd or \u00be twisting inversions prep level or below to extended", invert:"yes", release:"yes", feet:[0], twist:["half","qtr","three"], start:["below prep","prep"], end:["extended"]},
+  {section:"inv", text:"released full twisting inversions prep level or below to extended/ibp/abp", invert:"yes", release:"yes", feet:[0], twist:["full"], start:["below prep","prep"], end:["extended"]},
+  {section:"rel", text:"below prep release to below prep", invert:"no", release:"yes", feet:[0,1,2], twist:["none"], start:["below prep"], end:["below prep"]},
+  {section:"rel", text:"prep level release to prep", invert:"no", release:"yes", feet:[0,2], twist:["none"], start:["prep"], end:["prep"]},
+  {section:"rel", text:"prep level release to extended/ibp/abp", invert:"no", release:"yes", feet:[0,2], twist:["none"], start:["prep"], end:["extended"]},
+  {section:"rel", text:"release to below prep (ex: quick toss, ball-up)", invert:"no", release:"yes", feet:[0,1,2], twist:["none"], start:["below prep","prep"], end:["below prep"]},
+  {section:"rel", text:"release to prep (ex: quick toss, ball-up)", invert:"no", release:"yes", feet:[0,2], twist:["none"], start:["below prep"], end:["prep"]},
+  {section:"rel", text:"release to extended/ibp/abp (ex: quick toss, ball-up)", invert:"no", release:"yes", feet:[0,2], twist:["none"], start:null, end:["extended"]},
+  {section:"rel", text:"\u00bc, \u00bd or \u00be twist release to ext/ibp/abp (ex: quick toss, ball-up)", invert:"no", release:"yes", feet:[0,2], twist:["half","qtr","three"], start:null, end:["extended"]},
+  {section:"rel", text:"full twisting release to ext/ibp/abp (ex: quick toss, ball-up)", invert:"no", release:"yes", feet:[0,2], twist:["full"], start:null, end:["extended"]},
+  {section:"rel", text:"extended release to below prep", invert:"no", release:"yes", feet:[0,1,2], twist:["none"], start:["extended"], end:["below prep"]},
+  {section:"rel", text:"extended release to prep level", invert:"no", release:"yes", feet:[0,1,2], twist:["none"], start:["extended"], end:["prep"]},
+  {section:"rel", text:"extended release to prep level ibp/abp", invert:"no", release:"yes", feet:[0,1,2], twist:["none"], start:["extended"], end:["prep"]},
+  {section:"rel", text:"horizontal release to extended ibp/abp", invert:"no", release:"yes", feet:[0], twist:["none"], start:["below prep","prep"], end:["extended"]},
+  {section:"rel", text:"horizontal twisting release to ext/ibp/abp", invert:"no", release:"yes", feet:[0], twist:["qtr","half","three","full"], start:["below prep","prep"], end:["extended"]},
+  {section:"rel", text:"horizontal release to below prep", invert:"no", release:"yes", feet:[0], twist:["none"], start:null, end:["below prep"]},
+  {section:"rel", text:"horizontal release to prep", invert:"no", release:"yes", feet:[0], twist:["none"], start:null, end:["prep"]},
+  {section:"rel", text:"horizontal release to extended", invert:"no", release:"yes", feet:[0], twist:["none"], start:["below prep","prep"], end:["extended"]},
+  {section:"rel", text:"full twisting switch up to extended ibp", invert:"no", release:"yes", feet:[1], twist:["full"], start:["below prep"], end:["extended"]},
+  {section:"rel", text:"full twisting switch up to extended abp", invert:"no", release:"yes", feet:[1], twist:["full"], start:["below prep"], end:["extended"]},
+  {section:"rel", text:"switch up to prep ibp/abp", invert:"no", release:"yes", feet:[1], twist:["none"], start:["below prep"], end:["prep"]},
+  {section:"rel", text:"switch up to extended ibp/abp", invert:"no", release:"yes", feet:[1], twist:["none"], start:["below prep"], end:["extended"]},
+  {section:"rel", text:"\u00bc, \u00bd or \u00be twist switch up to extended abp", invert:"no", release:"yes", feet:[1], twist:["half","qtr","three"], start:["below prep"], end:["extended"]},
+  {section:"rel", text:"high to high (abp to abp)", invert:"no", release:"yes", feet:[1], twist:["none"], start:["extended"], end:["extended"]},
+  {section:"rel", text:"prep level low to low (tic toc)", invert:"no", release:"yes", feet:[1], twist:["none"], start:["prep"], end:["prep"]},
+  {section:"rel", text:"\u00bc, \u00bd or \u00be twist switch up to extended ibp", invert:"no", release:"yes", feet:[1], twist:["half","qtr","three"], start:["below prep"], end:["extended"]},
+  {section:"rel", text:"\u00bc, \u00bd or \u00be twist low to high to abp", invert:"no", release:"yes", feet:[1], twist:["half","qtr","three"], start:["prep"], end:["extended"]},
+  {section:"rel", text:"full twisting low to high to ibp/abp", invert:"no", release:"yes", feet:[1], twist:["full"], start:["prep"], end:["extended"]},
+  {section:"rel", text:"twisting release to below prep", invert:"no", release:"yes", feet:[0,1,2], twist:["qtr","half","three","full"], start:null, end:["below prep"]},
+  {section:"rel", text:"twisting release to prep level", invert:"no", release:"yes", feet:[0,1,2], twist:["qtr","half","three","full"], start:null, end:["prep"]},
+  {section:"rel", text:"low to high to ibp/abp", invert:"no", release:"yes", feet:[1], twist:["none"], start:["prep"], end:["extended"]},
+  {section:"rel", text:"high to high (ibp to ibp/abp)", invert:"no", release:"yes", feet:[1], twist:["none"], start:["extended"], end:["extended"]},
+  {section:"rel", text:"\u00bd or \u00be twist high to high to ibp/abp", invert:"no", release:"yes", feet:[1], twist:["half","three"], start:["extended"], end:["extended"]},
+  {section:"rel", text:"\u00bc, \u00bd or \u00be twist low to high to ibp", invert:"no", release:"yes", feet:[1], twist:["half","qtr","three"], start:["prep"], end:["extended"]},
+  {section:"rel", text:"\u00bc twist high to high to ibp/abp", invert:"no", release:"yes", feet:[1], twist:["qtr"], start:["extended"], end:["extended"]},
+  {section:"rel", text:"full twisting high to high to ibp/abp", invert:"no", release:"yes", feet:[1], twist:["full"], start:["extended"], end:["extended"]},
+  {section:"twist", text:"\u00bc or \u00bd up to prep level", invert:"no", release:"no", feet:null, twist:["half","qtr"], start:["below prep"], end:["prep"]},
+  {section:"twist", text:"full up to prep level", invert:"no", release:"no", feet:null, twist:["full"], start:["below prep"], end:["prep"]},
+  {section:"twist", text:"full up to extended/ibp/abp", invert:"no", release:"no", feet:null, twist:["full"], start:["below prep"], end:["extended"]},
+  {section:"twist", text:"1 \u00bd up to extended/ibp/abp", invert:"no", release:"no", feet:null, twist:["full"], start:["below prep"], end:["extended"]},
+  {section:"twist", text:"double up to extended/ibp/abp", invert:"no", release:"no", feet:null, twist:["full"], start:["below prep"], end:["extended"]},
+  {section:"twist", text:"\u00bc up to extended/ibp/abp", invert:"no", release:"no", feet:null, twist:["qtr"], start:["below prep"], end:["extended"]},
+  {section:"twist", text:"\u00bd or \u00be up to extended/ibp/abp", invert:"no", release:"no", feet:null, twist:["half","three"], start:["below prep"], end:["extended"]},
+  {section:"twist", text:"hands full around to extended", invert:"no", release:"no", feet:null, twist:["full"], start:["prep"], end:["extended"]},
+  {section:"twist", text:"hands 1 \u00bd around to extended/ibp/abp", invert:"no", release:"no", feet:null, twist:["full"], start:["prep"], end:["extended"]},
+  {section:"twist", text:"hands double around to extended/ibp/abp", invert:"no", release:"no", feet:null, twist:["full"], start:["prep"], end:["extended"]},
+  {section:"twist", text:"\u00bc or \u00bd twisting transitions", invert:"no", release:"no", feet:null, twist:["half","qtr"], start:null, end:null},
+  {section:"twist", text:"\u00be or greater twisting transitions to prep or below prep", invert:"no", release:"no", feet:null, twist:["full","three"], start:null, end:["below prep","prep"]},
+  {section:"twist", text:"hands full around to extended ibp/abp", invert:"no", release:"no", feet:null, twist:["full"], start:["prep"], end:["extended"]},
+  {section:"twist", text:"high high full around extended to ibp/abp", invert:"no", release:"no", feet:null, twist:["full"], start:["extended"], end:["extended"]},
+  {section:"twist", text:"high high full around extended to extended", invert:"no", release:"no", feet:null, twist:["full"], start:["extended"], end:["extended"]},
+  {section:"twist", text:"high high full around ibp/abp to ibp/abp", invert:"no", release:"no", feet:null, twist:["full"], start:["extended"], end:["extended"]},
+  {section:"twist", text:"high high 1 \u00bd around to extended/ibp/abp", invert:"no", release:"no", feet:null, twist:["full"], start:["extended"], end:["extended"]},
+];
+
+// ---------------- PYRAMIDS CELL DATA ----------------
+// Mapped from VHSL_Pyramids_Cell_Audit.xlsx (author-confirmed). Single Base
+// cross-reference rows are intentionally excluded (not incorporated).
+// xref:true rows (Twisting Stunts cross-reference) don't have their own
+// static twist/start/end - they're resolved dynamically, see
+// computeXrefPyramidTiers() below.
+//
+// KNOWN OUTSTANDING GAP (for future dev consideration): there's no 0-bracer
+// path to an inverted, non-released transition ending at Extended - the
+// only Bracers=0 inverted cell ("Inverted stunts to prep level and below")
+// ends at Prep/Below Prep; both "to Extended" variants require 1 or 2
+// bracers. Bracers=0 + Inversion=Yes + Release=No + End=Extended will come
+// up with no match as a result. Confirmed as a known gap by the rubric
+// author - left as-is pending a decision on whether an unbraced version
+// exists in practice.
+const CELL_DATA_PYRAMIDS = [
+  {section:"Non-Released Transition", tier:"Beginner", text:"braced non-released transitions", bracers:[1,2], inversion:"no", release:"no", twist:["none"], start:null, end:null},
+  {section:"Non-Released Transition", tier:"Intermediate", text:"unbraced non-released transitions", bracers:[0], inversion:"no", release:"no", twist:["none"], start:null, end:null},
+  {section:"Non-Released Transition", tier:"Beginner", text:"inverted stunts to prep level and below", bracers:[0,1,2], inversion:"yes", release:"no", twist:["none"], start:null, end:["below prep","prep"]},
+  {section:"Non-Released Transition", tier:"Intermediate", text:"inverted stunts to extended (2)", bracers:[2], inversion:"yes", release:"no", twist:["none"], start:null, end:["extended"]},
+  {section:"Non-Released Transition", tier:"Advanced", text:"inverted stunts to extended (1)", bracers:[1], inversion:"yes", release:"no", twist:["none"], start:null, end:["extended"]},
+  {section:"Non-Released Transition", tier:"Advanced", text:"twisting inverted stunts to extended (2)", bracers:[2], inversion:"yes", release:"no", twist:["qtr","half","three","full"], start:null, end:["extended"]},
+  {section:"Non-Released Transition", tier:"Elite", text:"twisting inverted stunts to extended (1)", bracers:[1], inversion:"yes", release:"no", twist:["qtr","half","three","full"], start:null, end:["extended"]},
+  {section:"Non-Released Transition", tier:"Beginner", text:"intermediate twisting stunts (references stunts rubric - pink section)", bracers:[1,2], inversion:"no", release:"no", xref:true},
+  {section:"Non-Released Transition", tier:"Intermediate", text:"advanced twisting stunts (references stunts rubric - pink section)", bracers:[1,2], inversion:"no", release:"no", xref:true},
+  {section:"Non-Released Transition", tier:"Advanced", text:"elite twisting stunts (references stunts rubric - pink section)", bracers:[1,2], inversion:"no", release:"no", xref:true},
+  {section:"Non-Released Transition", tier:"Elite", text:"super elite twisting stunts (references stunts rubric - pink section)", bracers:[1,2], inversion:"no", release:"no", xref:true},
+  {section:"Released Transition", tier:"Beginner", text:"braced release to prep or below (1 or 2)", bracers:[1,2], inversion:"no", release:"yes", twist:["none"], start:null, end:["below prep","prep"]},
+  {section:"Released Transition", tier:"Intermediate", text:"braced release to extended (1)", bracers:[1], inversion:"no", release:"yes", twist:["none"], start:null, end:["extended"]},
+  {section:"Released Transition", tier:"Elite", text:"braced twisting inverted release to extended (1 or 2)", bracers:[1,2], inversion:"yes", release:"yes", twist:["qtr","half","three","full"], start:null, end:["extended"]},
+  {section:"Released Transition", tier:"Beginner", text:"braced release to extended (2)", bracers:[2], inversion:"no", release:"yes", twist:["none"], start:null, end:["extended"]},
+  {section:"Released Transition", tier:"Intermediate", text:"braced inverted release to prep or below (1 or 2)", bracers:[1,2], inversion:"yes", release:"yes", twist:["none"], start:null, end:["below prep","prep"]},
+  {section:"Released Transition", tier:"Advanced", text:"braced inverted release to extended (2)", bracers:[2], inversion:"yes", release:"yes", twist:["none"], start:null, end:["extended"]},
+  {section:"Released Transition", tier:"Elite", text:"braced inverted release to extended (1)", bracers:[1], inversion:"yes", release:"yes", twist:["none"], start:null, end:["extended"]},
+  {section:"Released Transition", tier:"Super Elite", text:"unbraced inverted release to extended", bracers:[0], inversion:"yes", release:"yes", twist:["none"], start:null, end:["extended"]},
+  {section:"Released Transition", tier:"Intermediate", text:"braced twisting release to prep or below (1 or 2)", bracers:[1,2], inversion:"no", release:"yes", twist:["qtr","half","three","full"], start:null, end:["below prep","prep"]},
+  {section:"Released Transition", tier:"Advanced", text:"braced \u00bc, \u00bd, or \u00be twisting release to extended (1 or 2)", bracers:[1,2], inversion:"no", release:"yes", twist:["half","qtr","three"], start:null, end:["extended"]},
+  {section:"Released Transition", tier:"Elite", text:"braced full twisting release to extended (1 or 2)", bracers:[1,2], inversion:"no", release:"yes", twist:["full"], start:null, end:["extended"]},
+  {section:"Released Transition", tier:"Super Elite", text:"unbraced twisting inverted release to extended", bracers:[0], inversion:"yes", release:"yes", twist:["qtr","half","three","full"], start:null, end:["extended"]},
+  {section:"Released Transition", tier:"Intermediate", text:"unbraced release to prep or below", bracers:[0], inversion:"no", release:"yes", twist:["none"], start:null, end:["below prep","prep"]},
+  {section:"Released Transition", tier:"Advanced", text:"unbraced release to extended", bracers:[0], inversion:"no", release:"yes", twist:["none"], start:null, end:["extended"]},
+  {section:"Released Transition", tier:"Elite", text:"unbraced \u00bc, \u00bd, or \u00be twisting release to extended", bracers:[0], inversion:"no", release:"yes", twist:["half","qtr","three"], start:null, end:["extended"]},
+  {section:"Released Transition", tier:"Super Elite", text:"unbraced full twisting release to extended", bracers:[0], inversion:"no", release:"yes", twist:["full"], start:null, end:["extended"]},
+  {section:"Braced Roll/Flip", tier:"Beginner", text:"rolling transition to prep level or below", bracers:[0,1,2], inversion:"braced roll", release:"no", twist:null, start:null, end:["below prep","prep"]},
+  {section:"Braced Roll/Flip", tier:"Intermediate", text:"rolling transition to extended", bracers:[0,1,2], inversion:"braced roll", release:"no", twist:null, start:null, end:["extended"]},
+  {section:"Braced Roll/Flip", tier:"Beginner", text:"flipping transition landing below prep level (1 or 2)", bracers:[1,2], inversion:"braced flip", release:"yes", twist:["none"], start:null, end:["below prep"]},
+  {section:"Braced Roll/Flip", tier:"Intermediate", text:"flipping transition landing at prep level (2)", bracers:[2], inversion:"braced flip", release:"yes", twist:["none"], start:null, end:["prep"]},
+  {section:"Braced Roll/Flip", tier:"Advanced", text:"flipping transition landing at prep level (1)", bracers:[1], inversion:"braced flip", release:"yes", twist:["none"], start:null, end:["prep"]},
+  {section:"Braced Roll/Flip", tier:"Elite", text:"flipping transition landing extended (2)", bracers:[2], inversion:"braced flip", release:"yes", twist:["none"], start:null, end:["extended"]},
+  {section:"Braced Roll/Flip", tier:"Super Elite", text:"flipping transition landing extended (1)", bracers:[1], inversion:"braced flip", release:"yes", twist:["none"], start:null, end:["extended"]},
+  {section:"Braced Roll/Flip", tier:"Beginner", text:"\u00bc twisting flipping transition landing at prep or below (1 or 2)", bracers:[1,2], inversion:"braced flip", release:"yes", twist:["qtr"], start:null, end:["below prep","prep"]},
+  {section:"Braced Roll/Flip", tier:"Intermediate", text:"\u00bd or \u00be twisting flipping transition landing at prep or below (1 or 2)", bracers:[1,2], inversion:"braced flip", release:"yes", twist:["half","three"], start:null, end:["below prep","prep"]},
+  {section:"Braced Roll/Flip", tier:"Advanced", text:"full twisting flipping transition landing at prep or below (1 or 2)", bracers:[1,2], inversion:"braced flip", release:"yes", twist:["full"], start:null, end:["below prep","prep"]},
+  {section:"Braced Roll/Flip", tier:"Elite", text:"twisting flipping transition landing extended (2)", bracers:[2], inversion:"braced flip", release:"yes", twist:["qtr","half","three","full"], start:null, end:["extended"]},
+  {section:"Braced Roll/Flip", tier:"Super Elite", text:"twisting flipping transition landing extended (1)", bracers:[1], inversion:"braced flip", release:"yes", twist:["qtr","half","three","full"], start:null, end:["extended"]},
+];
+
+// Tier of every Stunts Twisting Skills cell, needed for the Pyramids
+// Twisting Stunts cross-reference (see computeXrefPyramidTiers()).
+const STUNTS_TWIST_TIER = {
+  "¼ or ½ up to prep level": "Beginner",
+  "full up to prep level": "Intermediate",
+  "full up to extended/ibp/abp": "Advanced",
+  "1 ½ up to extended/ibp/abp": "Elite",
+  "double up to extended/ibp/abp": "Super Elite",
+  "¼ up to extended/ibp/abp": "Beginner",
+  "½ or ¾ up to extended/ibp/abp": "Intermediate",
+  "hands full around to extended": "Advanced",
+  "hands 1 ½ around to extended/ibp/abp": "Elite",
+  "hands double around to extended/ibp/abp": "Super Elite",
+  "¼ or ½ twisting transitions": "Beginner",
+  "¾ or greater twisting transitions to prep or below prep": "Intermediate",
+  "hands full around to extended ibp/abp": "Elite",
+  "high high full around extended to ibp/abp": "Super Elite",
+  "high high full around extended to extended": "Elite",
+  "high high full around ibp/abp to ibp/abp": "Super Elite",
+  "high high 1 ½ around to extended/ibp/abp": "Super Elite",
+};
+
+// Pyramids tier is always ONE tier below the matching Stunts Twisting tier.
+const TIER_SHIFT = {"Intermediate":"Beginner","Advanced":"Intermediate","Elite":"Advanced","Super Elite":"Elite"};
+
+const FEET_CODE = {none:0, one:1, both:2};
+
+function findCellEntry(text){
+  return CELL_DATA.find(r => r.text === text);
+}
+
+function applyOtherHighlight(endVal){
+  const tr = document.querySelector('#rubricBody tr[data-section="other"]');
+  if(!tr) return;
+  const cells = tr.querySelectorAll('td.cell');
+  cells.forEach(td=>{ td.classList.remove('hit','dimmed'); });
+  if(!cells.length) return;
+  if(endVal === 'below prep' || endVal === 'prep'){
+    cells[0].classList.add('hit');
+    cells[1].classList.add('dimmed');
+  } else if(endVal === 'extended'){
+    cells[1].classList.add('hit');
+    cells[0].classList.add('dimmed');
+  }
+}
+
+function applyFilters(){
+  const section = computeSection();
+  const anyActive = filters.invert || filters.release || filters.start || filters.end || filters.twist || filters.feet;
+  const cells = document.querySelectorAll('#rubricBody td.cell:not(.dash)');
+
+  cells.forEach(td=>{
+    td.classList.remove('hit');
+    if(!anyActive){
+      td.classList.remove('dimmed');
+      return;
+    }
+    const entry = findCellEntry(td.dataset.text);
+    if(!entry){
+      // Not one of the audited Inversion/Release/Twisting cells (e.g. Other,
+      // Tosses, Single Base) — no per-cell data to check against.
+      td.classList.add('dimmed');
+      return;
+    }
+    let ok = true;
+    if(filters.invert && entry.invert && entry.invert !== filters.invert) ok = false;
+    if(filters.release && entry.release && entry.release !== filters.release) ok = false;
+    if(filters.start && entry.start && !entry.start.includes(filters.start)) ok = false;
+    if(filters.end && entry.end && !entry.end.includes(filters.end)) ok = false;
+    if(filters.twist && entry.twist && !entry.twist.includes(filters.twist)) ok = false;
+    if(filters.feet && entry.feet && !entry.feet.includes(FEET_CODE[filters.feet])) ok = false;
+
+    if(ok){
+      td.classList.add('hit');
+      td.classList.remove('dimmed');
+    } else {
+      td.classList.add('dimmed');
+    }
+  });
+
+  if(section === 'other'){
+    applyOtherHighlight(filters.end);
+  }
+}
+
+// The Twisting Stunts cross-reference: only meaningful when Pyramids >
+// Inversion=No > Release=No. Reuses the Stunts Twisting Skills CELL_DATA
+// directly (no separate lookup table to maintain) - finds every Stunts
+// Twisting cell compatible with the chosen Twist/Start/End, reads off each
+// one's difficulty tier, and shifts it one tier down for the Pyramids side.
+//
+// KNOWN OUTSTANDING ISSUE (for future dev consideration, carried over from
+// the Stunts audit): Hands Around (start=Prep) and High-High-Full-Around
+// (start=Extended, end=Extended) have no ¾-twist-only box in the Stunts
+// data, so Twist=3/4 at those start/end combos will come up empty here too,
+// even though Twist=Any/Full+ matches fine. Confirmed benign/expected for
+// now - left as a gap intentionally per the rubric author, same as Stunts.
+function computeXrefPyramidTiers(){
+  if(!(filters.pInversion === 'no' && filters.pRelease === 'no')) return [];
+  const tiers = new Set();
+  CELL_DATA.filter(e => e.section === 'twist').forEach(e=>{
+    let ok = true;
+    if(filters.pStart && e.start && !e.start.includes(filters.pStart)) ok = false;
+    if(filters.pEnd && e.end && !e.end.includes(filters.pEnd)) ok = false;
+    if(filters.pTwist && e.twist && !e.twist.includes(filters.pTwist)) ok = false;
+    if(ok){
+      const stuntsTier = STUNTS_TWIST_TIER[e.text];
+      const pyrTier = TIER_SHIFT[stuntsTier];
+      if(pyrTier) tiers.add(pyrTier);
+    }
+  });
+  return Array.from(tiers);
+}
+
+function findPyramidsCellEntry(text){
+  return CELL_DATA_PYRAMIDS.find(r => r.text === text);
+}
+
+function applyPyramidsFilters(){
+  const section = computePyramidsSection();
+  const anyActive = filters.pBracers || filters.pInversion || filters.pRelease || filters.pTwist || filters.pStart || filters.pEnd;
+  const cells = document.querySelectorAll('#pyramidsBody td.cell:not(.dash)');
+  const xrefTiers = computeXrefPyramidTiers();
+
+  cells.forEach(td=>{
+    td.classList.remove('hit');
+    if(!anyActive){
+      td.classList.remove('dimmed');
+      return;
+    }
+    const entry = findPyramidsCellEntry(td.dataset.text);
+    if(!entry){
+      td.classList.add('dimmed');
+      return;
+    }
+
+    if(entry.xref){
+      const ok = xrefTiers.includes(entry.tier);
+      td.classList.toggle('hit', ok);
+      td.classList.toggle('dimmed', !ok);
+      return;
+    }
+
+    let ok = true;
+    if(filters.pBracers && entry.bracers && !entry.bracers.includes(parseInt(filters.pBracers,10))) ok = false;
+    if(filters.pInversion && entry.inversion && entry.inversion !== filters.pInversion) ok = false;
+    if(filters.pRelease && entry.release && entry.release !== filters.pRelease) ok = false;
+    if(filters.pTwist && entry.twist && !entry.twist.includes(filters.pTwist)) ok = false;
+    if(filters.pStart && entry.start && !entry.start.includes(filters.pStart)) ok = false;
+    if(filters.pEnd && entry.end && !entry.end.includes(filters.pEnd)) ok = false;
+
+    if(ok){
+      td.classList.add('hit');
+      td.classList.remove('dimmed');
+    } else {
+      td.classList.add('dimmed');
+    }
+  });
+}
+
+// ---------------- ONE CLICK HANDLER FOR EVERY CHIP GROUP ----------------
+// invert / release / twist / start / end / feet (Stunts) and pBracers /
+// pInversion / pRelease / pTwist / pStart / pEnd (Pyramids) all use the same
+// .chip UI, so every answer feeds the same recompute pipeline. Branch
+// (Stunts/Pyramids) is owned by the tabs above, not a chip.
+function clearChips(selector){
+  document.querySelectorAll(selector).forEach(c=>c.classList.remove('active'));
+}
+
+document.querySelectorAll('.chip').forEach(chip=>{
+  chip.addEventListener('click', ()=>{
+    const group = chip.parentElement.dataset.group;
+    const val = chip.dataset.val;
+    if(filters[group] === val){
+      filters[group] = null;
+    } else {
+      filters[group] = val;
+      chip.parentElement.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+    }
+    chip.classList.toggle('active', filters[group] === val);
+
+    updateFlow();
+    applyFilters();
+    applyPyramidsFilters();
+    updateResultsList();
+  });
+});
+
+document.querySelectorAll('.table-tab').forEach(tab=>{
+  tab.addEventListener('click', ()=>{
+    const val = tab.dataset.branch;
+    filters.branch = (filters.branch === val) ? null : val;
+
+    if(filters.branch === 'pyramids'){
+      filters.invert = filters.release = filters.twist = filters.start = filters.end = filters.feet = null;
+      clearChips('.qrow[data-step="invert"] .chip, .qrow[data-step="release"] .chip, .qrow[data-step="twist"] .chip, .qrow[data-step="start"] .chip, .qrow[data-step="end"] .chip, #feetFilterWrap .chip');
+    } else {
+      filters.pBracers = filters.pInversion = filters.pRelease = filters.pTwist = filters.pStart = filters.pEnd = null;
+      clearChips('#pyramidsQuestions .chip');
+    }
+
+    updateFlow();
+    applyFilters();
+    applyPyramidsFilters();
+    updateResultsList();
+  });
+});
+
+document.getElementById('resetFilters').addEventListener('click', ()=>{
+  Object.keys(filters).forEach(k=>filters[k]=null);
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+  updateFlow();
+  applyFilters();
+  applyPyramidsFilters();
+  updateResultsList();
+});
+
+updateFlow();
+
+})();
+</script>
+
 </body>
 </html>
