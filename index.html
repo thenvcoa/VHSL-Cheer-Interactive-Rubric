@@ -855,6 +855,7 @@
   #tab-difficulty button:not(.btn) { margin-top: 22px; padding: 12px 20px; color: var(--navy); background: var(--gold); border: none; border-radius: 10px; font-family: 'Barlow Condensed', sans-serif;
     font-weight: 800; letter-spacing: 0.3px; cursor: pointer; box-shadow: 0 8px 18px rgba(0,0,0,0.25); transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease; }
   #tab-difficulty button:not(.btn):hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 10px 22px rgba(0,0,0,0.3); }
+  #tab-difficulty button.calc-btn { display: block; width: 100%; font-size: 26px; padding: 16px 20px; letter-spacing: 0.5px; }
   #tab-difficulty .reset-button { background: var(--vhsl-red) !important; color: var(--white) !important; box-shadow: 0 8px 18px rgba(224,80,80,0.25) !important; }
   #tab-difficulty .reset-button:hover { background: var(--vhsl-red-dark) !important; }
   #tab-difficulty #previewBtn { background: rgba(255,255,255,0.12) !important; color: var(--white) !important; }
@@ -953,9 +954,38 @@
     letter-spacing: 0.3px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px;
   }
   .toc-card-desc { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.5; }
+
+  /* ---------- MOBILE TOOLBAR (Home / Back / Refresh) ---------- */
+  .mobile-toolbar { display: none; }
+  @media (max-width: 760px) {
+    .mobile-toolbar {
+      display: flex; justify-content: space-around; align-items: center;
+      position: sticky; top: 0; z-index: 250; height: 44px;
+      background: var(--navy-light); border-bottom: 1px solid rgba(201,168,76,0.35);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    .mobile-toolbar button {
+      flex: 1; height: 100%; display: flex; align-items: center; justify-content: center; gap: 5px;
+      background: none; border: none; border-right: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.8); font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 12.5px; letter-spacing: 0.5px; text-transform: uppercase;
+      cursor: pointer;
+    }
+    .mobile-toolbar button:last-child { border-right: none; }
+    .mobile-toolbar button:active { background: rgba(201,168,76,0.15); color: var(--gold); }
+    .mobile-toolbar .mt-icon { font-size: 15px; }
+    .site-header { top: 44px; }
+  }
 </style>
 </head>
 <body>
+
+<!-- MOBILE TOOLBAR (Home / Back / Refresh) -->
+<div class="mobile-toolbar" id="mobileToolbar">
+  <button type="button" onclick="mobileGoHome()"><span class="mt-icon">&#127968;</span> Home</button>
+  <button type="button" onclick="mobileGoBack()"><span class="mt-icon">&#8592;</span> Back</button>
+  <button type="button" onclick="location.reload()"><span class="mt-icon">&#8635;</span> Refresh</button>
+</div>
 
 <!-- HEADER -->
 <header class="site-header">
@@ -965,7 +995,7 @@
       <div class="header-title">Interactive Rubric<span> &amp; Video Library</span></div>
       <div class="header-sub">Coaches' &amp; Officials' Resources</div>
     </div>
-    <div class="header-meta">Updated July 20, 2026</div>
+    <div class="header-meta">Updated July 17, 2026</div>
   </div>
 </header>
 
@@ -1016,12 +1046,12 @@
     <div class="toc-card" onclick="switchTab('stunts', document.querySelectorAll('.tab-btn')[1])" tabindex="0" role="button">
       <div class="toc-card-icon">🧩</div>
       <div class="toc-card-title">Stunt Rubric</div>
-      <div class="toc-card-desc">Browse the full 2026&ndash;27 stunt scoring rubric with skill videos.</div>
+      <div class="toc-card-desc">Browse the full 2026&ndash;27 stunt scoring rubric by difficulty range.</div>
     </div>
     <div class="toc-card" onclick="switchTab('pyramids', document.querySelectorAll('.tab-btn')[2])" tabindex="0" role="button">
       <div class="toc-card-icon">🔺</div>
       <div class="toc-card-title">Pyramid Rubric</div>
-      <div class="toc-card-desc">Browse the full 2026&ndash;27 pyramid scoring rubric with skill videos.</div>
+      <div class="toc-card-desc">Browse the full 2026&ndash;27 pyramid scoring rubric by difficulty range.</div>
     </div>
     <div class="toc-card" onclick="switchTab('locator', document.querySelectorAll('.tab-btn')[3])" tabindex="0" role="button">
       <div class="toc-card-icon">🔍</div>
@@ -1031,12 +1061,12 @@
     <div class="toc-card" onclick="switchTab('notes', document.querySelectorAll('.tab-btn')[4])" tabindex="0" role="button">
       <div class="toc-card-icon">📋</div>
       <div class="toc-card-title">Key Notes</div>
-      <div class="toc-card-desc">Important clarifications and scoring references.</div>
+      <div class="toc-card-desc">Important clarifications and edge cases coaches ask about most.</div>
     </div>
     <div class="toc-card" onclick="switchTab('majority', document.querySelectorAll('.tab-btn')[5])" tabindex="0" role="button">
       <div class="toc-card-icon">👥</div>
       <div class="toc-card-title">Majority Breakdown</div>
-      <div class="toc-card-desc">Understand how majority works across stunt groups.</div>
+      <div class="toc-card-desc">Understand how majority scoring works across stunt groups.</div>
     </div>
     <div class="toc-card" onclick="switchTab('difficulty', document.querySelectorAll('.tab-btn')[6])" tabindex="0" role="button">
       <div class="toc-card-icon">🧮</div>
@@ -2385,7 +2415,7 @@
 	</table>
 
 	<div style="display: flex; align-items: center; gap: 10px;">
-	<button onclick="runChecker()">Calculate Stunt Difficulty Range</button>
+	<button class="calc-btn" onclick="runChecker()">Calculate Stunt Difficulty Range</button>
     <span class="note-small">
         Majority skills will highlight in green and non-majority skills will highlight in red.
 		<br> ★ = Skills used to determine difficulty range <br>
@@ -2497,7 +2527,7 @@
 	</table>
 
 	<div style="display: flex; align-items: center; gap: 10px;">
-	<button onclick="runChecker2()">Calculate Pyramid Difficulty Range</button>
+	<button class="calc-btn" onclick="runChecker2()">Calculate Pyramid Difficulty Range</button>
 	<span class="note-small">
 		Majority skills will highlight in green and non-majority skills will highlight in red.
 		<br> ★ = Skills used to determine difficulty range <br>
@@ -3872,12 +3902,39 @@ window.closePreview = function () {
 
 <script>
 // ── TAB SWITCHING ──
+const TAB_ORDER = ['toc','stunts','pyramids','locator','notes','majority','difficulty','legality'];
+let tabHistoryStack = ['toc'];
+let isNavigatingBack = false;
+
 function switchTab(id, btn) {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('tab-' + id).classList.add('active');
   if (btn) btn.classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  if (!isNavigatingBack) {
+    if (tabHistoryStack[tabHistoryStack.length - 1] !== id) {
+      tabHistoryStack.push(id);
+    }
+  }
+  isNavigatingBack = false;
+}
+
+// ── MOBILE TOOLBAR ──
+function mobileGoHome() {
+  switchTab('toc', document.querySelectorAll('.tab-btn')[TAB_ORDER.indexOf('toc')]);
+}
+
+function mobileGoBack() {
+  if (tabHistoryStack.length > 1) {
+    tabHistoryStack.pop();
+    const prev = tabHistoryStack[tabHistoryStack.length - 1];
+    isNavigatingBack = true;
+    switchTab(prev, document.querySelectorAll('.tab-btn')[TAB_ORDER.indexOf(prev)]);
+  } else {
+    mobileGoHome();
+  }
 }
 
 // ── RANGE FILTER ──
