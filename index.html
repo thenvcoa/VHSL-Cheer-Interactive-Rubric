@@ -213,7 +213,11 @@
   .video-slot-placeholder {width: 100%; aspect-ratio: 16/9; background: rgba(255,255,255,0.03); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
     color: rgba(255,255,255,0.2); font-size: 15px; }
   .video-slot-placeholder .placeholder-icon { font-size: 32px; opacity: 0.3; }
-  .video-label {padding: 8px 12px; font-size: 14px; color: rgba(255,255,255,0.6); font-weight: 500; border-top: 1px solid rgba(255,255,255,0.06);}
+  .video-label {padding: 8px 12px; font-size: 14px; color: rgba(255,255,255,0.6); font-weight: 500; border-top: 1px solid rgba(255,255,255,0.06); display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;}
+  .video-fallback-link {font-size: 12px; font-weight: 600; color: var(--gold); text-decoration: none; white-space: nowrap; opacity: 0.85; border-bottom: 1px solid rgba(201,168,76,0.4);}
+  .video-fallback-link:hover {opacity: 1; border-color: var(--gold);}
+  .leg-video-fallback-link {font-size: 11px; font-weight: 600; color: var(--gold); text-decoration: none; white-space: nowrap; opacity: 0.85; border-bottom: 1px solid rgba(201,168,76,0.4); margin-left:auto;}
+  .leg-video-fallback-link:hover {opacity: 1; border-color: var(--gold);}
   .add-video-btn { display: none; } /* hidden from published view */
 
   /* Additional info */
@@ -4264,7 +4268,10 @@ const skills = {
   'sb-int-5': { name: 'Toss Hands, Press to Extension (Single Base)', category: 'Stunts — Single Base Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Flyer is tossed to hands then pressed to extension.', videos: [
       { url: "https://drive.google.com/file/d/1kbm5uABsiuZlJPxQkSRHV5cln-CydwNP/preview", label: 'Toss Hands, Press to Extension' }
     ] },
-  'sb-int-6': { name: 'Switch Up to Extended (Single Base)', category: 'Stunts — Single Base Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Switch-up release within a single base group landing at extended. Must maintain single base from start to finish.', videos: [] },
+  'sb-int-6': { name: 'Switch Up to Extended (Single Base)', category: 'Stunts — Single Base Skills', range: 'Intermediate', rangeColor: 'var(--intermediate)', notes: 'Switch-up release within a single base group landing at extended. Must maintain single base from start to finish.', videos: [
+      { url: "https://drive.google.com/file/d/1MhDv9BFJz9J_e1NfYzWcs_IgSLHmSaXO/preview", label: 'Switch Up to Extended (Single Base)' },
+      { url: "https://drive.google.com/file/d/1N6rRGKFwEl6QpfFl_NWZerTXUM7PGM-m/preview", label: 'Switch Up to Extended (Single Base)' }  
+  ] },
  /////
   'sb-adv-1': { name: 'Extended Single Leg (Single Base)', category: 'Stunts — Single Base Skills', range: 'Advanced', rangeColor: 'var(--advanced)', notes: 'Single base holding a single leg extended skill (lib, scale, etc.).', videos: [
       {url: "https://drive.google.com/file/d/1_57x0HKo381Pizc7P0DLli7Jd3dNydLo/preview", label: "Extended Single Leg"}
@@ -4290,10 +4297,7 @@ const skills = {
       { url: "https://drive.google.com/file/d/17oVqqjtduBOvH6vFkbeODi9emk-JVJng/preview", label: 'Low to High to Extended' }
     ] },
   ///// 
-  'sb-eli-1': { name: 'Releases to Extended Single Leg (Single Base)', category: 'Stunts — Single Base Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Release transition within a single base group to extended single leg. Skill must maintain single base from start to finish.', videos: [
-      { url: "https://drive.google.com/file/d/1MhDv9BFJz9J_e1NfYzWcs_IgSLHmSaXO/preview", label: 'Releases to Extended Single Leg' },
-      { url: "https://drive.google.com/file/d/1N6rRGKFwEl6QpfFl_NWZerTXUM7PGM-m/preview", label: 'Releases to Extended Single Leg' }
-    ] },
+  'sb-eli-1': { name: 'Releases to Extended Single Leg (Single Base)', category: 'Stunts — Single Base Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Release transition within a single base group to extended single leg. Skill must maintain single base from start to finish.', videos: [] },
   'sb-eli-2': { name: '¼ Twist Release to Extended (Single Base)', category: 'Stunts — Single Base Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Quarter twist release within single base group caught at extended.', videos: [] },
   'sb-eli-3': { name: 'Released Inversion to Prep Level (Single Base)', category: 'Stunts — Single Base Skills', range: 'Elite', rangeColor: 'var(--elite)', notes: 'Inverted release within a single base group, caught upright at prep level.', videos: [
       { url: "https://drive.google.com/file/d/1mmzS7zcSYNjB7wJwio7SoPRP9jWf3JAc/preview", label: 'Full Twisting Released Inversion to Prep' }
@@ -4560,7 +4564,7 @@ function openModal(id) {
     vids.forEach((v, i) => {
       grid.innerHTML += `<div class="video-slot">
         <iframe src="${v.url}" allow="autoplay" allowfullscreen></iframe>
-        <div class="video-label">${v.label || 'Example ' + (i+1)}</div>
+        <div class="video-label"><span>${v.label || 'Example ' + (i+1)}</span><a class="video-fallback-link" href="${v.url}" target="_blank" rel="noopener">Not loading? Open ↗</a></div>
       </div>`;
     });
     // If only 1 video, add one empty (blank) slot so layout stays balanced
@@ -4952,7 +4956,7 @@ function renderLegalityLibrary(videos, filter) {
               <div style="width:48px;height:48px;background:rgba(201,168,76,0.15);border:2px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:23px;">▶</div>
               <div style="font-size:12.5px;color:rgba(255,255,255,0.4);font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;text-transform:uppercase;">Tap to Play</div>
             </div>
-            <div class="leg-video-label">${typeTag}<span>${cleanLabel}</span></div>
+            <div class="leg-video-label">${typeTag}<span>${cleanLabel}</span><a class="leg-video-fallback-link" href="${v.url}" target="_blank" rel="noopener">Not loading? Open ↗</a></div>
           </div>`;
         }).join('')}
       </div>`;
