@@ -4563,7 +4563,7 @@ function openModal(id) {
     // Show real videos
     vids.forEach((v, i) => {
       grid.innerHTML += `<div class="video-slot">
-        <iframe src="${v.url}" allow="autoplay" allowfullscreen></iframe>
+        <iframe src="${v.url}" allow="autoplay" allowfullscreen credentialless referrerpolicy="no-referrer" loading="lazy"></iframe>
         <div class="video-label"><span>${v.label || 'Example ' + (i+1)}</span><a class="video-fallback-link" href="${v.url}" target="_blank" rel="noopener">Not loading? Open ↗</a></div>
       </div>`;
     });
@@ -4973,6 +4973,9 @@ function loadLegalityVideo(cardId, url) {
     iframe.src = url + '?autoplay=1';
     iframe.allow = 'autoplay';
     iframe.allowFullscreen = true;
+    iframe.setAttribute('credentialless', '');
+    iframe.referrerPolicy = 'no-referrer';
+    iframe.loading = 'lazy';
     iframe.style.cssText = 'width:100%;aspect-ratio:16/9;display:block;border:none;border-radius:6px 6px 0 0;';
     thumb.replaceWith(iframe);
   }
